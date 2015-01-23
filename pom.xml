@@ -1,22 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.selendroid</groupId>
-	<artifactId>demoproject-selendroid</artifactId>
-	<version>0.12.0</version>
-	<name>demoproject-selendroid</name>
+	<groupId>ru.letoapp</groupId>
+	<artifactId>LetoTests</artifactId>
+	<version>0.0.1</version>
+	<name>LetoBankAppTests</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<selendroid.version>0.12.0</selendroid.version>
+		<selendroid.version>0.13.0</selendroid.version>
 	</properties>
-
-	<developers>
-		<developer>
-			<id>ddary</id>
-			<name>Dominik Dary</name>
-			<url>https://www.github.com/dominikdary</url>
-		</developer>
-	</developers>
+	
 	<dependencies>
 		<dependency>
 			<groupId>io.selendroid</groupId>
@@ -37,6 +30,16 @@
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-integration</artifactId>
 			<version>1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.42.0</version>
 		</dependency>
 	</dependencies>
 	<build>
