@@ -8,13 +8,15 @@ import io.selendroid.standalone.SelendroidLauncher;
 import java.net.URL;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SelendroidHelper {
 	
 	SelendroidConfiguration serverConfig;
 	SelendroidLauncher server;
 	SelendroidCapabilities capabilities;
-	WebDriver driver;   
+	protected static WebDriver driver = null;
+	protected static WebDriverWait waitDriver = null;
 	
 	public void startServer(String appPath, boolean forceReinstall, boolean clearData) 
 	{
@@ -35,18 +37,23 @@ public class SelendroidHelper {
 	    capabilities = new SelendroidCapabilities();        
 	    capabilities.setAut(appUnderTestId);      
 	    capabilities.setLaunchActivity(appActivity);
-	    this.driver = new SelendroidDriver(new URL(serverUrl), capabilities);
+	    driver = new SelendroidDriver(new URL(serverUrl), capabilities);
+	    waitDriver = new WebDriverWait(driver, 90);
 	} 
 	    
 	public void initDriver(String appUnderTestId, String serverUrl) throws Exception
 	{
 	    capabilities = new SelendroidCapabilities();
 	    capabilities.setAut(appUnderTestId);      
-	    this.driver = new SelendroidDriver(new URL(serverUrl), capabilities);	    
+	    driver = new SelendroidDriver(new URL(serverUrl), capabilities);	    
 	}
 	
 	public WebDriver getDriver() {
-		return this.driver;
+		return driver;
+	}
+	
+	public WebDriverWait getWaitDriver() {
+		return waitDriver;
 	}
 	
 	public SelendroidLauncher getServer() {

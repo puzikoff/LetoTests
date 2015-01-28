@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-01-23T20:04:05</date>
+  <millis>1422029045825</millis>
+  <sequence>92</sequence>
+  <logger>startAppTestLogger</logger>
+  <level>INFO</level>
+  <class>ru.letoapp.selendroidtests.StartAppTest</class>
+  <method>test</method>
+  <thread>1</thread>
+  <message>Click on confirm button</message>
+</record>
+</log>
