@@ -1,15 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2015-01-23T20:04:05</date>
-  <millis>1422029045825</millis>
-  <sequence>92</sequence>
-  <logger>startAppTestLogger</logger>
-  <level>INFO</level>
-  <class>ru.letoapp.selendroidtests.StartAppTest</class>
-  <method>test</method>
-  <thread>1</thread>
-  <message>Click on confirm button</message>
-</record>
-</log>
+INFO|2015-02-20 16:03:55,333: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-02-20 16:03:55,334: Retrying request to {}->http://localhost:38080
+INFO|2015-02-20 16:03:55,336: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-02-20 16:03:55,336: Retrying request to {}->http://localhost:38080
+INFO|2015-02-20 16:03:55,337: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-02-20 16:03:55,337: Retrying request to {}->http://localhost:38080
