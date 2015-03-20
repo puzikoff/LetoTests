@@ -1,6 +1,0 @@
-INFO|2015-02-20 16:03:55,333: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-02-20 16:03:55,334: Retrying request to {}->http://localhost:38080
-INFO|2015-02-20 16:03:55,336: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-02-20 16:03:55,336: Retrying request to {}->http://localhost:38080
-INFO|2015-02-20 16:03:55,337: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-02-20 16:03:55,337: Retrying request to {}->http://localhost:38080
