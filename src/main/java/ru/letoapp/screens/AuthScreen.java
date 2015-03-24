@@ -3,13 +3,15 @@ package ru.letoapp.screens;
 import org.openqa.selenium.WebDriver;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-//import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import com.google.common.base.Verify;
 
 public class AuthScreen extends AppScreenBase {
 	public static final Logger Log = Logger.getLogger(AuthScreen.class);	
+	WebDriverWait waitVar =  new WebDriverWait(driver, 30);
 	By greetingTitle = By.id("sdl__title");
 	By greetingMessage = By.id("sdl__message");
 	By greetingNextBtn = By.id("sdl__positive_button");
@@ -41,14 +43,14 @@ public class AuthScreen extends AppScreenBase {
 	}
 	
 	public void verifyGreeting() {		
-	//	waitDriver.until(ExpectedConditions.elementToBeClickable(greetingNextBtn));
+		waitVar.until(ExpectedConditions.elementToBeClickable(greetingNextBtn));
 		Assert.assertEquals(driver.findElement(greetingMessage).getText(), greetingMessageText);
 		Assert.assertEquals(driver.findElement(greetingTitle).getText(), greetingTitleText);		
 		Assert.assertEquals(driver.findElement(greetingNextBtn).getText(), greetingNextBtnText);	
 	}
 	
 	public void verifyAuthScreen() {		
-	//	waitDriver.until(ExpectedConditions.elementToBeClickable(loginBtn));
+		waitVar.until(ExpectedConditions.elementToBeClickable(loginBtn));
 		Verify.verify(driver.findElement(authTitle).getText().contentEquals(authTitleText), "Title is not correct", driver.findElement(authTitle).getText());	
 		Assert.assertEquals(driver.findElement(authSubTitle).getText(), authSubTitleText);
 		Assert.assertEquals(driver.findElement(protCodeCheckbox).getText(), protCodeCheckboxText);		
@@ -96,10 +98,10 @@ public class AuthScreen extends AppScreenBase {
 		driver.findElement(passwordTextField).sendKeys(password);
 	}
 	
-	public void swipeOpenDrawer() {		
+/*	public void swipeOpenDrawer() {		
 		TouchActions flick = new TouchActions(driver).flick(driver.findElement(drawerLoc), +150, 0, 1);
 		flick.perform();		
-	}
+	} */
 	
 	
 }

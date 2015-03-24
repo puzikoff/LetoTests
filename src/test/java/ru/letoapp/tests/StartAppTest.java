@@ -1,9 +1,12 @@
 package ru.letoapp.tests;
 
+import junit.framework.Assert;
+
 import org.testng.annotations.Test;
 
 import ru.letoapp.tests.TestBase;
 import ru.letoapp.utilities.PropertyReader;
+import ru.letoapp.utilities.UserXmlHelper;
 import org.apache.log4j.Logger;
 
 
@@ -12,6 +15,9 @@ public class StartAppTest extends TestBase {
     
     @Test
     public void test() throws Exception {    	
+    	String sum = null;
+    	String sumJson = null;
+    	
     	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
     		Log.info("Verify greeting window");
     		appManager.getAuthScreen().verifyGreeting();
@@ -29,9 +35,28 @@ public class StartAppTest extends TestBase {
         Log.error(appManager.getAuthScreen().getTitleFromActionBar());
         Log.info("Click Log In");
         appManager.getAuthScreen().loginBtnClick();
-        Log.info("Dashboard screen");    
-        //appManager.getDashboardScreen().cardBtnClick();
-        //appManager.getCreditCardsListScreen().navUpBtnClick();
-        //appManager.getDashboardScreen().swipeOpenDrawer();        
+        Log.info("Dashboard screen");
+        sum = appManager.getDashboardScreen().getCardSum("Картаff");
+        Log.error("App Card sum:" + sum);
+        sumJson = appManager.getDashboardScreen().getCardSumFromJson("Картаff");
+        Log.error("Json Card sum:" + sumJson);
+        Assert.assertEquals(sum, sumJson);
+        appManager.getDashboardScreen().cardsListBtnClick();
+        Thread.sleep(1000);
+        appManager.getCreditCardsListScreen().navUpBtnClick();
+        Thread.sleep(1000);
+        appManager.getDashboardScreen().loansListBtnClick();
+        Thread.sleep(1000);
+        appManager.getLoansListScreen().navUpBtnClick();
+        Thread.sleep(1000);
+        appManager.getDashboardScreen().depositsListBtnClick();
+        Thread.sleep(1000);
+        appManager.getLoansListScreen().navUpBtnClick();
+        Thread.sleep(1000);
+        appManager.getDashboardScreen().timelineBtnClick();
+        Thread.sleep(1000);
+        
+        
+            
     } 
 }
