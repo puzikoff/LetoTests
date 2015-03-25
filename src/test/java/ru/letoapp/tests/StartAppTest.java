@@ -17,6 +17,7 @@ public class StartAppTest extends TestBase {
     public void test() throws Exception {    	
     	String sum = null;
     	String sumJson = null;
+    	String holdJson = null;
     	
     	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
     		Log.info("Verify greeting window");
@@ -31,8 +32,7 @@ public class StartAppTest extends TestBase {
         Log.info("Enter username: " + PropertyReader.getProperty("username"));
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));
         Log.info("Enter password: " + PropertyReader.getProperty("password"));
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));
-        Log.error(appManager.getAuthScreen().getTitleFromActionBar());
+        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
         Log.info("Click Log In");
         appManager.getAuthScreen().loginBtnClick();
         Log.info("Dashboard screen");
@@ -40,6 +40,8 @@ public class StartAppTest extends TestBase {
         Log.error("App Card sum:" + sum);
         sumJson = appManager.getDashboardScreen().getCardSumFromJson("Картаff");
         Log.error("Json Card sum:" + sumJson);
+        holdJson = appManager.getDashboardScreen().getHoldAmountFromJson("Картаff");
+        Log.error("Json Hold sum:" + holdJson);
         Assert.assertEquals(sum, sumJson);
         appManager.getDashboardScreen().cardsListBtnClick();
         Thread.sleep(1000);

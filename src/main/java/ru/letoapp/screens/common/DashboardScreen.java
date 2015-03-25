@@ -1,4 +1,4 @@
-package ru.letoapp.screens;
+package ru.letoapp.screens.common;
 
 import ru.letoapp.utilities.UserJsonHelper;
 
@@ -10,16 +10,9 @@ import org.json.JSONException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 public class DashboardScreen extends AppScreenBase {
-	public static final Logger Log = Logger.getLogger(DashboardScreen.class);
-	//private final String CARDS_SECTION = "layout_cards_section";
-	private final String CARDS_SECTION = "//LinearLayout//ScrollView//LinearLayout//FrameLayout[2]";
-	@FindBy(how = How.XPATH, using = CARDS_SECTION)
-	WebElement cs;
-	
+	public static final Logger Log = Logger.getLogger(DashboardScreen.class);	
 	By timelineBtn = By.id("button_feed");	
 	By walletBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[2]//RelativeLayout[1]");
 	By cardsListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[2]//RelativeLayout");	
@@ -73,7 +66,11 @@ public class DashboardScreen extends AppScreenBase {
 	}
 	
 	public String getCardSumFromJson(String cardName) throws FileNotFoundException, IOException, JSONException {
-		return UserJsonHelper.getFieldValue("src/main/resources/Dashboard_sb_JSON.txt", cardName, "totalBalance");
+		return UserJsonHelper.getDashboardFieldValue("src/main/resources/Dashboard_sb_JSON.txt", cardName, "totalBalance");
+	}
+	
+	public String getHoldAmountFromJson(String cardName) throws FileNotFoundException, IOException, JSONException {
+		return UserJsonHelper.getDashboardFieldValue("src/main/resources/Dashboard_sb_JSON.txt", cardName, "holdAmount");
 	}
 	
 	/*public String getCardSum(String cardName) {

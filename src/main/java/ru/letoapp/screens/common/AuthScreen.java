@@ -1,4 +1,6 @@
-package ru.letoapp.screens;
+package ru.letoapp.screens.common;
+
+import io.selendroid.server.common.exceptions.NoSuchElementException;
 
 import org.openqa.selenium.WebDriver;
 import org.apache.log4j.Logger;
@@ -6,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import com.google.common.base.Verify;
 
 public class AuthScreen extends AppScreenBase {
@@ -39,7 +40,13 @@ public class AuthScreen extends AppScreenBase {
 	}	
 	
 	public boolean isGreetingMessageDisplayed() {
-		return driver.findElement(greetingNextBtn).isDisplayed();
+		try {
+			   driver.findElement(greetingNextBtn);
+			   return true;
+			} 
+		catch (NoSuchElementException e) {
+			    return false;
+			}		
 	}
 	
 	public void verifyGreeting() {		
@@ -97,11 +104,4 @@ public class AuthScreen extends AppScreenBase {
 		driver.findElement(passwordTextField).clear();
 		driver.findElement(passwordTextField).sendKeys(password);
 	}
-	
-/*	public void swipeOpenDrawer() {		
-		TouchActions flick = new TouchActions(driver).flick(driver.findElement(drawerLoc), +150, 0, 1);
-		flick.perform();		
-	} */
-	
-	
 }

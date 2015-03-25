@@ -1,4 +1,4 @@
-package ru.letoapp.screens;
+package ru.letoapp.screens.common;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -21,7 +21,7 @@ public class AppScreenBase extends ScreenBase {
 	}
 	
 	public String getTitleFromActionBar() {
-		return actionBar.getTitleFromActionBar();
+		return actionBar.getActionBarTitle();
 	}
 	
 	public void navUpBtnClick() {
@@ -36,10 +36,19 @@ public class AppScreenBase extends ScreenBase {
 		actionBar.contactsBtnClick();
 	}
 	
+	public String getActionBarTitle() {
+		return actionBar.getActionBarTitle();
+	}
+	
+	public String onlyNumbersString(String s) {
+		s = s.replaceAll("\\D+", "");	
+		return s;
+	}
+	
 	public void swipeOpenDrawer() {	
 		TouchActions flick = new TouchActions(driver).flick(driver.findElement(drawerLoc), +150, 0, 1);
 		flick.perform();		
-	}
+	}	
 	
 	public void scroll() throws Exception {	
 		TouchActions scroll = new TouchActions(driver).down(0, 1200);

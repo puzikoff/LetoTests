@@ -1,4 +1,4 @@
-package ru.letoapp.screens;
+package ru.letoapp.screens.common;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;

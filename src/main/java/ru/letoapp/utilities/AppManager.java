@@ -9,15 +9,15 @@ import java.net.URL;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import ru.letoapp.screens.ActionBar;
-import ru.letoapp.screens.AuthScreen;
-import ru.letoapp.screens.CommonTimelineScreen;
-import ru.letoapp.screens.ContactsScreen;
-import ru.letoapp.screens.CreditCardScreen;
-import ru.letoapp.screens.CreditCardsListScreen;
-import ru.letoapp.screens.DashboardScreen;
-import ru.letoapp.screens.LoanScreen;
-import ru.letoapp.screens.LoansListScreen;
+import ru.letoapp.screens.common.ActionBar;
+import ru.letoapp.screens.common.AuthScreen;
+import ru.letoapp.screens.common.CommonTimelineScreen;
+import ru.letoapp.screens.common.ContactsScreen;
+import ru.letoapp.screens.common.CreditCardsListScreen;
+import ru.letoapp.screens.common.DashboardScreen;
+import ru.letoapp.screens.common.LoansListScreen;
+import ru.letoapp.screens.common.cards.CardScreen;
+import ru.letoapp.screens.common.loans.LoanScreen;
 
 
 public class AppManager {	
@@ -33,11 +33,9 @@ public class AppManager {
 	private LoansListScreen loansListScreen;
 	private LoanScreen loanScreen;
 	private CreditCardsListScreen creditCardsListScreen;
-	private CreditCardScreen creditCardScreen;
-	private ActionBar actionBar;	
+	private CardScreen creditCardScreen;
 		
-	public void init() {
-		actionBar = new ActionBar(driver);
+	public void init() {		
 		authScreen = new AuthScreen(driver);
 		dashboardScreen = new DashboardScreen(driver);
 		contactsScreen = new ContactsScreen(driver);
@@ -45,7 +43,7 @@ public class AppManager {
 		loansListScreen = new LoansListScreen(driver);
 		loanScreen = new LoanScreen(driver);
 		creditCardsListScreen = new CreditCardsListScreen(driver);
-		creditCardScreen = new CreditCardScreen(driver);
+		creditCardScreen = new CardScreen(driver);
 		
 	}
 	
@@ -77,7 +75,7 @@ public class AppManager {
 		return creditCardsListScreen;
 	}
 	
-	public CreditCardScreen getCreditCardScreen() {
+	public CardScreen getCreditCardScreen() {
 		return creditCardScreen;
 	}
 	
