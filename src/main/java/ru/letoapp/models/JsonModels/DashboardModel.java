@@ -1,4 +1,4 @@
-package ru.letoapp.models;
+package ru.letoapp.models.JsonModels;
 
 public class DashboardModel {
 	public MasterAccountModel masterAccount;

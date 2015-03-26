@@ -1,12 +1,13 @@
 package ru.letoapp.tests;
 
-import junit.framework.Assert;
 
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import ru.letoapp.tests.TestBase;
+import ru.letoapp.utilities.DashboardJsonHelper;
 import ru.letoapp.utilities.PropertyReader;
-import ru.letoapp.utilities.UserXmlHelper;
 import org.apache.log4j.Logger;
 
 
@@ -38,10 +39,8 @@ public class StartAppTest extends TestBase {
         Log.info("Dashboard screen");
         sum = appManager.getDashboardScreen().getCardSum("Картаff");
         Log.error("App Card sum:" + sum);
-        sumJson = appManager.getDashboardScreen().getCardSumFromJson("Картаff");
-        Log.error("Json Card sum:" + sumJson);
-        holdJson = appManager.getDashboardScreen().getHoldAmountFromJson("Картаff");
-        Log.error("Json Hold sum:" + holdJson);
+        sumJson = DashboardJsonHelper.getCardSum("Картаff");        
+        Log.error("Json Card sum:" + sumJson);       
         Assert.assertEquals(sum, sumJson);
         appManager.getDashboardScreen().cardsListBtnClick();
         Thread.sleep(1000);

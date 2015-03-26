@@ -1,11 +1,16 @@
-ERROR|2015-03-25 15:37:39,965: Долгосрочный
-ERROR|2015-03-25 15:37:39,965: 1990192017
-ERROR|2015-03-25 15:37:39,965: Visa Gold Zero
-ERROR|2015-03-25 15:37:39,965: 1990192012
-ERROR|2015-03-25 15:37:39,965: Вклад Зимний
-ERROR|2015-03-25 15:37:39,965: 1990192012
-ERROR|2015-03-25 15:37:39,965: master
-ERROR|2015-03-25 15:37:39,965: Расчетный счет
-ERROR|2015-03-25 15:37:39,965: testuser
-ERROR|2015-03-25 15:37:39,965: Active
-ERROR|2015-03-25 15:37:39,965: http://www.letobank.ru/
+INFO|2015-03-26 15:35:12,833: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-03-26 15:35:12,833: Retrying request to {}->http://localhost:38080
+INFO|2015-03-26 15:35:12,833: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-03-26 15:35:12,833: Retrying request to {}->http://localhost:38080
+INFO|2015-03-26 15:35:12,833: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-03-26 15:35:12,833: Retrying request to {}->http://localhost:38080
+INFO|2015-03-26 15:35:15,651: Verify greeting window
+INFO|2015-03-26 15:35:15,931: Click on confirm button
+INFO|2015-03-26 15:35:16,581: Verify auth screen
+INFO|2015-03-26 15:35:17,051: Check checkbox
+INFO|2015-03-26 15:35:17,691: Enter username: testuser@sb
+INFO|2015-03-26 15:35:18,662: Enter password: qwe123
+INFO|2015-03-26 15:35:19,472: Click Log In
+INFO|2015-03-26 15:35:20,122: Dashboard screen
+ERROR|2015-03-26 15:35:25,556: App Card sum:3353098
+ERROR|2015-03-26 15:35:25,607: Json Card sum:3353098

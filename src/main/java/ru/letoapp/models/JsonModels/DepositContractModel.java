@@ -1,10 +1,9 @@
-package ru.letoapp.models;
+package ru.letoapp.models.JsonModels;
 
-public class LoanContractModel {
+public class DepositContractModel {
 	public class Accounts {
 		public AccountModel items[];
 	}
-	
 	public Accounts accounts;
 	public String username;
 	public String contractNumber;
@@ -12,20 +11,17 @@ public class LoanContractModel {
 	public String name;
 	public String state;
 	public String type;
-	public double originalInterestRate;
 	public String productId;
 	public String openedDate;
 	public String signingDate;
-	public String paymentDueDate;
-	public String closingDate;
 	public String closedDate;
-	public Money paymentDueAmount;
-	public Money paymentDueAmountRest;
+	public String closingDate;
+	public int depositTerm;
+	public boolean transferAvailable;
+	public boolean withdrawalAvailable;
+	public Money minTransferAmount;
+	public Money maxTransferAmount;
 	public Money availableLimitAmount;
-	public Money depositAmount;
-	public Money originalDebtAmount;
-	public boolean hasOverdue;
-	public boolean limitClosed;
 	public String id;
 
 }

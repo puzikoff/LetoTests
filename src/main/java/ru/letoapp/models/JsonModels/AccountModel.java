@@ -1,4 +1,4 @@
-package ru.letoapp.models;
+package ru.letoapp.models.JsonModels;
 
 public class AccountModel {
 	public String contractId;
