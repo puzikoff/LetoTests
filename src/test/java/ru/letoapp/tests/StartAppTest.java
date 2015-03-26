@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import ru.letoapp.tests.TestBase;
 import ru.letoapp.utilities.DashboardJsonHelper;
+import ru.letoapp.utilities.DashboardXmlHelper;
 import ru.letoapp.utilities.PropertyReader;
 import org.apache.log4j.Logger;
 
@@ -18,7 +19,7 @@ public class StartAppTest extends TestBase {
     public void test() throws Exception {    	
     	String sum = null;
     	String sumJson = null;
-    	String holdJson = null;
+    	String sumxml = null;
     	
     	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
     		Log.info("Verify greeting window");
@@ -37,11 +38,15 @@ public class StartAppTest extends TestBase {
         Log.info("Click Log In");
         appManager.getAuthScreen().loginBtnClick();
         Log.info("Dashboard screen");
-        sum = appManager.getDashboardScreen().getCardSum("Картаff");
+        sum = appManager.getDashboardScreen().getCardSum("Лето-карта 1");
         Log.error("App Card sum:" + sum);
-        sumJson = DashboardJsonHelper.getCardSum("Картаff");        
+        sumJson = DashboardJsonHelper.getCardSum("Лето-карта 1");        
         Log.error("Json Card sum:" + sumJson);       
+        sumxml = DashboardXmlHelper.getFirstSum("13493048");
+        sumxml = sumxml.replace(".", "");
+        Log.error("Xml Card sum:" + sumxml);          
         Assert.assertEquals(sum, sumJson);
+        Assert.assertEquals(sum, sumxml);
         appManager.getDashboardScreen().cardsListBtnClick();
         Thread.sleep(1000);
         appManager.getCreditCardsListScreen().navUpBtnClick();
@@ -56,6 +61,8 @@ public class StartAppTest extends TestBase {
         Thread.sleep(1000);
         appManager.getDashboardScreen().timelineBtnClick();
         Thread.sleep(1000);
+        
+      
         
         
             

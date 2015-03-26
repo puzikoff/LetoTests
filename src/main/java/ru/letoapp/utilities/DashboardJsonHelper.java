@@ -7,16 +7,16 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 
-import ru.letoapp.models.JsonModels.DashboardModel;
+import ru.letoapp.models.JsonModels.*;
 
 import com.google.gson.Gson;
 
 public class DashboardJsonHelper {
-	public static final Logger Log = Logger.getLogger(UserJsonHelper.class);
+	public static final Logger Log = Logger.getLogger(DashboardJsonHelper.class);
 	
 	public static DashboardModel getDashboard () throws IOException{
 		String dash_json = null;
-		File file = new File("src/main/resources/Dashboard_sb_JSON.txt");
+		File file = new File("src/main/resources/Dashboard_JSON.txt");
 	    BufferedReader br = new BufferedReader (new InputStreamReader(new FileInputStream( file ), "UTF-8"));	    
 	    dash_json = br.readLine();        
 	    br.close();	
@@ -27,9 +27,9 @@ public class DashboardJsonHelper {
     public static String getCardSum(String cardName) throws IOException {    	
 		DashboardModel dashModel = new DashboardModel();
 		dashModel = getDashboard();
-		for(int i = 0; dashModel.cardContracts.items[i] != null; i++) 
+		for(int i = 0; dashModel.cardContracts.items[i] != null; ++i) 
 			if(dashModel.cardContracts.items[i].displayName.contains(cardName)) 				
 				return String.valueOf(dashModel.cardContracts.items[i].cards.items[0].totalBalance);		
-		return "No card with such name in JSON";
+		return "No card with such name in JSON " + cardName;
 	}
 }

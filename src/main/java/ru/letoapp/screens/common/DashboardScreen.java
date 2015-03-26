@@ -58,6 +58,7 @@ public class DashboardScreen extends AppScreenBase {
 		for(int i = 0; cards.get(i).getSize() != null; ++i) {			
 			if(cards.get(i).getText().contains(cardName)) {
 				sum = driver.findElement(By.xpath("//CardInfoView_[" + (i+1) + "]//TextView[2]")).getText();
+				if(!sum.contains(",")) sum = sum + "00";
 				sum = sum.replaceAll("\\D+", "");							
 				return sum;
 			}			

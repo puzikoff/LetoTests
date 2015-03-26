@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AppScreenBase extends ScreenBase {
 	public static final Logger Log = Logger.getLogger(ScreenBase.class);
-	WebDriverWait waitVar =  new WebDriverWait(driver, 45);
+	WebDriverWait waitVar =  new WebDriverWait(driver, 60);
 	private ActionBar actionBar;
 	By drawerLoc = By.id("mdc__layout_drawer");
 

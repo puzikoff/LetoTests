@@ -14,7 +14,7 @@ public class AgreementModel {
 	public String PlanDate;
 	public String CloseDate;
 	public int IsLimitExpired;
-	public double FirstSum;
+	public String FirstSum;
 	public double MinRestSum;
 	public double AvailableLim;
 	public int PeriodInDays;
