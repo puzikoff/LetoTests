@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 
-import ru.letoapp.models.JsonModels.*;
+import ru.letoapp.models.Json.*;
 
 import com.google.gson.Gson;
 

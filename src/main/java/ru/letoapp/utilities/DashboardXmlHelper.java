@@ -7,9 +7,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import org.apache.log4j.Logger;
 import com.thoughtworks.xstream.XStream;
-import ru.letoapp.models.XmlModels.AgreementModel;
-import ru.letoapp.models.XmlModels.GetAgreementsInModel;
-import ru.letoapp.models.XmlModels.GetAgreementsOutModel;
+
+import ru.letoapp.models.Xml.AgreementModel;
+import ru.letoapp.models.Xml.GetAgreementsInModel;
+import ru.letoapp.models.Xml.GetAgreementsOutModel;
 
 public class DashboardXmlHelper {
 	public static final Logger Log = Logger.getLogger(DashboardXmlHelper.class);
