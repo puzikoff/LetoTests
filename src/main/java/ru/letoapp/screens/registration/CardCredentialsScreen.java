@@ -1,0 +1,48 @@
+package ru.letoapp.screens.registration;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import ru.letoapp.screens.others.AppScreenBase;
+
+public class CardCredentialsScreen extends AppScreenBase{
+	public static final Logger Log = Logger.getLogger(CardCredentialsScreen.class);
+	
+	By cardNumberField = By.id("text_card_number");
+	By accessCodeField = By.id("text_access_code");
+	By nextBtn = By.id("button_further");
+	By forgetAccessLink = By.id("button_remind_access_code");
+
+	public CardCredentialsScreen(WebDriver driver) {
+		super(driver);		
+	}
+
+	public void enterCardNumber(String cardNumber) {
+		waitFor(cardNumberField);
+		Log.info("Entering card number");
+		driver.findElement(cardNumberField).clear();
+		driver.findElement(cardNumberField).sendKeys(cardNumber);		
+	}
+
+	public void enterAccessCode(String accessCode) {
+		waitFor(accessCodeField);
+		Log.info("Entering acces code");
+		driver.findElement(accessCodeField).clear();
+		driver.findElement(accessCodeField).sendKeys(accessCode);
+	}
+
+	public void NextBtnClick() {
+		waitFor(nextBtn);
+		Log.info("Click next button");
+		driver.findElement(nextBtn).click();
+		
+	}
+
+	public void forgotCardNumberBtnClick() {
+		waitFor(forgetAccessLink);
+		Log.info("CardCredentialsScreen: Click forget acces code or card number button");
+		driver.findElement(forgetAccessLink).click();			
+	}
+
+}

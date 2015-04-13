@@ -6,18 +6,32 @@ import io.selendroid.standalone.SelendroidConfiguration;
 import io.selendroid.standalone.SelendroidLauncher;
 import io.selendroid.standalone.log.LogLevelEnum;
 import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import ru.letoapp.screens.common.ActionBar;
-import ru.letoapp.screens.common.AuthScreen;
-import ru.letoapp.screens.common.CommonTimelineScreen;
-import ru.letoapp.screens.common.ContactsScreen;
-import ru.letoapp.screens.common.CreditCardsListScreen;
-import ru.letoapp.screens.common.DashboardScreen;
-import ru.letoapp.screens.common.LoansListScreen;
-import ru.letoapp.screens.common.cards.CardScreen;
-import ru.letoapp.screens.common.loans.LoanScreen;
+import ru.letoapp.screens.cards.CardScreen;
+import ru.letoapp.screens.loans.LoanScreen;
+import ru.letoapp.screens.others.AuthScreen;
+import ru.letoapp.screens.others.CommonTimelineScreen;
+import ru.letoapp.screens.others.ContactsScreen;
+import ru.letoapp.screens.others.CreditCardsListScreen;
+import ru.letoapp.screens.others.DashboardScreen;
+import ru.letoapp.screens.others.IncorrectLoginPasswordScreen;
+import ru.letoapp.screens.others.LoansListScreen;
+import ru.letoapp.screens.registration.AccountCredentialsScreen;
+import ru.letoapp.screens.registration.CardCredentialsScreen;
+import ru.letoapp.screens.registration.ConfirmSecurityCodeScreen;
+import ru.letoapp.screens.registration.DboScreen;
+import ru.letoapp.screens.registration.ForgotAccountOrAccessCodeScreen;
+import ru.letoapp.screens.registration.ForgotCardNumberOrAccessCodeScreen;
+import ru.letoapp.screens.registration.ForgotPswScreen;
+import ru.letoapp.screens.registration.RegistrationMethodScreen;
+import ru.letoapp.screens.registration.SendEmailScreen;
+import ru.letoapp.screens.registration.SetLoginScreen;
+import ru.letoapp.screens.registration.SetPasswordScreen;
+import ru.letoapp.screens.registration.SetSecurityCodeScreen;
+import ru.letoapp.screens.registration.SmsCodeScreen;
 
 
 public class AppManager {	
@@ -34,6 +48,20 @@ public class AppManager {
 	private LoanScreen loanScreen;
 	private CreditCardsListScreen creditCardsListScreen;
 	private CardScreen creditCardScreen;
+	private DboScreen dboScreen;
+	private SendEmailScreen sendEmailScreen;
+	private RegistrationMethodScreen registrationMethodScreen;
+	private CardCredentialsScreen cardCredentialsScreen;
+	private AccountCredentialsScreen accountCredentialsScreen;
+	private SmsCodeScreen smsCodeScreen; 
+	private SetLoginScreen setLoginScreen;
+	private SetPasswordScreen setPasswordScreen;
+	private SetSecurityCodeScreen setSecurityCodeScreen;
+	private ConfirmSecurityCodeScreen confirmSecurityCodeScreen;
+	private IncorrectLoginPasswordScreen incorrectLoginPasswordScreen;
+	private ForgotPswScreen forgotPswScreen;
+	private ForgotAccountOrAccessCodeScreen forgotAccountOrAccessCodeScreen;
+	private ForgotCardNumberOrAccessCodeScreen forgotCardNumberOrAccessCodeScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -44,8 +72,23 @@ public class AppManager {
 		loanScreen = new LoanScreen(driver);
 		creditCardsListScreen = new CreditCardsListScreen(driver);
 		creditCardScreen = new CardScreen(driver);
-		
+		dboScreen = new DboScreen(driver);
+		sendEmailScreen = new SendEmailScreen(driver);
+		registrationMethodScreen = new RegistrationMethodScreen(driver);
+		cardCredentialsScreen = new CardCredentialsScreen(driver);
+		accountCredentialsScreen = new AccountCredentialsScreen(driver);
+		smsCodeScreen = new SmsCodeScreen(driver);
+		setLoginScreen = new SetLoginScreen(driver);
+		setPasswordScreen = new SetPasswordScreen(driver);
+		setSecurityCodeScreen = new SetSecurityCodeScreen(driver);
+		confirmSecurityCodeScreen = new ConfirmSecurityCodeScreen(driver);
+		incorrectLoginPasswordScreen = new IncorrectLoginPasswordScreen(driver);
+		forgotPswScreen = new ForgotPswScreen(driver);
+		forgotAccountOrAccessCodeScreen = new ForgotAccountOrAccessCodeScreen(driver);
+		forgotCardNumberOrAccessCodeScreen = new ForgotCardNumberOrAccessCodeScreen(driver);
 	}
+	
+	/* get Screens methods section */
 	
 	public AuthScreen getAuthScreen() {
 		return authScreen;
@@ -71,6 +114,10 @@ public class AppManager {
 		return loanScreen;
 	}
 	
+	public CardScreen getCardScreen() {
+		return creditCardScreen;
+	}
+	
 	public CreditCardsListScreen getCreditCardsListScreen() {
 		return creditCardsListScreen;
 	}
@@ -79,11 +126,70 @@ public class AppManager {
 		return creditCardScreen;
 	}
 	
+	public DboScreen getDboScreen() {
+		return dboScreen;
+	}
+	
+	public SendEmailScreen getSendEmailScreen() {
+		return sendEmailScreen;
+	}
+	
+	public RegistrationMethodScreen getRegistrationMethodScreen() {
+		return registrationMethodScreen;
+	}
+	
+	public CardCredentialsScreen getCardCredentialsScreen() {
+		return cardCredentialsScreen;
+	}
+	
+	public AccountCredentialsScreen getAccountCredentialsScreen() {
+		return accountCredentialsScreen;
+	}
+	
+	public SmsCodeScreen getSmsCodeScreen() {
+		return smsCodeScreen;
+	}
+	
+	public SetLoginScreen getSetLoginScreen() {
+		return setLoginScreen;
+	}
+	
+	public SetPasswordScreen getSetPasswordScreen() {
+		return setPasswordScreen;
+	}
+	
+	public SetSecurityCodeScreen getSetSecurityCodeScreen() {
+		return setSecurityCodeScreen;
+	}
+	
+	public ConfirmSecurityCodeScreen getConfirmSecurityCodeScreen() {
+		return confirmSecurityCodeScreen;
+	}
+	
+	public IncorrectLoginPasswordScreen getIncorrectLoginPasswordScreen() {
+		return incorrectLoginPasswordScreen;
+	}
+	
+	public ForgotPswScreen getForgotPswScreen() {
+		return forgotPswScreen;
+	}
+	
+	public ForgotAccountOrAccessCodeScreen getForgotAccountOrAccesCodeScreen() {
+		return forgotAccountOrAccessCodeScreen;
+	}
+	
+	public ForgotCardNumberOrAccessCodeScreen getForgotCardNumberOrAccessCodeScreen() {
+		return forgotCardNumberOrAccessCodeScreen;
+	}
+	
+	/* Starting Selendroid */
+	
 	public void startServer(String appPath, boolean forceReinstall, boolean noClearData) 
 	{
 		serverConfig = new SelendroidConfiguration();
 	    serverConfig.addSupportedApp(appPath);
 	    serverConfig.setPort(4444);
+	    serverConfig.setDeviceLog(false);
 	    serverConfig.setSelendroidServerPort(38080);
 	    serverConfig.setForceReinstall(forceReinstall);
 	    serverConfig.setNoClearData(noClearData);
@@ -98,7 +204,8 @@ public class AppManager {
 	{
 	    capabilities = new SelendroidCapabilities();        
 	    capabilities.setAut(appUnderTestId);      
-	    capabilities.setLaunchActivity(appActivity);	    
+	    capabilities.setLaunchActivity(appActivity);  
+	    
 	    driver = new SelendroidDriver(new URL(serverUrl), capabilities);
 	    waitDriver = new WebDriverWait(driver, 90);	 
 	} 

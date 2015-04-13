@@ -1,17 +1,23 @@
-INFO|2015-03-26 19:00:37,105: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-03-26 19:00:37,115: Retrying request to {}->http://localhost:38080
-INFO|2015-03-26 19:00:37,125: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-03-26 19:00:37,125: Retrying request to {}->http://localhost:38080
-INFO|2015-03-26 19:00:37,125: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Software caused connection abort: recv failed
-INFO|2015-03-26 19:00:37,125: Retrying request to {}->http://localhost:38080
-INFO|2015-03-26 19:00:40,086: Verify greeting window
-INFO|2015-03-26 19:00:40,296: Click on confirm button
-INFO|2015-03-26 19:00:40,956: Verify auth screen
-INFO|2015-03-26 19:00:41,396: Check checkbox
-INFO|2015-03-26 19:00:42,036: Enter username: u5869869@mtest	
-INFO|2015-03-26 19:00:43,003: Enter password: Qwerty
-INFO|2015-03-26 19:00:43,833: Click Log In
-INFO|2015-03-26 19:00:44,483: Dashboard screen
-ERROR|2015-03-26 19:01:06,219: App Card sum:1500000
-ERROR|2015-03-26 19:01:06,270: Json Card sum:1500000
-ERROR|2015-03-26 19:01:06,400: Xml Card sum:1500000
+INFO|2015-04-13 18:57:15,936: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-13 18:57:15,938: Retrying request to {}->http://localhost:38080
+INFO|2015-04-13 18:57:15,940: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-13 18:57:15,941: Retrying request to {}->http://localhost:38080
+INFO|2015-04-13 18:57:15,943: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-13 18:57:15,943: Retrying request to {}->http://localhost:38080
+INFO|2015-04-13 18:57:18,691: REGISTRATION. FORGOT CARD NUMBER OR ACCES CODE POSITIVE TEST STARTS
+INFO|2015-04-13 18:57:18,692: Auth screen
+INFO|2015-04-13 18:57:18,721: Verify greeting window
+INFO|2015-04-13 18:57:18,811: Click on confirm button
+INFO|2015-04-13 18:57:19,486: Verify auth screen
+INFO|2015-04-13 18:57:22,147: Incorrect email or password screen
+INFO|2015-04-13 18:57:22,796: Try again button click
+INFO|2015-04-13 18:57:23,454: Click 'Registration' button'
+INFO|2015-04-13 18:57:24,107: Dbo screen
+INFO|2015-04-13 18:57:36,443: DboScreen: Click 'Accept terms' button
+INFO|2015-04-13 18:57:37,127: Registration method screen
+INFO|2015-04-13 18:57:37,127: Waiting for card registration button
+INFO|2015-04-13 18:57:37,568: Choose card registration
+INFO|2015-04-13 18:57:38,233: Account credentials screen
+INFO|2015-04-13 18:57:38,260: CardCredentialsScreen: Click forget acces code or card number button
+INFO|2015-04-13 18:57:38,908: Forget account or acces code registration screen
+INFO|2015-04-13 18:57:38,939: Entering card number
