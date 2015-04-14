@@ -235,7 +235,7 @@ public class RegistrationTests extends SetUpForEachTestBase {
         Log.info("END OF TEST");		
 	}
 	
-//	@Test(priority=2, description = "REGISTRATION BY ACCOUNT. FORGOT ACCOUNT NUMBER OR ACCES CODE. POSITIVE TEST")
+	@Test(priority=2, description = "REGISTRATION BY ACCOUNT. FORGOT ACCOUNT NUMBER OR ACCES CODE. POSITIVE TEST")
 	public void forgotAccesOrAccountPositiveTest() {
 		Log.info("REGISTRATION. FORGOT ACCOUNT OR ACCES CODE POSITIVE TEST STARTS");
 		Log.info("Auth screen");
@@ -287,7 +287,7 @@ public class RegistrationTests extends SetUpForEachTestBase {
         Log.info("END OF TEST");		
 	}
 	
-//	@Test(priority=2, description = "REGISTRATION BY CARD. FORGOT CARD NUMBER OR ACCESS CODE. POSITIVE TEST")
+	@Test(priority=2, description = "REGISTRATION BY CARD. FORGOT CARD NUMBER OR ACCESS CODE. POSITIVE TEST")
 	public void forgotAccesOrCardPositiveTest() {
 		Log.info("REGISTRATION. FORGOT CARD NUMBER OR ACCES CODE POSITIVE TEST STARTS");
 		Log.info("Auth screen");

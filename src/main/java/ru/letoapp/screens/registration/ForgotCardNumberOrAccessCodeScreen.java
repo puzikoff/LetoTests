@@ -9,9 +9,12 @@ import ru.letoapp.screens.others.AppScreenBase;
 public class ForgotCardNumberOrAccessCodeScreen extends AppScreenBase{
 	public static final Logger Log = Logger.getLogger(ForgotCardNumberOrAccessCodeScreen.class);
 	
-	By cardNumberField = By.id("text_card_number");
-	By accessCodeField = By.id("text_access_code");
-	By nextBtn = By.id("button_further");
+	//By cardNumberField = By.id("text_card_number");
+	By cardNumberField = By.xpath("//MaskedEditText[1]");
+	//By accessCodeField = By.id("text_access_code");
+	By accessCodeField = By.xpath("//MaskedEditText[2]");
+	//By nextBtn = By.id("button_further");
+	By nextBtn = By.xpath("//LinearLayout/Button");
 	By callBtn = By.id("button_call_phone_number");
 
 	public ForgotCardNumberOrAccessCodeScreen(WebDriver driver) {
