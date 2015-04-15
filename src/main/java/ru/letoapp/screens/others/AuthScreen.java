@@ -1,8 +1,11 @@
 package ru.letoapp.screens.others;
 
+import java.util.List;
+
 import io.selendroid.server.common.exceptions.NoSuchElementException;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -38,13 +41,9 @@ public class AuthScreen extends AppScreenBase {
 	}	
 	
 	public boolean isGreetingMessageDisplayed() {
-		try {
-			   driver.findElement(greetingNextBtn);
-			   return true;
-			} 
-		catch (NoSuchElementException e) {
-			    return false;
-			}		
+		List <WebElement> greetingPopUp = driver.findElements(greetingMessage);
+		if(!greetingPopUp.isEmpty()) return true;
+		return false;
 	}
 	
 	public void verifyGreeting() {		

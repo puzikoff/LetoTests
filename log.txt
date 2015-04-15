@@ -1,51 +1,55 @@
-INFO|2015-04-14 14:45:32,183: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Software caused connection abort: recv failed
-INFO|2015-04-14 14:45:32,196: Retrying request to {}->http://localhost:38080
-INFO|2015-04-14 14:45:32,198: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Software caused connection abort: recv failed
-INFO|2015-04-14 14:45:32,198: Retrying request to {}->http://localhost:38080
-INFO|2015-04-14 14:45:32,200: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-04-14 14:45:32,200: Retrying request to {}->http://localhost:38080
-INFO|2015-04-14 14:45:35,001: REGISTRATION. FORGOT ACCOUNT OR ACCES CODE POSITIVE TEST STARTS
-INFO|2015-04-14 14:45:35,001: Auth screen
-INFO|2015-04-14 14:45:35,033: Verify greeting window
-INFO|2015-04-14 14:45:35,123: Click on confirm button
-INFO|2015-04-14 14:45:35,800: Verify auth screen
-INFO|2015-04-14 14:45:38,452: Incorrect email or password screen
-INFO|2015-04-14 14:45:38,689: Try again button click
-INFO|2015-04-14 14:45:39,338: Click 'Registration' button'
-INFO|2015-04-14 14:45:39,985: Dbo screen
-INFO|2015-04-14 14:45:40,586: DboScreen: Click 'Accept terms' button
-INFO|2015-04-14 14:45:41,265: Registration method screen
-INFO|2015-04-14 14:45:41,265: Waiting for account registration button
-INFO|2015-04-14 14:45:41,301: Choose account registration
-INFO|2015-04-14 14:45:41,975: Account credentials screen
-INFO|2015-04-14 14:45:42,013: AccountCredentialsScreen: Click forget acces code button
-INFO|2015-04-14 14:45:42,666: Forget account or acces code registration screen
-INFO|2015-04-14 14:45:42,749: AccountCredentialsScreen: Entering account number
-INFO|2015-04-14 14:45:44,559: AccountCredentialsScreen: Entering acces code
-INFO|2015-04-14 14:45:45,743: AccountCredentialsScreen: Click next button
-INFO|2015-04-14 14:45:46,428: SMS code screen
-INFO|2015-04-14 14:45:46,907: SMSCodeScreen: Enter sms code
-INFO|2015-04-14 14:45:47,835: SMSCodeScreen: Click 'Next'
-INFO|2015-04-14 14:45:48,468: Set login screen
-INFO|2015-04-14 14:45:48,498: Entering login: newLogin
-INFO|2015-04-14 14:45:49,332: Click next button
-INFO|2015-04-14 14:45:49,990: Set password screen
-INFO|2015-04-14 14:45:50,216: Entering password: qwerty
-INFO|2015-04-14 14:45:51,224: Error: Ненадёжный пароль
-INFO|2015-04-14 14:45:51,240: Entering password: qwerty123
-INFO|2015-04-14 14:45:52,146: Confirm password: qwerty12
-INFO|2015-04-14 14:45:53,208: Error: Пароли не совпадают
-INFO|2015-04-14 14:45:53,221: Confirm password: qwerty123
-INFO|2015-04-14 14:45:54,081: Click next button
-INFO|2015-04-14 14:45:54,740: Set security code screen
-INFO|2015-04-14 14:45:54,741: Click number: 1
-INFO|2015-04-14 14:45:55,611: Click number: 2
-INFO|2015-04-14 14:45:56,273: Click number: 3
-INFO|2015-04-14 14:45:56,952: Click number: 4
-INFO|2015-04-14 14:45:57,617: Confirm security code screen
-INFO|2015-04-14 14:45:57,617: Click number: 1
-INFO|2015-04-14 14:45:58,271: Click number: 2
-INFO|2015-04-14 14:45:58,929: Click number: 3
-INFO|2015-04-14 14:45:59,589: Click number: 4
-INFO|2015-04-14 14:46:00,241: Dashboard screen
-INFO|2015-04-14 14:46:04,811: END OF TEST
+INFO|2015-04-15 17:16:18,515: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-15 17:16:18,517: Retrying request to {}->http://localhost:38080
+INFO|2015-04-15 17:16:18,519: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-15 17:16:18,519: Retrying request to {}->http://localhost:38080
+INFO|2015-04-15 17:16:18,530: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-15 17:16:18,531: Retrying request to {}->http://localhost:38080
+INFO|2015-04-15 17:16:21,282: REGISTRATION BY CARD POSITIVE TEST STARTS
+INFO|2015-04-15 17:16:21,282: Auth screen
+INFO|2015-04-15 17:16:26,382: Verify auth screen
+INFO|2015-04-15 17:16:29,085: Incorrect email or password screen
+INFO|2015-04-15 17:16:29,516: Try again button click
+INFO|2015-04-15 17:16:30,173: Click 'Registration' button'
+INFO|2015-04-15 17:16:30,840: Dbo screen
+INFO|2015-04-15 17:16:31,444: DboScreen: Click menu button
+INFO|2015-04-15 17:16:32,177: DboScreen: Click send email button
+INFO|2015-04-15 17:16:32,837: Send email screen
+INFO|2015-04-15 17:16:33,072: Click send button
+INFO|2015-04-15 17:16:33,766: Click next
+INFO|2015-04-15 17:16:34,415: Entering email: mail@mail.ru
+INFO|2015-04-15 17:16:35,367: Click send button
+INFO|2015-04-15 17:16:36,016: Dbo screen
+INFO|2015-04-15 17:16:36,101: DboScreen: Click 'Accept terms' button
+INFO|2015-04-15 17:16:36,793: Registration method screen
+INFO|2015-04-15 17:16:36,793: Waiting for card registration button
+INFO|2015-04-15 17:16:36,822: Choose card registration
+INFO|2015-04-15 17:16:37,463: Card credentials screen
+INFO|2015-04-15 17:16:37,494: Entering card number
+INFO|2015-04-15 17:16:38,948: Entering acces code
+INFO|2015-04-15 17:16:39,847: Click next button
+INFO|2015-04-15 17:16:40,485: SMS code screen
+INFO|2015-04-15 17:16:40,522: SMSCodeScreen: Enter sms code
+INFO|2015-04-15 17:16:41,566: SMSCodeScreen: Click 'Next'
+INFO|2015-04-15 17:16:42,201: Set login screen
+INFO|2015-04-15 17:16:42,220: Entering login: newLogin
+INFO|2015-04-15 17:16:43,057: Click next button
+INFO|2015-04-15 17:16:43,707: Set password screen
+INFO|2015-04-15 17:16:43,729: Entering password: qwerty
+INFO|2015-04-15 17:16:44,812: Error: Ненадёжный пароль
+INFO|2015-04-15 17:16:44,826: Entering password: qwerty123
+INFO|2015-04-15 17:16:45,727: Confirm password: qwerty12
+INFO|2015-04-15 17:16:46,752: Error: Пароли не совпадают
+INFO|2015-04-15 17:16:46,769: Confirm password: qwerty123
+INFO|2015-04-15 17:16:47,644: Click next button
+INFO|2015-04-15 17:16:48,300: Set security code screen
+INFO|2015-04-15 17:16:48,300: Click number: 1
+INFO|2015-04-15 17:16:48,953: Click number: 2
+INFO|2015-04-15 17:16:49,606: Click number: 3
+INFO|2015-04-15 17:16:50,266: Click number: 4
+INFO|2015-04-15 17:16:50,919: Confirm security code screen
+INFO|2015-04-15 17:16:50,919: Click number: 1
+INFO|2015-04-15 17:16:51,565: Click number: 2
+INFO|2015-04-15 17:16:52,221: Click number: 3
+INFO|2015-04-15 17:16:52,899: Click number: 4
+INFO|2015-04-15 17:16:53,537: Dashboard screen
+INFO|2015-04-15 17:16:56,338: END OF TEST

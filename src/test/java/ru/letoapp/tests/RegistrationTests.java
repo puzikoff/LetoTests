@@ -11,8 +11,10 @@ public class RegistrationTests extends SetUpForEachTestBase {
 	public void registrationByCardPositiveTest() {
 		Log.info("REGISTRATION BY CARD POSITIVE TEST STARTS");		 
 		Log.info("Auth screen");
-    	appManager.getAuthScreen().verifyGreeting();    	
-    	appManager.getAuthScreen().closeGreetingMessage();     	                     
+    	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
+    		appManager.getAuthScreen().verifyGreeting();    	
+    		appManager.getAuthScreen().closeGreetingMessage();     	     
+    	}                
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
@@ -68,12 +70,14 @@ public class RegistrationTests extends SetUpForEachTestBase {
         Log.info("END OF TEST");
 	}
 	
-	@Test(priority=1, description = "REGISTRATION BY ACCOUNT. POSITIVE TEST")
+//	@Test(priority=1, description = "REGISTRATION BY ACCOUNT. POSITIVE TEST")
 	public void registrationByAccountPositiveTest() {
 		Log.info("REGISTRATION BY ACCOUNT POSITIVE TEST STARTS");		 
 		Log.info("Auth screen");
-    	appManager.getAuthScreen().verifyGreeting();    	
-    	appManager.getAuthScreen().closeGreetingMessage();     	                     
+		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
+    		appManager.getAuthScreen().verifyGreeting();    	
+    		appManager.getAuthScreen().closeGreetingMessage();     	     
+    	}     	                     
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
@@ -129,12 +133,14 @@ public class RegistrationTests extends SetUpForEachTestBase {
         Log.info("END OF TEST");
 	}
 	
-	@Test(priority=2, description = "FORGOT PASSWORD. REGISTRATION BY CARD. POSITIVE TEST")
+//	@Test(priority=2, description = "FORGOT PASSWORD. REGISTRATION BY CARD. POSITIVE TEST")
 	public void forgotPswByCardPositiveTest() {
 		Log.info("FORGOT PASSWORD BY CARD POSITIVE TEST STARTS");
 		Log.info("Auth screen");
-    	appManager.getAuthScreen().verifyGreeting();    	
-    	appManager.getAuthScreen().closeGreetingMessage();     	                     
+		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
+    		appManager.getAuthScreen().verifyGreeting();    	
+    		appManager.getAuthScreen().closeGreetingMessage();     	     
+    	}     	                     
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
@@ -182,12 +188,14 @@ public class RegistrationTests extends SetUpForEachTestBase {
         Log.info("END OF TEST");		
 	}
 	
-	@Test(priority=2, description = "FORGOT PASSWORD, REGISTRATION BY ACCOUNT. POSITIVE TEST")
+//	@Test(priority=2, description = "FORGOT PASSWORD, REGISTRATION BY ACCOUNT. POSITIVE TEST")
 	public void forgotPswByAccountPositiveTest() {
 		Log.info("FORGOT PASSWORD BY ACCOUNT POSITIVE TEST STARTS");
 		Log.info("Auth screen");
-    	appManager.getAuthScreen().verifyGreeting();    	
-    	appManager.getAuthScreen().closeGreetingMessage();     	                     
+		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
+    		appManager.getAuthScreen().verifyGreeting();    	
+    		appManager.getAuthScreen().closeGreetingMessage();     	     
+    	}     	                     
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
@@ -235,12 +243,14 @@ public class RegistrationTests extends SetUpForEachTestBase {
         Log.info("END OF TEST");		
 	}
 	
-	@Test(priority=2, description = "REGISTRATION BY ACCOUNT. FORGOT ACCOUNT NUMBER OR ACCES CODE. POSITIVE TEST")
+//	@Test(priority=2, description = "REGISTRATION BY ACCOUNT. FORGOT ACCOUNT NUMBER OR ACCES CODE. POSITIVE TEST")
 	public void forgotAccesOrAccountPositiveTest() {
 		Log.info("REGISTRATION. FORGOT ACCOUNT OR ACCES CODE POSITIVE TEST STARTS");
 		Log.info("Auth screen");
-    	appManager.getAuthScreen().verifyGreeting();    	
-    	appManager.getAuthScreen().closeGreetingMessage();     	                     
+		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
+    		appManager.getAuthScreen().verifyGreeting();    	
+    		appManager.getAuthScreen().closeGreetingMessage();     	     
+    	}     	                     
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
@@ -287,12 +297,14 @@ public class RegistrationTests extends SetUpForEachTestBase {
         Log.info("END OF TEST");		
 	}
 	
-	@Test(priority=2, description = "REGISTRATION BY CARD. FORGOT CARD NUMBER OR ACCESS CODE. POSITIVE TEST")
+//	@Test(priority=2, description = "REGISTRATION BY CARD. FORGOT CARD NUMBER OR ACCESS CODE. POSITIVE TEST")
 	public void forgotAccesOrCardPositiveTest() {
 		Log.info("REGISTRATION. FORGOT CARD NUMBER OR ACCES CODE POSITIVE TEST STARTS");
 		Log.info("Auth screen");
-    	appManager.getAuthScreen().verifyGreeting();    	
-    	appManager.getAuthScreen().closeGreetingMessage();     	                     
+		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
+    		appManager.getAuthScreen().verifyGreeting();    	
+    		appManager.getAuthScreen().closeGreetingMessage();     	     
+    	}     	                     
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
