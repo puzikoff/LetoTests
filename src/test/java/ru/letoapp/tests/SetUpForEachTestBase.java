@@ -21,11 +21,12 @@ public class SetUpForEachTestBase {
 	}
 			
 	@BeforeMethod	   
-	public void setUpMethod() throws Exception 
+	public void setUpMethod() throws Exception	
 	{		
+		boolean emulator = false;
 		appManager = new AppManager();	 
 		PropertyReader.init("/testconfig.properties");	
-	    appManager.initDriver(PropertyReader.getProperty("appUnderTestId"), PropertyReader.getProperty("serverUrl")); 
+	    appManager.initDriver(PropertyReader.getProperty("appUnderTestId"), PropertyReader.getProperty("serverUrl"), emulator); 
 	    appManager.init();
 	}	
 	

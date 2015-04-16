@@ -5,26 +5,28 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AppScreenBase extends ScreenBase {
-	public static final Logger Log = Logger.getLogger(ScreenBase.class);
+	public static final Logger Log = Logger.getLogger(AppScreenBase.class);
 	
 	private ActionBar actionBar;
+	private Drawer drawer;
 	By drawerLoc = By.id("mdc__layout_drawer");
 
 	public AppScreenBase(WebDriver driver) {
 		super(driver);
 		actionBar = PageFactory.initElements(driver, ActionBar.class);
+		drawer = PageFactory.initElements(driver, Drawer.class);
 		actionBar.setDriver(driver);		
+		drawer.setDriver(driver);
 	}
 	
+/* ---- Action Bar methods -----*/		
 	public String getTitleFromActionBar() {
 		return actionBar.getActionBarTitle();
 	}
 	
-	public void navUpBtnClick() {
+	public void navUpBtnClick() {		
 		actionBar.navUpBtnClick();
 	}
 	
@@ -34,11 +36,29 @@ public class AppScreenBase extends ScreenBase {
 	
 	public void contactsBtnClick() {
 		actionBar.contactsBtnClick();
-	}
-	
+	}	
+
 	public String getActionBarTitle() {
 		return actionBar.getActionBarTitle();
 	}
+	
+/* ---- Action Bar methods Ends-----*/
+	
+/* ---- Drawer methods -----*/
+	public void drawerContactsBtnClick() {
+		drawer.drawerContactsBtnClick();
+	}
+	
+	public void drawerAboutBankBtnClick() {
+		drawer.drawerAboutBankBtnClick();
+	}
+	
+	public void exitBtnClick() {
+		drawer.exitBtnClick();
+	}
+	
+/* ---- Drawer methods ENDS-----*/
+	
 	
 	public String onlyNumbersString(String s) {
 		s = s.replaceAll("\\D+", "");	
@@ -55,21 +75,6 @@ public class AppScreenBase extends ScreenBase {
 		scroll.perform();		
 	}
 	
-	public void waitFor(String xpath) {
-		WebDriverWait waitVar =  new WebDriverWait(driver, 60);
-		By x = By.xpath(xpath);
-		waitVar.until(ExpectedConditions.presenceOfElementLocated(x));		
-	}
 	
-	public void waitFor(By locator) {		
-		WebDriverWait waitVar =  new WebDriverWait(driver, 60);
-		waitVar.until(ExpectedConditions.presenceOfElementLocated(locator));		
-	}
-	
-	public void waitForClickable(String xpath) {
-		WebDriverWait waitVar =  new WebDriverWait(driver, 60);
-		By x = By.xpath(xpath);
-		waitVar.until(ExpectedConditions.elementToBeClickable(x));		
-	}
 
 }

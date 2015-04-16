@@ -17,8 +17,9 @@ public class ForgotPswScreen extends AppScreenBase{
 
 	public void getNewCredentialsBtnClick() {
 		waitFor(newCredentialsBtn);
-		Log.info("ForgotPswScreen: New credentials button click");
-		driver.findElement(newCredentialsBtn).click();		
+		Log.info("Forgot Psw Screen: New credentials button click");
+		driver.findElement(newCredentialsBtn).click();	
+		delay();
 	}
 
 }

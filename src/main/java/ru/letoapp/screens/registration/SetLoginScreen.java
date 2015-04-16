@@ -17,15 +17,16 @@ public class SetLoginScreen extends AppScreenBase {
 
 	public void enterLogin(String login) {
 		waitFor(loginField);
-		Log.info("Entering login: " + login);
+		Log.info("Set Login Screen: Entering login: " + login);
 		driver.findElement(loginField).clear();
 		driver.findElement(loginField).sendKeys(login);
 	}
 
 	public void nextBtnClick() {
 		waitFor(nextBtn);
-		Log.info("Click next button");
+		Log.info("Set Login Screen: Click next button");
 		driver.findElement(nextBtn).click();
+		delay();
 	}
 
 }

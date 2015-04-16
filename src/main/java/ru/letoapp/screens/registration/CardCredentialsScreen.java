@@ -20,29 +20,30 @@ public class CardCredentialsScreen extends AppScreenBase{
 
 	public void enterCardNumber(String cardNumber) {
 		waitFor(cardNumberField);
-		Log.info("Entering card number");
+		Log.info("Card Credentials Screen: Entering card number");
 		driver.findElement(cardNumberField).clear();
 		driver.findElement(cardNumberField).sendKeys(cardNumber);		
 	}
 
 	public void enterAccessCode(String accessCode) {
 		waitFor(accessCodeField);
-		Log.info("Entering acces code");
+		Log.info("Card Credentials Screen: Entering access code");
 		driver.findElement(accessCodeField).clear();
 		driver.findElement(accessCodeField).sendKeys(accessCode);
 	}
 
 	public void NextBtnClick() {
 		waitFor(nextBtn);
-		Log.info("Click next button");
+		Log.info("Card Credentials Screen: Click next button");
 		driver.findElement(nextBtn).click();
-		
+		delay();
 	}
 
 	public void forgotCardNumberBtnClick() {
 		waitFor(forgetAccessLink);
-		Log.info("CardCredentialsScreen: Click forget acces code or card number button");
-		driver.findElement(forgetAccessLink).click();			
+		Log.info("Card Credentials Screen: Click forget access code or card number button");
+		driver.findElement(forgetAccessLink).click();	
+		delay();
 	}
 
 }

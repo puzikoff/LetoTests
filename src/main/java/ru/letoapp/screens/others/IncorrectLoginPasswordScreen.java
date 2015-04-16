@@ -16,8 +16,9 @@ public class IncorrectLoginPasswordScreen extends AppScreenBase{
 
 	public void tryAgainBtnClick() {
 		waitFor(tryAgainBtn);
-		Log.info("Try again button click");
-		driver.findElement(tryAgainBtn).click();		
+		Log.info("Incorrect Login or Password Screen: Try again button click");
+		driver.findElement(tryAgainBtn).click();	
+		delay();
 	}
 
 }

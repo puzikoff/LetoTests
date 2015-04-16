@@ -16,18 +16,18 @@ public class RegistrationMethodScreen extends AppScreenBase{
 		super(driver);		
 	}
 
-	public void chooseCard() {
-		Log.info("Waiting for card registration button");
+	public void chooseCard() {		
 		waitFor(cardRegistrationBtn);
-		Log.info("Choose card registration");
+		Log.info("RegistrationMethodScreen: Choose card registration");
 		driver.findElement(cardRegistrationBtn).click();
+		delay();
 	}
 	
-	public void chooseAccount() {
-		Log.info("Waiting for account registration button");
+	public void chooseAccount() {		
 		waitFor(accountRegistrationBtn);
-		Log.info("Choose account registration");
+		Log.info("RegistrationMethodScreen: Choose account registration");
 		driver.findElement(accountRegistrationBtn).click();
+		delay();
 	}
 
 }

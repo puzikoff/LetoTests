@@ -31,9 +31,10 @@ public class CardScreen extends AppScreenBase{
 	
 	public String getTotalAvailable() {		
 		String ta = null;
-		waitFor(totalAvailable);
+		waitFor(totalAvailable);		
 		ta = driver.findElement(totalAvailable).getText();
 		ta = onlyNumbersString(ta);
+		Log.info("Card Screen: get Total Available: " + ta);
 		return ta;
 	}
 	
@@ -41,7 +42,8 @@ public class CardScreen extends AppScreenBase{
 		String cf = null;
 		waitFor(creditFunds);
 		cf = driver.findElement(creditFunds).getText();
-		cf = onlyNumbersString(cf);	
+		cf = onlyNumbersString(cf);
+		Log.info("Card Screen: get Credit Funds: " + cf);
 		return cf;
 	}
 	
@@ -50,6 +52,7 @@ public class CardScreen extends AppScreenBase{
 		waitFor(ownFunds);
 		of = driver.findElement(ownFunds).getText();
 		of = onlyNumbersString(of);	
+		Log.info("Card Screen: get Own Funds: " + of);
 		return of;
 	}
 	
@@ -58,6 +61,7 @@ public class CardScreen extends AppScreenBase{
 		waitFor(blockedFunds);
 		bf = driver.findElement(blockedFunds).getText();
 		bf = onlyNumbersString(bf);	
+		Log.info("Card Screen: get Blocked Funds: " + bf);
 		return bf;
 	}
 

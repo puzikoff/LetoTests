@@ -20,7 +20,7 @@ public class SetPasswordScreen extends AppScreenBase{
 
 	public void enterPassword(String password) {
 		waitFor(passwordField);
-		Log.info("Entering password: " + password);
+		Log.info("Set Password Screen: Entering password: " + password);
 		driver.findElement(passwordField).clear();
 		driver.findElement(passwordField).sendKeys(password);
 	}
@@ -28,14 +28,14 @@ public class SetPasswordScreen extends AppScreenBase{
 	public void isWeakPasswordErrorDisplayed() {
 		waitFor(weakPasswordError);
 		if(driver.findElement(weakPasswordError).isDisplayed())
-			Log.info("Error: " + driver.findElement(weakPasswordError).getText());
+			Log.info("Set Password Screen: Error: " + driver.findElement(weakPasswordError).getText());
 		else
-			Log.error("No weak password error");
+			Log.error("Set Password Screen: No weak password error");
 	}
 
 	public void confirmPassword(String confirmPassword) {
 		waitFor(confirmPasswordField);
-		Log.info("Confirm password: " + confirmPassword);
+		Log.info("Set Password Screen: Confirm password: " + confirmPassword);
 		driver.findElement(confirmPasswordField).clear();
 		driver.findElement(confirmPasswordField).sendKeys(confirmPassword);
 	}
@@ -43,15 +43,16 @@ public class SetPasswordScreen extends AppScreenBase{
 	public void isWrongConfirmPasswordErrorDisplayed() {
 		waitFor(wrongConfirmPasswordError);
 		if(driver.findElement(wrongConfirmPasswordError).isDisplayed())
-			Log.info("Error: " + driver.findElement(wrongConfirmPasswordError).getText());
+			Log.info("Set Password Screen: Error: " + driver.findElement(wrongConfirmPasswordError).getText());
 		else
-			Log.error("No wrong confirm password error");
+			Log.error("Set Password Screen: No wrong confirm password error");
 	}
 
 	public void nextBtnClick() {
 		waitFor(nextBtn);
-		Log.info("Click next button");
+		Log.info("Set Password Screen: Click next button");
 		driver.findElement(nextBtn).click();
+		delay();
 	}
 
 }

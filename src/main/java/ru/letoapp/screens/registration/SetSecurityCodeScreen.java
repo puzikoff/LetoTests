@@ -20,7 +20,7 @@ public class SetSecurityCodeScreen extends AppScreenBase{
 	}
 	
 	public void clickNumber(String number) {
-		Log.info("Click number: " + number);
+		Log.info("Set Security Code Screen: Click number: " + number);
 		driver.findElement(By.id("button_keyboard_" + number)).click();		
 	}
 

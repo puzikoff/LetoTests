@@ -1,9 +1,6 @@
 package ru.letoapp.screens.others;
 
 import java.util.List;
-
-import io.selendroid.server.common.exceptions.NoSuchElementException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.apache.log4j.Logger;
@@ -48,7 +45,7 @@ public class AuthScreen extends AppScreenBase {
 	
 	public void verifyGreeting() {		
 		waitFor(greetingNextBtn);
-		Log.info("Verify greeting window");
+		Log.info("Auth screen: Verify greeting window");
 		Assert.assertEquals(driver.findElement(greetingMessage).getText(), greetingMessageText);
 		Assert.assertEquals(driver.findElement(greetingTitle).getText(), greetingTitleText);		
 		Assert.assertEquals(driver.findElement(greetingNextBtn).getText(), greetingNextBtnText);	
@@ -56,7 +53,7 @@ public class AuthScreen extends AppScreenBase {
 	
 	public void verifyAuthScreen() {		
 		waitFor(loginBtn);
-		Log.info("Verify auth screen");
+		Log.info("Auth screen: Verify auth screen");
 		Verify.verify(driver.findElement(authTitle).getText().contentEquals(authTitleText), "Title is not correct", driver.findElement(authTitle).getText());	
 		Assert.assertEquals(driver.findElement(authSubTitle).getText(), authSubTitleText);
 		Assert.assertEquals(driver.findElement(protCodeCheckbox).getText(), protCodeCheckboxText);		
@@ -66,43 +63,57 @@ public class AuthScreen extends AppScreenBase {
 		//Assert.assertTrue(driver.findElement(protCodeCheckbox).isSelected());
 	}
 	
-	public void setProtCodeCheckbox () {
-		
+	public void setProtCodeCheckbox () {		
+		Log.info("Auth screen: Set protect code checkbox");
 		driver.findElement(protCodeCheckbox).click();
+		delay();
 	}
 	
 	public boolean isProtCodeCheckboxSelected () {
+		Log.info("Auth screen: Is protect code selected:" + driver.findElement(protCodeCheckbox).isSelected());
 		return driver.findElement(protCodeCheckbox).isSelected();
 	}
 	
 	public void loginBtnClick () {
+		waitFor(loginBtn);
+		Log.info("Auth screen: Click login button");
 		driver.findElement(loginBtn).click();
+		delay();
 	}
 	
 	public void remindLogPasBtnClick () {
+		Log.info("Auth screen: Click remind login and password link");
 		driver.findElement(remindLogPasLink).click();
+		delay();
 	}
 	
 	public void registerBtnClick () {
-		Log.info("Click 'Registration' button'");
+		waitFor(registerBtn);
+		Log.info("Auth screen: Click 'Registration' button'");
 		driver.findElement(registerBtn).click();
+		delay();
 	}
 	
 	public void closeGreetingMessage () {
-		Log.info("Click on confirm button");
+		waitFor(greetingNextBtn);
+		Log.info("Auth screen: Click on confirm button");
 		driver.findElement(greetingNextBtn).click();
+		delay();
 	}
 	
 	public void enterUsername (String username) {
+		Log.info("Auth screen: Enter Username: " + username);
 		driver.findElement(usernameTextField).clear();
 		driver.findElement(usernameTextField).sendKeys(username);
 	}
 	
 	public String getUsername () {
+		Log.info("Auth screen: get username");
 		return driver.findElement(usernameTextField).getText();		
 	}
 	
 	public void enterPassword (String password) {
+		Log.info("Auth screen: Enter password: " + password);
 		driver.findElement(passwordTextField).clear();
 		driver.findElement(passwordTextField).sendKeys(password);
 	}

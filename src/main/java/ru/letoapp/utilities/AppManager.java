@@ -5,6 +5,7 @@ import io.selendroid.common.SelendroidCapabilities;
 import io.selendroid.standalone.SelendroidConfiguration;
 import io.selendroid.standalone.SelendroidLauncher;
 import io.selendroid.standalone.log.LogLevelEnum;
+import io.selendroid.common.device.DeviceTargetPlatform;
 import java.net.URL;
 
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ru.letoapp.screens.cards.CardScreen;
 import ru.letoapp.screens.loans.LoanScreen;
+import ru.letoapp.screens.others.AboutBankAndAppScreen;
+import ru.letoapp.screens.others.AboutBankScreen;
 import ru.letoapp.screens.others.AuthScreen;
+import ru.letoapp.screens.others.BankRequisitesScreen;
 import ru.letoapp.screens.others.CommonTimelineScreen;
 import ru.letoapp.screens.others.ContactsScreen;
 import ru.letoapp.screens.others.CreditCardsListScreen;
@@ -62,6 +66,9 @@ public class AppManager {
 	private ForgotPswScreen forgotPswScreen;
 	private ForgotAccountOrAccessCodeScreen forgotAccountOrAccessCodeScreen;
 	private ForgotCardNumberOrAccessCodeScreen forgotCardNumberOrAccessCodeScreen;
+	private AboutBankAndAppScreen aboutBankAndAppScreen;
+	private AboutBankScreen aboutBankScreen; 
+	private BankRequisitesScreen bankRequisitesScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -86,6 +93,9 @@ public class AppManager {
 		forgotPswScreen = new ForgotPswScreen(driver);
 		forgotAccountOrAccessCodeScreen = new ForgotAccountOrAccessCodeScreen(driver);
 		forgotCardNumberOrAccessCodeScreen = new ForgotCardNumberOrAccessCodeScreen(driver);
+		aboutBankAndAppScreen = new AboutBankAndAppScreen(driver);
+		aboutBankScreen = new AboutBankScreen(driver);
+		bankRequisitesScreen = new BankRequisitesScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -182,13 +192,26 @@ public class AppManager {
 		return forgotCardNumberOrAccessCodeScreen;
 	}
 	
+	public AboutBankAndAppScreen getAboutBankAndAppScreen() {
+		return aboutBankAndAppScreen;
+	}
+	
+	public AboutBankScreen getAboutBankScreen() {
+		return aboutBankScreen;
+	}
+	
+	public BankRequisitesScreen getBankRequisitesScreen() {
+		return bankRequisitesScreen;
+	}
+	
 	/* Starting Selendroid */
 	
 	public void startServer(String appPath, boolean forceReinstall, boolean noClearData) 
 	{
 		serverConfig = new SelendroidConfiguration();
 	    serverConfig.addSupportedApp(appPath);
-	    serverConfig.setPort(4444);
+	    serverConfig.setPort(4444);	    
+	    serverConfig.setEmulatorPort(44444);
 	    serverConfig.setDeviceLog(false);
 	    serverConfig.setSelendroidServerPort(38080);
 	    serverConfig.setForceReinstall(forceReinstall);
@@ -200,20 +223,27 @@ public class AppManager {
 	    server.launchSelendroid();	            
 	}
 
-	public void initDriver(String appUnderTestId, String serverUrl, String appActivity) throws Exception 
+	public void initDriver(String appUnderTestId, String serverUrl, Boolean emulator, String appActivity) throws Exception 
 	{
 	    capabilities = new SelendroidCapabilities();        
 	    capabilities.setAut(appUnderTestId);      
 	    capabilities.setLaunchActivity(appActivity);  
-	    
+	    if(emulator == true) {
+	    	capabilities.setEmulator(true);
+	    	capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID19);
+	    }
 	    driver = new SelendroidDriver(new URL(serverUrl), capabilities);
 	    waitDriver = new WebDriverWait(driver, 90);	 
 	} 
 	    
-	public void initDriver(String appUnderTestId, String serverUrl) throws Exception
+	public void initDriver(String appUnderTestId, String serverUrl, Boolean emulator) throws Exception
 	{
 	    capabilities = new SelendroidCapabilities();	    
-	    capabilities.setAut(appUnderTestId);      	    
+	    capabilities.setAut(appUnderTestId);
+	    if(emulator == true) {
+	    	capabilities.setEmulator(true);
+	    	capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID19);
+	    }
 	    driver = new SelendroidDriver(new URL(serverUrl), capabilities); 
 	    waitDriver = new WebDriverWait(driver, 90);
 	}

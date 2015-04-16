@@ -18,20 +18,22 @@ public class DboScreen extends AppScreenBase {
 
 	public void acceptLicenseTerms() {		
 		waitFor(acceptTermsBtn);
-		Log.info("DboScreen: Click 'Accept terms' button");
-		driver.findElement(acceptTermsBtn).click();		
+		Log.info("Dbo Screen: Click 'Accept terms' button");
+		driver.findElement(acceptTermsBtn).click();	
+		delay();
 	}	
 	
 	public void menuBtnClick() {		
 		waitFor(contextMenuBtn);
-		Log.info("DboScreen: Click menu button");
+		Log.info("Dbo Screen: Click menu button");
 		driver.findElement(contextMenuBtn).click();
 	}
 	
 	public void sendEmailBtnClick() {		
 		waitFor(sendEmailBtn);
-		Log.info("DboScreen: Click send email button");
+		Log.info("Dbo Screen: Click send email button");
 		driver.findElement(sendEmailBtn).click();
+		delay();
 	}
 
 }

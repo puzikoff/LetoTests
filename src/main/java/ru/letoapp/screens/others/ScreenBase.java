@@ -1,6 +1,10 @@
 package ru.letoapp.screens.others;
 
+import org.eclipse.jetty.util.log.Log;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ScreenBase {
 	private static final long DELAY_AFTER_ACTIVE_ACTION = 700;
@@ -23,5 +27,22 @@ public class ScreenBase {
 	            Thread.sleep(DELAY_AFTER_ACTIVE_ACTION);
 	        } catch (InterruptedException e) {}
 	    }
+	    
+	    public void waitFor(String xpath) {
+			WebDriverWait waitVar =  new WebDriverWait(driver, 60);
+			By x = By.xpath(xpath);
+			waitVar.until(ExpectedConditions.presenceOfElementLocated(x));		
+		}
+		
+		public void waitFor(By locator) {			
+			WebDriverWait waitVar =  new WebDriverWait(driver, 60);
+			waitVar.until(ExpectedConditions.presenceOfElementLocated(locator));		
+		}
+		
+		public void waitForClickable(String xpath) {
+			WebDriverWait waitVar =  new WebDriverWait(driver, 60);
+			By x = By.xpath(xpath);
+			waitVar.until(ExpectedConditions.elementToBeClickable(x));		
+		}
 
 }

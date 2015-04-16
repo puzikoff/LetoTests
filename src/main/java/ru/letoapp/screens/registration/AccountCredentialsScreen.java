@@ -21,28 +21,30 @@ public static final Logger Log = Logger.getLogger(AccountCredentialsScreen.class
 	
 	public void enterAccountNumber(String accountNumber) {
 		waitFor(accountNumberField);
-		Log.info("AccountCredentialsScreen: Entering account number");
+		Log.info("Account Credentials Screen: Entering account number");
 		driver.findElement(accountNumberField).clear();
 		driver.findElement(accountNumberField).sendKeys(accountNumber);		
 	}
 
 	public void enterAccessCode(String accessCode) {
 		waitFor(accessCodeField);
-		Log.info("AccountCredentialsScreen: Entering acces code");
+		Log.info("Account Credentials Screen: Entering access code");
 		driver.findElement(accessCodeField).clear();
 		driver.findElement(accessCodeField).sendKeys(accessCode);
 	}
 
 	public void NextBtnClick() {
 		waitFor(nextBtn);
-		Log.info("AccountCredentialsScreen: Click next button");
-		driver.findElement(nextBtn).click();		
+		Log.info("Account Credentials Screen: Click next button");
+		driver.findElement(nextBtn).click();	
+		delay();
 	}
 
 	public void forgotAccountBtnClick() {
 		waitFor(forgetAccessLink);
-		Log.info("AccountCredentialsScreen: Click forget acces code button");
-		driver.findElement(forgetAccessLink).click();		
+		Log.info("Account Credentials Screen: Click forget acces code button");
+		driver.findElement(forgetAccessLink).click();	
+		delay();
 	}
 
 }

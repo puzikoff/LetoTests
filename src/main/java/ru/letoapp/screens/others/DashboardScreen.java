@@ -27,38 +27,44 @@ public class DashboardScreen extends AppScreenBase {
 	}
 	
 	public void verifyDashboardScreen() {
+		Log.info("Dashboard screen: Verify Dashboard");
 		waitFor("//TextView[@id=\"label_card_caption\"]");
 	}
 		
 	public void openCard(String cardName) {
+		Log.info("Dashboard screen: Open card: " + cardName);
 		waitFor("//TextView[@id=\"label_card_caption\"]");				
 		List <WebElement> cards = driver.findElements(By.xpath("//TextView[@id='label_card_caption']"));
 		for(WebElement card: cards) {			
 			if(card.getText().contains(cardName)) {				
 				Log.error("Open card:" + card.getText());								
 				card.click();
+				delay();
 			}			
 		}		
 	}
 	
 	public void openCard(int n) {		
+		Log.info("Dashboard screen: Open card number: " + n);
 		waitFor("//ScrollView/LinearLayout//FrameLayout[2]//CardInfoView_[1]");
 		driver.findElement(By.xpath("//ScrollView/LinearLayout//FrameLayout[2]//CardInfoView_[" + n + "]")).click();	
 	}
 	
 	public String getCardSum(String cardName) {
 		String sum = null;
+		Log.info("Dashboard screen: Get" + cardName + "card sum");
 		waitFor("//TextView[@id=\"label_card_caption\"]");				
 		List <WebElement> cards = driver.findElements(By.xpath("//TextView[@id='label_card_caption']"));
 		for(int i = 0; cards.get(i).getSize() != null; ++i) {			
 			if(cards.get(i).getText().contains(cardName)) {
 				sum = driver.findElement(By.xpath("//CardInfoView_[" + (i+1) + "]//TextView[2]")).getText();
 				if(!sum.contains(",")) sum = sum + "00";
-				sum = sum.replaceAll("\\D+", "");							
+				sum = sum.replaceAll("\\D+", "");				
+				Log.info("Dashboard screen: Cardsum: " + sum);
 				return sum;
 			}			
 		}
-		return "No card with such name: " + cardName;
+		return "Dashboard screen: No card with such name: " + cardName;
 	}
 	
 	public String getCardSum(int n) {
@@ -67,28 +73,39 @@ public class DashboardScreen extends AppScreenBase {
 	}
 	
 	
-	public void cardsListBtnClick() {
+	public void cardsListBtnClick() {		
 		waitFor(cardsListBtn);		
-		driver.findElement(cardsListBtn).click();		
+		Log.info("Dashboard screen: Open cards list");
+		driver.findElement(cardsListBtn).click();	
+		delay();
 	}	
 	
 	public void loansListBtnClick() {
 		waitFor(loansListBtn);
+		Log.info("Dashboard screen: Open loans list");
 		driver.findElement(loansListBtn).click();
+		delay();
 	}
 	
 	public void loanBtnClick() {
+		waitFor(loanBtn);
+		Log.info("Dashboard screen: Open loan");		
 		driver.findElement(loanBtn).click();
+		delay();
 	}
 	
 	public void depositsListBtnClick() {
 		waitFor(depositsListBtn);
+		Log.info("Dashboard screen: Open depositss list");
 		driver.findElement(depositsListBtn).click();
+		delay();
 	}
 	
 	public void timelineBtnClick(){
 		waitFor(timelineBtn);
+		Log.info("Dashboard screen: Open timeline");
 		driver.findElement(timelineBtn).click();
+		delay();
 	}	
 
 }

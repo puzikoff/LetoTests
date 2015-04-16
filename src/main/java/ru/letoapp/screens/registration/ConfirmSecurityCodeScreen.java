@@ -20,7 +20,7 @@ public class ConfirmSecurityCodeScreen extends AppScreenBase {
 	}
 
 	public void clickNumber(String number) {
-		Log.info("Click number: " + number);
+		Log.info("Confirm security code screen: Click number: " + number);
 		driver.findElement(By.id("button_keyboard_" + number)).click();		
 	}
 

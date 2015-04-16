@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import ru.letoapp.utilities.PropertyReader;
 
 public class RegistrationTests extends SetUpForEachTestBase {
-	public static final Logger Log = Logger.getLogger(RegistrationTests.class);
+	public static final Logger Log = Logger.getLogger(RegistrationTests.class);	
 	
 	@Test(priority=1, description = "REGISTRATION BY CARD. POSITIVE TEST")
 	public void registrationByCardPositiveTest() {
@@ -17,7 +17,10 @@ public class RegistrationTests extends SetUpForEachTestBase {
     	}                
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
+        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));
+        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
+        	appManager.getAuthScreen().setProtCodeCheckbox();
+        }
         appManager.getAuthScreen().loginBtnClick();
         Log.info("Incorrect email or password screen");
         appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();
@@ -80,7 +83,7 @@ public class RegistrationTests extends SetUpForEachTestBase {
     	}     	                     
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
+        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));           
         appManager.getAuthScreen().loginBtnClick();
         Log.info("Incorrect email or password screen");
         appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();
@@ -143,7 +146,7 @@ public class RegistrationTests extends SetUpForEachTestBase {
     	}     	                     
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
+        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));      
         appManager.getAuthScreen().loginBtnClick();
         Log.info("Incorrect email or password screen");
         appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();
@@ -198,7 +201,7 @@ public class RegistrationTests extends SetUpForEachTestBase {
     	}     	                     
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
+        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));         
         appManager.getAuthScreen().loginBtnClick();
         Log.info("Incorrect email or password screen");
         appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();
@@ -253,7 +256,7 @@ public class RegistrationTests extends SetUpForEachTestBase {
     	}     	                     
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));        
+        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));       
         appManager.getAuthScreen().loginBtnClick();
         Log.info("Incorrect email or password screen");
         appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();

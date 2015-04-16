@@ -20,29 +20,30 @@ public class SmsCodeScreen extends AppScreenBase{
 
 	public void sendSmsAgainBtnClick() {
 		waitFor(sendSmsAgainBtn);
-		Log.info("SMSCodeScreen: Click 'send sms again'");
-		driver.findElement(sendSmsAgainBtn).click();		
+		Log.info("SMS Code Screen: Click 'send sms again'");
+		driver.findElement(sendSmsAgainBtn).click();
+		delay();
 	}
 
 	public void nextBtnClick() {				
-		waitFor(nextBtn);
-		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);		
-		Log.info("SMSCodeScreen: Click 'Next'");
+		waitFor(nextBtn);				
+		Log.info("SMS Code Screen: Click 'Next'");
 		driver.findElement(nextBtn).click();
+		delay();
 	}
 
 	public void enterSmsCode(String smsCode) {
 		waitFor(smsCodeField);
-		Log.info("SMSCodeScreen: Enter sms code");
+		Log.info("SMS Code Screen: Enter sms code");
 		driver.findElement(smsCodeField).clear();
 		driver.findElement(smsCodeField).sendKeys(smsCode);
 	}
 
 	public void emptyFieldNextBtnClick() {
 		waitFor(emptyFieldErrorNextBtn);
-		Log.info("SMSCodeScreen: Click 'Next' on empty field error popup");
-		driver.findElement(emptyFieldErrorNextBtn);
-		
+		Log.info("SMS Code Screen: Click 'Next' on empty field error popup");
+		driver.findElement(emptyFieldErrorNextBtn).click();
+		delay();		
 	}
 
 }

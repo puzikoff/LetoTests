@@ -20,20 +20,21 @@ public class SendEmailScreen extends AppScreenBase{
 	}
 
 	public void sendBtnClick() {		
-		waitFor(sendBtn);
-		//driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		Log.info("Click send button");
-		driver.findElement(sendBtn).click();		
+		waitFor(sendBtn);		
+		Log.info("Send Email Screen: Click send button");
+		driver.findElement(sendBtn).click();
+		delay();
 	}
 
 	public void emptyEmailPopupNextBtnClick() {		
 		waitFor(emptyEmailPopupError);
-		Log.info("Click next");
-		driver.findElement(emptyEmailPopupNextBtn).click();		
+		Log.info("Send Email Screen: Click next");
+		driver.findElement(emptyEmailPopupNextBtn).click();
+		delay();
 	}
 
 	public void enterEmail(String email) {
-		Log.info("Entering email: " + email);
+		Log.info("Send Email Screen: Entering email: " + email);
 		driver.findElement(emailField).clear();
 		driver.findElement(emailField).sendKeys(email);		
 	}
