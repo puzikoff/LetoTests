@@ -38,14 +38,14 @@ public class RegistrationTests extends SetUpForEachTestBase {
         Log.info("Registration method screen");
         appManager.getRegistrationMethodScreen().chooseCard();        
         Log.info("Card credentials screen");
-        appManager.getCardCredentialsScreen().enterCardNumber("0000000000000001"); // correct card number
-        appManager.getCardCredentialsScreen().enterAccessCode("010101"); // correct access code for card
+        appManager.getCardCredentialsScreen().enterCardNumber(PropertyReader.getProperty("sbCorrectCardNumber")); 
+        appManager.getCardCredentialsScreen().enterAccessCode(PropertyReader.getProperty("sbCorrectCardAccessCode")); 
         appManager.getCardCredentialsScreen().NextBtnClick();
         Log.info("SMS code screen");
         //appManager.getSmsCodeScreen().sendSmsAgainBtnClick();
         //appManager.getSmsCodeScreen().nextBtnClick();
         //appManager.getSmsCodeScreen().emptyFieldNextBtnClick();
-        appManager.getSmsCodeScreen().enterSmsCode("334500");
+        appManager.getSmsCodeScreen().enterSmsCode(PropertyReader.getProperty("sbSmsCode"));
         appManager.getSmsCodeScreen().nextBtnClick();
         Log.info("Set login screen");
         appManager.getSetLoginScreen().enterLogin("newLogin");

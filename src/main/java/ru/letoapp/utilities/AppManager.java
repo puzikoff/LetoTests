@@ -11,7 +11,7 @@ import java.net.URL;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import ru.letoapp.screens.cards.CardScreen;
+import ru.letoapp.screens.cards.CardScreenCard;
 import ru.letoapp.screens.loans.LoanScreen;
 import ru.letoapp.screens.others.AboutBankAndAppScreen;
 import ru.letoapp.screens.others.AboutBankScreen;
@@ -51,7 +51,7 @@ public class AppManager {
 	private LoansListScreen loansListScreen;
 	private LoanScreen loanScreen;
 	private CreditCardsListScreen creditCardsListScreen;
-	private CardScreen creditCardScreen;
+	private CardScreenCard creditCardScreen;
 	private DboScreen dboScreen;
 	private SendEmailScreen sendEmailScreen;
 	private RegistrationMethodScreen registrationMethodScreen;
@@ -78,7 +78,7 @@ public class AppManager {
 		loansListScreen = new LoansListScreen(driver);
 		loanScreen = new LoanScreen(driver);
 		creditCardsListScreen = new CreditCardsListScreen(driver);
-		creditCardScreen = new CardScreen(driver);
+		creditCardScreen = new CardScreenCard(driver);
 		dboScreen = new DboScreen(driver);
 		sendEmailScreen = new SendEmailScreen(driver);
 		registrationMethodScreen = new RegistrationMethodScreen(driver);
@@ -124,7 +124,7 @@ public class AppManager {
 		return loanScreen;
 	}
 	
-	public CardScreen getCardScreen() {
+	public CardScreenCard getCardScreen() {
 		return creditCardScreen;
 	}
 	
@@ -132,7 +132,7 @@ public class AppManager {
 		return creditCardsListScreen;
 	}
 	
-	public CardScreen getCreditCardScreen() {
+	public CardScreenCard getCreditCardScreen() {
 		return creditCardScreen;
 	}
 	

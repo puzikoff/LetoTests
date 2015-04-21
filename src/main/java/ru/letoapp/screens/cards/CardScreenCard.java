@@ -6,11 +6,12 @@ import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.others.AppScreenBase;
 
-public class CardScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(CardScreen.class);
+public class CardScreenCard extends AppScreenBase{
+	public static final Logger Log = Logger.getLogger(CardScreenCard.class);
 	String actionBarTitle = "Карта";
 	By editNameBtn = By.id("button_edit");
 	By cardName = By.id("label_user_defined_name");
+	By labelContractState = By.id("label_contract_state");
 	By cardTab = By.xpath("//TextView[@value='КАРТА']");
 	By infoTab = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
 	By manageTab = By.xpath("//TextView[@value='УПРАВЛЕНИЕ']");
@@ -21,7 +22,7 @@ public class CardScreen extends AppScreenBase{
 	By blockedFunds = By.id("label_blocked");
 	By holdsBtn = By.id("layout_card_info_holds");
 
-	public CardScreen(WebDriver driver) {
+	public CardScreenCard(WebDriver driver) {
 		super(driver);
 	}
 	

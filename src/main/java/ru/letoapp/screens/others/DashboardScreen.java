@@ -46,8 +46,9 @@ public class DashboardScreen extends AppScreenBase {
 	
 	public void openCard(int n) {		
 		Log.info("Dashboard screen: Open card number: " + n);
-		waitFor("//ScrollView/LinearLayout//FrameLayout[2]//CardInfoView_[1]");
-		driver.findElement(By.xpath("//ScrollView/LinearLayout//FrameLayout[2]//CardInfoView_[" + n + "]")).click();	
+		waitFor("//CardSectionView_//CardInfoView_[1]");
+		driver.findElement(By.xpath("//CardSectionView_//CardInfoView_[" + n + "]")).click();
+		delay();
 	}
 	
 	public String getCardSum(String cardName) {

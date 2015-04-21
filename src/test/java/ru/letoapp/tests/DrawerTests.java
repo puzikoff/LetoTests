@@ -26,12 +26,18 @@ public class DrawerTests extends SetUpForEachTestBase{
         appManager.getDashboardScreen().menuBtnClick();
         appManager.getDashboardScreen().drawerContactsBtnClick();
         Assert.assertEquals(appManager.getContactsScreen().getTitleFromActionBar(),"Контакты");
-        appManager.getDashboardScreen().navUpBtnClick();
+        appManager.getContactsScreen().navUpBtnClick();
         appManager.getDashboardScreen().menuBtnClick();
         appManager.getDashboardScreen().drawerAboutBankBtnClick();        
         Assert.assertEquals(appManager.getAboutBankScreen().getTitleFromActionBar(), "О банке");
-        appManager.getDashboardScreen().navUpBtnClick();
+        appManager.getAboutBankScreen().aboutBankAndAppBtnClick();
+        appManager.getAboutBankAndAppScreen().navUpBtnClick();
         appManager.getDashboardScreen().menuBtnClick();
-        appManager.getDashboardScreen().exitBtnClick();		
+        appManager.getDashboardScreen().drawerAboutBankBtnClick();
+        appManager.getAboutBankScreen().bankRequisitesBtnClick();
+        appManager.getBankRequisitesScreen().verifyScreen();
+        appManager.getBankRequisitesScreen().navUpBtnClick();
+        appManager.getAboutBankScreen().menuBtnClick();
+        appManager.getAboutBankScreen().exitBtnClick();		
 	}
 }

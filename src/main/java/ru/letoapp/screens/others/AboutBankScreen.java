@@ -15,4 +15,18 @@ public class AboutBankScreen extends AppScreenBase{
 		super(driver);
 	}
 
+	public void aboutBankAndAppBtnClick() {
+		waitFor(aboutBankAndAppBtn);
+		Log.info("About bank screen: About bank and application button click");
+		driver.findElement(aboutBankAndAppBtn).click();
+		delay();
+	}
+
+	public void bankRequisitesBtnClick() {
+		waitFor(bankRequisitesBtn);
+		Log.info("About bank screen: Bank requisites button click");
+		driver.findElement(bankRequisitesBtn).click();
+		delay();
+	}
+
 }
