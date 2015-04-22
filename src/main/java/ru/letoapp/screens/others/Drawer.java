@@ -4,6 +4,8 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import ru.letoapp.screens.ScreenBase;
+
 public class Drawer extends ScreenBase{
 	public static final Logger Log = Logger.getLogger(Drawer.class);
 	By contactsBtn = By.id("layout_contacts");

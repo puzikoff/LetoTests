@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+
+import ru.letoapp.screens.AppScreenBase;
+
 import com.google.common.base.Verify;
 
 public class AuthScreen extends AppScreenBase {

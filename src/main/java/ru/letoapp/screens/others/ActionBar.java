@@ -4,6 +4,8 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import ru.letoapp.screens.ScreenBase;
+
 public class ActionBar extends ScreenBase{
 	public static final Logger Log = Logger.getLogger(ActionBar.class);	
 	By menuBtn = By.id("home");

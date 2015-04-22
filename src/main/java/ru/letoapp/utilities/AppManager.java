@@ -51,7 +51,7 @@ public class AppManager {
 	private LoansListScreen loansListScreen;
 	private LoanScreen loanScreen;
 	private CreditCardsListScreen creditCardsListScreen;
-	private CardScreenCard creditCardScreen;
+	private CardScreenCard cardScreenCard;
 	private DboScreen dboScreen;
 	private SendEmailScreen sendEmailScreen;
 	private RegistrationMethodScreen registrationMethodScreen;
@@ -78,7 +78,7 @@ public class AppManager {
 		loansListScreen = new LoansListScreen(driver);
 		loanScreen = new LoanScreen(driver);
 		creditCardsListScreen = new CreditCardsListScreen(driver);
-		creditCardScreen = new CardScreenCard(driver);
+		cardScreenCard = new CardScreenCard(driver);
 		dboScreen = new DboScreen(driver);
 		sendEmailScreen = new SendEmailScreen(driver);
 		registrationMethodScreen = new RegistrationMethodScreen(driver);
@@ -123,17 +123,13 @@ public class AppManager {
 	public LoanScreen getLoanScreen() {
 		return loanScreen;
 	}
-	
-	public CardScreenCard getCardScreen() {
-		return creditCardScreen;
-	}
-	
+
 	public CreditCardsListScreen getCreditCardsListScreen() {
 		return creditCardsListScreen;
 	}
 	
-	public CardScreenCard getCreditCardScreen() {
-		return creditCardScreen;
+	public CardScreenCard getCardScreenCard() {
+		return cardScreenCard;
 	}
 	
 	public DboScreen getDboScreen() {

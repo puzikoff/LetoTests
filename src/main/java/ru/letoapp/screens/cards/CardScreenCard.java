@@ -4,14 +4,11 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import ru.letoapp.screens.others.AppScreenBase;
+import ru.letoapp.screens.AppScreenBase;
 
 public class CardScreenCard extends AppScreenBase{
 	public static final Logger Log = Logger.getLogger(CardScreenCard.class);
-	String actionBarTitle = "Карта";
-	By editNameBtn = By.id("button_edit");
-	By cardName = By.id("label_user_defined_name");
-	By labelContractState = By.id("label_contract_state");
+	String actionBarTitle = "Карта";	
 	By cardTab = By.xpath("//TextView[@value='КАРТА']");
 	By infoTab = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
 	By manageTab = By.xpath("//TextView[@value='УПРАВЛЕНИЕ']");
@@ -35,7 +32,7 @@ public class CardScreenCard extends AppScreenBase{
 		waitFor(totalAvailable);		
 		ta = driver.findElement(totalAvailable).getText();
 		ta = onlyNumbersString(ta);
-		Log.info("Card Screen: get Total Available: " + ta);
+		Log.info("Card Screen 'card' tab: get Total Available: " + ta);
 		return ta;
 	}
 	
@@ -44,7 +41,7 @@ public class CardScreenCard extends AppScreenBase{
 		waitFor(creditFunds);
 		cf = driver.findElement(creditFunds).getText();
 		cf = onlyNumbersString(cf);
-		Log.info("Card Screen: get Credit Funds: " + cf);
+		Log.info("Card Screen 'card' tab: get Credit Funds: " + cf);
 		return cf;
 	}
 	
@@ -53,7 +50,7 @@ public class CardScreenCard extends AppScreenBase{
 		waitFor(ownFunds);
 		of = driver.findElement(ownFunds).getText();
 		of = onlyNumbersString(of);	
-		Log.info("Card Screen: get Own Funds: " + of);
+		Log.info("Card Screen 'card' tab: get Own Funds: " + of);
 		return of;
 	}
 	
@@ -62,8 +59,20 @@ public class CardScreenCard extends AppScreenBase{
 		waitFor(blockedFunds);
 		bf = driver.findElement(blockedFunds).getText();
 		bf = onlyNumbersString(bf);	
-		Log.info("Card Screen: get Blocked Funds: " + bf);
+		Log.info("Card Screen 'card' tab: get Blocked Funds: " + bf);
 		return bf;
+	}
+
+	public void infoTabClick() {
+		Log.info("Card Screen 'card' tab: Information tab click");
+		driver.findElement(infoTab).click();
+		delay();
+	}
+
+	public void managementTabClick() {
+		Log.info("Card Screen 'card' tab: Managementd tab click");
+		driver.findElement(manageTab).click();
+		delay();		
 	}
 
 }

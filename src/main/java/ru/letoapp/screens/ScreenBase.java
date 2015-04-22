@@ -1,4 +1,4 @@
-package ru.letoapp.screens.others;
+package ru.letoapp.screens;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

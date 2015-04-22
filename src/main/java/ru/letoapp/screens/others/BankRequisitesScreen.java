@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
+import ru.letoapp.screens.AppScreenBase;
+
 
 public class BankRequisitesScreen extends AppScreenBase{
 	public static final Logger Log = Logger.getLogger(BankRequisitesScreen.class);

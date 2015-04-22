@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import ru.letoapp.screens.AppScreenBase;
+
 public class DashboardScreen extends AppScreenBase {
 	public static final Logger Log = Logger.getLogger(DashboardScreen.class);	
 	By timelineBtn = By.id("button_feed");	
