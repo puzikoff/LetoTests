@@ -24,20 +24,20 @@ public class DrawerTests extends SetUpForEachTestBase{
         appManager.getAuthScreen().loginBtnClick();
         appManager.getDashboardScreen().verifyDashboardScreen();        
         appManager.getDashboardScreen().menuBtnClick();
-        appManager.getDashboardScreen().drawerContactsBtnClick();
+        appManager.getDashboardScreen().getDrawer().contactsBtnClick();
         Assert.assertEquals(appManager.getContactsScreen().getTitleFromActionBar(),"Контакты");
         appManager.getContactsScreen().navUpBtnClick();
         appManager.getDashboardScreen().menuBtnClick();
-        appManager.getDashboardScreen().drawerAboutBankBtnClick();        
+        appManager.getDashboardScreen().getDrawer().aboutBankBtnClick();        
         Assert.assertEquals(appManager.getAboutBankScreen().getTitleFromActionBar(), "О банке");
         appManager.getAboutBankScreen().aboutBankAndAppBtnClick();
         appManager.getAboutBankAndAppScreen().navUpBtnClick();
         appManager.getDashboardScreen().menuBtnClick();
-        appManager.getDashboardScreen().drawerAboutBankBtnClick();
+        appManager.getDashboardScreen().getDrawer().aboutBankBtnClick();
         appManager.getAboutBankScreen().bankRequisitesBtnClick();
         appManager.getBankRequisitesScreen().verifyScreen();
         appManager.getBankRequisitesScreen().navUpBtnClick();
         appManager.getAboutBankScreen().menuBtnClick();
-        appManager.getAboutBankScreen().exitBtnClick();		
+        appManager.getAboutBankScreen().getDrawer().exitBtnClick();		
 	}
 }

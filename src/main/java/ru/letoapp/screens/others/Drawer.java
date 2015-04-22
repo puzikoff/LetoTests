@@ -16,14 +16,14 @@ public class Drawer extends ScreenBase{
 		super(driver);		
 	}
 	
-	public void drawerContactsBtnClick() {
+	public void contactsBtnClick() {
 		waitFor(contactsBtn);
 		Log.info("Drawer: Contacts button click");
 		driver.findElement(contactsBtn).click();
 		delay();
 	}
 	
-	public void drawerAboutBankBtnClick() {
+	public void aboutBankBtnClick() {
 		waitFor(aboutBankBtn);
 		Log.info("Drawer: About bank button click");
 		driver.findElement(aboutBankBtn).click();

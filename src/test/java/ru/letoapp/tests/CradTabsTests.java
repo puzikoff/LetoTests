@@ -5,12 +5,11 @@ import org.testng.annotations.Test;
 
 import ru.letoapp.utilities.PropertyReader;
 
-
-public class DisplayNameEditTests extends SetUpForSuiteBase{
-	public static final Logger Log = Logger.getLogger(DisplayNameEditTests.class);
+public class CradTabsTests extends SetUpForSuiteBase{
+	public static final Logger Log = Logger.getLogger(CradTabsTests.class);
 	
 	@Test
-	public void displayNameEditPositiveTest() {
+	public void cardTabsPositiveTest() {
 		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
     		appManager.getAuthScreen().verifyGreeting();    	
     		appManager.getAuthScreen().closeGreetingMessage();     	     
@@ -23,15 +22,11 @@ public class DisplayNameEditTests extends SetUpForSuiteBase{
         }
         appManager.getAuthScreen().loginBtnClick();
         appManager.getDashboardScreen().openCard(1);
-        Log.info(appManager.getCardScreen().getActionBarTitle());
-        appManager.getCardScreen().getLabelContractState();
-        appManager.getCardScreen().getDisplayName();
-        appManager.getCardScreen().editDisplayNameBtnClick();
-        appManager.getCardScreen().editDisplayName("Momomomomo");
-        appManager.getCardScreen().editDisplayNamePopupNextBtnClick();
-        appManager.getCardScreen().getDisplayName();
         appManager.getCardScreen().infoTabClick();
         appManager.getCardScreen().managementTabClick();
+        appManager.getCardScreen().cardTabClick();
+        appManager.getCardScreen().getCardTab().expandBtnClick();
+        Log.info(appManager.getCardScreen().getCardTab().getOwnFunds());
 	}
-	
+
 }

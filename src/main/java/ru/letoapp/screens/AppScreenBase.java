@@ -41,6 +41,10 @@ public class AppScreenBase extends ScreenBase {
 		actionBar.menuBtnClick();
 	}
 	
+	public void openDrawer() {
+		actionBar.menuBtnClick();
+	}
+	
 	public void contactsBtnClick() {
 		actionBar.contactsBtnClick();
 	}	
@@ -52,16 +56,8 @@ public class AppScreenBase extends ScreenBase {
 /* ---- Action Bar methods Ends-----*/
 	
 /* ---- Drawer methods -----*/
-	public void drawerContactsBtnClick() {
-		drawer.drawerContactsBtnClick();
-	}
-	
-	public void drawerAboutBankBtnClick() {
-		drawer.drawerAboutBankBtnClick();
-	}
-	
-	public void exitBtnClick() {
-		drawer.exitBtnClick();
+	public Drawer getDrawer(){
+		return drawer;
 	}
 	
 /* ---- Drawer methods ENDS-----*/

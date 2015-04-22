@@ -6,12 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
-public class CardScreenCard extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(CardScreenCard.class);
-	String actionBarTitle = "Карта";	
-	By cardTab = By.xpath("//TextView[@value='КАРТА']");
-	By infoTab = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
-	By manageTab = By.xpath("//TextView[@value='УПРАВЛЕНИЕ']");
+public class CardTab extends AppScreenBase{
+	public static final Logger Log = Logger.getLogger(CardTab.class);
 	By expandBtn = By.id("label_card_info_total_caption");
 	By totalAvailable = By.id("label_total_available");
 	By creditFunds = By.id("label_credit_funds");
@@ -19,20 +15,23 @@ public class CardScreenCard extends AppScreenBase{
 	By blockedFunds = By.id("label_blocked");
 	By holdsBtn = By.id("layout_card_info_holds");
 
-	public CardScreenCard(WebDriver driver) {
+	public CardTab(WebDriver driver) {
 		super(driver);
 	}
 	
-	public void verifyCardScreen() {
+	public void expandBtnClick() {
+		waitFor(expandBtn);
+		Log.info("Card Tab: Expand button click");
+		driver.findElement(expandBtn).click();
+		delay();
 	}
-	
 	
 	public String getTotalAvailable() {		
 		String ta = null;
 		waitFor(totalAvailable);		
 		ta = driver.findElement(totalAvailable).getText();
 		ta = onlyNumbersString(ta);
-		Log.info("Card Screen 'card' tab: get Total Available: " + ta);
+		Log.info("Card tab: get Total Available: " + ta);
 		return ta;
 	}
 	
@@ -41,7 +40,7 @@ public class CardScreenCard extends AppScreenBase{
 		waitFor(creditFunds);
 		cf = driver.findElement(creditFunds).getText();
 		cf = onlyNumbersString(cf);
-		Log.info("Card Screen 'card' tab: get Credit Funds: " + cf);
+		Log.info("Card tab: get Credit Funds: " + cf);
 		return cf;
 	}
 	
@@ -50,7 +49,7 @@ public class CardScreenCard extends AppScreenBase{
 		waitFor(ownFunds);
 		of = driver.findElement(ownFunds).getText();
 		of = onlyNumbersString(of);	
-		Log.info("Card Screen 'card' tab: get Own Funds: " + of);
+		Log.info("Card tab: get Own Funds: " + of);
 		return of;
 	}
 	
@@ -63,16 +62,5 @@ public class CardScreenCard extends AppScreenBase{
 		return bf;
 	}
 
-	public void infoTabClick() {
-		Log.info("Card Screen 'card' tab: Information tab click");
-		driver.findElement(infoTab).click();
-		delay();
-	}
-
-	public void managementTabClick() {
-		Log.info("Card Screen 'card' tab: Managementd tab click");
-		driver.findElement(manageTab).click();
-		delay();		
-	}
 
 }
