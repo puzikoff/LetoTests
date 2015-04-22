@@ -1,28 +1,272 @@
-INFO|2015-04-22 15:13:43,475: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Software caused connection abort: recv failed
-INFO|2015-04-22 15:13:43,476: Retrying request to {}->http://localhost:38080
-INFO|2015-04-22 15:13:43,476: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-04-22 15:13:43,476: Retrying request to {}->http://localhost:38080
-INFO|2015-04-22 15:13:43,476: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-04-22 15:13:43,476: Retrying request to {}->http://localhost:38080
-INFO|2015-04-22 15:13:51,499: Auth screen: Verify auth screen
-INFO|2015-04-22 15:13:51,891: Auth screen: Enter Username: testuser@sb	
-INFO|2015-04-22 15:13:52,848: Auth screen: Enter password: qwe123
-INFO|2015-04-22 15:13:53,684: Auth screen: Is protect code selected:false
-INFO|2015-04-22 15:13:53,744: Auth screen: Click login button
-INFO|2015-04-22 15:13:55,090: Dashboard screen: Open loan number: 1on dashboard
-INFO|2015-04-22 15:13:57,346: Loan Screen: Information tab click
-INFO|2015-04-22 15:13:59,036: Edit display name block: Click edit button
-INFO|2015-04-22 15:14:00,393: Edit display name block: Edit display name
-INFO|2015-04-22 15:14:00,464: Edit display name block: Old name: Просроченный
-INFO|2015-04-22 15:14:00,464: Edit display name block: New name: Просроченный кредит
-INFO|2015-04-22 15:14:01,209: Edit display name block: Click next
-INFO|2015-04-22 15:14:02,556: Action bar: Click NavUp button
-INFO|2015-04-22 15:14:04,385: Dashboard screen: Open deposit: Вклад Осенне-Весенний
-ERROR|2015-04-22 15:14:05,997: Open deposit:Вклад Осенне-Весенний
-INFO|2015-04-22 15:14:07,326: Deposit Screen: Managementd tab click
-INFO|2015-04-22 15:14:09,206: Deposit Screen: Deposit tab click
-INFO|2015-04-22 15:14:11,189: Edit display name block: Click edit button
-INFO|2015-04-22 15:14:12,571: Edit display name block: Edit display name
-INFO|2015-04-22 15:14:12,652: Edit display name block: Old name: Вклад Осенне-Весенний
-INFO|2015-04-22 15:14:12,652: Edit display name block: New name: Вклад Осенне-Весенний
-INFO|2015-04-22 15:14:13,435: Edit display name block: Click next
+INFO|2015-04-22 18:38:48,365: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-22 18:38:48,368: Retrying request to {}->http://localhost:38080
+INFO|2015-04-22 18:38:48,370: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-22 18:38:48,371: Retrying request to {}->http://localhost:38080
+INFO|2015-04-22 18:38:48,373: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-22 18:38:48,373: Retrying request to {}->http://localhost:38080
+INFO|2015-04-22 18:38:51,159: REGISTRATION BY CARD POSITIVE TEST STARTS
+INFO|2015-04-22 18:38:51,159: Auth screen
+INFO|2015-04-22 18:38:51,257: Auth screen: Verify greeting window
+INFO|2015-04-22 18:38:51,379: Auth screen: Click on confirm button
+INFO|2015-04-22 18:38:52,744: Auth screen: Verify auth screen
+INFO|2015-04-22 18:38:53,066: Auth screen: Enter Username: testuser@sb	
+INFO|2015-04-22 18:38:53,937: Auth screen: Enter password: qqwwee
+INFO|2015-04-22 18:38:54,773: Auth screen: Is protect code selected:true
+INFO|2015-04-22 18:38:54,806: Auth screen: Set protect code checkbox
+INFO|2015-04-22 18:38:56,165: Auth screen: Click login button
+INFO|2015-04-22 18:38:57,508: Incorrect email or password screen
+INFO|2015-04-22 18:38:57,530: Incorrect Login or Password Screen: Try again button click
+INFO|2015-04-22 18:38:58,895: Auth screen: Click 'Registration' button'
+INFO|2015-04-22 18:39:00,240: Dbo screen
+INFO|2015-04-22 18:39:00,353: Dbo Screen: Click menu button
+INFO|2015-04-22 18:39:01,107: Dbo Screen: Click send email button
+INFO|2015-04-22 18:39:02,465: Send email screen
+INFO|2015-04-22 18:39:02,489: Send Email Screen: Click send button
+INFO|2015-04-22 18:39:03,871: Send Email Screen: Click next
+INFO|2015-04-22 18:39:05,215: Send Email Screen: Entering email: mail@mail.ru
+INFO|2015-04-22 18:39:06,115: Send Email Screen: Click send button
+INFO|2015-04-22 18:39:07,451: Dbo screen
+INFO|2015-04-22 18:39:07,506: Dbo Screen: Click 'Accept terms' button
+INFO|2015-04-22 18:39:08,875: Registration method screen
+INFO|2015-04-22 18:39:08,904: RegistrationMethodScreen: Choose card registration
+INFO|2015-04-22 18:39:10,249: Card credentials screen
+INFO|2015-04-22 18:39:10,273: Card Credentials Screen: Entering card number
+INFO|2015-04-22 18:39:11,554: Card Credentials Screen: Entering access code
+INFO|2015-04-22 18:39:12,487: Card Credentials Screen: Click next button
+INFO|2015-04-22 18:39:13,821: SMS code screen
+INFO|2015-04-22 18:39:13,842: SMS Code Screen: Enter sms code
+INFO|2015-04-22 18:39:14,763: SMS Code Screen: Click 'Next'
+INFO|2015-04-22 18:39:16,096: Set login screen
+INFO|2015-04-22 18:39:16,116: Set Login Screen: Entering login: newLogin
+INFO|2015-04-22 18:39:16,945: Set Login Screen: Click next button
+INFO|2015-04-22 18:39:18,286: Set password screen
+INFO|2015-04-22 18:39:18,315: Set Password Screen: Entering password: qwerty
+INFO|2015-04-22 18:39:19,251: Set Password Screen: Error: Ненадёжный пароль
+INFO|2015-04-22 18:39:19,267: Set Password Screen: Entering password: qwerty123
+INFO|2015-04-22 18:39:20,155: Set Password Screen: Confirm password: qwerty12
+INFO|2015-04-22 18:39:21,257: Set Password Screen: Error: Пароли не совпадают
+INFO|2015-04-22 18:39:21,275: Set Password Screen: Confirm password: qwerty123
+INFO|2015-04-22 18:39:22,129: Set Password Screen: Click next button
+INFO|2015-04-22 18:39:23,468: Set security code screen
+INFO|2015-04-22 18:39:23,468: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:39:24,812: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:39:26,158: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:39:27,496: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:39:28,847: Confirm security code screen
+INFO|2015-04-22 18:39:28,847: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:39:30,196: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:39:31,542: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:39:32,883: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:39:34,229: Dashboard screen
+INFO|2015-04-22 18:39:34,229: Dashboard screen: Verify Dashboard
+INFO|2015-04-22 18:39:34,325: Action bar: Menu button click
+INFO|2015-04-22 18:39:35,675: Drawer: Exit button click
+INFO|2015-04-22 18:39:37,616: END OF TEST
+INFO|2015-04-22 18:39:37,618: REGISTRATION. FORGOT ACCOUNT OR ACCES CODE POSITIVE TEST STARTS
+INFO|2015-04-22 18:39:37,618: Security code screen
+INFO|2015-04-22 18:39:37,618: Security Code Screen:  remind security code click
+INFO|2015-04-22 18:39:38,991: Remind security code screen screen
+INFO|2015-04-22 18:39:38,991: Reset Security Code Screen: Reset security code button click
+INFO|2015-04-22 18:39:40,359: Auth screen
+INFO|2015-04-22 18:39:40,379: Auth screen: Click 'Registration' button'
+INFO|2015-04-22 18:39:41,716: Dbo screen
+INFO|2015-04-22 18:39:41,779: Dbo Screen: Click 'Accept terms' button
+INFO|2015-04-22 18:39:43,150: Registration method screen
+INFO|2015-04-22 18:39:43,170: RegistrationMethodScreen: Choose account registration
+INFO|2015-04-22 18:39:44,511: Account credentials screen
+INFO|2015-04-22 18:39:44,534: Account Credentials Screen: Click forget acces code button
+INFO|2015-04-22 18:39:45,879: Forget account or acces code registration screen
+INFO|2015-04-22 18:39:45,947: Forgot account Or Access Code Screen: Entering account number
+INFO|2015-04-22 18:39:47,529: Forgot Account Or Access Code Screen: Entering acces code
+INFO|2015-04-22 18:39:48,749: Forgot Account Or Access Code Screen: Click next button
+INFO|2015-04-22 18:39:50,114: SMS code screen
+INFO|2015-04-22 18:39:50,133: SMS Code Screen: Enter sms code
+INFO|2015-04-22 18:39:51,034: SMS Code Screen: Click 'Next'
+INFO|2015-04-22 18:39:52,369: Set login screen
+INFO|2015-04-22 18:39:52,386: Set Login Screen: Entering login: newLogin
+INFO|2015-04-22 18:39:53,203: Set Login Screen: Click next button
+INFO|2015-04-22 18:39:54,537: Set password screen
+INFO|2015-04-22 18:39:54,554: Set Password Screen: Entering password: qwerty123
+INFO|2015-04-22 18:39:55,393: Set Password Screen: Confirm password: qwerty123
+INFO|2015-04-22 18:39:56,261: Set Password Screen: Click next button
+INFO|2015-04-22 18:39:57,601: Set security code screen
+INFO|2015-04-22 18:39:57,601: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:39:58,943: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:40:00,294: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:40:01,644: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:40:02,983: Confirm security code screen
+INFO|2015-04-22 18:40:02,983: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:40:04,323: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:40:05,665: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:40:07,010: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:40:08,351: Dashboard screen
+INFO|2015-04-22 18:40:08,351: Dashboard screen: Verify Dashboard
+INFO|2015-04-22 18:40:09,196: Action bar: Menu button click
+INFO|2015-04-22 18:40:11,353: Drawer: Exit button click
+INFO|2015-04-22 18:40:12,692: END OF TEST
+INFO|2015-04-22 18:40:12,694: REGISTRATION. FORGOT CARD NUMBER OR ACCES CODE POSITIVE TEST STARTS
+INFO|2015-04-22 18:40:12,694: Security code screen
+INFO|2015-04-22 18:40:12,694: Security Code Screen:  remind security code click
+INFO|2015-04-22 18:40:14,127: Remind security code screen screen
+INFO|2015-04-22 18:40:14,127: Reset Security Code Screen: Reset security code button click
+INFO|2015-04-22 18:40:15,522: Auth screen
+INFO|2015-04-22 18:40:15,540: Auth screen: Click 'Registration' button'
+INFO|2015-04-22 18:40:16,879: Dbo screen
+INFO|2015-04-22 18:40:16,981: Dbo Screen: Click 'Accept terms' button
+INFO|2015-04-22 18:40:18,373: Registration method screen
+INFO|2015-04-22 18:40:18,394: RegistrationMethodScreen: Choose card registration
+INFO|2015-04-22 18:40:19,731: Account credentials screen
+INFO|2015-04-22 18:40:19,756: Card Credentials Screen: Click forget access code or card number button
+INFO|2015-04-22 18:40:21,104: Forget account or acces code registration screen
+INFO|2015-04-22 18:40:21,185: Forgot Card Number Or Access Code Screen: Entering card number
+INFO|2015-04-22 18:40:22,623: Forgot Card Number Or Access Code Screen: Entering access code
+INFO|2015-04-22 18:40:23,890: Forgot Card Number Or Access Code Screen: Click next button
+INFO|2015-04-22 18:40:25,284: SMS code screen
+INFO|2015-04-22 18:40:25,306: SMS Code Screen: Enter sms code
+INFO|2015-04-22 18:40:26,234: SMS Code Screen: Click 'Next'
+INFO|2015-04-22 18:40:27,569: Set login screen
+INFO|2015-04-22 18:40:27,594: Set Login Screen: Entering login: newLogin
+INFO|2015-04-22 18:40:28,428: Set Login Screen: Click next button
+INFO|2015-04-22 18:40:29,771: Set password screen
+INFO|2015-04-22 18:40:29,790: Set Password Screen: Entering password: qwerty123
+INFO|2015-04-22 18:40:30,649: Set Password Screen: Confirm password: qwerty123
+INFO|2015-04-22 18:40:31,512: Set Password Screen: Click next button
+INFO|2015-04-22 18:40:32,851: Set security code screen
+INFO|2015-04-22 18:40:32,851: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:40:34,196: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:40:35,540: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:40:36,882: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:40:38,225: Confirm security code screen
+INFO|2015-04-22 18:40:38,225: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:40:39,568: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:40:40,913: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:40:42,253: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:40:43,590: Dashboard screen
+INFO|2015-04-22 18:40:43,590: Dashboard screen: Verify Dashboard
+INFO|2015-04-22 18:40:45,302: Action bar: Menu button click
+INFO|2015-04-22 18:40:47,195: Drawer: Exit button click
+INFO|2015-04-22 18:40:48,532: END OF TEST
+INFO|2015-04-22 18:40:48,535: FORGOT PASSWORD BY ACCOUNT POSITIVE TEST STARTS
+INFO|2015-04-22 18:40:48,535: Security code screen
+INFO|2015-04-22 18:40:48,535: Security Code Screen:  remind security code click
+INFO|2015-04-22 18:40:50,003: Remind security code screen screen
+INFO|2015-04-22 18:40:50,003: Reset Security Code Screen: Reset security code button click
+INFO|2015-04-22 18:40:51,416: Auth screen
+INFO|2015-04-22 18:40:51,416: Auth screen: Click remind login and password link
+INFO|2015-04-22 18:40:52,759: Forgot password/login screen
+INFO|2015-04-22 18:40:52,778: Forgot Psw Screen: New credentials button click
+INFO|2015-04-22 18:40:54,114: Registration method screen
+INFO|2015-04-22 18:40:54,134: RegistrationMethodScreen: Choose account registration
+INFO|2015-04-22 18:40:55,475: Account credentials screen
+INFO|2015-04-22 18:40:55,504: Account Credentials Screen: Entering account number
+INFO|2015-04-22 18:40:56,900: Account Credentials Screen: Entering access code
+INFO|2015-04-22 18:40:57,830: Account Credentials Screen: Click next button
+INFO|2015-04-22 18:40:59,168: Dbo screen
+INFO|2015-04-22 18:40:59,343: Dbo Screen: Click 'Accept terms' button
+INFO|2015-04-22 18:41:00,811: SMS code screen
+INFO|2015-04-22 18:41:00,833: SMS Code Screen: Enter sms code
+INFO|2015-04-22 18:41:01,781: SMS Code Screen: Click 'Next'
+INFO|2015-04-22 18:41:03,115: Set login screen
+INFO|2015-04-22 18:41:03,950: Set Login Screen: Entering login: newLogin
+INFO|2015-04-22 18:41:04,778: Set Login Screen: Click next button
+INFO|2015-04-22 18:41:06,118: Set password screen
+INFO|2015-04-22 18:41:06,137: Set Password Screen: Entering password: qwerty123
+INFO|2015-04-22 18:41:06,982: Set Password Screen: Confirm password: qwerty123
+INFO|2015-04-22 18:41:07,866: Set Password Screen: Click next button
+INFO|2015-04-22 18:41:09,205: Set security code screen
+INFO|2015-04-22 18:41:09,205: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:41:10,550: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:41:11,896: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:41:13,250: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:41:14,591: Confirm security code screen
+INFO|2015-04-22 18:41:14,591: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:41:15,933: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:41:17,275: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:41:18,619: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:41:19,960: Dashboard screen
+INFO|2015-04-22 18:41:19,960: Dashboard screen: Verify Dashboard
+INFO|2015-04-22 18:41:21,651: Action bar: Menu button click
+INFO|2015-04-22 18:41:23,439: Drawer: Exit button click
+INFO|2015-04-22 18:41:24,790: END OF TEST
+INFO|2015-04-22 18:41:24,792: FORGOT PASSWORD BY CARD POSITIVE TEST STARTS
+INFO|2015-04-22 18:41:24,792: Security code screen
+INFO|2015-04-22 18:41:24,792: Security Code Screen:  remind security code click
+INFO|2015-04-22 18:41:26,286: Remind security code screen screen
+INFO|2015-04-22 18:41:26,286: Reset Security Code Screen: Reset security code button click
+INFO|2015-04-22 18:41:27,742: Auth screen
+INFO|2015-04-22 18:41:27,742: Auth screen: Click remind login and password link
+INFO|2015-04-22 18:41:29,081: Forgot password/login screen
+INFO|2015-04-22 18:41:29,097: Forgot Psw Screen: New credentials button click
+INFO|2015-04-22 18:41:30,429: Registration method screen
+INFO|2015-04-22 18:41:30,461: RegistrationMethodScreen: Choose card registration
+INFO|2015-04-22 18:41:31,807: Card credentials screen
+INFO|2015-04-22 18:41:31,833: Card Credentials Screen: Entering card number
+INFO|2015-04-22 18:41:33,282: Card Credentials Screen: Entering access code
+INFO|2015-04-22 18:41:34,229: Card Credentials Screen: Click next button
+INFO|2015-04-22 18:41:35,570: Dbo screen
+INFO|2015-04-22 18:41:35,733: Dbo Screen: Click 'Accept terms' button
+INFO|2015-04-22 18:41:37,198: SMS code screen
+INFO|2015-04-22 18:41:37,439: SMS Code Screen: Enter sms code
+INFO|2015-04-22 18:41:38,370: SMS Code Screen: Click 'Next'
+INFO|2015-04-22 18:41:39,708: Set login screen
+INFO|2015-04-22 18:41:39,729: Set Login Screen: Entering login: newLogin
+INFO|2015-04-22 18:41:40,574: Set Login Screen: Click next button
+INFO|2015-04-22 18:41:41,925: Set password screen
+INFO|2015-04-22 18:41:41,949: Set Password Screen: Entering password: qwerty123
+INFO|2015-04-22 18:41:42,810: Set Password Screen: Confirm password: qwerty123
+INFO|2015-04-22 18:41:43,674: Set Password Screen: Click next button
+INFO|2015-04-22 18:41:45,019: Set security code screen
+INFO|2015-04-22 18:41:45,019: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:41:46,366: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:41:47,719: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:41:49,058: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:41:50,400: Confirm security code screen
+INFO|2015-04-22 18:41:50,400: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:41:51,745: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:41:53,095: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:41:54,442: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:41:55,790: Dashboard screen
+INFO|2015-04-22 18:41:55,790: Dashboard screen: Verify Dashboard
+INFO|2015-04-22 18:41:58,011: Action bar: Menu button click
+INFO|2015-04-22 18:41:59,373: Drawer: Exit button click
+INFO|2015-04-22 18:42:00,712: END OF TEST
+INFO|2015-04-22 18:42:00,715: REGISTRATION BY ACCOUNT POSITIVE TEST STARTS
+INFO|2015-04-22 18:42:00,715: Security code screen
+INFO|2015-04-22 18:42:00,715: Security Code Screen:  remind security code click
+INFO|2015-04-22 18:42:02,256: Remind security code screen screen
+INFO|2015-04-22 18:42:02,256: Reset Security Code Screen: Reset security code button click
+INFO|2015-04-22 18:42:03,743: Auth screen
+INFO|2015-04-22 18:42:03,766: Auth screen: Click 'Registration' button'
+INFO|2015-04-22 18:42:05,105: Dbo screen
+INFO|2015-04-22 18:42:05,360: Dbo Screen: Click 'Accept terms' button
+INFO|2015-04-22 18:42:06,827: Registration method screen
+INFO|2015-04-22 18:42:06,859: RegistrationMethodScreen: Choose account registration
+INFO|2015-04-22 18:42:08,209: Account credentials screen
+INFO|2015-04-22 18:42:08,239: Account Credentials Screen: Entering account number
+INFO|2015-04-22 18:42:09,624: Account Credentials Screen: Entering access code
+INFO|2015-04-22 18:42:10,561: Account Credentials Screen: Click next button
+INFO|2015-04-22 18:42:11,899: SMS code screen
+INFO|2015-04-22 18:42:11,918: SMS Code Screen: Enter sms code
+INFO|2015-04-22 18:42:12,840: SMS Code Screen: Click 'Next'
+INFO|2015-04-22 18:42:14,173: Set login screen
+INFO|2015-04-22 18:42:14,190: Set Login Screen: Entering login: newLogin
+INFO|2015-04-22 18:42:15,012: Set Login Screen: Click next button
+INFO|2015-04-22 18:42:16,352: Set password screen
+INFO|2015-04-22 18:42:16,369: Set Password Screen: Entering password: qwerty123
+INFO|2015-04-22 18:42:17,219: Set Password Screen: Confirm password: qwerty123
+INFO|2015-04-22 18:42:18,065: Set Password Screen: Click next button
+INFO|2015-04-22 18:42:19,402: Set security code screen
+INFO|2015-04-22 18:42:19,402: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:42:20,756: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:42:22,106: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:42:23,448: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:42:24,793: Confirm security code screen
+INFO|2015-04-22 18:42:24,793: Security Code Screen: Click number: 1
+INFO|2015-04-22 18:42:26,132: Security Code Screen: Click number: 2
+INFO|2015-04-22 18:42:27,482: Security Code Screen: Click number: 3
+INFO|2015-04-22 18:42:28,832: Security Code Screen: Click number: 4
+INFO|2015-04-22 18:42:30,179: Dashboard screen
+INFO|2015-04-22 18:42:30,179: Dashboard screen: Verify Dashboard
+INFO|2015-04-22 18:42:32,859: Action bar: Menu button click
+INFO|2015-04-22 18:42:34,233: Drawer: Exit button click
+INFO|2015-04-22 18:42:35,568: END OF TEST

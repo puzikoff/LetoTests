@@ -24,9 +24,9 @@ import ru.letoapp.screens.others.CreditCardsListScreen;
 import ru.letoapp.screens.others.DashboardScreen;
 import ru.letoapp.screens.others.IncorrectLoginPasswordScreen;
 import ru.letoapp.screens.others.LoansListScreen;
+import ru.letoapp.screens.others.ResetSecurityCodeScreen;
 import ru.letoapp.screens.registration.AccountCredentialsScreen;
 import ru.letoapp.screens.registration.CardCredentialsScreen;
-import ru.letoapp.screens.registration.ConfirmSecurityCodeScreen;
 import ru.letoapp.screens.registration.DboScreen;
 import ru.letoapp.screens.registration.ForgotAccountOrAccessCodeScreen;
 import ru.letoapp.screens.registration.ForgotCardNumberOrAccessCodeScreen;
@@ -35,7 +35,7 @@ import ru.letoapp.screens.registration.RegistrationMethodScreen;
 import ru.letoapp.screens.registration.SendEmailScreen;
 import ru.letoapp.screens.registration.SetLoginScreen;
 import ru.letoapp.screens.registration.SetPasswordScreen;
-import ru.letoapp.screens.registration.SetSecurityCodeScreen;
+import ru.letoapp.screens.registration.SecurityCodeScreen;
 import ru.letoapp.screens.registration.SmsCodeScreen;
 
 
@@ -62,8 +62,7 @@ public class AppManager {
 	private SmsCodeScreen smsCodeScreen; 
 	private SetLoginScreen setLoginScreen;
 	private SetPasswordScreen setPasswordScreen;
-	private SetSecurityCodeScreen setSecurityCodeScreen;
-	private ConfirmSecurityCodeScreen confirmSecurityCodeScreen;
+	private SecurityCodeScreen securityCodeScreen;	
 	private IncorrectLoginPasswordScreen incorrectLoginPasswordScreen;
 	private ForgotPswScreen forgotPswScreen;
 	private ForgotAccountOrAccessCodeScreen forgotAccountOrAccessCodeScreen;
@@ -71,6 +70,7 @@ public class AppManager {
 	private AboutBankAndAppScreen aboutBankAndAppScreen;
 	private AboutBankScreen aboutBankScreen; 
 	private BankRequisitesScreen bankRequisitesScreen;
+	private ResetSecurityCodeScreen resetSecurityCodeScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -90,8 +90,7 @@ public class AppManager {
 		smsCodeScreen = new SmsCodeScreen(driver);
 		setLoginScreen = new SetLoginScreen(driver);
 		setPasswordScreen = new SetPasswordScreen(driver);
-		setSecurityCodeScreen = new SetSecurityCodeScreen(driver);
-		confirmSecurityCodeScreen = new ConfirmSecurityCodeScreen(driver);
+		securityCodeScreen = new SecurityCodeScreen(driver);		
 		incorrectLoginPasswordScreen = new IncorrectLoginPasswordScreen(driver);
 		forgotPswScreen = new ForgotPswScreen(driver);
 		forgotAccountOrAccessCodeScreen = new ForgotAccountOrAccessCodeScreen(driver);
@@ -99,6 +98,7 @@ public class AppManager {
 		aboutBankAndAppScreen = new AboutBankAndAppScreen(driver);
 		aboutBankScreen = new AboutBankScreen(driver);
 		bankRequisitesScreen = new BankRequisitesScreen(driver);
+		resetSecurityCodeScreen = new ResetSecurityCodeScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -171,13 +171,9 @@ public class AppManager {
 		return setPasswordScreen;
 	}
 	
-	public SetSecurityCodeScreen getSetSecurityCodeScreen() {
-		return setSecurityCodeScreen;
-	}
-	
-	public ConfirmSecurityCodeScreen getConfirmSecurityCodeScreen() {
-		return confirmSecurityCodeScreen;
-	}
+	public SecurityCodeScreen getSecurityCodeScreen() {
+		return securityCodeScreen;
+	}	
 	
 	public IncorrectLoginPasswordScreen getIncorrectLoginPasswordScreen() {
 		return incorrectLoginPasswordScreen;
@@ -205,6 +201,10 @@ public class AppManager {
 	
 	public BankRequisitesScreen getBankRequisitesScreen() {
 		return bankRequisitesScreen;
+	}
+	
+	public ResetSecurityCodeScreen getResetSecurityCodeScreen() {
+		return resetSecurityCodeScreen;
 	}
 	
 	/* Starting Selendroid */

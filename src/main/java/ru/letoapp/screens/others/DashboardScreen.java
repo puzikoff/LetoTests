@@ -30,49 +30,37 @@ public class DashboardScreen extends AppScreenBase {
 	
 	public void verifyDashboardScreen() {
 		Log.info("Dashboard screen: Verify Dashboard");
-		waitFor("//TextView[@id=\"label_card_caption\"]");
+		waitFor("//CardSectionView_");
 	}
 		
 	public void openCard(String cardName) {
-		Log.info("Dashboard screen: Open card: " + cardName);
-		waitFor("//TextView[@id='label_card_caption']");				
-		List <WebElement> cards = driver.findElements(By.xpath("//TextView[@id='label_card_caption']"));
-		for(WebElement card: cards) {			
-			if(card.getText().contains(cardName)) {				
-				Log.error("Open card:" + card.getText());								
-				card.click();
-				break;
-			}			
-		}		
-		delay();
+		Log.info("Dashboard screen: Open card: " + cardName);		
+		List <WebElement> cards = driver.findElements(By.xpath("//TextView[@value = '" + cardName + "']"));
+		if(!cards.isEmpty()) {
+			cards.get(0).click();
+			delay();
+		}
+		else Log.info("Dashboard screen: No card with such name");		
 	}
 	
 	public void openLoan(String loanName) {
-		Log.info("Dashboard screen: Open loan: " + loanName);
-		waitFor("//TextView[@id='label_loan_name']");				
-		List <WebElement> loans = driver.findElements(By.xpath("//TextView[@id='label_loan_name']"));
-		for(WebElement loan: loans) {			
-			if(loan.getText().contains(loanName)) {				
-				Log.error("Open loan:" + loan.getText());								
-				loan.click();		
-				break;
-			}			
-		}
-		delay();
+		Log.info("Dashboard screen: Open loan: " + loanName);		
+		List <WebElement> loans = driver.findElements(By.xpath("//TextView[@value = '" + loanName + "']"));
+		if(!loans.isEmpty()) {												
+			loans.get(0).click();		
+			delay();
+		}			
+		else Log.info("Dashboard screen: No loan with such name");
 	}
 	
 	public void openDeposit(String depositName) {
-		Log.info("Dashboard screen: Open deposit: " + depositName);
-		waitFor("//TextView[@id='label_deposit_name']");				
-		List <WebElement> deposits = driver.findElements(By.xpath("//TextView[@id='label_deposit_name']"));
-		for(WebElement deposit: deposits) {			
-			if(deposit.getText().contains(depositName)) {				
-				Log.error("Open deposit:" + deposit.getText());								
-				deposit.click();		
-				break;
-			}			
+		Log.info("Dashboard screen: Open deposit: " + depositName);						
+		List <WebElement> deposits = driver.findElements(By.xpath("//TextView[@value='" + depositName + "']"));
+		if(!deposits.isEmpty()) {				
+			deposits.get(0).click();		
+			delay();		
 		}
-		delay();
+		else Log.info("Dashboard screen: No deposit with such name");
 	}
 	
 	public void openCard(int n) {		
@@ -99,7 +87,7 @@ public class DashboardScreen extends AppScreenBase {
 	public String getCardSum(String cardName) {
 		String sum = null;
 		Log.info("Dashboard screen: Get" + cardName + "card sum");
-		waitFor("//TextView[@id=\"label_card_caption\"]");				
+		waitFor("//TextView[@id='label_card_caption']");				
 		List <WebElement> cards = driver.findElements(By.xpath("//TextView[@id='label_card_caption']"));
 		for(int i = 0; cards.get(i).getSize() != null; ++i) {			
 			if(cards.get(i).getText().contains(cardName)) {
@@ -107,10 +95,9 @@ public class DashboardScreen extends AppScreenBase {
 				if(!sum.contains(",")) sum = sum + "00";
 				sum = sum.replaceAll("\\D+", "");				
 				Log.info("Dashboard screen: Cardsum: " + sum);
-				return sum;
-			}			
+				return sum;	}		
 		}
-		return "Dashboard screen: No card with such name: " + cardName;
+		return "Dashboard screen: No card with such name: " + cardName; 		 
 	}
 	
 	public String getCardSum(int n) {

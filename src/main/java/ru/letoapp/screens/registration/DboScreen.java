@@ -23,7 +23,7 @@ public class DboScreen extends AppScreenBase {
 		delay();
 	}	
 	
-	public void menuBtnClick() {		
+	public void contextMenuBtnClick() {		
 		waitFor(contextMenuBtn);
 		Log.info("Dbo Screen: Click menu button");
 		driver.findElement(contextMenuBtn).click();

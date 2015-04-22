@@ -21,7 +21,7 @@ public class CardTabsTests extends SetUpForSuiteBase{
         	appManager.getAuthScreen().setProtCodeCheckbox();
         }
         appManager.getAuthScreen().loginBtnClick();
-        appManager.getDashboardScreen().openCard(1);
+        appManager.getDashboardScreen().openCard("Visa Gold Zero11");
         appManager.getCardScreen().infoTabClick();
         appManager.getCardScreen().managementTabClick();
         appManager.getCardScreen().cardTabClick();
