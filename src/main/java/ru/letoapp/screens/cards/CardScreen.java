@@ -6,12 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import ru.letoapp.screens.AppScreenBase;
+import ru.letoapp.screens.others.EditDisplayNameBlock;
 
 public class CardScreen extends AppScreenBase{
 	public static final Logger Log = Logger.getLogger(CardScreen.class);
 	private CardTab cardTab;
 	private CardInfoTab cardInfoTab;
 	private CardManagementTab cardManagementTab;
+	private EditDisplayNameBlock editDisplayName;
 	String actionBarTitle = "Карта";	
 	By cardTabBtn = By.xpath("//TextView[@value='КАРТА']");
 	By infoTabBtn = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
@@ -22,9 +24,11 @@ public class CardScreen extends AppScreenBase{
 		cardTab = PageFactory.initElements(driver, CardTab.class);
 		cardInfoTab = PageFactory.initElements(driver, CardInfoTab.class);
 		cardManagementTab = PageFactory.initElements(driver, CardManagementTab.class);
+		editDisplayName = PageFactory.initElements(driver, EditDisplayNameBlock.class);
 		cardTab.setDriver(driver);
 		cardInfoTab.setDriver(driver);
 		cardManagementTab.setDriver(driver);
+		editDisplayName.setDriver(driver);
 	}
 	
 	public CardTab getCardTab(){
@@ -37,6 +41,10 @@ public class CardScreen extends AppScreenBase{
 	
 	public CardManagementTab getCardManagementTab() {
 		return cardManagementTab;
+	}
+	
+	public EditDisplayNameBlock getEditDisplayName() {
+		return editDisplayName;
 	}
 	
 	public void verifyCardScreen() {

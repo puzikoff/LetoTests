@@ -1,21 +1,28 @@
-INFO|2015-04-22 12:47:37,842: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Software caused connection abort: recv failed
-INFO|2015-04-22 12:47:37,842: Retrying request to {}->http://localhost:38080
-INFO|2015-04-22 12:47:37,842: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-04-22 12:47:37,842: Retrying request to {}->http://localhost:38080
-INFO|2015-04-22 12:47:37,842: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-04-22 12:47:37,842: Retrying request to {}->http://localhost:38080
-INFO|2015-04-22 12:47:40,705: Auth screen: Verify greeting window
-INFO|2015-04-22 12:47:40,875: Auth screen: Click on confirm button
-INFO|2015-04-22 12:47:42,257: Auth screen: Verify auth screen
-INFO|2015-04-22 12:47:42,617: Auth screen: Enter Username: testuser@sb	
-INFO|2015-04-22 12:47:43,480: Auth screen: Enter password: qwe123
-INFO|2015-04-22 12:47:44,331: Auth screen: Is protect code selected:true
-INFO|2015-04-22 12:47:44,361: Auth screen: Set protect code checkbox
-INFO|2015-04-22 12:47:45,702: Auth screen: Click login button
-INFO|2015-04-22 12:47:47,043: Dashboard screen: Open card number: 1
-INFO|2015-04-22 12:47:52,774: Card Screen: Information tab click
-INFO|2015-04-22 12:47:54,356: Card Screen: Managementd tab click
-INFO|2015-04-22 12:47:55,998: Card Screen: Card tab click
-INFO|2015-04-22 12:47:57,606: Card Tab: Expand button click
-INFO|2015-04-22 12:47:59,062: Card Screen 'card' tab: get Own Funds: 0
-INFO|2015-04-22 12:47:59,062: 0
+INFO|2015-04-22 15:13:43,475: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Software caused connection abort: recv failed
+INFO|2015-04-22 15:13:43,476: Retrying request to {}->http://localhost:38080
+INFO|2015-04-22 15:13:43,476: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-22 15:13:43,476: Retrying request to {}->http://localhost:38080
+INFO|2015-04-22 15:13:43,476: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-04-22 15:13:43,476: Retrying request to {}->http://localhost:38080
+INFO|2015-04-22 15:13:51,499: Auth screen: Verify auth screen
+INFO|2015-04-22 15:13:51,891: Auth screen: Enter Username: testuser@sb	
+INFO|2015-04-22 15:13:52,848: Auth screen: Enter password: qwe123
+INFO|2015-04-22 15:13:53,684: Auth screen: Is protect code selected:false
+INFO|2015-04-22 15:13:53,744: Auth screen: Click login button
+INFO|2015-04-22 15:13:55,090: Dashboard screen: Open loan number: 1on dashboard
+INFO|2015-04-22 15:13:57,346: Loan Screen: Information tab click
+INFO|2015-04-22 15:13:59,036: Edit display name block: Click edit button
+INFO|2015-04-22 15:14:00,393: Edit display name block: Edit display name
+INFO|2015-04-22 15:14:00,464: Edit display name block: Old name: Просроченный
+INFO|2015-04-22 15:14:00,464: Edit display name block: New name: Просроченный кредит
+INFO|2015-04-22 15:14:01,209: Edit display name block: Click next
+INFO|2015-04-22 15:14:02,556: Action bar: Click NavUp button
+INFO|2015-04-22 15:14:04,385: Dashboard screen: Open deposit: Вклад Осенне-Весенний
+ERROR|2015-04-22 15:14:05,997: Open deposit:Вклад Осенне-Весенний
+INFO|2015-04-22 15:14:07,326: Deposit Screen: Managementd tab click
+INFO|2015-04-22 15:14:09,206: Deposit Screen: Deposit tab click
+INFO|2015-04-22 15:14:11,189: Edit display name block: Click edit button
+INFO|2015-04-22 15:14:12,571: Edit display name block: Edit display name
+INFO|2015-04-22 15:14:12,652: Edit display name block: Old name: Вклад Осенне-Весенний
+INFO|2015-04-22 15:14:12,652: Edit display name block: New name: Вклад Осенне-Весенний
+INFO|2015-04-22 15:14:13,435: Edit display name block: Click next

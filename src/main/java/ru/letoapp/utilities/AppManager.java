@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ru.letoapp.screens.cards.CardScreen;
+import ru.letoapp.screens.deposits.DepositScreen;
 import ru.letoapp.screens.loans.LoanScreen;
 import ru.letoapp.screens.others.AboutBankAndAppScreen;
 import ru.letoapp.screens.others.AboutBankScreen;
@@ -52,6 +53,7 @@ public class AppManager {
 	private LoanScreen loanScreen;
 	private CreditCardsListScreen creditCardsListScreen;
 	private CardScreen cardScreen;
+	private DepositScreen depositScreen;
 	private DboScreen dboScreen;
 	private SendEmailScreen sendEmailScreen;
 	private RegistrationMethodScreen registrationMethodScreen;
@@ -79,6 +81,7 @@ public class AppManager {
 		loanScreen = new LoanScreen(driver);
 		creditCardsListScreen = new CreditCardsListScreen(driver);
 		cardScreen = new CardScreen(driver);
+		depositScreen = new DepositScreen(driver);
 		dboScreen = new DboScreen(driver);
 		sendEmailScreen = new SendEmailScreen(driver);
 		registrationMethodScreen = new RegistrationMethodScreen(driver);
@@ -130,6 +133,10 @@ public class AppManager {
 	
 	public CardScreen getCardScreen() {
 		return cardScreen;
+	}
+	
+	public DepositScreen getDepositScreen() {
+		return depositScreen;
 	}
 	
 	public DboScreen getDboScreen() {

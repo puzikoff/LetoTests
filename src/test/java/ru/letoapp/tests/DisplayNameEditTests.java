@@ -23,13 +23,13 @@ public class DisplayNameEditTests extends SetUpForSuiteBase{
         }
         appManager.getAuthScreen().loginBtnClick();
         appManager.getDashboardScreen().openCard(1);
-        Log.info(appManager.getCardScreen().getActionBarTitle());
-        appManager.getCardScreen().getLabelContractState();
-        appManager.getCardScreen().getDisplayName();
-        appManager.getCardScreen().editDisplayNameBtnClick();
-        appManager.getCardScreen().editDisplayName("Momomomomo");
-        appManager.getCardScreen().editDisplayNamePopupNextBtnClick();
-        appManager.getCardScreen().getDisplayName();
+        Log.info(appManager.getCardScreen().getActionBarTitle());        
+        appManager.getCardScreen().getEditDisplayName().getLabelContractState();
+        appManager.getCardScreen().getEditDisplayName().getDisplayName();
+        appManager.getCardScreen().getEditDisplayName().editDisplayNameBtnClick();
+        appManager.getCardScreen().getEditDisplayName().editDisplayName("Momomomomo");
+        appManager.getCardScreen().getEditDisplayName().editDisplayNamePopupNextBtnClick();
+        appManager.getCardScreen().getEditDisplayName().getDisplayName();
         appManager.getCardScreen().infoTabClick();
         appManager.getCardScreen().managementTabClick();
 	}

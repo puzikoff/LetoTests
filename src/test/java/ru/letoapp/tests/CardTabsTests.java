@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 
 import ru.letoapp.utilities.PropertyReader;
 
-public class CradTabsTests extends SetUpForSuiteBase{
-	public static final Logger Log = Logger.getLogger(CradTabsTests.class);
+public class CardTabsTests extends SetUpForSuiteBase{
+	public static final Logger Log = Logger.getLogger(CardTabsTests.class);
 	
 	@Test
 	public void cardTabsPositiveTest() {

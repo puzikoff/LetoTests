@@ -35,21 +35,64 @@ public class DashboardScreen extends AppScreenBase {
 		
 	public void openCard(String cardName) {
 		Log.info("Dashboard screen: Open card: " + cardName);
-		waitFor("//TextView[@id=\"label_card_caption\"]");				
+		waitFor("//TextView[@id='label_card_caption']");				
 		List <WebElement> cards = driver.findElements(By.xpath("//TextView[@id='label_card_caption']"));
 		for(WebElement card: cards) {			
 			if(card.getText().contains(cardName)) {				
 				Log.error("Open card:" + card.getText());								
 				card.click();
-				delay();
+				break;
 			}			
 		}		
+		delay();
+	}
+	
+	public void openLoan(String loanName) {
+		Log.info("Dashboard screen: Open loan: " + loanName);
+		waitFor("//TextView[@id='label_loan_name']");				
+		List <WebElement> loans = driver.findElements(By.xpath("//TextView[@id='label_loan_name']"));
+		for(WebElement loan: loans) {			
+			if(loan.getText().contains(loanName)) {				
+				Log.error("Open loan:" + loan.getText());								
+				loan.click();		
+				break;
+			}			
+		}
+		delay();
+	}
+	
+	public void openDeposit(String depositName) {
+		Log.info("Dashboard screen: Open deposit: " + depositName);
+		waitFor("//TextView[@id='label_deposit_name']");				
+		List <WebElement> deposits = driver.findElements(By.xpath("//TextView[@id='label_deposit_name']"));
+		for(WebElement deposit: deposits) {			
+			if(deposit.getText().contains(depositName)) {				
+				Log.error("Open deposit:" + deposit.getText());								
+				deposit.click();		
+				break;
+			}			
+		}
+		delay();
 	}
 	
 	public void openCard(int n) {		
-		Log.info("Dashboard screen: Open card number: " + n);
+		Log.info("Dashboard screen: Open card number: " + n + "on dashboard");
 		waitFor("//CardSectionView_//CardInfoView_[1]");
 		driver.findElement(By.xpath("//CardSectionView_//CardInfoView_[" + n + "]")).click();
+		delay();
+	}
+	
+	public void openLoan(int n) {		
+		Log.info("Dashboard screen: Open loan number: " + n + "on dashboard");
+		waitFor("//LoanSectionView_//LoanInfoView_[1]");
+		driver.findElement(By.xpath("//LoanSectionView_//LoanInfoView_[" + n + "]")).click();
+		delay();
+	}
+	
+	public void openDeposit(int n) {		
+		Log.info("Dashboard screen: Open deposit number: " + n + "on dashboard");
+		waitFor("//DepositSectionView_//DepositInfoView_[1]");
+		driver.findElement(By.xpath("//DepositSectionView_//DepositInfoView_[" + n + "]")).click();
 		delay();
 	}
 	
