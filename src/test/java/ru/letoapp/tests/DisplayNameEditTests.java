@@ -12,8 +12,8 @@ public class DisplayNameEditTests extends SetUpForSuiteBase{
 	@Test
 	public void displayNameEditPositiveTest() {
 		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().verifyGreeting();    	
-    		appManager.getAuthScreen().closeGreetingMessage();     	     
+    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
+    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
     	}                
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
