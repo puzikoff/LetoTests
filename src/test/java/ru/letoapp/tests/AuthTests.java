@@ -18,13 +18,14 @@ public class AuthTests extends SetUpForSuiteBase{
 		appManager.getAuthScreen().getEmptyLoginPopup().verifyPopup();
 		appManager.getAuthScreen().getEmptyLoginPopup().nextBtnClick();
 		appManager.getAuthScreen().enterUsername("qqqqqq");
-		appManager.getAuthScreen().loginBtnClick();
-		Assert.assertTrue(appManager.getAuthScreen().isEmptyPasswordPopupDisplayed());
-		appManager.getAuthScreen().getEmptyPasswordPopup().verifyPopup();
-		appManager.getAuthScreen().getEmptyPasswordPopup().nextBtnClick();
+		//appManager.getAuthScreen().loginBtnClick();
+		//Assert.assertTrue(appManager.getAuthScreen().isEmptyPasswordPopupDisplayed());
+		//appManager.getAuthScreen().getEmptyPasswordPopup().verifyPopup();
+		//appManager.getAuthScreen().getEmptyPasswordPopup().nextBtnClick();
 		appManager.getAuthScreen().enterPassword("qqqqqq");
 		appManager.getAuthScreen().loginBtnClick();
-		appManager.getIncorrectLoginPasswordScreen().contactsBtnClick();
+		appManager.getIncorrectLoginPasswordScreen().verifyScreen();
+		appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();
 	}
 
 }

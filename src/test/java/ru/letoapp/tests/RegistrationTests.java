@@ -305,5 +305,101 @@ public class RegistrationTests extends SetUpForSuiteBase{
         appManager.getDashboardScreen().getDrawer().exitBtnClick();
         Log.info("END OF TEST");		
 	}
+	
+	@Test(priority=2, description = "REGISTRATION BY CARD. INCORRECT LOGON. POSITIVE TEST")
+	public void registrationByCardAfterIncorrectLogon() {
+		Log.info("REGISTRATION BY CARD. INCORRECT LOGON. POSITIVE TEST STARTs");
+		Log.info("Security code screen");                
+        appManager.getSecurityCodeScreen().remindSecurityCodeBtnClick();
+        Log.info("Remind security code screen screen");
+        appManager.getResetSecurityCodeScreen().resetSecurityCodeBtnClick();
+		Log.info("Auth screen");		
+        appManager.getAuthScreen().enterUsername("test@sb");
+        appManager.getAuthScreen().enterPassword("qweqwe");
+        appManager.getAuthScreen().loginBtnClick();
+        Log.info("Incorrect login or password screen");		
+        appManager.getIncorrectLoginPasswordScreen().resetCredentialsBtnClick();
+        Log.info("Registration method screen");        
+        appManager.getRegistrationMethodScreen().chooseCard();
+        Log.info("Card credentials screen");
+        appManager.getCardCredentialsScreen().enterCardNumber(PropertyReader.getProperty("sbCorrectCardNumber")); 
+        appManager.getCardCredentialsScreen().enterAccessCode(PropertyReader.getProperty("sbCorrectCardAccessCode")); 
+        appManager.getCardCredentialsScreen().NextBtnClick();
+        Log.info("Dbo screen"); 
+        appManager.getDboScreen().acceptLicenseTerms();
+        Log.info("SMS code screen");        
+        appManager.getSmsCodeScreen().enterSmsCode("334500");
+        appManager.getSmsCodeScreen().nextBtnClick();
+        Log.info("Set login screen");
+        appManager.getSetLoginScreen().enterLogin("newLogin");
+        appManager.getSetLoginScreen().nextBtnClick();
+        Log.info("Set password screen");
+        appManager.getSetPasswordScreen().enterPassword("qwerty123");        
+        appManager.getSetPasswordScreen().confirmPassword("qwerty123");
+        appManager.getSetPasswordScreen().nextBtnClick();
+        Log.info("Set security code screen");
+        appManager.getSecurityCodeScreen().clickNumber("1");
+        appManager.getSecurityCodeScreen().clickNumber("2");
+        appManager.getSecurityCodeScreen().clickNumber("3");
+        appManager.getSecurityCodeScreen().clickNumber("4");
+        Log.info("Confirm security code screen");
+        appManager.getSecurityCodeScreen().clickNumber("1");
+        appManager.getSecurityCodeScreen().clickNumber("2");
+        appManager.getSecurityCodeScreen().clickNumber("3");
+        appManager.getSecurityCodeScreen().clickNumber("4");
+        Log.info("Dashboard screen");        
+        appManager.getDashboardScreen().verifyDashboardScreen();
+        appManager.getDashboardScreen().openDrawer();
+        appManager.getDashboardScreen().getDrawer().exitBtnClick();
+        Log.info("END OF TEST");        
+	}
+	
+	@Test(priority=2, description = "REGISTRATION BY ACCOUNT. INCORRECT LOGON. POSITIVE TEST")
+	public void registrationByAccountAfterIncorrectLogon() {
+		Log.info("REGISTRATION BY ACCOUNT. INCORRECT LOGON. POSITIVE TEST STARTS");
+		Log.info("Security code screen");                
+        appManager.getSecurityCodeScreen().remindSecurityCodeBtnClick();
+        Log.info("Remind security code screen screen");
+        appManager.getResetSecurityCodeScreen().resetSecurityCodeBtnClick();
+		Log.info("Auth screen");		
+        appManager.getAuthScreen().enterUsername("test@sb");
+        appManager.getAuthScreen().enterPassword("qweqwe");
+        appManager.getAuthScreen().loginBtnClick();
+        Log.info("Incorrect login or password screen");		
+        appManager.getIncorrectLoginPasswordScreen().resetCredentialsBtnClick();
+        Log.info("Registration method screen");        
+        appManager.getRegistrationMethodScreen().chooseAccount();
+        Log.info("Account credentials screen");
+        appManager.getAccountCredentialsScreen().enterAccountNumber(PropertyReader.getProperty("sbCorrectAccountNumber")); 
+        appManager.getAccountCredentialsScreen().enterAccessCode(PropertyReader.getProperty("sbCorrectAccountAccessCode")); 
+        appManager.getAccountCredentialsScreen().NextBtnClick();
+        Log.info("Dbo screen"); 
+        appManager.getDboScreen().acceptLicenseTerms();
+        Log.info("SMS code screen");        
+        appManager.getSmsCodeScreen().enterSmsCode("334500");
+        appManager.getSmsCodeScreen().nextBtnClick();
+        Log.info("Set login screen");
+        appManager.getSetLoginScreen().enterLogin("newLogin");
+        appManager.getSetLoginScreen().nextBtnClick();
+        Log.info("Set password screen");
+        appManager.getSetPasswordScreen().enterPassword("qwerty123");        
+        appManager.getSetPasswordScreen().confirmPassword("qwerty123");
+        appManager.getSetPasswordScreen().nextBtnClick();
+        Log.info("Set security code screen");
+        appManager.getSecurityCodeScreen().clickNumber("1");
+        appManager.getSecurityCodeScreen().clickNumber("2");
+        appManager.getSecurityCodeScreen().clickNumber("3");
+        appManager.getSecurityCodeScreen().clickNumber("4");
+        Log.info("Confirm security code screen");
+        appManager.getSecurityCodeScreen().clickNumber("1");
+        appManager.getSecurityCodeScreen().clickNumber("2");
+        appManager.getSecurityCodeScreen().clickNumber("3");
+        appManager.getSecurityCodeScreen().clickNumber("4");
+        Log.info("Dashboard screen");        
+        appManager.getDashboardScreen().verifyDashboardScreen();
+        appManager.getDashboardScreen().openDrawer();
+        appManager.getDashboardScreen().getDrawer().exitBtnClick();
+        Log.info("END OF TEST");        		
+	}
 
 }
