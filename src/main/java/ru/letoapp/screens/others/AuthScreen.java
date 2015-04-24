@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import ru.letoapp.screens.AppScreenBase;
-import ru.letoapp.screens.popaps.GreetingPopup;
+import ru.letoapp.screens.popups.GreetingPopup;
 
 public class AuthScreen extends AppScreenBase {
 	public static final Logger Log = Logger.getLogger(AuthScreen.class);

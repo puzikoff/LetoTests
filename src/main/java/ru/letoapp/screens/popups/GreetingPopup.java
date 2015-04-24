@@ -1,4 +1,4 @@
-package ru.letoapp.screens.popaps;
+package ru.letoapp.screens.popups;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
