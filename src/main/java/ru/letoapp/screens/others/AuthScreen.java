@@ -8,13 +8,19 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import ru.letoapp.screens.AppScreenBase;
+import ru.letoapp.screens.popups.EmptyLoginPopup;
+import ru.letoapp.screens.popups.EmptyPasswordPopup;
 import ru.letoapp.screens.popups.GreetingPopup;
 
 public class AuthScreen extends AppScreenBase {
 	public static final Logger Log = Logger.getLogger(AuthScreen.class);
 	GreetingPopup greetingPopup;
+	EmptyLoginPopup emptyLoginPopup;
+	EmptyPasswordPopup emptyPasswordPopup;
 
 	By greetingMessage = By.id("sdl__message");
+	By emptyLoginPopupLocator = By.xpath("//NoSaveStateFrameLayout/LinearLayout");
+	By emptyPasswordPopupLocator = By.xpath("//NoSaveStateFrameLayout/LinearLayout");
 	By authTitle = By.xpath("//ScrollView//TextView[3]");
 	By authSubTitle = By.id("text_subtitle");
 	By usernameTextField = By.id("text_username");
@@ -34,11 +40,44 @@ public class AuthScreen extends AppScreenBase {
 		super(driver);		
 		greetingPopup = PageFactory.initElements(driver,GreetingPopup.class);
 		greetingPopup.setDriver(driver);
+		emptyLoginPopup = PageFactory.initElements(driver,EmptyLoginPopup.class);
+		emptyLoginPopup.setDriver(driver);
+		emptyPasswordPopup = PageFactory.initElements(driver,EmptyPasswordPopup.class);
+		emptyPasswordPopup.setDriver(driver);
 	}	
 	
 	public GreetingPopup getGreetingPopup() {
 		return greetingPopup;
 	}
+	
+	public EmptyLoginPopup getEmptyLoginPopup() {
+		return emptyLoginPopup;
+	}
+
+	public EmptyPasswordPopup getEmptyPasswordPopup() {
+		return emptyPasswordPopup;
+	}
+
+	
+	public boolean isEmptyLoginPopupDisplayed() {
+		List <WebElement> emptyLoginPopups = driver.findElements(emptyLoginPopupLocator);
+		if(!emptyLoginPopups.isEmpty()) {
+			Log.info("Auth screen: Empty login popup displayed");
+			return true;
+		}
+		Log.info("Auth screen: Empty login popup is not displayed");
+		return false;
+	}
+	
+	public boolean isEmptyPasswordPopupDisplayed() {
+		List <WebElement> emptyPasswordPopups = driver.findElements(emptyPasswordPopupLocator);
+		if(!emptyPasswordPopups.isEmpty()) {
+			Log.info("Auth screen: Empty password popup displayed");
+			return true;
+		}
+		Log.info("Auth screen: Empty password popup is not displayed");
+		return false;
+	}		
 	
 	public boolean isGreetingMessageDisplayed() {
 		List <WebElement> greetingPopUp = driver.findElements(greetingMessage);
@@ -94,6 +133,7 @@ public class AuthScreen extends AppScreenBase {
 	}	
 	
 	public void enterUsername (String username) {
+		waitFor(usernameTextField);
 		Log.info("Auth screen: Enter Username: " + username);
 		driver.findElement(usernameTextField).clear();
 		driver.findElement(usernameTextField).sendKeys(username);
@@ -105,6 +145,7 @@ public class AuthScreen extends AppScreenBase {
 	}
 	
 	public void enterPassword (String password) {
+		waitFor(passwordTextField);
 		Log.info("Auth screen: Enter password: " + password);
 		driver.findElement(passwordTextField).clear();
 		driver.findElement(passwordTextField).sendKeys(password);

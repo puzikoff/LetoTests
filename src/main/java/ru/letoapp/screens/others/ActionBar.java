@@ -30,7 +30,8 @@ public class ActionBar extends ScreenBase{
 	}
 	 
 	public void contactsBtnClick() {
-		Log.info("Action bar: Click contracts button");
+		waitForClickable(contactsBtn);
+		Log.info("Action bar: Click contacts button");		
 		driver.findElement(contactsBtn).click();
 		delay();
 	}

@@ -7,7 +7,7 @@
 	<name>LetoBankAppTests</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<selendroid.version>0.13.0</selendroid.version>
+		<selendroid.version>0.15.0</selendroid.version>
 	</properties>
 	
 	<dependencies>
