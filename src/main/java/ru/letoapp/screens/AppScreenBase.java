@@ -5,26 +5,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 import ru.letoapp.screens.others.ActionBar;
 import ru.letoapp.screens.others.Drawer;
 
 public class AppScreenBase extends ScreenBase {
 	public static final Logger Log = Logger.getLogger(AppScreenBase.class);
+	protected SoftAssert verify = new SoftAssert();
 	
 	private ActionBar actionBar;
-	private Drawer drawer;
-	//private EditDisplayNameBlock editDisplayNameBlock;
+	private Drawer drawer;	
 	By drawerLoc = By.id("mdc__layout_drawer");
 
 	public AppScreenBase(WebDriver driver) {
 		super(driver);
 		actionBar = PageFactory.initElements(driver, ActionBar.class);
-		drawer = PageFactory.initElements(driver, Drawer.class);
-	//	editDisplayNameBlock = PageFactory.initElements(driver, EditDisplayNameBlock.class);
+		drawer = PageFactory.initElements(driver, Drawer.class);	
 		actionBar.setDriver(driver);		
 		drawer.setDriver(driver);
-	//	editDisplayNameBlock.setDriver(driver);
 	}
 	
 /* ---- Action Bar methods -----*/		

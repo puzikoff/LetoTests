@@ -1,22 +1,20 @@
 package ru.letoapp.screens.others;
 
 import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.testng.Assert;
-
+import org.openqa.selenium.support.PageFactory;
 import ru.letoapp.screens.AppScreenBase;
-
-import com.google.common.base.Verify;
+import ru.letoapp.screens.popaps.GreetingPopup;
 
 public class AuthScreen extends AppScreenBase {
 	public static final Logger Log = Logger.getLogger(AuthScreen.class);
+	GreetingPopup greetingPopup;
 
-	By greetingTitle = By.id("sdl__title");
 	By greetingMessage = By.id("sdl__message");
-	By greetingNextBtn = By.id("sdl__positive_button");
 	By authTitle = By.xpath("//ScrollView//TextView[3]");
 	By authSubTitle = By.id("text_subtitle");
 	By usernameTextField = By.id("text_username");
@@ -24,11 +22,7 @@ public class AuthScreen extends AppScreenBase {
 	By protCodeCheckbox = By.id("checkbox_set_protection_code");
 	By loginBtn = By.id("button_login");	
 	By remindLogPasLink = By.id("button_remind_login_or_password");
-	By registerBtn = By.id("button_register");
-	By drawerLoc = By.id("mdc__layout_drawer");
-	String greetingMessageText = "Уважаемый клиент, эта версия приложения является предварительной и находится в процессе тестирования. Мы будем рады получить ваши пожелания и предложения по работе сервиса на адрес электронной почты, который вы найдете в разделе «Контакты».\n\nБлагодарим вас за пользование услугами «Лето Банка»! Спасибо, что выбрали нас!";
-	String greetingTitleText = "Информация";
-	String greetingNextBtnText = "Продолжить";
+	By registerBtn = By.id("button_register");		
 	String authTitleText = "Введите логин и пароль";
 	String authSubTitleText = "Это поможет защитить ваши деньги";
 	String protCodeCheckboxText = "Установить защитный код для быстрого входа";
@@ -38,32 +32,34 @@ public class AuthScreen extends AppScreenBase {
 	
 	public AuthScreen(WebDriver driver) {
 		super(driver);		
+		greetingPopup = PageFactory.initElements(driver,GreetingPopup.class);
+		greetingPopup.setDriver(driver);
 	}	
+	
+	public GreetingPopup getGreetingPopup() {
+		return greetingPopup;
+	}
 	
 	public boolean isGreetingMessageDisplayed() {
 		List <WebElement> greetingPopUp = driver.findElements(greetingMessage);
-		if(!greetingPopUp.isEmpty()) return true;
+		if(!greetingPopUp.isEmpty()) {
+			Log.info("Auth screen: Greeting popup displayed");
+			return true;
+		}
+		Log.info("Auth screen: Greeting popup is not displayed");
 		return false;
-	}
-	
-	public void verifyGreeting() {		
-		waitFor(greetingNextBtn);
-		Log.info("Auth screen: Verify greeting window");
-		Assert.assertEquals(driver.findElement(greetingMessage).getText(), greetingMessageText);
-		Assert.assertEquals(driver.findElement(greetingTitle).getText(), greetingTitleText);		
-		Assert.assertEquals(driver.findElement(greetingNextBtn).getText(), greetingNextBtnText);	
-	}
+	}		
 	
 	public void verifyAuthScreen() {		
 		waitFor(loginBtn);
 		Log.info("Auth screen: Verify auth screen");
-		Verify.verify(driver.findElement(authTitle).getText().contentEquals(authTitleText), "Title is not correct", driver.findElement(authTitle).getText());	
-		Assert.assertEquals(driver.findElement(authSubTitle).getText(), authSubTitleText);
-		Assert.assertEquals(driver.findElement(protCodeCheckbox).getText(), protCodeCheckboxText);		
-		Assert.assertEquals(driver.findElement(loginBtn).getText(), loginBtnText);
-		Assert.assertEquals(driver.findElement(remindLogPasLink).getText(), remindLogPasLinkText);		
-		Assert.assertEquals(driver.findElement(registerBtn).getText(), registerBtnText);
-		//Assert.assertTrue(driver.findElement(protCodeCheckbox).isSelected());
+		verify.assertEquals(driver.findElement(authTitle).getText(), authTitleText, "Auth title text");	
+		verify.assertEquals(driver.findElement(authSubTitle).getText(), authSubTitleText, "Auth subtitle text");
+		verify.assertEquals(driver.findElement(protCodeCheckbox).getText(), protCodeCheckboxText, "Auth protect code text");		
+		verify.assertEquals(driver.findElement(loginBtn).getText(), loginBtnText, "Login button text");
+		verify.assertEquals(driver.findElement(remindLogPasLink).getText(), remindLogPasLinkText, "Remind login or password text");		
+		verify.assertEquals(driver.findElement(registerBtn).getText(), registerBtnText, "Register button text");
+		verify.assertAll();
 	}
 	
 	public void setProtCodeCheckbox () {		
@@ -95,14 +91,7 @@ public class AuthScreen extends AppScreenBase {
 		Log.info("Auth screen: Click 'Registration' button'");
 		driver.findElement(registerBtn).click();
 		delay();
-	}
-	
-	public void closeGreetingMessage () {
-		waitFor(greetingNextBtn);
-		Log.info("Auth screen: Click on confirm button");
-		driver.findElement(greetingNextBtn).click();
-		delay();
-	}
+	}	
 	
 	public void enterUsername (String username) {
 		Log.info("Auth screen: Enter Username: " + username);
