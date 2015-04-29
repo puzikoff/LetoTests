@@ -8,12 +8,20 @@ import ru.letoapp.screens.AppScreenBase;
 
 public class DboScreen extends AppScreenBase {
 	public static final Logger Log = Logger.getLogger(DboScreen.class);
+	String actionBarTitle = "Регистрация"; 
 	By acceptTermsBtn = By.xpath("//ActionMenuItemView[@id='menu_item_accept_contract']");
 	By contextMenuBtn = By.xpath("//ActionMenuItemView[@id='menu_item_more']");
 	By sendEmailBtn = By.xpath("//TextView[contains(@value, 'Отправить на почту')]");
+	String acceptTermsBtnText = "Принять условия договора";
 	
 	public DboScreen(WebDriver driver) {
 		super(driver);		
+	}
+	
+	public void verifyScreen() {
+		verify.assertEquals(getTitleFromActionBar(), actionBarTitle, "Action bar title");
+		verify.assertEquals(driver.findElement(acceptTermsBtn).getText(), acceptTermsBtnText, "Accept terms button text");
+		verify.assertAll();
 	}
 
 	public void acceptLicenseTerms() {		

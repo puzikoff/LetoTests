@@ -1,5 +1,7 @@
 package ru.letoapp.tests;
 
+
+import org.testng.Assert;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 import ru.letoapp.utilities.PropertyReader;
@@ -23,9 +25,11 @@ public class RegistrationTests extends SetUpForSuiteBase{
         }
         appManager.getAuthScreen().loginBtnClick();
         Log.info("Incorrect email or password screen");
+        appManager.getIncorrectLoginPasswordScreen().verifyScreen();
         appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();
         appManager.getAuthScreen().registerBtnClick();
         Log.info("Dbo screen");
+        appManager.getDboScreen().verifyScreen();
         appManager.getDboScreen().contextMenuBtnClick();
         appManager.getDboScreen().sendEmailBtnClick();        
         Log.info("Send email screen");
@@ -36,8 +40,10 @@ public class RegistrationTests extends SetUpForSuiteBase{
         Log.info("Dbo screen"); 
         appManager.getDboScreen().acceptLicenseTerms();
         Log.info("Registration method screen");
+        appManager.getRegistrationMethodScreen().verifyScreen();
         appManager.getRegistrationMethodScreen().chooseCard();        
         Log.info("Card credentials screen");
+        appManager.getCardCredentialsScreen().verifyScreen();
         appManager.getCardCredentialsScreen().enterCardNumber(PropertyReader.getProperty("sbCorrectCardNumber")); 
         appManager.getCardCredentialsScreen().enterAccessCode(PropertyReader.getProperty("sbCorrectCardAccessCode")); 
         appManager.getCardCredentialsScreen().NextBtnClick();
@@ -58,6 +64,7 @@ public class RegistrationTests extends SetUpForSuiteBase{
         appManager.getSetPasswordScreen().isWrongConfirmPasswordErrorDisplayed();
         appManager.getSetPasswordScreen().confirmPassword("qwerty123");
         appManager.getSetPasswordScreen().nextBtnClick();
+        Assert.assertFalse(appManager.getSetPasswordScreen().isErrorPopupDisplayed(), "Error message displayed");
         Log.info("Set security code screen");
         appManager.getSecurityCodeScreen().clickNumber("1");
         appManager.getSecurityCodeScreen().clickNumber("2");
@@ -105,6 +112,7 @@ public class RegistrationTests extends SetUpForSuiteBase{
         appManager.getSetPasswordScreen().enterPassword("qwerty123");        
         appManager.getSetPasswordScreen().confirmPassword("qwerty123");        
         appManager.getSetPasswordScreen().nextBtnClick();
+        appManager.getSetPasswordScreen().isErrorPopupDisplayed();
         Log.info("Set security code screen");
         appManager.getSecurityCodeScreen().clickNumber("1");
         appManager.getSecurityCodeScreen().clickNumber("2");

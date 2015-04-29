@@ -1,8 +1,11 @@
 package ru.letoapp.screens.registration;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import ru.letoapp.screens.AppScreenBase;
 
@@ -13,9 +16,21 @@ public class SetPasswordScreen extends AppScreenBase{
 	By confirmPasswordField = By.id("text_confirm_password");
 	By wrongConfirmPasswordError = By.xpath("//TextView[contains(@value, 'Пароли не совпадают')]");
 	By weakPasswordError = By.xpath("//TextView[contains(@value, 'Ненадёжный пароль')]");
+	By errorPopupLocator = By.id("sdl__message");
 
 	public SetPasswordScreen(WebDriver driver) {
 		super(driver);
+	}
+	
+	public boolean isErrorPopupDisplayed() {
+		List <WebElement> errorPopups = driver.findElements(errorPopupLocator);
+		if(!errorPopups.isEmpty()) {
+			Log.info("Set password screen: Error popup displayed");
+			Log.info(driver.findElement(errorPopupLocator).getText());
+			return true;
+		}
+		Log.info("Auth screen: Empty login popup is not displayed");
+		return false;
 	}
 
 	public void enterPassword(String password) {
