@@ -19,6 +19,7 @@ public class SetUpForSuiteBase {
 	    appManager.startServer(PropertyReader.getProperty("appPath"), forceReinstall, noClearData);	 
 	    appManager.initDriver(PropertyReader.getProperty("appUnderTestId"), PropertyReader.getProperty("serverUrl"), emulator); 
 	    appManager.init();
+	    PropertyReader.init("/sbAccount.properties");
 	}		
 	
 	@AfterSuite

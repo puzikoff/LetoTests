@@ -32,7 +32,7 @@ public class ScreenBase {
 	    public void waitFor(String xpath) {
 			WebDriverWait waitVar =  new WebDriverWait(driver, 60);
 			By x = By.xpath(xpath);
-			waitVar.until(ExpectedConditions.presenceOfElementLocated(x));		
+			waitVar.until(ExpectedConditions.presenceOfElementLocated(x));			
 		}
 		
 		public void waitFor(By locator) {			

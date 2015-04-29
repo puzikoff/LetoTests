@@ -5,9 +5,21 @@ import org.openqa.selenium.WebDriver;
 
 public class EmptyEmailPopup extends PopupBase{
 	public static final Logger Log = Logger.getLogger(EmptyEmailPopup.class);
+	
+	String titleText = "Ошибка…";
+	String popupMessageText = "Поле «Код подтверждения» должно быть заполнено.";
+	String nextBtnText = "Продолжить";
 
 	public EmptyEmailPopup(WebDriver driver) {
 		super(driver);
+	}
+	
+	public void verifyPopup() {
+		Log.info("Empty sms code popup: Verify empty login popup");
+		verify.assertEquals(driver.findElement(title).getText(), titleText, "Popup title");
+		//verify.assertEquals(driver.findElement(message).getText(), popupMessageText, "Popup message");
+		verify.assertEquals(driver.findElement(nextBtn).getText(), nextBtnText, "Popup next button");
+		verify.assertAll();
 	}
 
 }

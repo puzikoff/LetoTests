@@ -55,12 +55,9 @@ public class CardCredentialsScreen extends AppScreenBase{
 	
 	public void verifyScreen() {
 		verify.assertEquals(getActionBarTitle(), actionBarTitleText, "Action bar title");
-		verify.assertEquals(driver.findElement(cardNumberTitle).getText(), cardNumberTitleText, "Card number title");
-		Log.info(driver.findElement(cardNumberTitle).getText());
+		verify.assertEquals(driver.findElement(cardNumberTitle).getText(), cardNumberTitleText, "Card number title");		
 		verify.assertEquals(driver.findElement(accessCodeTitle).getText(), accessCodeTitleText, "Access code title");
-		
-		verify.assertEquals(driver.findElement(accessCodeTip).getText(), accessCodeTipText, "Access code tip");
-		Log.info(driver.findElement(accessCodeTip).getText());
+		verify.assertEquals(driver.findElement(accessCodeTip).getText(), accessCodeTipText, "Access code tip");		
 		verify.assertEquals(driver.findElement(nextBtn).getText(), nextBtnText, "Next button text");
 		verify.assertEquals(driver.findElement(forgetAccessLink).getText(), forgetAccessLinkText, "Forget Access code link text");
 		verify.assertAll();

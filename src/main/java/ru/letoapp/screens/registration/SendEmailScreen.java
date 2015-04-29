@@ -1,22 +1,44 @@
 package ru.letoapp.screens.registration;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import ru.letoapp.screens.AppScreenBase;
+import ru.letoapp.screens.popups.EmptyEmailPopup;
 
 public class SendEmailScreen extends AppScreenBase{	
 	public static final Logger Log = Logger.getLogger(SendEmailScreen.class);
+	EmptyEmailPopup emptyEmailPopup;
 	
 	By emailField = By.id("text_email");
 	By sendBtn = By.id("button_send");
 	By emptyEmailPopupError = By.xpath("//TextView[@value='Поле «Адрес электронной почты» должно быть заполнено.']");
-	By emptyEmailPopupNextBtn = By.id("sdl__positive_button");
+	By emptyEmailPopupLocator = By.id("sdl__positive_button");
 	By title = By.xpath("//TextView[contains(@value, 'На него будет отправлен договор')]");
 	
 	public SendEmailScreen(WebDriver driver) {
 		super(driver);		
+		emptyEmailPopup = PageFactory.initElements(driver, EmptyEmailPopup.class);
+		emptyEmailPopup.setDriver(driver);
+	}
+	
+	public EmptyEmailPopup getEmptySmsCodePopup() {
+		return emptyEmailPopup;
+	}
+	
+	public boolean isEmptySmsCodePopupDisplayed() {
+		List <WebElement> emptyEmailPopups = driver.findElements(emptyEmailPopupLocator);
+		if(!emptyEmailPopups.isEmpty()) {
+			Log.info("Send email screen: Empty email popup displayed");
+			return true;
+		}
+		Log.info("Send email screen: Empty email popup is not displayed");
+		return false;
 	}
 
 	public void sendBtnClick() {		
@@ -25,13 +47,7 @@ public class SendEmailScreen extends AppScreenBase{
 		driver.findElement(sendBtn).click();
 		delay();
 	}
-
-	public void emptyEmailPopupNextBtnClick() {		
-		waitFor(emptyEmailPopupError);
-		Log.info("Send Email Screen: Click next");
-		driver.findElement(emptyEmailPopupNextBtn).click();
-		delay();
-	}
+	
 
 	public void enterEmail(String email) {
 		Log.info("Send Email Screen: Entering email: " + email);

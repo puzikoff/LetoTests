@@ -23,14 +23,23 @@ public class SecurityCodeScreen extends AppScreenBase{
 	}
 	
 	public void clickNumber(String number) {
+		waitFor("//RelativeLayout/FrameLayout");
 		Log.info("Security Code Screen: Click number: " + number);
 		driver.findElement(By.id("button_keyboard_" + number)).click();	
 		delay();
 	}
 	
 	public void remindSecurityCodeBtnClick(){
+		waitFor(remindSecurityCodeBtn);
 		Log.info("Security Code Screen:  remind security code click");
 		driver.findElement(remindSecurityCodeBtn).click();
+		delay();
+	}
+	
+	public void dismissBtnClick(){
+		waitFor(disMissBtn);
+		Log.info("Security Code Screen:  Dismiss button click");
+		driver.findElement(disMissBtn).click();
 		delay();
 	}
 
