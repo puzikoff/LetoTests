@@ -1,13 +1,18 @@
 package ru.letoapp.screens;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.thoughtworks.selenium.Wait.WaitTimedOutException;
+
 import ru.letoapp.screens.others.ActionBar;
 import ru.letoapp.screens.others.Drawer;
 import ru.letoapp.screens.popups.ErrorPopup;
@@ -23,7 +28,8 @@ public class AppScreenBase extends ScreenBase {
 	By errorPopupTitleLocator = By.id("sdl__title");
 	By errorPopupMessageLocator = By.id("sdl__message");
 	String errorPopuptitleText = "Ошибка…";
-
+	public By waitPopup = By.id("sdl__message");	
+	String waitPopupText = "Пожалуйста, подождите…";
 	public AppScreenBase(WebDriver driver) {
 		super(driver);
 		actionBar = PageFactory.initElements(driver, ActionBar.class);
@@ -73,26 +79,65 @@ public class AppScreenBase extends ScreenBase {
 	
 /* ---- Drawer methods ENDS-----*/
 
-/* ---- Error popup methods-----*/
+/* ---- popups methods-----*/
 	
 	public ErrorPopup getErrorPopup() {
 		return errorPopup;
 	}
 	
 	public boolean isErrorPopupDisplayed() {
-		List <WebElement> errorPopups = driver.findElements(errorPopupTitleLocator);
-		if(!errorPopups.isEmpty()) {
-			if(errorPopups.get(0).getText().equals(errorPopuptitleText)) {
-				Log.info("Error popup displayed");
-				Log.info(driver.findElement(errorPopupTitleLocator).getText());
-				Log.info(driver.findElement(errorPopupMessageLocator).getText());
-				return true;
-			}			
+		if((findElement(errorPopupTitleLocator, driver) != null)&&(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText))) 
+		{
+			Log.info("Error popup displayed");			
+			Log.info(findElement(errorPopupMessageLocator, driver).getText());
+			return true; 
+		}	
+		else {
 			Log.info("Error popup is not displayed");
 			return false;
+		}		
+	}
+	
+	public boolean isWaitPopupDisplayed() {
+		if((findElement(waitPopup, driver) != null)&&(findElement(waitPopup, driver).getText().equals(waitPopupText))) {
+			Log.info("Wait popup displayed");
+			return true; 
+		}		
+		else {
+			Log.info("Wait popup displayed");
+			return false;
 		}
-		Log.info("Error popup is not displayed");
-		return false;
+	}
+	
+	public void waitForVanishWaitPopup() {		
+		 try {
+	            Wait<WebDriver> wait = new WebDriverWait(getDriver(), waitTimeout, 100);	            
+	            wait.until(new ExpectedCondition<String>() {
+	                public String apply(WebDriver driver) {	                	
+	                    try {
+	                    	WebElement element = findElement(waitPopup, driver);
+	                    	if (null == element) {
+	                    		Log.info("Wait popup vanished");
+	                    		return "not_present";
+	                    	} else if (!element.isDisplayed()) {
+	                    		Log.info("Wait popup vanished");
+	                    		return "not_displayed";
+	                    	} else if (!element.getText().equals(waitPopupText)) {
+	                    		Log.info("Wait popup vanished : Became another element");
+	                    		return "not_displayed"; 
+	                    	} else {
+	                    		return null;
+	                    	}
+	                    	} catch (StaleElementReferenceException ex) {
+	                    		Log.info("Wait popup is not attached to DOM, try again");	                        
+	                    		return "not_attached_to_dom";
+	                    	}     
+	                }	                
+	            });
+	        } catch (WaitTimedOutException e) {
+	            Log.info(waitPopup.toString() + "Timeout: Wait popup is still present");
+	            throw e;
+	   }
 	}
 	
 /* ---- Error popup methods ends -----*/

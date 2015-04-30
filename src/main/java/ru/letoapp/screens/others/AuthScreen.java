@@ -117,12 +117,18 @@ public class AuthScreen extends AppScreenBase {
 		Log.info("Auth screen: Click login button");
 		driver.findElement(loginBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }		
 	}
 	
 	public void remindLogPasBtnClick () {
 		Log.info("Auth screen: Click remind login and password link");
 		driver.findElement(remindLogPasLink).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }		
 	}
 	
 	public void registerBtnClick () {
@@ -130,6 +136,9 @@ public class AuthScreen extends AppScreenBase {
 		Log.info("Auth screen: Click 'Registration' button'");
 		driver.findElement(registerBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}	
 	
 	public void enterUsername (String username) {

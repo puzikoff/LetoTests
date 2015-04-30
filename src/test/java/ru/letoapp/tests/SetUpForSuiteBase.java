@@ -1,5 +1,7 @@
 package ru.letoapp.tests;
 
+import java.util.Random;
+
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
 import ru.letoapp.utilities.AppManager;
@@ -7,6 +9,7 @@ import ru.letoapp.utilities.PropertyReader;
 
 public class SetUpForSuiteBase {	
 	AppManager appManager;	
+	public final static Random random = new Random();
 	
 	@BeforeSuite
 	public void setUp() throws Exception 
@@ -28,5 +31,16 @@ public class SetUpForSuiteBase {
 		appManager.stopDriver();
 		appManager.stopServer();
 	}
+	
+	public static String generateString(String characters, int length)
+	{
+	    char[] text = new char[length];
+	    for (int i = 0; i < length; i++)
+	    {
+	        text[i] = characters.charAt(random.nextInt(characters.length()));
+	    }
+	    return new String(text);
+	}
+	
 
 }

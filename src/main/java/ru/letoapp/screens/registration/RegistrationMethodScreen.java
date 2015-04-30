@@ -31,6 +31,9 @@ public class RegistrationMethodScreen extends AppScreenBase{
 		Log.info("RegistrationMethodScreen: Choose card registration");
 		driver.findElement(cardRegistrationBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 	
 	public void chooseAccount() {		
@@ -38,6 +41,9 @@ public class RegistrationMethodScreen extends AppScreenBase{
 		Log.info("RegistrationMethodScreen: Choose account registration");
 		driver.findElement(accountRegistrationBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 }

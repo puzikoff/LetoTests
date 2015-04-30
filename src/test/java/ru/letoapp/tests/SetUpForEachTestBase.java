@@ -1,5 +1,7 @@
 package ru.letoapp.tests;
 
+import java.util.Random;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -7,7 +9,8 @@ import org.testng.annotations.AfterSuite;
 import ru.letoapp.utilities.AppManager;
 import ru.letoapp.utilities.PropertyReader;
 
-public class SetUpForEachTestBase {	
+public class SetUpForEachTestBase {
+	public final static Random random = new Random();
 	AppManager appManager;	
 	
 	@BeforeSuite
@@ -28,7 +31,7 @@ public class SetUpForEachTestBase {
 		PropertyReader.init("/testconfig.properties");	
 	    appManager.initDriver(PropertyReader.getProperty("appUnderTestId"), PropertyReader.getProperty("serverUrl"), emulator); 
 	    appManager.init();
-	    PropertyReader.init("/sbAccount.properties");
+	    PropertyReader.init("/mtestAccount.properties");
 	}	
 	
 	@AfterMethod
@@ -42,5 +45,16 @@ public class SetUpForEachTestBase {
 	{		
 		appManager.stopServer();
 	}
+	
+	public static String generateString(String characters, int length)
+	{
+	    char[] text = new char[length];
+	    for (int i = 0; i < length; i++)
+	    {
+	        text[i] = characters.charAt(random.nextInt(characters.length()));
+	    }
+	    return new String(text);
+	}
+	
 
 }

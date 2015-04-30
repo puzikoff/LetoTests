@@ -14,10 +14,13 @@ public static final Logger Log = Logger.getLogger(AccountCredentialsScreen.class
 	By accessCodeField = By.id("text_access_code");
 	By nextBtn = By.id("button_further");
 	By forgetAccessLink = By.id("button_remind_account_number_or_access_code");
+	
 
 	public AccountCredentialsScreen(WebDriver driver) {
 		super(driver);
 	}
+	
+	
 	
 	public void enterAccountNumber(String accountNumber) {
 		waitFor(accountNumberField);
@@ -38,6 +41,9 @@ public static final Logger Log = Logger.getLogger(AccountCredentialsScreen.class
 		Log.info("Account Credentials Screen: Click next button");
 		driver.findElement(nextBtn).click();	
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 	public void forgotAccountBtnClick() {
@@ -45,6 +51,9 @@ public static final Logger Log = Logger.getLogger(AccountCredentialsScreen.class
 		Log.info("Account Credentials Screen: Click forget acces code button");
 		driver.findElement(forgetAccessLink).click();	
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 }

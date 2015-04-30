@@ -54,6 +54,9 @@ public class SetPasswordScreen extends AppScreenBase{
 		Log.info("Set Password Screen: Click next button");
 		driver.findElement(nextBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 }

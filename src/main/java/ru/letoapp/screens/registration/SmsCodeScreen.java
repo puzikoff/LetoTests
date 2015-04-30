@@ -37,9 +37,8 @@ public class SmsCodeScreen extends AppScreenBase{
 		return emptySmsCodePopup;
 	}
 	
-	public boolean isEmptySmsCodePopupDisplayed() {
-		List <WebElement> emptySmsCodePopups = driver.findElements(emptySmsCodePopupLocator);
-		if(!emptySmsCodePopups.isEmpty()) {
+	public boolean isEmptySmsCodePopupDisplayed() {		
+		if(findElement(emptySmsCodePopupLocator, driver) != null) {
 			Log.info("Sms code screen: Empty sms code popup displayed");
 			return true;
 		}
@@ -68,6 +67,9 @@ public class SmsCodeScreen extends AppScreenBase{
 		Log.info("SMS Code Screen: Click 'Next'");
 		driver.findElement(nextBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 	public void enterSmsCode(String smsCode) {

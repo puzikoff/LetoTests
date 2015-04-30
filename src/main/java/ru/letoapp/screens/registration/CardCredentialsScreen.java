@@ -82,6 +82,9 @@ public class CardCredentialsScreen extends AppScreenBase{
 		Log.info("Card Credentials Screen: Click next button");
 		driver.findElement(nextBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 	public void forgotCardNumberBtnClick() {
@@ -89,6 +92,9 @@ public class CardCredentialsScreen extends AppScreenBase{
 		Log.info("Card Credentials Screen: Click forget access code or card number button");
 		driver.findElement(forgetAccessLink).click();	
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 }

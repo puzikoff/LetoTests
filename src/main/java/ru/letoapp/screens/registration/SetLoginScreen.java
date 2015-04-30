@@ -27,6 +27,9 @@ public class SetLoginScreen extends AppScreenBase {
 		Log.info("Set Login Screen: Click next button");
 		driver.findElement(nextBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 }

@@ -27,8 +27,11 @@ public class DboScreen extends AppScreenBase {
 	public void acceptLicenseTerms() {		
 		waitFor(acceptTermsBtn);
 		Log.info("Dbo Screen: Click 'Accept terms' button");
-		driver.findElement(acceptTermsBtn).click();	
+		driver.findElement(acceptTermsBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }		
 	}	
 	
 	public void contextMenuBtnClick() {		
@@ -42,6 +45,9 @@ public class DboScreen extends AppScreenBase {
 		Log.info("Dbo Screen: Click send email button");
 		driver.findElement(sendEmailBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }		
 	}
 
 }
