@@ -1,9 +1,10 @@
 package ru.letoapp.tests;
 
 
-import org.testng.Assert;
 import org.apache.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import ru.letoapp.utilities.PropertyReader;
 
 public class RegistrationTests extends SetUpForEachTestBase{
@@ -15,27 +16,13 @@ public class RegistrationTests extends SetUpForEachTestBase{
 	public void registrationByCardPositiveTest() {		
 		Log.info("REGISTRATION BY CARD POSITIVE TEST STARTS");		 
 		Log.info("Auth screen");
-    	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
-        appManager.getAuthScreen().verifyAuthScreen();         
-        appManager.getAuthScreen().enterUsername(generateString("qwertyuio123456", 5) + "@mtest");        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
-        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
-        	appManager.getAuthScreen().setProtCodeCheckbox();
-        }
-        appManager.getAuthScreen().loginBtnClick();       
-        Assert.assertFalse(appManager.getAuthScreen().isErrorPopupDisplayed(), "Auth screen: Error popup displayed");
-        Log.info("Incorrect email or password screen");
-        appManager.getIncorrectLoginPasswordScreen().verifyScreen();
-        appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();        
-        appManager.getAuthScreen().registerBtnClick();       
+		chooseEnvironoment(environoment);
+        appManager.getAuthScreen().registerBtnClick();        
         Log.info("Dbo screen");
         appManager.getDboScreen().verifyScreen();
         appManager.getDboScreen().contextMenuBtnClick();
         appManager.getDboScreen().sendEmailBtnClick();       
-        Log.info("Send email screen");
+        Log.info("Send email screen");        
         appManager.getSendEmailScreen().sendBtnClick();        
         Assert.assertTrue(appManager.getSendEmailScreen().isEmptySmsCodePopupDisplayed());        
         appManager.getSendEmailScreen().getEmptySmsCodePopup().verifyPopup();
@@ -103,21 +90,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
 	public void registrationByAccountPositiveTest() {
 		Log.info("REGISTRATION BY ACCOUNT POSITIVE TEST STARTS");		 
 		Log.info("Auth screen");
-    	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
-        appManager.getAuthScreen().verifyAuthScreen();  
-        appManager.getAuthScreen().enterUsername(generateString("qwertyuio123456", 5) + "@mtest");        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
-        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
-        	appManager.getAuthScreen().setProtCodeCheckbox();
-        }
-        appManager.getAuthScreen().loginBtnClick();       
-        Assert.assertFalse(appManager.getAuthScreen().isErrorPopupDisplayed(), "Auth screen: Error popup displayed");
-        Log.info("Incorrect email or password screen");
-        appManager.getIncorrectLoginPasswordScreen().verifyScreen();
-        appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();       
+		chooseEnvironoment(environoment);     
         appManager.getAuthScreen().registerBtnClick();       
         Log.info("Dbo screen");
         appManager.getDboScreen().acceptLicenseTerms();        
@@ -155,8 +128,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         appManager.getSecurityCodeScreen().clickNumber("1");
         appManager.getSecurityCodeScreen().clickNumber("2");
         appManager.getSecurityCodeScreen().clickNumber("3");
-        appManager.getSecurityCodeScreen().clickNumber("4");
-        Log.info(appManager.getSecurityCodeScreen().isWaitPopupDisplayed());
+        appManager.getSecurityCodeScreen().clickNumber("4");        
         if(appManager.getSecurityCodeScreen().isWaitPopupDisplayed()) {
         	appManager.getSecurityCodeScreen().waitForVanishWaitPopup();
         }
@@ -172,22 +144,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
 	public void forgotPswByCardPositiveTest() {
 		Log.info("FORGOT PASSWORD BY CARD POSITIVE TEST STARTS");
 		Log.info("Auth screen");		
-    	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
-        appManager.getAuthScreen().verifyAuthScreen();  
-        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
-        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
-        	appManager.getAuthScreen().setProtCodeCheckbox();
-        }
-        appManager.getAuthScreen().loginBtnClick();
-        Assert.assertFalse(appManager.getAuthScreen().isErrorPopupDisplayed(), "Auth screen: Error popup displayed");
-        Log.info("Incorrect email or password screen");
-        appManager.getIncorrectLoginPasswordScreen().verifyScreen();
-        appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick(); 
-        Log.info("Auth screen");        
+		chooseEnvironoment(environoment);
         appManager.getAuthScreen().remindLogPasBtnClick();
         Log.info("Forgot login or password");        
         appManager.getForgotPswScreen().verifyScreen();
@@ -227,22 +184,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
 	public void forgotPswByAccountPositiveTest() {
 		Log.info("FORGOT PASSWORD BY ACCOUNT POSITIVE TEST STARTS");
 		Log.info("Auth screen");		
-    	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
-        appManager.getAuthScreen().verifyAuthScreen();  
-        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
-        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
-        	appManager.getAuthScreen().setProtCodeCheckbox();
-        }
-        appManager.getAuthScreen().loginBtnClick();
-        Assert.assertFalse(appManager.getAuthScreen().isErrorPopupDisplayed(), "Auth screen: Error popup displayed");
-        Log.info("Incorrect email or password screen");
-        appManager.getIncorrectLoginPasswordScreen().verifyScreen();
-        appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick(); 
-        Log.info("Auth screen");        
+		chooseEnvironoment(environoment);
         appManager.getAuthScreen().remindLogPasBtnClick();
         Log.info("Forgot password/login screen");
         appManager.getForgotPswScreen().getNewCredentialsBtnClick();
@@ -281,22 +223,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
 	public void forgotAccessOrAccountPositiveTest() {
 		Log.info("REGISTRATION. FORGOT ACCOUNT OR ACCES CODE POSITIVE TEST STARTS");
 		Log.info("Auth screen");
-    	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
-        appManager.getAuthScreen().verifyAuthScreen();  
-        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
-        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
-        	appManager.getAuthScreen().setProtCodeCheckbox();
-        }
-        appManager.getAuthScreen().loginBtnClick();
-        Assert.assertFalse(appManager.getAuthScreen().isErrorPopupDisplayed(), "Auth screen: Error popup displayed");
-        Log.info("Incorrect email or password screen");
-        appManager.getIncorrectLoginPasswordScreen().verifyScreen();
-        appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();   
-        Log.info("Auth screen");
+		chooseEnvironoment(environoment);
         appManager.getAuthScreen().registerBtnClick();        
         Log.info("Dbo screen"); 
         appManager.getDboScreen().acceptLicenseTerms();
@@ -335,22 +262,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
 	public void forgotAccessOrCardPositiveTest() {
 		Log.info("REGISTRATION. FORGOT CARD NUMBER OR ACCES CODE POSITIVE TEST STARTS");
 		Log.info("Auth screen");
-    	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
-        appManager.getAuthScreen().verifyAuthScreen();  
-        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
-        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
-        	appManager.getAuthScreen().setProtCodeCheckbox();
-        }
-        appManager.getAuthScreen().loginBtnClick();
-        Assert.assertFalse(appManager.getAuthScreen().isErrorPopupDisplayed(), "Auth screen: Error popup displayed");
-        Log.info("Incorrect email or password screen");
-        appManager.getIncorrectLoginPasswordScreen().verifyScreen();
-        appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();   
-        Log.info("Auth screen");
+		chooseEnvironoment(environoment);
         appManager.getAuthScreen().registerBtnClick();        
         Log.info("Dbo screen"); 
         appManager.getDboScreen().acceptLicenseTerms();
@@ -389,16 +301,9 @@ public class RegistrationTests extends SetUpForEachTestBase{
 	public void registrationByCardAfterIncorrectLogon() {
 		Log.info("REGISTRATION BY CARD. INCORRECT LOGON. POSITIVE TEST STARTs");
 		Log.info("Auth screen");
-    	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
-        appManager.getAuthScreen().verifyAuthScreen();  
+		chooseEnvironoment(environoment);          
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
-        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
-        	appManager.getAuthScreen().setProtCodeCheckbox();
-        }
+        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));        
         appManager.getAuthScreen().loginBtnClick();
         Assert.assertFalse(appManager.getAuthScreen().isErrorPopupDisplayed(), "Auth screen: Error popup displayed");
         Log.info("Incorrect email or password screen");
@@ -439,16 +344,9 @@ public class RegistrationTests extends SetUpForEachTestBase{
 	public void registrationByAccountAfterIncorrectLogon() {
 		Log.info("REGISTRATION BY ACCOUNT. INCORRECT LOGON. POSITIVE TEST STARTS");
 		Log.info("Auth screen");
-    	if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
-        appManager.getAuthScreen().verifyAuthScreen();  
+		chooseEnvironoment(environoment);  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
-        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
-        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
-        	appManager.getAuthScreen().setProtCodeCheckbox();
-        }
+        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));        
         appManager.getAuthScreen().loginBtnClick();
         Assert.assertFalse(appManager.getAuthScreen().isErrorPopupDisplayed(), "Auth screen: Error popup displayed");
         Log.info("Incorrect email or password screen");

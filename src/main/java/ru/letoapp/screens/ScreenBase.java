@@ -117,7 +117,7 @@ public class ScreenBase {
 		        }
 		    }
 		
-		 private By getBy(String locator) {
+		 public By getBy(String locator) {
 	        if (locator.matches("^id=[\\d\\D]+"))
 	            return By.id(locator.replaceAll("id=", ""));
 	        else if (locator.matches("^xpath=[\\d\\D]+"))
@@ -137,6 +137,6 @@ public class ScreenBase {
 		        } else {
 		            return null;
 		        }
-		    }
-
+		}	 
+		
 }

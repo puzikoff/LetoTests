@@ -1,7 +1,5 @@
 package ru.letoapp.tests;
 
-import java.util.Random;
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -9,29 +7,28 @@ import org.testng.annotations.AfterSuite;
 import ru.letoapp.utilities.AppManager;
 import ru.letoapp.utilities.PropertyReader;
 
-public class SetUpForEachTestBase {
-	public final static Random random = new Random();
-	AppManager appManager;	
-	
+public class SetUpForEachTestBase extends TestBase{
 	@BeforeSuite
 	public void setUpSuite() throws Exception 
-	{		
-		boolean forceReinstall = true;
-		boolean noClearData = false;
+	{			
 		PropertyReader.init("/testconfig.properties");
 		appManager = new AppManager();	    	    
-	    appManager.startServer(PropertyReader.getProperty("appPath"), forceReinstall, noClearData);	    
+	    appManager.startServer(PropertyReader.getProperty("appPath"), 
+	    		Boolean.valueOf(PropertyReader.getProperty("forceReinstall")), 
+	    		Boolean.valueOf(PropertyReader.getProperty("noClearData")));	    
 	}
 			
 	@BeforeMethod	   
 	public void setUpMethod() throws Exception	
-	{		
-		boolean emulator = false;
+	{			
 		appManager = new AppManager();	 
 		PropertyReader.init("/testconfig.properties");	
-	    appManager.initDriver(PropertyReader.getProperty("appUnderTestId"), PropertyReader.getProperty("serverUrl"), emulator); 
+	    appManager.initDriver(PropertyReader.getProperty("appUnderTestId"), 
+	    					  PropertyReader.getProperty("serverUrl"), 
+	    					  Boolean.valueOf(PropertyReader.getProperty("emulator"))); 
 	    appManager.init();
-	    PropertyReader.init("/mtestAccount.properties");
+	    environoment = PropertyReader.getProperty("environoment");
+	    PropertyReader.init("/" + environoment + "Account.properties");
 	}	
 	
 	@AfterMethod
@@ -45,16 +42,4 @@ public class SetUpForEachTestBase {
 	{		
 		appManager.stopServer();
 	}
-	
-	public static String generateString(String characters, int length)
-	{
-	    char[] text = new char[length];
-	    for (int i = 0; i < length; i++)
-	    {
-	        text[i] = characters.charAt(random.nextInt(characters.length()));
-	    }
-	    return new String(text);
-	}
-	
-
 }

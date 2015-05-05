@@ -1,28 +1,26 @@
 package ru.letoapp.tests;
 
-import java.util.Random;
-
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
 import ru.letoapp.utilities.AppManager;
 import ru.letoapp.utilities.PropertyReader;
 
-public class SetUpForSuiteBase {	
-	AppManager appManager;	
-	public final static Random random = new Random();
-	
+public class SetUpForSuiteBase extends TestBase{	
+		
 	@BeforeSuite
 	public void setUp() throws Exception 
-	{		
-		boolean forceReinstall = true;
-		boolean noClearData = false;
-		boolean emulator = false;
+	{			
 		PropertyReader.init("/testconfig.properties");
 		appManager = new AppManager();	    	    
-	    appManager.startServer(PropertyReader.getProperty("appPath"), forceReinstall, noClearData);	 
-	    appManager.initDriver(PropertyReader.getProperty("appUnderTestId"), PropertyReader.getProperty("serverUrl"), emulator); 
+		appManager.startServer(PropertyReader.getProperty("appPath"), 
+	    		Boolean.valueOf(PropertyReader.getProperty("forceReinstall")), 
+	    		Boolean.valueOf(PropertyReader.getProperty("noClearData")));	   
+		appManager.initDriver(PropertyReader.getProperty("appUnderTestId"), 
+				  PropertyReader.getProperty("serverUrl"), 
+				  Boolean.valueOf(PropertyReader.getProperty("emulator"))); 
 	    appManager.init();
-	    PropertyReader.init("/sbAccount.properties");
+	    environoment = PropertyReader.getProperty("environoment");
+	    PropertyReader.init("/" + environoment + "Account.properties");
 	}		
 	
 	@AfterSuite
@@ -30,17 +28,5 @@ public class SetUpForSuiteBase {
 	{
 		appManager.stopDriver();
 		appManager.stopServer();
-	}
-	
-	public static String generateString(String characters, int length)
-	{
-	    char[] text = new char[length];
-	    for (int i = 0; i < length; i++)
-	    {
-	        text[i] = characters.charAt(random.nextInt(characters.length()));
-	    }
-	    return new String(text);
-	}
-	
-
+	}	
 }

@@ -16,11 +16,11 @@ import com.thoughtworks.selenium.Wait.WaitTimedOutException;
 import ru.letoapp.screens.others.ActionBar;
 import ru.letoapp.screens.others.Drawer;
 import ru.letoapp.screens.popups.ErrorPopup;
+import ru.letoapp.utilities.AppManager;
 
+@SuppressWarnings("deprecation")
 public class AppScreenBase extends ScreenBase {
-	public static final Logger Log = Logger.getLogger(AppScreenBase.class);
-	
-	
+	public static final Logger Log = Logger.getLogger(AppScreenBase.class);	
 	private ActionBar actionBar;
 	private Drawer drawer;
 	private ErrorPopup errorPopup;
@@ -30,6 +30,7 @@ public class AppScreenBase extends ScreenBase {
 	String errorPopuptitleText = "Ошибка…";
 	public By waitPopup = By.id("sdl__message");	
 	String waitPopupText = "Пожалуйста, подождите…";
+	
 	public AppScreenBase(WebDriver driver) {
 		super(driver);
 		actionBar = PageFactory.initElements(driver, ActionBar.class);
@@ -38,8 +39,7 @@ public class AppScreenBase extends ScreenBase {
 		actionBar.setDriver(driver);		
 		drawer.setDriver(driver);
 		errorPopup.setDriver(driver);
-	}
-	
+	}		
 	
 /* ---- Action Bar methods -----*/		
 	public String getTitleFromActionBar() {
@@ -86,29 +86,44 @@ public class AppScreenBase extends ScreenBase {
 	}
 	
 	public boolean isErrorPopupDisplayed() {
-		if((findElement(errorPopupTitleLocator, driver) != null)&&(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText))) 
-		{
-			Log.info("Error popup displayed");			
-			Log.info(findElement(errorPopupMessageLocator, driver).getText());
-			return true; 
-		}	
-		else {
+		if(findElement(errorPopupTitleLocator, driver) != null) {
+			if(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText)) 
+			{
+				Log.error("Error popup displayed");			
+				Log.error(findElement(errorPopupMessageLocator, driver).getText());
+				Log.info("Taking screenshot");
+				takeScreenshot();
+				return true; 
+			}	
+			else {
+				Log.info("Error popup is not displayed");
+				return false;
+			}
+		}
+		else{
 			Log.info("Error popup is not displayed");
 			return false;
-		}		
+		}
 	}
 	
 	public boolean isWaitPopupDisplayed() {
-		if((findElement(waitPopup, driver) != null)&&(findElement(waitPopup, driver).getText().equals(waitPopupText))) {
-			Log.info("Wait popup displayed");
-			return true; 
-		}		
+		if(findElement(waitPopup, driver) != null) {
+			if(findElement(waitPopup, driver).getText().equals(waitPopupText))
+			{
+				Log.info("Wait popup displayed");
+				return true; 
+			} 		
+			else {
+				Log.info("Wait popup displayed");
+				return false;
+			}		
+		}
 		else {
 			Log.info("Wait popup displayed");
 			return false;
 		}
 	}
-	
+		
 	public void waitForVanishWaitPopup() {		
 		 try {
 	            Wait<WebDriver> wait = new WebDriverWait(getDriver(), waitTimeout, 100);	            
@@ -161,5 +176,10 @@ public class AppScreenBase extends ScreenBase {
 	}
 	
 	/* ------ Common methods --- ENDS*/	
+	
+	public void takeScreenshot()
+    {       
+		AppManager.takeScreenshot();
+    }
 
 }

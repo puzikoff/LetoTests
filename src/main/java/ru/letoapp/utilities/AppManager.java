@@ -6,8 +6,14 @@ import io.selendroid.standalone.SelendroidConfiguration;
 import io.selendroid.standalone.SelendroidLauncher;
 import io.selendroid.standalone.log.LogLevelEnum;
 import io.selendroid.common.device.DeviceTargetPlatform;
+
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -216,6 +222,7 @@ public class AppManager {
 	    serverConfig.setPort(4444);	    
 	    serverConfig.setEmulatorPort(44444);
 	    serverConfig.setDeviceLog(false);
+	    serverConfig.setDeviceScreenshot(true);
 	    serverConfig.setSelendroidServerPort(38080);
 	    serverConfig.setForceReinstall(forceReinstall);
 	    serverConfig.setNoClearData(noClearData);
@@ -250,6 +257,16 @@ public class AppManager {
 	    driver = new SelendroidDriver(new URL(serverUrl), capabilities); 
 	    waitDriver = new WebDriverWait(driver, 90);
 	}
+	
+	public static void takeScreenshot()
+    {       
+       File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+       try {
+           FileUtils.copyFile(scrFile, new File("Screenshots" + File.separator +  "screenshot-" +  System.currentTimeMillis() +".png"));
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+    }
 	
 	public WebDriver getDriver() {
 		return driver;
