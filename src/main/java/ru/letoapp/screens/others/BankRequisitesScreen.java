@@ -3,15 +3,11 @@ package ru.letoapp.screens.others;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.asserts.SoftAssert;
-
 import ru.letoapp.screens.AppScreenBase;
-
 
 public class BankRequisitesScreen extends AppScreenBase{
 	public static final Logger Log = Logger.getLogger(BankRequisitesScreen.class);
-	SoftAssert verify = new SoftAssert();
-	
+		
 	By fullName = By.xpath("//CaptionTextItemView_[1]/TextView[2]");
 	String fullNameText = "Публичное акционерное общество «Лето Банк»";
 	By shortName = By.xpath("//CaptionTextItemView_[2]/TextView[2]");

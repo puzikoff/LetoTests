@@ -21,6 +21,7 @@ public class DrawerTests extends SetUpForEachTestBase{
         if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
         	appManager.getAuthScreen().setProtCodeCheckbox();
         }
+        appManager.getAuthScreen().contactsBtnClick();
         appManager.getAuthScreen().loginBtnClick();
         appManager.getDashboardScreen().verifyDashboardScreen();        
         appManager.getDashboardScreen().menuBtnClick();
