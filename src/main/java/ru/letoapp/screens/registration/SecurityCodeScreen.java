@@ -41,6 +41,9 @@ public class SecurityCodeScreen extends AppScreenBase{
 		Log.info("Security Code Screen:  Dismiss button click");
 		driver.findElement(disMissBtn).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 }

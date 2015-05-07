@@ -16,7 +16,7 @@ import com.thoughtworks.selenium.Wait.WaitTimedOutException;
 import ru.letoapp.screens.others.ActionBar;
 import ru.letoapp.screens.others.Drawer;
 import ru.letoapp.screens.popups.ErrorPopup;
-import ru.letoapp.utilities.AppManager;
+import ru.letoapp.utilities.ScreenshotMaker;
 
 @SuppressWarnings("deprecation")
 public class AppScreenBase extends ScreenBase {
@@ -87,14 +87,17 @@ public class AppScreenBase extends ScreenBase {
 	
 	public boolean isErrorPopupDisplayed() {
 		if(findElement(errorPopupTitleLocator, driver) != null) {
+			if(findElement(errorPopupTitleLocator, driver) == null) {
+				Log.info("Error popup is not displayed");
+				return false;
+			}
 			if(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText)) 
 			{
 				Log.error("Error popup displayed");			
-				Log.error(findElement(errorPopupMessageLocator, driver).getText());
-				Log.info("Taking screenshot");
+				Log.error(findElement(errorPopupMessageLocator, driver).getText());				
 				takeScreenshot();
 				return true; 
-			}	
+			}			
 			else {
 				Log.info("Error popup is not displayed");
 				return false;
@@ -108,18 +111,22 @@ public class AppScreenBase extends ScreenBase {
 	
 	public boolean isWaitPopupDisplayed() {
 		if(findElement(waitPopup, driver) != null) {
+			if(findElement(waitPopup, driver) == null) {
+				Log.info("Wait popup is not displayed");
+				return false;
+			}
 			if(findElement(waitPopup, driver).getText().equals(waitPopupText))
 			{
 				Log.info("Wait popup displayed");
 				return true; 
 			} 		
 			else {
-				Log.info("Wait popup displayed");
+				Log.info("Wait popup is not displayed");
 				return false;
 			}		
 		}
 		else {
-			Log.info("Wait popup displayed");
+			Log.info("Wait popup is not displayed");
 			return false;
 		}
 	}
@@ -179,7 +186,8 @@ public class AppScreenBase extends ScreenBase {
 	
 	public void takeScreenshot()
     {       
-		AppManager.takeScreenshot();
+		Log.info("Taking screenshot");
+		ScreenshotMaker.takeScreenshot(driver);
     }
 
 }

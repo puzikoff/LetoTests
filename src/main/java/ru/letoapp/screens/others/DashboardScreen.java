@@ -40,7 +40,7 @@ public class DashboardScreen extends AppScreenBase {
 			cards.get(0).click();
 			delay();
 		}
-		else Log.info("Dashboard screen: No card with such name");		
+		else Log.error("Dashboard screen: No card with such name");		
 	}
 	
 	public void openLoan(String loanName) {
@@ -50,7 +50,7 @@ public class DashboardScreen extends AppScreenBase {
 			loans.get(0).click();		
 			delay();
 		}			
-		else Log.info("Dashboard screen: No loan with such name");
+		else Log.error("Dashboard screen: No loan with such name");
 	}
 	
 	public void openDeposit(String depositName) {
@@ -60,7 +60,7 @@ public class DashboardScreen extends AppScreenBase {
 			deposits.get(0).click();		
 			delay();		
 		}
-		else Log.info("Dashboard screen: No deposit with such name");
+		else Log.error("Dashboard screen: No deposit with such name");
 	}
 	
 	public void openCard(int n) {		
@@ -97,7 +97,8 @@ public class DashboardScreen extends AppScreenBase {
 				Log.info("Dashboard screen: Cardsum: " + sum);
 				return sum;	}		
 		}
-		return "Dashboard screen: No card with such name: " + cardName; 		 
+		Log.error("Dashboard screen: No card with such name: " + cardName);
+		return "no card"; 		 
 	}
 	
 	public String getCardSum(int n) {

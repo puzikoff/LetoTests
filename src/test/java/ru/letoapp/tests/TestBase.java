@@ -1,28 +1,16 @@
 package ru.letoapp.tests;
 
-import java.util.Random;
-
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 
 import ru.letoapp.utilities.AppManager;
 import ru.letoapp.utilities.PropertyReader;
+import ru.letoapp.utilities.TestsHelper;
 
 public class TestBase {
-public static final Logger Log = Logger.getLogger(TestBase.class);
-	public final static Random random = new Random();	
+public static final Logger Log = Logger.getLogger(TestBase.class);	
 	public String environoment;
-	AppManager appManager;
-	
-	public static String generateString(String characters, int length)
-	{
-	    char[] text = new char[length];
-	    for (int i = 0; i < length; i++)
-	    {
-	        text[i] = characters.charAt(random.nextInt(characters.length()));
-	    }
-	    return new String(text);
-	}
+	AppManager appManager;	
 	
 	public void chooseEnvironoment(String env) {
 		if(env.equals("sb")) {
@@ -51,7 +39,7 @@ public static final Logger Log = Logger.getLogger(TestBase.class);
 	    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
 	    	}                
 	        appManager.getAuthScreen().verifyAuthScreen();         
-	        appManager.getAuthScreen().enterUsername(generateString("qwertyuio123456", 5) + "@mtest");        
+	        appManager.getAuthScreen().enterUsername(TestsHelper.generateString("qwertyuio123456", 5) + "@mtest");        
 	        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
 	        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
 	        	appManager.getAuthScreen().setProtCodeCheckbox();

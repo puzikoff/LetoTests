@@ -4,13 +4,10 @@ package ru.letoapp.tests;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import ru.letoapp.utilities.PropertyReader;
 
 public class RegistrationTests extends SetUpForEachTestBase{
-	public static final Logger Log = Logger.getLogger(RegistrationTests.class);	
-	
-	
+	public static final Logger Log = Logger.getLogger(RegistrationTests.class);		
 	
 	@Test(priority=1, description = "REGISTRATION BY CARD. POSITIVE TEST")
 	public void registrationByCardPositiveTest() {		
@@ -26,7 +23,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         appManager.getSendEmailScreen().sendBtnClick();        
         Assert.assertTrue(appManager.getSendEmailScreen().isEmptySmsCodePopupDisplayed());        
         appManager.getSendEmailScreen().getEmptySmsCodePopup().verifyPopup();
-        appManager.getSendEmailScreen().getEmptySmsCodePopup().nextBtnClick();
+        appManager.getSendEmailScreen().getEmptySmsCodePopup().nextBtnClick();        
         appManager.getSendEmailScreen().enterEmail("mail@mail.ru");
         appManager.getSendEmailScreen().sendBtnClick();        
         Assert.assertFalse(appManager.getSendEmailScreen().isErrorPopupDisplayed(), "Send email screen: Error popup displayed");
@@ -58,10 +55,10 @@ public class RegistrationTests extends SetUpForEachTestBase{
         Log.info("Set password screen");
         appManager.getSetPasswordScreen().enterPassword("qwerty");
         appManager.getSetPasswordScreen().isWeakPasswordErrorDisplayed();
-        appManager.getSetPasswordScreen().enterPassword("qwerty123");
-        appManager.getSetPasswordScreen().confirmPassword("qwerty12");
+        appManager.getSetPasswordScreen().enterPassword("Qwerty");
+        appManager.getSetPasswordScreen().confirmPassword("Qwerty12");
         appManager.getSetPasswordScreen().isWrongConfirmPasswordErrorDisplayed();
-        appManager.getSetPasswordScreen().confirmPassword("qwerty123");
+        appManager.getSetPasswordScreen().confirmPassword("Qwerty");
         appManager.getSetPasswordScreen().nextBtnClick();        
         Assert.assertFalse(appManager.getSetPasswordScreen().isErrorPopupDisplayed(), "Password screen: Error message displayed");
         Log.info("Set security code screen");
@@ -73,8 +70,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         appManager.getSecurityCodeScreen().clickNumber("1");
         appManager.getSecurityCodeScreen().clickNumber("2");
         appManager.getSecurityCodeScreen().clickNumber("3");
-        appManager.getSecurityCodeScreen().clickNumber("4");
-        Log.info(appManager.getSecurityCodeScreen().isWaitPopupDisplayed());
+        appManager.getSecurityCodeScreen().clickNumber("4");        
         if(appManager.getSecurityCodeScreen().isWaitPopupDisplayed()) {
         	appManager.getSecurityCodeScreen().waitForVanishWaitPopup();
         }
@@ -101,12 +97,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         appManager.getAccountCredentialsScreen().enterAccessCode(PropertyReader.getProperty("CorrectAccountAccessCode"));
         appManager.getAccountCredentialsScreen().NextBtnClick();        
         Assert.assertFalse(appManager.getAccountCredentialsScreen().isErrorPopupDisplayed(), "Account credentials screen: Error popup displayed");        
-        Log.info("SMS code screen");
-        //appManager.getSmsCodeScreen().sendSmsAgainBtnClick();
-        appManager.getSmsCodeScreen().nextBtnClick();        
-        Assert.assertTrue(appManager.getSmsCodeScreen().isEmptySmsCodePopupDisplayed());
-        appManager.getSmsCodeScreen().getEmptySmsCodePopup().verifyPopup();
-        appManager.getSmsCodeScreen().getEmptySmsCodePopup().nextBtnClick();        
+        Log.info("SMS code screen");                        
         appManager.getSmsCodeScreen().enterSmsCode(PropertyReader.getProperty("SmsCode"));
         appManager.getSmsCodeScreen().nextBtnClick();
         Assert.assertFalse(appManager.getSmsCodeScreen().isErrorPopupDisplayed(), "Sms code screen: Error popup displayed");
@@ -120,18 +111,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         appManager.getSetPasswordScreen().nextBtnClick();        
         Assert.assertFalse(appManager.getSetPasswordScreen().isErrorPopupDisplayed(), "Set password screen: Error popup displayed");        
         Log.info("Set security code screen");
-        appManager.getSecurityCodeScreen().clickNumber("1");
-        appManager.getSecurityCodeScreen().clickNumber("2");
-        appManager.getSecurityCodeScreen().clickNumber("3");
-        appManager.getSecurityCodeScreen().clickNumber("4");
-        Log.info("Confirm security code screen");
-        appManager.getSecurityCodeScreen().clickNumber("1");
-        appManager.getSecurityCodeScreen().clickNumber("2");
-        appManager.getSecurityCodeScreen().clickNumber("3");
-        appManager.getSecurityCodeScreen().clickNumber("4");        
-        if(appManager.getSecurityCodeScreen().isWaitPopupDisplayed()) {
-        	appManager.getSecurityCodeScreen().waitForVanishWaitPopup();
-        }
+        appManager.getSecurityCodeScreen().dismissBtnClick();      
         Assert.assertFalse(appManager.getSecurityCodeScreen().isErrorPopupDisplayed(), "Security code screen: Error popup displayed");
         Log.info("Dashboard screen");        
         appManager.getDashboardScreen().verifyDashboardScreen();
@@ -140,7 +120,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         Log.info("END OF TEST");
 	}
 	
-	@Test(priority=2, description = "FORGOT PASSWORD. REGISTRATION BY CARD. POSITIVE TEST")
+	@Test(priority=2, description = "FORGOT PASSWORD. REGISTRATION BY CARD. POSITIVE TEST", dependsOnMethods = { "registrationByCardPositiveTest" })
 	public void forgotPswByCardPositiveTest() {
 		Log.info("FORGOT PASSWORD BY CARD POSITIVE TEST STARTS");
 		Log.info("Auth screen");		
@@ -180,7 +160,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         Log.info("END OF TEST");		
 	}
 	
-	@Test(priority=2, description = "FORGOT PASSWORD, REGISTRATION BY ACCOUNT. POSITIVE TEST")
+	@Test(priority=2, description = "FORGOT PASSWORD, REGISTRATION BY ACCOUNT. POSITIVE TEST", dependsOnMethods = { "registrationByAccountPositiveTest" })
 	public void forgotPswByAccountPositiveTest() {
 		Log.info("FORGOT PASSWORD BY ACCOUNT POSITIVE TEST STARTS");
 		Log.info("Auth screen");		
@@ -219,7 +199,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         Log.info("END OF TEST");		
 	}
 	
-	@Test(priority=2, description = "REGISTRATION BY ACCOUNT. FORGOT ACCOUNT NUMBER OR ACCES CODE. POSITIVE TEST")
+	@Test(priority=2, description = "REGISTRATION BY ACCOUNT. FORGOT ACCOUNT NUMBER OR ACCES CODE. POSITIVE TEST", dependsOnMethods = { "registrationByAccountPositiveTest" })
 	public void forgotAccessOrAccountPositiveTest() {
 		Log.info("REGISTRATION. FORGOT ACCOUNT OR ACCES CODE POSITIVE TEST STARTS");
 		Log.info("Auth screen");
@@ -258,7 +238,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         Log.info("END OF TEST");		
 	}
 	
-	@Test(priority=2, description = "REGISTRATION BY CARD. FORGOT CARD NUMBER OR ACCESS CODE. POSITIVE TEST")
+	@Test(priority=2, description = "REGISTRATION BY CARD. FORGOT CARD NUMBER OR ACCESS CODE. POSITIVE TEST", dependsOnMethods = { "registrationByCardPositiveTest" })
 	public void forgotAccessOrCardPositiveTest() {
 		Log.info("REGISTRATION. FORGOT CARD NUMBER OR ACCES CODE POSITIVE TEST STARTS");
 		Log.info("Auth screen");
@@ -297,7 +277,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         Log.info("END OF TEST");		
 	}
 	
-	@Test(priority=2, description = "REGISTRATION BY CARD. INCORRECT LOGON. POSITIVE TEST")
+	@Test(priority=2, description = "REGISTRATION BY CARD. INCORRECT LOGON. POSITIVE TEST", dependsOnMethods = { "registrationByCardPositiveTest" })
 	public void registrationByCardAfterIncorrectLogon() {
 		Log.info("REGISTRATION BY CARD. INCORRECT LOGON. POSITIVE TEST STARTs");
 		Log.info("Auth screen");
@@ -340,7 +320,7 @@ public class RegistrationTests extends SetUpForEachTestBase{
         Log.info("END OF TEST");		
 	}
 	
-	@Test(priority=2, description = "REGISTRATION BY ACCOUNT. INCORRECT LOGON. POSITIVE TEST")
+	@Test(priority=2, description = "REGISTRATION BY ACCOUNT. INCORRECT LOGON. POSITIVE TEST", dependsOnMethods = { "registrationByAccountPositiveTest" })
 	public void registrationByAccountAfterIncorrectLogon() {
 		Log.info("REGISTRATION BY ACCOUNT. INCORRECT LOGON. POSITIVE TEST STARTS");
 		Log.info("Auth screen");
