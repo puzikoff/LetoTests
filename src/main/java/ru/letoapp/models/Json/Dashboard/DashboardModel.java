@@ -1,17 +1,19 @@
-package ru.letoapp.models.Json;
+package ru.letoapp.models.Json.Dashboard;
+
+import ru.letoapp.models.Json.Money;
 
 public class DashboardModel {
-	public MasterAccountModel masterAccount;
+	public CutMasterAccountModel masterAccount;
 	public class CardContracts{
-		public CardContractModel items[];
+		public CutCardContractModel items[];
 	}
 	public CardContracts cardContracts;
 	public class LoanContracts{
-		public LoanContractModel items[];
+		public CutLoanContractModel items[];
 	}
 	public LoanContracts loanContracts;
 	public class DepositContracts {
-		public DepositContractModel items[];
+		public CutDepositContractModel items[];
 	}
 	public DepositContracts depositContracts;
 	public PlannedExpense plannedExpense;

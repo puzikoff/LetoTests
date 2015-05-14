@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 
 public class SmsReader {
-	public static final Logger Log = Logger.getLogger(DashboardJsonHelper.class);
+	public static final Logger Log = Logger.getLogger(JsonHelper.class);
 	
 	public static String getOtpFromFile () throws IOException{
 		String otp = null;

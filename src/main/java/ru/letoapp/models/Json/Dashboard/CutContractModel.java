@@ -1,6 +1,8 @@
-package ru.letoapp.models.Json;
+package ru.letoapp.models.Json.Dashboard;
 
-public class ContractModel {
+import ru.letoapp.models.Json.Money;
+
+public class CutContractModel {
 	String username;
 	String contractNumber;
 	String displayName;

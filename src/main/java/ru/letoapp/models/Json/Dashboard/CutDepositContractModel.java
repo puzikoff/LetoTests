@@ -1,8 +1,10 @@
-package ru.letoapp.models.Json;
+package ru.letoapp.models.Json.Dashboard;
 
-public class DepositContractModel {
+import ru.letoapp.models.Json.Money;
+
+public class CutDepositContractModel {
 	public class Accounts {
-		public AccountModel items[];
+		public CutAccountModel items[];
 	}
 	public Accounts accounts;
 	public String username;

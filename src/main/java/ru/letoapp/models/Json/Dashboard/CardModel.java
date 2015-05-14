@@ -1,4 +1,4 @@
-package ru.letoapp.models.Json;
+package ru.letoapp.models.Json.Dashboard;
 
 public class CardModel {
 	public boolean isPrimary;

@@ -1,6 +1,6 @@
-package ru.letoapp.models.Json;
+package ru.letoapp.models.Json.Dashboard;
 
-public class AccountModel {
+public class CutAccountModel {
 	public String contractId;
 	public String state;
 	public String name;
