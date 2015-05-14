@@ -22,6 +22,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.letoapp.screens.cards.CardScreen;
 import ru.letoapp.screens.deposits.DepositScreen;
 import ru.letoapp.screens.loans.LoanScreen;
+import ru.letoapp.screens.loans.WhatIfScreen;
 import ru.letoapp.screens.others.AboutBankAndAppScreen;
 import ru.letoapp.screens.others.AboutBankScreen;
 import ru.letoapp.screens.others.AuthScreen;
@@ -79,6 +80,7 @@ public class AppManager {
 	private AboutBankScreen aboutBankScreen; 
 	private BankRequisitesScreen bankRequisitesScreen;
 	private ResetSecurityCodeScreen resetSecurityCodeScreen;
+	private WhatIfScreen whatIfScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -107,6 +109,7 @@ public class AppManager {
 		aboutBankScreen = new AboutBankScreen(driver);
 		bankRequisitesScreen = new BankRequisitesScreen(driver);
 		resetSecurityCodeScreen = new ResetSecurityCodeScreen(driver);
+		whatIfScreen = new WhatIfScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -213,6 +216,10 @@ public class AppManager {
 	
 	public ResetSecurityCodeScreen getResetSecurityCodeScreen() {
 		return resetSecurityCodeScreen;
+	}
+	
+	public WhatIfScreen getWhatIfScreen() {
+		return whatIfScreen;
 	}
 	
 	/* Starting Selendroid */

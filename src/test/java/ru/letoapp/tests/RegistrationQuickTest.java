@@ -1,15 +1,18 @@
 package ru.letoapp.tests;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import ru.letoapp.utilities.PropertyReader;
+import ru.letoapp.utilities.SmsReader;
 
 public class RegistrationQuickTest extends SetUpForEachTestBase{
 	
-	@Test(priority=1, description = "REGISTRATION BY ACCOUNT")
-	public void registrationByAccountTest() {
-		Log.info("REGISTRATION BY ACCOUNT");		 
+	@Test(priority=1, description = "REGISTRATION BY ACCOUNT TEST")
+	public void registrationByAccountTest() throws IOException {
+		Log.info("REGISTRATION BY ACCOUNT QUICK TEST STARTS");		 
 		Log.info("Auth screen");
 		chooseEnvironoment(environoment);     
         appManager.getAuthScreen().registerBtnClick();       
@@ -22,8 +25,13 @@ public class RegistrationQuickTest extends SetUpForEachTestBase{
         appManager.getAccountCredentialsScreen().enterAccessCode(PropertyReader.getProperty("CorrectAccountAccessCode"));
         appManager.getAccountCredentialsScreen().NextBtnClick();        
         Assert.assertFalse(appManager.getAccountCredentialsScreen().isErrorPopupDisplayed(), "Account credentials screen: Error popup displayed");        
-        Log.info("SMS code screen");                        
-        appManager.getSmsCodeScreen().enterSmsCode(PropertyReader.getProperty("SmsCode"));
+        Log.info("SMS code screen");
+        if(environoment.equals("mtest")) { 
+        	appManager.getSmsCodeScreen().enterSmsCode(SmsReader.getOtpFromFile()); 
+        }
+        else { 
+        	appManager.getSmsCodeScreen().enterSmsCode(PropertyReader.getProperty("SmsCode")); 
+        }
         appManager.getSmsCodeScreen().nextBtnClick();
         Assert.assertFalse(appManager.getSmsCodeScreen().isErrorPopupDisplayed(), "Sms code screen: Error popup displayed");
         Log.info("Set login screen");
@@ -44,5 +52,26 @@ public class RegistrationQuickTest extends SetUpForEachTestBase{
         appManager.getDashboardScreen().getDrawer().exitBtnClick();
         Log.info("END OF TEST");
 	}
-
+	
+	@Test (priority=2, description = "AUTH AFTER REGISTRATION TEST", dependsOnMethods = { "registrationByAccountTest" })
+	public void authTest() {
+		Log.info("AUTH QUICK TEST STARTS");
+		greetingPopupHandler();
+		if(environoment.equals("mtest")) {
+			appManager.getAuthScreen().enterUsername("u" + PropertyReader.getProperty("crmclientid") + "@mtest");
+			appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));
+		}
+		if(environoment.equals("sb")) {
+			appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));
+			appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));
+		}
+		if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
+	       	appManager.getAuthScreen().setProtCodeCheckbox();
+	    }
+		appManager.getAuthScreen().loginBtnClick();
+		appManager.getDashboardScreen().verifyDashboardScreen();
+		appManager.getDashboardScreen().openDrawer();
+		appManager.getDashboardScreen().getDrawer().exitBtnClick();
+		Log.info("AUTH QUICK TEST ENDS");		
+	}
 }

@@ -15,10 +15,7 @@ public static final Logger Log = Logger.getLogger(TestBase.class);
 	public void chooseEnvironoment(String env) {
 		if(env.equals("sb")) {
 			Log.info("Choose SB environoment");
-			if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-	    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-	    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();	    		
-	    	}                
+			greetingPopupHandler();
 	        appManager.getAuthScreen().verifyAuthScreen();         
 	        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
 	        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
@@ -34,10 +31,7 @@ public static final Logger Log = Logger.getLogger(TestBase.class);
 		
 		if(env.equals("mtest")) {
 			Log.info("Choose MTEST environoment");
-			if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-	    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-	    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-	    	}                
+			greetingPopupHandler();                
 	        appManager.getAuthScreen().verifyAuthScreen();         
 	        appManager.getAuthScreen().enterUsername(TestsHelper.generateString("qwertyuio123456", 5) + "@mtest");        
 	        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
@@ -61,6 +55,19 @@ public static final Logger Log = Logger.getLogger(TestBase.class);
 		
 		else
 			Log.error("Incorrect environoment value: " + env);
-	}	
+	}
+	
+	public void greetingPopupHandler() {
+		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
+    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
+    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();	    		
+    	}                
+	}
+	
+	public void protectCodeCheckboxUnckeck() {
+		  if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
+	        	appManager.getAuthScreen().setProtCodeCheckbox();
+	        }
+	}
 
 }

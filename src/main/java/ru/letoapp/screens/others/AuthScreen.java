@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import ru.letoapp.screens.AppScreenBase;
+import ru.letoapp.screens.popups.AndroidPopup;
 import ru.letoapp.screens.popups.EmptyLoginPopup;
 import ru.letoapp.screens.popups.EmptyPasswordPopup;
 import ru.letoapp.screens.popups.GreetingPopup;
@@ -17,8 +18,10 @@ public class AuthScreen extends AppScreenBase {
 	GreetingPopup greetingPopup;
 	EmptyLoginPopup emptyLoginPopup;
 	EmptyPasswordPopup emptyPasswordPopup;
+	AndroidPopup androidPopup;
 
 	By greetingMessage = By.id("sdl__message");
+	By androidPopupLocator = By.id("alertTitle");
 	By emptyLoginPopupLocator = By.xpath("//NoSaveStateFrameLayout/LinearLayout");
 	By emptyPasswordPopupLocator = By.xpath("//NoSaveStateFrameLayout/LinearLayout");
 	By authTitle = By.xpath("//ScrollView//TextView[3]");
@@ -44,6 +47,9 @@ public class AuthScreen extends AppScreenBase {
 		emptyLoginPopup.setDriver(driver);
 		emptyPasswordPopup = PageFactory.initElements(driver,EmptyPasswordPopup.class);
 		emptyPasswordPopup.setDriver(driver);
+		androidPopup = PageFactory.initElements(driver, AndroidPopup.class);
+		androidPopup.setDriver(driver);
+		
 	}	
 	
 	public GreetingPopup getGreetingPopup() {
@@ -57,6 +63,10 @@ public class AuthScreen extends AppScreenBase {
 	public EmptyPasswordPopup getEmptyPasswordPopup() {
 		return emptyPasswordPopup;
 	}
+	
+	public AndroidPopup getAndroidPopup() {
+		return androidPopup;
+	}
 
 	
 	public boolean isEmptyLoginPopupDisplayed() {
@@ -66,6 +76,16 @@ public class AuthScreen extends AppScreenBase {
 			return true;
 		}
 		Log.info("Auth screen: Empty login popup is not displayed");
+		return false;
+	}
+	
+	public boolean isAndroidPopupDisplayed() {
+		List <WebElement> androidPopups = driver.findElements(androidPopupLocator);
+		if(!androidPopups.isEmpty()) {
+			Log.info("Auth screen: Android popup displayed");
+			return true;
+		}
+		Log.info("Auth screen: Android popup is not displayed");
 		return false;
 	}
 	
