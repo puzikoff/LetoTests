@@ -229,7 +229,9 @@ public class AppManager {
 		serverConfig = new SelendroidConfiguration();
 	    serverConfig.addSupportedApp(appPath);
 	    serverConfig.setPort(4444);	    
+	    //serverConfig.setProxy("io.selendroid.grid.SelendroidSessionProxy");	    
 	    serverConfig.setEmulatorPort(44444);
+	    //serverConfig.setRegistrationUrl("http://localhost:5556");
 	    serverConfig.setDeviceLog(false);
 	    serverConfig.setDeviceScreenshot(true);
 	    serverConfig.setSelendroidServerPort(38080);

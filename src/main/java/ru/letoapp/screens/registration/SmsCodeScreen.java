@@ -53,14 +53,17 @@ public class SmsCodeScreen extends AppScreenBase{
 	}
 
 	public void sendSmsAgainBtnClick() {
-		waitFor(sendSmsAgainBtn);
+		waitForClickable(sendSmsAgainBtn);
 		Log.info("SMS Code Screen: Click 'send sms again'");
 		driver.findElement(sendSmsAgainBtn).click();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 		delay();
 	}
 
 	public void nextBtnClick() {				
-		waitFor(nextBtn);				
+		waitForClickable(nextBtn);				
 		Log.info("SMS Code Screen: Click 'Next'");
 		driver.findElement(nextBtn).click();
 		delay();

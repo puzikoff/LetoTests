@@ -47,10 +47,23 @@ public static final Logger Log = Logger.getLogger(TestBase.class);
 		
 		if(env.equals("prod")) {
 			Log.info("Choose PROD environoment");
+			greetingPopupHandler();
+			appManager.getAuthScreen().verifyAuthScreen();
 		}
 		
 		if(env.equals("prod2")) {
 			Log.info("Choose PROD2 environoment");			
+			appManager.getAuthScreen().verifyAuthScreen();         
+	        appManager.getAuthScreen().enterUsername(TestsHelper.generateString("qwertyuio123456", 5) + "@prod2");        
+	        appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("badPassword"));
+	        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
+	        	appManager.getAuthScreen().setProtCodeCheckbox();
+	        }
+	        appManager.getAuthScreen().loginBtnClick();       
+	        Assert.assertFalse(appManager.getAuthScreen().isErrorPopupDisplayed(), "Auth screen: Error popup displayed");
+	        Log.info("Incorrect email or password screen");
+	        appManager.getIncorrectLoginPasswordScreen().verifyScreen();
+	        appManager.getIncorrectLoginPasswordScreen().tryAgainBtnClick();
 		}
 		
 		else

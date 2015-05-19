@@ -7,6 +7,7 @@ public class ErrorPopup extends PopupBase{
 	public static final Logger Log = Logger.getLogger(ErrorPopup.class);
 	
 	String titleText = "Ошибка…";
+	String titleText2 = "Ошибка";
 	String popupMessageText = "";
 	String nextBtnText = "Продолжить";
 

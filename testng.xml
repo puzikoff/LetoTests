@@ -4,7 +4,7 @@
   <test name="Account registration">
     <classes>      
       <class name="ru.letoapp.tests.SetUpForEachTestBase"/>
-      <class name="ru.letoapp.tests.RegistrationTests"/>      	      
+      <class name="ru.letoapp.tests.RegistrationQuickTest"/>      	      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -11,7 +11,7 @@ import ru.letoapp.utilities.SmsReader;
 public class RegistrationQuickTest extends SetUpForEachTestBase{
 	
 	@Test(priority=1, description = "REGISTRATION BY ACCOUNT TEST")
-	public void registrationByAccountTest() throws IOException {
+	public void registrationByAccountTest() throws IOException, InterruptedException {
 		Log.info("REGISTRATION BY ACCOUNT QUICK TEST STARTS");		 
 		Log.info("Auth screen");
 		chooseEnvironoment(environoment);     
@@ -25,8 +25,11 @@ public class RegistrationQuickTest extends SetUpForEachTestBase{
         appManager.getAccountCredentialsScreen().enterAccessCode(PropertyReader.getProperty("CorrectAccountAccessCode"));
         appManager.getAccountCredentialsScreen().NextBtnClick();        
         Assert.assertFalse(appManager.getAccountCredentialsScreen().isErrorPopupDisplayed(), "Account credentials screen: Error popup displayed");        
-        Log.info("SMS code screen");
-        if(environoment.equals("mtest")) { 
+        Log.info("SMS code screen");        
+        //appManager.getSmsCodeScreen().delay(115000);
+    	//appManager.getSmsCodeScreen().sendSmsAgainBtnClick();
+    	Assert.assertFalse(appManager.getSmsCodeScreen().isErrorPopupDisplayed(), "Sms code screen: Error popup displayed");
+        if(environoment.equals("mtest")) {        	
         	appManager.getSmsCodeScreen().enterSmsCode(SmsReader.getOtpFromFile()); 
         }
         else { 

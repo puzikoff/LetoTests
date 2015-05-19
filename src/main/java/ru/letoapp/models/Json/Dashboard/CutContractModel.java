@@ -36,6 +36,7 @@ public class CutContractModel {
 	
 	public class FeeAmount {
 		Money amount;
+		String name;
 		String type;
 	}
 	

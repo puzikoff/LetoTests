@@ -28,6 +28,7 @@ public class AppScreenBase extends ScreenBase {
 	By errorPopupTitleLocator = By.id("sdl__title");
 	By errorPopupMessageLocator = By.id("sdl__message");
 	String errorPopuptitleText = "Ошибка…";
+	String errorPopuptitleText2 = "Ошибка";
 	public By waitPopup = By.id("sdl__message");	
 	String waitPopupText = "Пожалуйста, подождите…";
 	
@@ -91,7 +92,7 @@ public class AppScreenBase extends ScreenBase {
 				Log.info("Error popup is not displayed");
 				return false;
 			}
-			if(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText)) 
+			if((findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText))||(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText2))) 
 			{
 				Log.error("Error popup displayed");			
 				Log.error(findElement(errorPopupMessageLocator, driver).getText());				
