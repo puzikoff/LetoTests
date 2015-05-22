@@ -25,6 +25,39 @@ public class LoanInfoTab extends AppScreenBase{
 		Log.info("Loan info tab: contract butoon click");
 		findElement(contractBtn, driver).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
+	}
+	
+	public void creditOperationsBtnClick() {
+		waitForClickable(creditOperationsBtn);
+		Log.info("Loan info tab: Credit operations button click");
+		findElement(creditOperationsBtn, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
+	}
+	
+	public void insuranceBtnClick() {
+		waitForClickable(insuranceBtn);
+		Log.info("Loan info tab: Insurance button click");
+		findElement(insuranceBtn, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
+	}
+
+	public void paymentsScheduleBtnClick() {
+		waitForClickable(paymentsScheduleBtn);
+		Log.info("Loan info tab: Payments schedule button click");
+		findElement(paymentsScheduleBtn, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 }

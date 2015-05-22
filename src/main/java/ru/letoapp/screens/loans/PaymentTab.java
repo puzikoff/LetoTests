@@ -20,11 +20,24 @@ public class PaymentTab extends AppScreenBase{
 		super(driver);
 	}
 	
+	public void paymentScheduleClick() {
+		waitFor(paymentsSchedule);
+		Log.info("Loan payment tab: Payment schedule click");
+		findElement(paymentsSchedule, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
+	}
+	
 	public void whatIfClick() {
 		waitForClickable(whatIf);
 		Log.info("Loan payment tab: What if? click");
 		findElement(whatIf, driver).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 	
 	public void inLetoBankOfficesClick() {
@@ -32,6 +45,9 @@ public class PaymentTab extends AppScreenBase{
 		Log.info("Loan payment tab: In leto bank offices payment click");
 		findElement(inLetoBankOffices, driver).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 	
 	public void anotherBankPaymentClick() {
@@ -39,6 +55,9 @@ public class PaymentTab extends AppScreenBase{
 		Log.info("Loan payment tab: Another bank payment click");
 		findElement(anotherBankPayment, driver).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 	
 	public void paymentSystemsTerminalsClick() {
@@ -46,6 +65,9 @@ public class PaymentTab extends AppScreenBase{
 		Log.info("Loan payment tab: Payments systems terminalst click");
 		findElement(paymentSystemsTerminals, driver).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 }

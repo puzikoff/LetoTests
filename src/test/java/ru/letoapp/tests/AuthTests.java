@@ -12,10 +12,7 @@ public class AuthTests extends SetUpForSuiteBase{
 	
 	@Test
 	public void authTests() {		
-		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
+		greetingPopupHandler();      
 		appManager.getAuthScreen().openDrawer();
 		Assert.assertFalse(appManager.getAuthScreen().getDrawer().isExitButtonVisible());
 		appManager.getAuthScreen().closeDrawer();

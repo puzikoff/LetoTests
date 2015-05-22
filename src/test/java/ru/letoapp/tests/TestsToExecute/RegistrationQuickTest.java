@@ -1,12 +1,13 @@
-package ru.letoapp.tests;
+package ru.letoapp.tests.TestsToExecute;
 
 import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import ru.letoapp.tests.SetUpForEachTestBase;
 import ru.letoapp.utilities.PropertyReader;
-import ru.letoapp.utilities.SmsReader;
+import ru.letoapp.utilities.CodeReader;
 
 public class RegistrationQuickTest extends SetUpForEachTestBase{
 	
@@ -30,7 +31,7 @@ public class RegistrationQuickTest extends SetUpForEachTestBase{
     	//appManager.getSmsCodeScreen().sendSmsAgainBtnClick();
     	Assert.assertFalse(appManager.getSmsCodeScreen().isErrorPopupDisplayed(), "Sms code screen: Error popup displayed");
         if(environoment.equals("mtest")) {        	
-        	appManager.getSmsCodeScreen().enterSmsCode(SmsReader.getOtpFromFile()); 
+        	appManager.getSmsCodeScreen().enterSmsCode(CodeReader.getCodeFromFile("sms", environoment)); 
         }
         else { 
         	appManager.getSmsCodeScreen().enterSmsCode(PropertyReader.getProperty("SmsCode")); 
@@ -68,9 +69,7 @@ public class RegistrationQuickTest extends SetUpForEachTestBase{
 			appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));
 			appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));
 		}
-		if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
-	       	appManager.getAuthScreen().setProtCodeCheckbox();
-	    }
+		protectCodeCheckboxUnckeck();
 		appManager.getAuthScreen().loginBtnClick();
 		appManager.getDashboardScreen().verifyDashboardScreen();
 		appManager.getDashboardScreen().openDrawer();

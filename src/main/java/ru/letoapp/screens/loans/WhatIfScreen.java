@@ -8,6 +8,7 @@ import ru.letoapp.screens.AppScreenBase;
 
 public class WhatIfScreen extends AppScreenBase{
 	public static final Logger Log = Logger.getLogger(WhatIfScreen.class);
+	String titleText = "Что, если?..";
 	By payMoreWidget = By.id("widget_what_if_pay_more");
 	By payLessWidget = By.id("widget_what_if_pay_less");
 	By payAllWidget = By.id("widget_what_if_pay_all");
@@ -98,5 +99,10 @@ public class WhatIfScreen extends AppScreenBase{
 		if(isWaitPopupDisplayed()) {
 			waitForVanishWaitPopup();
 	    }	
+	}
+
+	public void verify() {
+		verify.assertEquals(getTitleFromActionBar(), titleText, "What if screen: title");
+		verify.assertAll();		
 	}
 }

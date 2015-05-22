@@ -17,7 +17,8 @@ public class LoanScreen extends AppScreenBase{
 	String actionBarTitle = "Кредит";	
 	By paymentTabBtn = By.xpath("//TextView[@value='ПЛАТЁЖ']");
 	By infoTabBtn = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
-	By managementTabBtn = By.xpath("//TextView[@value='УПРАВЛЕНИЕ']");	
+	By managementTabBtn = By.xpath("//TextView[@value='УПРАВЛЕНИЕ']");
+	private String titleText = "Кредит";	
 
 	public LoanScreen(WebDriver driver) {
 		super(driver);	
@@ -29,6 +30,12 @@ public class LoanScreen extends AppScreenBase{
 		loanInfoTab.setDriver(driver);
 		loanManagementTab.setDriver(driver);
 		editDisplayName.setDriver(driver);
+	}
+	
+	public void verify() {
+		Log.info("Loan screen: verify screen");
+		verify.assertEquals(getTitleFromActionBar(), titleText , "Loan screen: title");
+		verify.assertAll();
 	}
 	
 	public PaymentTab getPaymentTab(){

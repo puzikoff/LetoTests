@@ -14,6 +14,10 @@ public class CardTab extends AppScreenBase{
 	By ownFunds = By.id("label_own_funds");
 	By blockedFunds = By.id("label_blocked");
 	By holdsBtn = By.id("layout_card_info_holds");
+	By blockFundsSwitch = By.xpath("//Switch");
+	By howWorksBlockFundsBtn = By.id("button_show_spending_block_info");
+	By cardOperationsBtn = By.xpath("//ClickableItemView_[@id='label_action_last_transactions']//TextView");
+	By whatIfBtn = By.id("layout_what_if_container");
 
 	public CardTab(WebDriver driver) {
 		super(driver);
@@ -21,9 +25,53 @@ public class CardTab extends AppScreenBase{
 	
 	public void expandBtnClick() {
 		waitFor(expandBtn);
-		Log.info("Card Tab: Expand button click");
-		driver.findElement(expandBtn).click();
+		Log.info("Card screen, Card Tab: Expand button click");
+		findElement(expandBtn, driver).click();
 		delay();
+	}
+	
+	public void holdsBtnClick() {
+		waitFor(holdsBtn);
+		Log.info("Card screen, Card Tab: Hold funds click");
+		findElement(holdsBtn, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
+	}
+	
+	public void blockFundsSwitchClick() {
+		waitFor(blockFundsSwitch);
+		Log.info("Card screen, Card Tab: Block funds switch click");
+		findElement(blockFundsSwitch, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
+	}
+	
+	public void howWorksBlockFundsBtnClick() {
+		waitFor(howWorksBlockFundsBtn);
+		Log.info("Card screen, Card Tab: How works block funds click");
+		findElement(howWorksBlockFundsBtn, driver).click();
+		delay();		
+	}
+	
+	public void cardOperationsClick(){
+		waitFor(cardOperationsBtn);
+		Log.info("Card screen, Card Tab: Card operations click");
+		findElement(cardOperationsBtn, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
+	}
+	
+	public void whatIfBtnClick(){
+		waitFor(whatIfBtn);
+		Log.info("Card screen, Card Tab: What if button click");
+		findElement(whatIfBtn, driver).click();
+		delay();		
 	}
 	
 	public String getTotalAvailable() {		

@@ -9,14 +9,31 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
-public class SmsReader {
+public class CodeReader {
 	public static final Logger Log = Logger.getLogger(JsonHelper.class);
 	
-	public static String getOtpFromFile () throws IOException{
+	public static String getCodeFromFile (String codeType, String env) throws IOException{
 		String otp = null;
 		String otp2 = null;
-		//File file = new File("\\\\VM-LETO-MTEST\\Leto_sms\\sms.txt");	
-		File file = new File("\\\\VM-LETO-MTEST\\c$\\LOGS\\AM\\message_log.txt");
+		String filePath = "";
+		if(env.equals("sb")) {
+			if(codeType.equals("sms")) {			
+				filePath = "\\\\VM-LETO-SB\\LOGS\\AM\\message_log.txt";
+				
+			}
+			if(codeType.equals("vk")) {			
+				filePath = "\\\\VM-LETO-SB\\LOGS\\AM\\message_log.txt";
+			}
+		}
+		if(env.equals("mtest")) {
+			if(codeType.equals("sms")) {			
+				filePath = "\\\\VM-LETO-MTEST\\c$\\LOGS\\AM\\message_log.txt";
+			}
+			if(codeType.equals("vk")) {			
+				filePath = "\\\\VM-LETO-MTEST\\c$\\LOGS\\AM\\message_log.txt";
+			}
+		}
+		File file = new File(filePath);
 	    BufferedReader br = new BufferedReader (new InputStreamReader(new FileInputStream( file ), "UTF-8"));
 	    while((otp = br.readLine()) != null) {	    	
 	    	otp2 = otp;	    

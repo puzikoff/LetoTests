@@ -14,7 +14,7 @@ public class CardScreen extends AppScreenBase{
 	private CardInfoTab cardInfoTab;
 	private CardManagementTab cardManagementTab;
 	private EditDisplayNameBlock editDisplayName;
-	String actionBarTitle = "Карта";	
+	String titleText = "Карта";	
 	By cardTabBtn = By.xpath("//TextView[@value='КАРТА']");
 	By infoTabBtn = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
 	By managementTabBtn = By.xpath("//TextView[@value='УПРАВЛЕНИЕ']");	
@@ -47,9 +47,11 @@ public class CardScreen extends AppScreenBase{
 		return editDisplayName;
 	}
 	
-	public void verifyCardScreen() {
-	}	
-	
+	public void verify() {		
+		Log.info("Card screen: verify screen");
+		verify.assertEquals(getTitleFromActionBar(), titleText , "Card screen: title");
+		verify.assertAll();		
+	}		
 	
 	public void infoTabClick() {
 		Log.info("Card Screen: Information tab click");

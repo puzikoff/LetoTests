@@ -135,6 +135,7 @@ public class ScreenBase {
 		        if (elements.size() > 0) {
 		            return elements.get(0);
 		        } else {
+		        	Log.error("No element found: " + by.toString());
 		            return null;
 		        }
 		}	 

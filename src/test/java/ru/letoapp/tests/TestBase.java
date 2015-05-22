@@ -10,7 +10,7 @@ import ru.letoapp.utilities.TestsHelper;
 public class TestBase {
 public static final Logger Log = Logger.getLogger(TestBase.class);	
 	public String environoment;
-	AppManager appManager;	
+	protected AppManager appManager;	
 	
 	public void chooseEnvironoment(String env) {
 		if(env.equals("sb")) {

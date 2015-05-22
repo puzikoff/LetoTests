@@ -1,9 +1,11 @@
-package ru.letoapp.tests;
+package ru.letoapp.tests.TestsToExecute;
 
 
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import ru.letoapp.tests.SetUpForEachTestBase;
 import ru.letoapp.utilities.PropertyReader;
 
 public class RegistrationTests extends SetUpForEachTestBase{

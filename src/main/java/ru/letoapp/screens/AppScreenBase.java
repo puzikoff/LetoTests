@@ -88,18 +88,24 @@ public class AppScreenBase extends ScreenBase {
 	
 	public boolean isErrorPopupDisplayed() {
 		if(findElement(errorPopupTitleLocator, driver) != null) {
-			if(findElement(errorPopupTitleLocator, driver) == null) {
-				Log.info("Error popup is not displayed");
-				return false;
-			}
-			if((findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText))||(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText2))) 
-			{
-				Log.error("Error popup displayed");			
-				Log.error(findElement(errorPopupMessageLocator, driver).getText());				
-				takeScreenshot();
-				return true; 
-			}			
-			else {
+			try {
+					if(findElement(errorPopupTitleLocator, driver) == null) {
+						Log.info("Error popup is not displayed");
+						return false;
+					}
+					if((findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText))||(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText2))) 
+					{
+						Log.error("Error popup displayed");			
+						Log.error(findElement(errorPopupMessageLocator, driver).getText());				
+						takeScreenshot();
+						return true; 
+					}			
+					else {
+						Log.info("Error popup is not displayed");
+						return false;
+					}
+				}
+			catch(NullPointerException e) {
 				Log.info("Error popup is not displayed");
 				return false;
 			}
@@ -112,19 +118,25 @@ public class AppScreenBase extends ScreenBase {
 	
 	public boolean isWaitPopupDisplayed() {
 		if(findElement(waitPopup, driver) != null) {
-			if(findElement(waitPopup, driver) == null) {
+			try {
+					if(findElement(waitPopup, driver) == null) {
+						Log.info("Wait popup is not displayed");
+						return false;
+					}
+					if(findElement(waitPopup, driver).getText().equals(waitPopupText))
+					{
+						Log.info("Wait popup displayed");
+						return true; 
+					} 		
+					else {
+						Log.info("Wait popup is not displayed");
+						return false;
+					}		
+			}
+			catch (NullPointerException e) {
 				Log.info("Wait popup is not displayed");
 				return false;
 			}
-			if(findElement(waitPopup, driver).getText().equals(waitPopupText))
-			{
-				Log.info("Wait popup displayed");
-				return true; 
-			} 		
-			else {
-				Log.info("Wait popup is not displayed");
-				return false;
-			}		
 		}
 		else {
 			Log.info("Wait popup is not displayed");

@@ -21,7 +21,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ru.letoapp.screens.cards.CardScreen;
 import ru.letoapp.screens.deposits.DepositScreen;
+import ru.letoapp.screens.loans.AnotherBankPaymentScreen;
+import ru.letoapp.screens.loans.InLetoBankOfficesScreen;
+import ru.letoapp.screens.loans.LoanContractScreen;
+import ru.letoapp.screens.loans.LoanInsuranceScreen;
 import ru.letoapp.screens.loans.LoanScreen;
+import ru.letoapp.screens.loans.PaymentsInTerminalsSecreen;
+import ru.letoapp.screens.loans.PaymentsScheduleScreen;
 import ru.letoapp.screens.loans.WhatIfScreen;
 import ru.letoapp.screens.others.AboutBankAndAppScreen;
 import ru.letoapp.screens.others.AboutBankScreen;
@@ -34,6 +40,7 @@ import ru.letoapp.screens.others.DashboardScreen;
 import ru.letoapp.screens.others.IncorrectLoginPasswordScreen;
 import ru.letoapp.screens.others.LoansListScreen;
 import ru.letoapp.screens.others.ResetSecurityCodeScreen;
+import ru.letoapp.screens.others.TimelineScreen;
 import ru.letoapp.screens.registration.AccountCredentialsScreen;
 import ru.letoapp.screens.registration.CardCredentialsScreen;
 import ru.letoapp.screens.registration.DboScreen;
@@ -46,6 +53,8 @@ import ru.letoapp.screens.registration.SetLoginScreen;
 import ru.letoapp.screens.registration.SetPasswordScreen;
 import ru.letoapp.screens.registration.SecurityCodeScreen;
 import ru.letoapp.screens.registration.SmsCodeScreen;
+import ru.letoapp.screens.services.ReducePaymentScreen;
+import ru.letoapp.screens.services.VerificationCodeScreen;
 
 
 public class AppManager {	
@@ -81,6 +90,15 @@ public class AppManager {
 	private BankRequisitesScreen bankRequisitesScreen;
 	private ResetSecurityCodeScreen resetSecurityCodeScreen;
 	private WhatIfScreen whatIfScreen;
+	private PaymentsScheduleScreen paymentsScheduleScreen;
+	private InLetoBankOfficesScreen inLetoBankOfficesScreen;
+	private AnotherBankPaymentScreen anotherBankPaymentScreen;
+	private PaymentsInTerminalsSecreen paymentsInTerminalsSecreen;
+	private LoanContractScreen loanContractScreen;
+	private TimelineScreen timelineScreen;
+	private LoanInsuranceScreen loanInsuranceScreen;
+	private ReducePaymentScreen reducePaymentScreen;
+	private VerificationCodeScreen verificationCodeScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -110,6 +128,15 @@ public class AppManager {
 		bankRequisitesScreen = new BankRequisitesScreen(driver);
 		resetSecurityCodeScreen = new ResetSecurityCodeScreen(driver);
 		whatIfScreen = new WhatIfScreen(driver);
+		paymentsScheduleScreen = new PaymentsScheduleScreen(driver);
+		inLetoBankOfficesScreen = new InLetoBankOfficesScreen(driver);
+		anotherBankPaymentScreen = new AnotherBankPaymentScreen(driver);
+		paymentsInTerminalsSecreen = new PaymentsInTerminalsSecreen(driver);
+		loanContractScreen = new LoanContractScreen(driver);
+		timelineScreen = new TimelineScreen(driver);
+		loanInsuranceScreen = new LoanInsuranceScreen(driver);
+		reducePaymentScreen = new ReducePaymentScreen(driver);
+		verificationCodeScreen = new VerificationCodeScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -220,6 +247,42 @@ public class AppManager {
 	
 	public WhatIfScreen getWhatIfScreen() {
 		return whatIfScreen;
+	}
+	
+	public PaymentsScheduleScreen getPaymentsScheduleScreen() {
+		return paymentsScheduleScreen;
+	}
+	
+	public InLetoBankOfficesScreen getInLetoBankOfficesScreen() {
+		return inLetoBankOfficesScreen;
+	}
+	
+	public AnotherBankPaymentScreen getAnotherBankPaymentScreen() {
+		return anotherBankPaymentScreen;
+	}
+	
+	public PaymentsInTerminalsSecreen getPaymentsInTerminalsSecreen() {
+		return paymentsInTerminalsSecreen;
+	}
+	
+	public LoanContractScreen getLoanContractScreen() {
+		return loanContractScreen;
+	}
+	
+	public TimelineScreen getTimelineScreen() {
+		return timelineScreen;
+	}
+	
+	public LoanInsuranceScreen getLoanInsuranceScreen() {
+		return loanInsuranceScreen;
+	}
+	
+	public ReducePaymentScreen getReducePaymentScreen() {
+		return reducePaymentScreen;
+	}
+	
+	public VerificationCodeScreen getVerificationCodeScreen() {
+		return verificationCodeScreen;
 	}
 	
 	/* Starting Selendroid */
