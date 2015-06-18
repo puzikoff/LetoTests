@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 
 public class CodeReader {
-	public static final Logger Log = Logger.getLogger(JsonHelper.class);
+	public static final Logger Log = Logger.getLogger(CodeReader.class);
 	
 	public static String getCodeFromFile (String codeType, String env) throws IOException{
 		String otp = null;
@@ -39,7 +39,7 @@ public class CodeReader {
 	    	otp2 = otp;	    
 	    }	    
 	    br.close();		    
-	    Pattern p = Pattern.compile("[0-9]{6,6}");
+	    Pattern p = Pattern.compile("[0-9]{4,4}");
 	    Matcher m = p.matcher(otp2);	    
 	    m.find();	   
 	    otp2 = m.group(0);     

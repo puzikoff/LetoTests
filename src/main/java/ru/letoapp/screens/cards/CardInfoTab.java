@@ -1,13 +1,11 @@
 package ru.letoapp.screens.cards;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
-public class CardInfoTab extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(CardInfoTab.class);
+public class CardInfoTab extends AppScreenBase{	
 	
 	By howToUseCardBtn = By.id("widget_action_how_to_use_card");
 	By product = By.id("label_product");

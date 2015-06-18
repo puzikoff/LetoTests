@@ -1,6 +1,5 @@
 package ru.letoapp.screens.registration;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -10,8 +9,7 @@ import ru.letoapp.screens.popups.EmptyAccessCodePopup;
 import ru.letoapp.screens.popups.EmptyCardNumberPopup;
 import ru.letoapp.screens.popups.IncorrectCardNumberOrAccesCodePopup;
 
-public class CardCredentialsScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(CardCredentialsScreen.class);
+public class CardCredentialsScreen extends AppScreenBase{	
 	
 	EmptyCardNumberPopup emptyCardNumberPopup;
 	EmptyAccessCodePopup emptyAccessCodePopup;
@@ -55,32 +53,32 @@ public class CardCredentialsScreen extends AppScreenBase{
 	
 	public void verifyScreen() {
 		verify.assertEquals(getActionBarTitle(), actionBarTitleText, "Action bar title");
-		verify.assertEquals(driver.findElement(cardNumberTitle).getText(), cardNumberTitleText, "Card number title");		
-		verify.assertEquals(driver.findElement(accessCodeTitle).getText(), accessCodeTitleText, "Access code title");
-		verify.assertEquals(driver.findElement(accessCodeTip).getText(), accessCodeTipText, "Access code tip");		
-		verify.assertEquals(driver.findElement(nextBtn).getText(), nextBtnText, "Next button text");
-		verify.assertEquals(driver.findElement(forgetAccessLink).getText(), forgetAccessLinkText, "Forget Access code link text");
+		verify.assertEquals(findElement(cardNumberTitle, driver).getText(), cardNumberTitleText, "Card number title");		
+		verify.assertEquals(findElement(accessCodeTitle, driver).getText(), accessCodeTitleText, "Access code title");
+		verify.assertEquals(findElement(accessCodeTip, driver).getText(), accessCodeTipText, "Access code tip");		
+		verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText, "Next button text");
+		verify.assertEquals(findElement(forgetAccessLink, driver).getText(), forgetAccessLinkText, "Forget Access code link text");
 		verify.assertAll();
 	}
 
 	public void enterCardNumber(String cardNumber) {
 		waitFor(cardNumberField);
 		Log.info("Card Credentials Screen: Entering card number");
-		driver.findElement(cardNumberField).clear();
-		driver.findElement(cardNumberField).sendKeys(cardNumber);		
+		findElement(cardNumberField, driver).clear();
+		findElement(cardNumberField, driver).sendKeys(cardNumber);		
 	}
 
 	public void enterAccessCode(String accessCode) {
 		waitFor(accessCodeField);
 		Log.info("Card Credentials Screen: Entering access code");
-		driver.findElement(accessCodeField).clear();
-		driver.findElement(accessCodeField).sendKeys(accessCode);
+		findElement(accessCodeField, driver).clear();
+		findElement(accessCodeField, driver).sendKeys(accessCode);
 	}
 
 	public void NextBtnClick() {
 		waitFor(nextBtn);
 		Log.info("Card Credentials Screen: Click next button");
-		driver.findElement(nextBtn).click();
+		findElement(nextBtn, driver).click();
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
@@ -90,7 +88,7 @@ public class CardCredentialsScreen extends AppScreenBase{
 	public void forgotCardNumberBtnClick() {
 		waitFor(forgetAccessLink);
 		Log.info("Card Credentials Screen: Click forget access code or card number button");
-		driver.findElement(forgetAccessLink).click();	
+		findElement(forgetAccessLink, driver).click();	
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();

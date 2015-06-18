@@ -1,7 +1,6 @@
 package ru.letoapp.screens.others;
 
 import java.util.List;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,12 +8,13 @@ import org.openqa.selenium.WebElement;
 import ru.letoapp.screens.AppScreenBase;
 
 public class DashboardScreen extends AppScreenBase {
-	public static final Logger Log = Logger.getLogger(DashboardScreen.class);	
+	
 	By timelineBtn = By.id("button_feed");	
-	By walletBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[2]//RelativeLayout[1]");
+	//By walletBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[2]//RelativeLayout[1]");
 	By cardsListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[2]//RelativeLayout");	
 	By loansListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[3]//RelativeLayout");
 	By depositsListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[4]//RelativeLayout[1]");
+	By walletBtn = By.xpath("//TextView[@value='МОЙ КОШЕЛЁК']//..");
 	By adsressesOnMapLabel = By.id("label_action_addresses_on_map");
 	By sendEmailBtn = By.id("button_dashboard_send");
 	By phoneCallBtn = By.id("button_dashboard_call");
@@ -66,21 +66,21 @@ public class DashboardScreen extends AppScreenBase {
 	public void openCard(int n) {		
 		Log.info("Dashboard screen: Open card number: " + n + "on dashboard");
 		waitFor("//CardSectionView_//CardInfoView_[1]");
-		driver.findElement(By.xpath("//CardSectionView_//CardInfoView_[" + n + "]")).click();
+		findElement(By.xpath("//CardSectionView_//CardInfoView_[" + n + "]"), driver).click();
 		delay();
 	}
 	
 	public void openLoan(int n) {		
 		Log.info("Dashboard screen: Open loan number: " + n + "on dashboard");
 		waitFor("//LoanSectionView_//LoanInfoView_[1]");
-		driver.findElement(By.xpath("//LoanSectionView_//LoanInfoView_[" + n + "]")).click();
+		findElement(By.xpath("//LoanSectionView_//LoanInfoView_[" + n + "]"), driver).click();
 		delay();
 	}
 	
 	public void openDeposit(int n) {		
 		Log.info("Dashboard screen: Open deposit number: " + n + "on dashboard");
 		waitFor("//DepositSectionView_//DepositInfoView_[1]");
-		driver.findElement(By.xpath("//DepositSectionView_//DepositInfoView_[" + n + "]")).click();
+		findElement(By.xpath("//DepositSectionView_//DepositInfoView_[" + n + "]"), driver).click();
 		delay();
 	}
 	
@@ -91,7 +91,7 @@ public class DashboardScreen extends AppScreenBase {
 		List <WebElement> cards = driver.findElements(By.xpath("//TextView[@id='label_card_caption']"));
 		for(int i = 0; cards.get(i).getSize() != null; ++i) {			
 			if(cards.get(i).getText().contains(cardName)) {
-				sum = driver.findElement(By.xpath("//CardInfoView_[" + (i+1) + "]//TextView[2]")).getText();
+				sum = findElement(By.xpath("//CardInfoView_[" + (i+1) + "]//TextView[2]"), driver).getText();
 				if(!sum.contains(",")) sum = sum + "00";
 				sum = sum.replaceAll("\\D+", "");				
 				Log.info("Dashboard screen: Cardsum: " + sum);
@@ -103,43 +103,50 @@ public class DashboardScreen extends AppScreenBase {
 	
 	public String getCardSum(int n) {
 		waitFor("//ScrollView/LinearLayout//FrameLayout[2]//CardInfoView_[" + n + "]//TextView[2]");		
-		return driver.findElement(By.xpath("//ScrollView/LinearLayout//FrameLayout[2]//CardInfoView_[" + n + "]//TextView[2]")).getText();
+		return findElement(By.xpath("//ScrollView/LinearLayout//FrameLayout[2]//CardInfoView_[" + n + "]//TextView[2]"), driver).getText();
 	}
 	
 	
 	public void cardsListBtnClick() {		
 		waitFor(cardsListBtn);		
 		Log.info("Dashboard screen: Open cards list");
-		driver.findElement(cardsListBtn).click();	
+		findElement(cardsListBtn, driver).click();	
 		delay();
 	}	
 	
 	public void loansListBtnClick() {
 		waitFor(loansListBtn);
 		Log.info("Dashboard screen: Open loans list");
-		driver.findElement(loansListBtn).click();
+		findElement(loansListBtn, driver).click();
 		delay();
 	}
 	
 	public void loanBtnClick() {
 		waitFor(loanBtn);
 		Log.info("Dashboard screen: Open loan");		
-		driver.findElement(loanBtn).click();
+		findElement(loanBtn, driver).click();
 		delay();
 	}
 	
 	public void depositsListBtnClick() {
 		waitFor(depositsListBtn);
 		Log.info("Dashboard screen: Open depositss list");
-		driver.findElement(depositsListBtn).click();
+		findElement(depositsListBtn, driver).click();
 		delay();
 	}
 	
 	public void timelineBtnClick(){
 		waitFor(timelineBtn);
 		Log.info("Dashboard screen: Open timeline");
-		driver.findElement(timelineBtn).click();
+		findElement(timelineBtn, driver).click();
 		delay();
 	}	
+	
+	public void walletBtnClick() {
+		waitFor(walletBtn);
+		Log.info("Dashboard screen: Open wallet");
+		findElement(walletBtn, driver).click();
+		delay();
+	}
 
 }

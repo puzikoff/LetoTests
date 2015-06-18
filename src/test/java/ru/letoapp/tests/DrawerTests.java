@@ -11,19 +11,34 @@ public class DrawerTests extends SetUpForEachTestBase{
 	public static final Logger Log = Logger.getLogger(DrawerTests.class);	
 	@Test
 	public void drawerTests() {
-		if(appManager.getAuthScreen().isGreetingMessageDisplayed()) {
-    		appManager.getAuthScreen().getGreetingPopup().verifyGreeting();    	
-    		appManager.getAuthScreen().getGreetingPopup().nextBtnClick();     	     
-    	}                
+		appManager.getAuthScreen().getAndroidPopup().dismissClick();
         appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));    
         if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
         	appManager.getAuthScreen().setProtCodeCheckbox();
         }
-        appManager.getAuthScreen().contactsBtnClick();
+      //  appManager.getAuthScreen().contactsBtnClick();
         appManager.getAuthScreen().loginBtnClick();
-        appManager.getDashboardScreen().verifyDashboardScreen();        
+        //appManager.getDashboardScreen().verifyDashboardScreen();        
+      
+        appManager.getDashboardScreen().walletBtnClick();
+        appManager.getWalletScreen().infoTabClick();
+        appManager.getWalletScreen().walletTabClick();
+        appManager.getWalletScreen().getWalletTab().paymentBtnClick();
+        
+       
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         appManager.getDashboardScreen().menuBtnClick();
         appManager.getDashboardScreen().getDrawer().contactsBtnClick();
         Assert.assertEquals(appManager.getContactsScreen().getTitleFromActionBar(),"Контакты");

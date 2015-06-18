@@ -1,6 +1,5 @@
 package ru.letoapp.screens.registration;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -9,7 +8,7 @@ import ru.letoapp.screens.AppScreenBase;
 import ru.letoapp.screens.popups.EmptySmsCodePopup;
 
 public class SmsCodeScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(SmsCodeScreen.class);
+	
 	EmptySmsCodePopup emptySmsCodePopup;
 	
 	By smsCodeComment = By.id("label_phone_number_comment");
@@ -46,16 +45,16 @@ public class SmsCodeScreen extends AppScreenBase{
 	
 	public void verifyScreen() {
 		Log.info("SMS code screen: verify screen");
-		verify.assertTrue(driver.findElement(smsCodeComment).getText().contains(smsCodeCommentText));
-		verify.assertEquals(driver.findElement(smsLabelEnterCode).getText(), smsLabelEnterCodeText, "SMS label enter code");
-		verify.assertEquals(driver.findElement(nextBtn).getText(), nextBtnText, "Next button text");
-		verify.assertEquals(driver.findElement(smsLabelNotRecieve).getText(), smsLabelNotRecieveText, "Not recieve ?");
+		verify.assertTrue(findElement(smsCodeComment, driver).getText().contains(smsCodeCommentText));
+		verify.assertEquals(findElement(smsLabelEnterCode, driver).getText(), smsLabelEnterCodeText, "SMS label enter code");
+		verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText, "Next button text");
+		verify.assertEquals(findElement(smsLabelNotRecieve, driver).getText(), smsLabelNotRecieveText, "Not recieve ?");
 	}
 
 	public void sendSmsAgainBtnClick() {
 		waitForClickable(sendSmsAgainBtn);
 		Log.info("SMS Code Screen: Click 'send sms again'");
-		driver.findElement(sendSmsAgainBtn).click();
+		findElement(sendSmsAgainBtn, driver).click();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
         }	
@@ -65,7 +64,7 @@ public class SmsCodeScreen extends AppScreenBase{
 	public void nextBtnClick() {				
 		waitForClickable(nextBtn);				
 		Log.info("SMS Code Screen: Click 'Next'");
-		driver.findElement(nextBtn).click();
+		findElement(nextBtn, driver).click();
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
@@ -75,8 +74,8 @@ public class SmsCodeScreen extends AppScreenBase{
 	public void enterSmsCode(String smsCode) {
 		waitFor(smsCodeField);
 		Log.info("SMS Code Screen: Enter sms code");
-		driver.findElement(smsCodeField).clear();
-		driver.findElement(smsCodeField).sendKeys(smsCode);
+		findElement(smsCodeField, driver).clear();
+		findElement(smsCodeField, driver).sendKeys(smsCode);
 	}
 
 }

@@ -106,7 +106,7 @@ public class AppScreenBase extends ScreenBase {
 					}
 				}
 			catch(NullPointerException e) {
-				Log.info("Error popup is not displayed");
+				Log.info("Error popup is not displayed: " + e);
 				return false;
 			}
 		}
@@ -134,7 +134,7 @@ public class AppScreenBase extends ScreenBase {
 					}		
 			}
 			catch (NullPointerException e) {
-				Log.info("Wait popup is not displayed");
+				Log.info("Wait popup is not displayed: " + e);
 				return false;
 			}
 		}
@@ -164,13 +164,13 @@ public class AppScreenBase extends ScreenBase {
 	                    		return null;
 	                    	}
 	                    	} catch (StaleElementReferenceException ex) {
-	                    		Log.info("Wait popup is not attached to DOM, try again");	                        
+	                    		Log.info("Wait popup is not attached to DOM, try again: " + ex);	                        
 	                    		return "not_attached_to_dom";
 	                    	}     
 	                }	                
 	            });
 	        } catch (WaitTimedOutException e) {
-	            Log.info(waitPopup.toString() + "Timeout: Wait popup is still present");
+	            Log.info(waitPopup.toString() + "Timeout: Wait popup is still present" + e);
 	            throw e;
 	   }
 	}
@@ -186,7 +186,7 @@ public class AppScreenBase extends ScreenBase {
 	}
 	
 	public void swipeOpenDrawer() {	
-		TouchActions flick = new TouchActions(driver).flick(driver.findElement(drawerLoc), +150, 0, 1);
+		TouchActions flick = new TouchActions(driver).flick(findElement(drawerLoc, driver), +150, 0, 1);
 		flick.perform();		
 	}	
 	

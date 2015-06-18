@@ -1,13 +1,11 @@
 package ru.letoapp.screens.registration;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
-public class ForgotCardNumberOrAccessCodeScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(ForgotCardNumberOrAccessCodeScreen.class);	
+public class ForgotCardNumberOrAccessCodeScreen extends AppScreenBase{	
 	
 	By cardNumberField = By.xpath("//MaskedEditText[1]");	
 	By accessCodeField = By.xpath("//MaskedEditText[2]");	
@@ -21,21 +19,21 @@ public class ForgotCardNumberOrAccessCodeScreen extends AppScreenBase{
 	public void enterCardNumber(String cardNumber) {
 		waitFor(cardNumberField);
 		Log.info("Forgot Card Number Or Access Code Screen: Entering card number");
-		driver.findElement(cardNumberField).clear();
-		driver.findElement(cardNumberField).sendKeys(cardNumber);		
+		findElement(cardNumberField, driver).clear();
+		findElement(cardNumberField, driver).sendKeys(cardNumber);		
 	}
 
 	public void enterAccessCode(String accessCode) {
 		waitFor(accessCodeField);
 		Log.info("Forgot Card Number Or Access Code Screen: Entering access code");
-		driver.findElement(accessCodeField).clear();
-		driver.findElement(accessCodeField).sendKeys(accessCode);
+		findElement(accessCodeField, driver).clear();
+		findElement(accessCodeField, driver).sendKeys(accessCode);
 	}
 
 	public void NextBtnClick() {
 		waitFor(nextBtn);
 		Log.info("Forgot Card Number Or Access Code Screen: Click next button");
-		driver.findElement(nextBtn).click();
+		findElement(nextBtn, driver).click();
 		delay();
 	}
 

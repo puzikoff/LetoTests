@@ -1,6 +1,5 @@
 package ru.letoapp.screens.deposits;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -9,7 +8,7 @@ import ru.letoapp.screens.AppScreenBase;
 import ru.letoapp.screens.others.EditDisplayNameBlock;
 
 public class DepositScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(DepositScreen.class);
+	
 	private DepositTab depositTab;
 	private DepositManagementTab depositManagementTab;
 	private EditDisplayNameBlock editDisplayName;
@@ -41,13 +40,13 @@ public class DepositScreen extends AppScreenBase{
 
 	public void depositInfoTabClick() {
 		Log.info("Deposit Screen: Managementd tab click");
-		driver.findElement(infoTabBtn).click();
+		findElement(infoTabBtn, driver).click();
 		delay();		
 	}
 	
 	public void depositTabClick() {
 		Log.info("Deposit Screen: Deposit tab click");
-		driver.findElement(depositTabBtn).click();
+		findElement(depositTabBtn, driver).click();
 		delay();
 	}
 }

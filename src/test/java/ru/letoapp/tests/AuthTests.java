@@ -13,6 +13,7 @@ public class AuthTests extends SetUpForSuiteBase{
 	@Test
 	public void authTests() {		
 		greetingPopupHandler();      
+		appManager.getAuthScreen().getAndroidPopup().dismissClick();
 		appManager.getAuthScreen().openDrawer();
 		Assert.assertFalse(appManager.getAuthScreen().getDrawer().isExitButtonVisible());
 		appManager.getAuthScreen().closeDrawer();

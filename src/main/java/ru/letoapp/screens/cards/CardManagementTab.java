@@ -1,13 +1,11 @@
 package ru.letoapp.screens.cards;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
 public class CardManagementTab extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(CardManagementTab.class);
 	
 	By blockFundsSwitch = By.xpath("//Switch");
 	By howWorksBlockFundsBtn = By.id("button_show_spending_block_info");

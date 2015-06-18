@@ -1,13 +1,12 @@
 package ru.letoapp.screens.loans;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
 public class WhatIfScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(WhatIfScreen.class);
+	
 	String titleText = "Что, если?..";
 	By payMoreWidget = By.id("widget_what_if_pay_more");
 	By payLessWidget = By.id("widget_what_if_pay_less");

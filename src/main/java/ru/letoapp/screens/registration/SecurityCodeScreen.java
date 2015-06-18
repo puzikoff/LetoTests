@@ -1,13 +1,12 @@
 package ru.letoapp.screens.registration;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
 public class SecurityCodeScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(SecurityCodeScreen.class);
+	
 	By setTitle = By.xpath("//TextView[contains(@value, 'Введите защитный код')]");
 	By confirmTitle = By.xpath("//TextView[contains(@value, 'Повторите защитный код')]");
 	By authTitle = By.xpath("//TextView[contains(@value, 'Введите защитный код')]");
@@ -25,21 +24,21 @@ public class SecurityCodeScreen extends AppScreenBase{
 	public void clickNumber(String number) {
 		waitFor("//RelativeLayout/FrameLayout");
 		Log.info("Security Code Screen: Click number: " + number);
-		driver.findElement(By.id("button_keyboard_" + number)).click();	
+		findElement(By.id("button_keyboard_" + number), driver).click();	
 		delay();
 	}
 	
 	public void remindSecurityCodeBtnClick(){
 		waitFor(remindSecurityCodeBtn);
 		Log.info("Security Code Screen:  remind security code click");
-		driver.findElement(remindSecurityCodeBtn).click();
+		findElement(remindSecurityCodeBtn, driver).click();
 		delay();
 	}
 	
 	public void dismissBtnClick(){
 		waitFor(disMissBtn);
 		Log.info("Security Code Screen:  Dismiss button click");
-		driver.findElement(disMissBtn).click();
+		findElement(disMissBtn, driver).click();
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();

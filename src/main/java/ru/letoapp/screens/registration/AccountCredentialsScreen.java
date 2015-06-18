@@ -1,14 +1,11 @@
 package ru.letoapp.screens.registration;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
-public class AccountCredentialsScreen extends AppScreenBase{
-	
-public static final Logger Log = Logger.getLogger(AccountCredentialsScreen.class);
+public class AccountCredentialsScreen extends AppScreenBase{	
 	
 	By accountNumberField = By.id("text_account_number");
 	By accessCodeField = By.id("text_access_code");
@@ -25,21 +22,21 @@ public static final Logger Log = Logger.getLogger(AccountCredentialsScreen.class
 	public void enterAccountNumber(String accountNumber) {
 		waitFor(accountNumberField);
 		Log.info("Account Credentials Screen: Entering account number");
-		driver.findElement(accountNumberField).clear();
-		driver.findElement(accountNumberField).sendKeys(accountNumber);		
+		findElement(accountNumberField, driver).clear();
+		findElement(accountNumberField, driver).sendKeys(accountNumber);		
 	}
 
 	public void enterAccessCode(String accessCode) {
 		waitFor(accessCodeField);
 		Log.info("Account Credentials Screen: Entering access code");
-		driver.findElement(accessCodeField).clear();
-		driver.findElement(accessCodeField).sendKeys(accessCode);
+		findElement(accessCodeField, driver).clear();
+		findElement(accessCodeField, driver).sendKeys(accessCode);
 	}
 
 	public void NextBtnClick() {
 		waitFor(nextBtn);
 		Log.info("Account Credentials Screen: Click next button");
-		driver.findElement(nextBtn).click();	
+		findElement(nextBtn, driver).click();	
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
@@ -49,7 +46,7 @@ public static final Logger Log = Logger.getLogger(AccountCredentialsScreen.class
 	public void forgotAccountBtnClick() {
 		waitFor(forgetAccessLink);
 		Log.info("Account Credentials Screen: Click forget acces code button");
-		driver.findElement(forgetAccessLink).click();	
+		findElement(forgetAccessLink, driver).click();	
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();

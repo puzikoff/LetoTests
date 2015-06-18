@@ -1,13 +1,12 @@
 package ru.letoapp.screens.loans;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
 public class PaymentTab extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(PaymentTab.class);
+	
 	String titleText = "Кредит";
 	By paymentsSchedule = By.id("widget_payments_grid");
 	By moreDetailed = By.xpath("//TextView[@id='label_top_date']/../TextView[2]");

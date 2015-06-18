@@ -1,12 +1,10 @@
 package ru.letoapp.screens.others;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.letoapp.screens.AppScreenBase;
 
 public class BankRequisitesScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(BankRequisitesScreen.class);
 		
 	By fullName = By.xpath("//CaptionTextItemView_[1]/TextView[2]");
 	String fullNameText = "Публичное акционерное общество «Лето Банк»";
@@ -36,17 +34,17 @@ public class BankRequisitesScreen extends AppScreenBase{
 	}
 	
 	public void verifyScreen() {		
-		verify.assertEquals(driver.findElement(fullName).getText(), fullNameText, "Full name");
-		verify.assertEquals(driver.findElement(shortName).getText(), shortNameText, "Short name");
-		verify.assertEquals(driver.findElement(lawAddress).getText(), lawAddressText, "Law address");
-		verify.assertEquals(driver.findElement(postAddress).getText(), postAddressText, "Post address");
-		verify.assertEquals(driver.findElement(corAccount).getText(), corAccountText, "correspondent account");		
-		verify.assertEquals(driver.findElement(iNN).getText(), iNNValue, "INN");
-		verify.assertEquals(driver.findElement(bIK).getText(), bIKValue, "BIK");
-		verify.assertEquals(driver.findElement(oKPOCode).getText(), oKPOCodeValue, "OKPO");
-		verify.assertEquals(driver.findElement(oKONCCode).getText(), oKONCCodeValue, "OKON");
-		verify.assertEquals(driver.findElement(bankOGRN).getText(), bankOGRNValue, "Bank OGRN");
-		verify.assertEquals(driver.findElement(kPP).getText(), kPPValue, "KPP");
+		verify.assertEquals(findElement(fullName, driver).getText(), fullNameText, "Full name");
+		verify.assertEquals(findElement(shortName, driver).getText(), shortNameText, "Short name");
+		verify.assertEquals(findElement(lawAddress, driver).getText(), lawAddressText, "Law address");
+		verify.assertEquals(findElement(postAddress, driver).getText(), postAddressText, "Post address");
+		verify.assertEquals(findElement(corAccount, driver).getText(), corAccountText, "correspondent account");		
+		verify.assertEquals(findElement(iNN, driver).getText(), iNNValue, "INN");
+		verify.assertEquals(findElement(bIK, driver).getText(), bIKValue, "BIK");
+		verify.assertEquals(findElement(oKPOCode, driver).getText(), oKPOCodeValue, "OKPO");
+		verify.assertEquals(findElement(oKONCCode, driver).getText(), oKONCCodeValue, "OKON");
+		verify.assertEquals(findElement(bankOGRN, driver).getText(), bankOGRNValue, "Bank OGRN");
+		verify.assertEquals(findElement(kPP, driver).getText(), kPPValue, "KPP");
 		verify.assertAll();
 	}
 

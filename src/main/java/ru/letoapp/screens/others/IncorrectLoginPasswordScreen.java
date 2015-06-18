@@ -1,13 +1,11 @@
 package ru.letoapp.screens.others;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
 public class IncorrectLoginPasswordScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(IncorrectLoginPasswordScreen.class);
 	
 	By title = By.xpath("//Button[@id='button_try_again']/../TextView[1]");
 	By subTitle = By.xpath("//Button[@id='button_try_again']/../TextView[2]");
@@ -28,26 +26,26 @@ public class IncorrectLoginPasswordScreen extends AppScreenBase{
 	
 	public void verifyScreen() {
 		Log.info("Incorrect Login or Password Screen: Verify screen");
-		verify.assertEquals(driver.findElement(title).getText(), titleText, "Title");		
-		verify.assertEquals(driver.findElement(subTitle).getText(), subTitleText, "Subtitle");		
-		verify.assertEquals(driver.findElement(tryAgainBtn).getText(), tryAgainBtnText, "Try again button");		
-		verify.assertEquals(driver.findElement(resetTip).getText(), resetTipText, "Reset credentials tip");		
-		verify.assertEquals(driver.findElement(resetTip2).getText(), resetTip2Text, "Reset credentials tip 2");		
-		verify.assertEquals(driver.findElement(resetCredentialsBtn).getText(), resetCredentialsBtnText, "Reset credentials button");		
+		verify.assertEquals(findElement(title, driver).getText(), titleText, "Title");		
+		verify.assertEquals(findElement(subTitle, driver).getText(), subTitleText, "Subtitle");		
+		verify.assertEquals(findElement(tryAgainBtn, driver).getText(), tryAgainBtnText, "Try again button");		
+		verify.assertEquals(findElement(resetTip, driver).getText(), resetTipText, "Reset credentials tip");		
+		verify.assertEquals(findElement(resetTip2, driver).getText(), resetTip2Text, "Reset credentials tip 2");		
+		verify.assertEquals(findElement(resetCredentialsBtn, driver).getText(), resetCredentialsBtnText, "Reset credentials button");		
 		verify.assertAll();
 	}
 
 	public void tryAgainBtnClick() {
 		waitForClickable(tryAgainBtn);
 		Log.info("Incorrect Login or Password Screen: Try again button click");
-		driver.findElement(tryAgainBtn).click();	
+		findElement(tryAgainBtn, driver).click();	
 		delay();
 	}
 	
 	public void resetCredentialsBtnClick() {
 		waitForClickable(resetCredentialsBtn);
 		Log.info("Incorrect Login or Password Screen: Reset credentials button click");
-		driver.findElement(resetCredentialsBtn).click();	
+		findElement(resetCredentialsBtn, driver).click();	
 		delay();		
 	}
 

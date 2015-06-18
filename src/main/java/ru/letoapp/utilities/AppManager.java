@@ -55,6 +55,7 @@ import ru.letoapp.screens.registration.SecurityCodeScreen;
 import ru.letoapp.screens.registration.SmsCodeScreen;
 import ru.letoapp.screens.services.ReducePaymentScreen;
 import ru.letoapp.screens.services.VerificationCodeScreen;
+import ru.letoapp.screens.wallet.WalletScreen;
 
 
 public class AppManager {	
@@ -99,6 +100,7 @@ public class AppManager {
 	private LoanInsuranceScreen loanInsuranceScreen;
 	private ReducePaymentScreen reducePaymentScreen;
 	private VerificationCodeScreen verificationCodeScreen;
+	private WalletScreen walletScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -137,6 +139,7 @@ public class AppManager {
 		loanInsuranceScreen = new LoanInsuranceScreen(driver);
 		reducePaymentScreen = new ReducePaymentScreen(driver);
 		verificationCodeScreen = new VerificationCodeScreen(driver);
+		walletScreen = new WalletScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -283,6 +286,10 @@ public class AppManager {
 	
 	public VerificationCodeScreen getVerificationCodeScreen() {
 		return verificationCodeScreen;
+	}
+	
+	public WalletScreen getWalletScreen(){
+		return walletScreen;
 	}
 	
 	/* Starting Selendroid */

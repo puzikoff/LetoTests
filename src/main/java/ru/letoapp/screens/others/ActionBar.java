@@ -1,13 +1,12 @@
 package ru.letoapp.screens.others;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.ScreenBase;
 
 public class ActionBar extends ScreenBase{
-	public static final Logger Log = Logger.getLogger(ActionBar.class);	
+	
 	By menuBtn = By.id("home");
 	By actionBarTitle = By.id("action_bar_title");
 	By navUpBtn = By.xpath("//ActionBarView/LinearLayout/HomeView/ImageView[1]");	 
@@ -19,28 +18,28 @@ public class ActionBar extends ScreenBase{
 	
 	public void menuBtnClick() {
 		Log.info("Action bar: Menu button click");
-		driver.findElement(menuBtn).click();
+		findElement(menuBtn, driver).click();
 		delay();
 	}
 	 
 	public void navUpBtnClick() {
 		Log.info("Action bar: Click NavUp button");
-		driver.findElement(navUpBtn).click();	
+		findElement(navUpBtn, driver).click();	
 		delay();
 	}
 	 
 	public void contactsBtnClick() {
 		waitForClickable(contactsBtn);
 		Log.info("Action bar: Click contacts button");		
-		driver.findElement(contactsBtn).click();
+		findElement(contactsBtn, driver).click();
 		delay();
 	}
 	 
 	public String getActionBarTitle() {
 		waitFor(actionBarTitle);
 		Log.info("Action bar: Get title");
-		Log.info("Action bar: Title: " + driver.findElement(actionBarTitle).getText());
-		return driver.findElement(actionBarTitle).getText();
+		Log.info("Action bar: Title: " + findElement(actionBarTitle, driver).getText());
+		return findElement(actionBarTitle, driver).getText();
 	} 
 
 }

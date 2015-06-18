@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import ru.letoapp.screens.AppScreenBase;
@@ -14,7 +13,7 @@ import ru.letoapp.screens.popups.EmptyPasswordPopup;
 import ru.letoapp.screens.popups.GreetingPopup;
 
 public class AuthScreen extends AppScreenBase {
-	public static final Logger Log = Logger.getLogger(AuthScreen.class);
+	
 	GreetingPopup greetingPopup;
 	EmptyLoginPopup emptyLoginPopup;
 	EmptyPasswordPopup emptyPasswordPopup;
@@ -112,30 +111,30 @@ public class AuthScreen extends AppScreenBase {
 	public void verifyAuthScreen() {		
 		waitFor(loginBtn);
 		Log.info("Auth screen: Verify auth screen");
-		verify.assertEquals(driver.findElement(authTitle).getText(), authTitleText, "Auth title text");	
-		verify.assertEquals(driver.findElement(authSubTitle).getText(), authSubTitleText, "Auth subtitle text");
-		verify.assertEquals(driver.findElement(protCodeCheckbox).getText(), protCodeCheckboxText, "Auth protect code text");		
-		verify.assertEquals(driver.findElement(loginBtn).getText(), loginBtnText, "Login button text");
-		verify.assertEquals(driver.findElement(remindLogPasLink).getText(), remindLogPasLinkText, "Remind login or password text");		
-		verify.assertEquals(driver.findElement(registerBtn).getText(), registerBtnText, "Register button text");
+		verify.assertEquals(findElement(authTitle, driver).getText(), authTitleText, "Auth title text");	
+		verify.assertEquals(findElement(authSubTitle, driver).getText(), authSubTitleText, "Auth subtitle text");
+		verify.assertEquals(findElement(protCodeCheckbox, driver).getText(), protCodeCheckboxText, "Auth protect code text");		
+		verify.assertEquals(findElement(loginBtn, driver).getText(), loginBtnText, "Login button text");
+		verify.assertEquals(findElement(remindLogPasLink, driver).getText(), remindLogPasLinkText, "Remind login or password text");		
+		verify.assertEquals(findElement(registerBtn, driver).getText(), registerBtnText, "Register button text");
 		verify.assertAll();
 	}
 	
 	public void setProtCodeCheckbox () {		
 		Log.info("Auth screen: Set protect code checkbox");
-		driver.findElement(protCodeCheckbox).click();
+		findElement(protCodeCheckbox, driver).click();
 		delay();
 	}
 	
 	public boolean isProtCodeCheckboxSelected () {
-		Log.info("Auth screen: Is protect code selected:" + driver.findElement(protCodeCheckbox).isSelected());
-		return driver.findElement(protCodeCheckbox).isSelected();
+		Log.info("Auth screen: Is protect code selected:" + findElement(protCodeCheckbox, driver).isSelected());
+		return findElement(protCodeCheckbox, driver).isSelected();
 	}
 	
 	public void loginBtnClick () {
 		waitFor(loginBtn);
 		Log.info("Auth screen: Click login button");
-		driver.findElement(loginBtn).click();
+		findElement(loginBtn, driver).click();
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
@@ -144,7 +143,7 @@ public class AuthScreen extends AppScreenBase {
 	
 	public void remindLogPasBtnClick () {
 		Log.info("Auth screen: Click remind login and password link");
-		driver.findElement(remindLogPasLink).click();
+		findElement(remindLogPasLink, driver).click();
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
@@ -154,7 +153,7 @@ public class AuthScreen extends AppScreenBase {
 	public void registerBtnClick () {
 		waitFor(registerBtn);
 		Log.info("Auth screen: Click 'Registration' button'");
-		driver.findElement(registerBtn).click();
+		findElement(registerBtn, driver).click();
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
@@ -164,19 +163,19 @@ public class AuthScreen extends AppScreenBase {
 	public void enterUsername (String username) {
 		waitFor(usernameTextField);
 		Log.info("Auth screen: Enter Username: " + username);
-		driver.findElement(usernameTextField).clear();
-		driver.findElement(usernameTextField).sendKeys(username);
+		findElement(usernameTextField, driver).clear();
+		findElement(usernameTextField, driver).sendKeys(username);
 	}
 	
 	public String getUsername () {
 		Log.info("Auth screen: get username");
-		return driver.findElement(usernameTextField).getText();		
+		return findElement(usernameTextField, driver).getText();		
 	}
 	
 	public void enterPassword (String password) {
 		waitFor(passwordTextField);
 		Log.info("Auth screen: Enter password: " + password);
-		driver.findElement(passwordTextField).clear();
-		driver.findElement(passwordTextField).sendKeys(password);
+		findElement(passwordTextField, driver).clear();
+		findElement(passwordTextField, driver).sendKeys(password);
 	}
 }

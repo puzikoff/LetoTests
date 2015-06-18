@@ -1,6 +1,5 @@
 package ru.letoapp.screens.loans;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -9,7 +8,7 @@ import ru.letoapp.screens.AppScreenBase;
 import ru.letoapp.screens.others.EditDisplayNameBlock;
 
 public class LoanScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(LoanScreen.class);
+	
 	private PaymentTab paymentTab;
 	private LoanInfoTab loanInfoTab;
 	private LoanManagementTab loanManagementTab;
@@ -56,19 +55,19 @@ public class LoanScreen extends AppScreenBase{
 	
 	public void infoTabClick() {
 		Log.info("Loan Screen: Information tab click");
-		driver.findElement(infoTabBtn).click();
+		findElement(infoTabBtn, driver).click();
 		delay();
 	}
 
 	public void managementTabClick() {
 		Log.info("Loan Screen: Managementd tab click");
-		driver.findElement(managementTabBtn).click();
+		findElement(managementTabBtn, driver).click();
 		delay();		
 	}
 	
 	public void paymentTabClick() {
 		Log.info("Loan Screen: Payment tab click");
-		driver.findElement(paymentTabBtn).click();
+		findElement(paymentTabBtn, driver).click();
 		delay();
 	}
 

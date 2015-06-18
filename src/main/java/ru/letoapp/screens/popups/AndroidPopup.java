@@ -1,11 +1,9 @@
 package ru.letoapp.screens.popups;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AndroidPopup extends PopupBase{	
-	public static final Logger Log = Logger.getLogger(AndroidPopup.class);
 	
 	By title = By.id("alertTitle");
 	By message = By.id("message");

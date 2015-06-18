@@ -1,13 +1,11 @@
 package ru.letoapp.screens.loans;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
 public class LoanManagementTab extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(LoanManagementTab.class);
 	
 	By repaymentBlock = By.xpath("//TextView[@value='Автопогашение']");
 	By changePayDateBlock = By.xpath("//TextView[@value='Меняю дату платежа']");
@@ -21,8 +19,8 @@ public class LoanManagementTab extends AppScreenBase{
 	
 	public void serviceDetailsClick(String serviceName){
 		Log.info("Loan management tab: " + serviceName + " detailes click");
-		driver.findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView")).click();
-		driver.findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../..//TextView[@id='label_pressable_caption']")).click();
+		findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver).click();
+		findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../..//TextView[@id='label_pressable_caption']"), driver).click();
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
@@ -31,12 +29,12 @@ public class LoanManagementTab extends AppScreenBase{
 	
 	public void unwrapServiceBlock(String serviceName){
 		Log.info("Loan management tab: Unwrap service " + serviceName + " block");
-		driver.findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView")).click();
+		findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver).click();
 	}
 	
 	public void wrapServiceBlock(String serviceName){
 		Log.info("Loan management tab: Wrap service " + serviceName + " block");
-		driver.findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView")).click();		
+		findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver).click();		
 	}
 	
 	public void connectingServicesHistoryBtnClick() {

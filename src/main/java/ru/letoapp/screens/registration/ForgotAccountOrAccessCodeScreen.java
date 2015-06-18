@@ -1,13 +1,11 @@
 package ru.letoapp.screens.registration;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
-public class ForgotAccountOrAccessCodeScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(ForgotAccountOrAccessCodeScreen.class);
+public class ForgotAccountOrAccessCodeScreen extends AppScreenBase{	
 	
 	By accountNumberField = By.xpath("//MaskedEditText[1]");
 	By accessCodeField = By.xpath("//MaskedEditText[2]");
@@ -21,21 +19,21 @@ public class ForgotAccountOrAccessCodeScreen extends AppScreenBase{
 	public void enterAccountNumber(String accountNumber) {
 		waitFor(accountNumberField);
 		Log.info("Forgot account Or Access Code Screen: Entering account number");
-		driver.findElement(accountNumberField).clear();
-		driver.findElement(accountNumberField).sendKeys(accountNumber);		
+		findElement(accountNumberField, driver).clear();
+		findElement(accountNumberField, driver).sendKeys(accountNumber);		
 	}
 
 	public void enterAccessCode(String accessCode) {
 		waitFor(accessCodeField);
 		Log.info("Forgot Account Or Access Code Screen: Entering acces code");
-		driver.findElement(accessCodeField).clear();
-		driver.findElement(accessCodeField).sendKeys(accessCode);
+		findElement(accessCodeField, driver).clear();
+		findElement(accessCodeField, driver).sendKeys(accessCode);
 	}
 
 	public void NextBtnClick() {
 		waitFor(nextBtn);
 		Log.info("Forgot Account Or Access Code Screen: Click next button");
-		driver.findElement(nextBtn).click();	
+		findElement(nextBtn, driver).click();	
 		delay();
 	}
 }

@@ -45,7 +45,7 @@ public class ScreenBase {
 	    public void delay(long time) {
 	        try {
 	            Thread.sleep(time);
-	        } catch (InterruptedException e) {}
+	        } catch (InterruptedException e) {Log.error("Delay error: " + e); }
 	    }
 
 	    
@@ -88,13 +88,13 @@ public class ScreenBase {
 	                    		return null;
 	                    	}
 	                    	} catch (StaleElementReferenceException ex) {
-	                    		Log.info(by.toString() + "[waitForDisappear] Element not attached to DOM, try again");	                        
+	                    		Log.info(by.toString() + "[waitForDisappear] Element not attached to DOM, try again" + ex);	                        
 	                    		return "not_attached_to_dom";
 	                    	}     
 	                }	                
 	            });
 	        } catch (WaitTimedOutException e) {
-	            Log.info(by.toString() + " : element is still present");
+	            Log.info(by.toString() + " : element is still present: " + e);
 	            throw e;
 	        }
 	    }
@@ -113,7 +113,7 @@ public class ScreenBase {
 		            });
 		            Log.info("[WaitForVanish] Element is gone");
 		        }catch (NoSuchElementException ex) {
-		        	Log.info("[WaitForVanish] Element is already gone");
+		        	Log.info("[WaitForVanish] Element is already gone: " + ex);
 		        }
 		    }
 		

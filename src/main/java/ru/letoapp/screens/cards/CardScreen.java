@@ -1,6 +1,5 @@
 package ru.letoapp.screens.cards;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -8,8 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import ru.letoapp.screens.AppScreenBase;
 import ru.letoapp.screens.others.EditDisplayNameBlock;
 
-public class CardScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(CardScreen.class);
+public class CardScreen extends AppScreenBase{	
 	private CardTab cardTab;
 	private CardInfoTab cardInfoTab;
 	private CardManagementTab cardManagementTab;
@@ -55,19 +53,19 @@ public class CardScreen extends AppScreenBase{
 	
 	public void infoTabClick() {
 		Log.info("Card Screen: Information tab click");
-		driver.findElement(infoTabBtn).click();
+		findElement(infoTabBtn, driver).click();
 		delay();
 	}
 
 	public void managementTabClick() {
 		Log.info("Card Screen: Managementd tab click");
-		driver.findElement(managementTabBtn).click();
+		findElement(managementTabBtn, driver).click();
 		delay();		
 	}
 	
 	public void cardTabClick() {
 		Log.info("Card Screen: Card tab click");
-		driver.findElement(cardTabBtn).click();
+		findElement(cardTabBtn, driver).click();
 		delay();
 	}
 

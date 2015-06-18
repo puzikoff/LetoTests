@@ -1,6 +1,5 @@
 package ru.letoapp.screens.registration;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -9,7 +8,7 @@ import ru.letoapp.screens.AppScreenBase;
 import ru.letoapp.screens.popups.EmptyEmailPopup;
 
 public class SendEmailScreen extends AppScreenBase{	
-	public static final Logger Log = Logger.getLogger(SendEmailScreen.class);
+	
 	EmptyEmailPopup emptyEmailPopup;
 	
 	By emailField = By.id("text_email");
@@ -40,7 +39,7 @@ public class SendEmailScreen extends AppScreenBase{
 	public void sendBtnClick() {		
 		waitFor(sendBtn);		
 		Log.info("Send Email Screen: Click send button");
-		driver.findElement(sendBtn).click();
+		findElement(sendBtn, driver).click();
 		delay();
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
@@ -50,8 +49,8 @@ public class SendEmailScreen extends AppScreenBase{
 
 	public void enterEmail(String email) {
 		Log.info("Send Email Screen: Entering email: " + email);
-		driver.findElement(emailField).clear();
-		driver.findElement(emailField).sendKeys(email);		
+		findElement(emailField, driver).clear();
+		findElement(emailField, driver).sendKeys(email);		
 	}
 
 }

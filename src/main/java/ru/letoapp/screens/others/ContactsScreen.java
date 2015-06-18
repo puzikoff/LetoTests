@@ -1,6 +1,5 @@
 package ru.letoapp.screens.others;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -9,7 +8,7 @@ import ru.letoapp.screens.AppScreenBase;
 import ru.letoapp.screens.popups.PhoneCallPopup;
 
 public class ContactsScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(ContactsScreen.class);
+	
 	PhoneCallPopup phoneCallPopup;
 	
 	By stillToRepayTheLoan = By.xpath("//TextView[@id='label_caption']");
@@ -41,35 +40,35 @@ public class ContactsScreen extends AppScreenBase{
 	public void stillToRepayTheLoanClick () {
 		waitFor(stillToRepayTheLoan);
 		Log.info("Contacts screen: Where still to repay the loan");
-		driver.findElement(stillToRepayTheLoan).click();
+		findElement(stillToRepayTheLoan, driver).click();
 		delay();
 	}
 	
 	public void phoneCallClick () {
 		waitFor(phoneCallBtn);
 		Log.info("Contacts screen: Phone call click");
-		driver.findElement(phoneCallBtn).click();
+		findElement(phoneCallBtn, driver).click();
 		delay();
 	}
 	
 	public void foreignPhoneCallClick () {
 		waitFor(foreignPhoneCallBtn);
 		Log.info("Contacts screen: Foreign Phone call click");
-		driver.findElement(foreignPhoneCallBtn).click();
+		findElement(foreignPhoneCallBtn, driver).click();
 		delay();
 	}
 	
 	public void writeToBankClick () {
 		waitFor(writeToBank);
 		Log.info("Contacts screen: Write to bank click");
-		driver.findElement(writeToBank).click();
+		findElement(writeToBank, driver).click();
 		delay();
 	}
 	
 	public void bankSiteClick () {
 		waitFor(bankSite);
 		Log.info("Contacts screen: Write to bank click");
-		driver.findElement(bankSite).click();
+		findElement(bankSite, driver).click();
 		delay();
 	}
 

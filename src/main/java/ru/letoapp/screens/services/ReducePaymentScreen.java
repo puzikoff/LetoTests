@@ -1,13 +1,12 @@
 package ru.letoapp.screens.services;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
 public class ReducePaymentScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(ReducePaymentScreen.class);
+	
 	By connectBtn = By.xpath("//Button[@id='button']");
 	String titleText = "Уменьшаю платеж";
 	String connectBtnText = "Подключить";

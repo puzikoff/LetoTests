@@ -1,6 +1,5 @@
 package ru.letoapp.screens.others;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -8,7 +7,7 @@ import ru.letoapp.screens.AppScreenBase;
 
 
 public class AboutBankAndAppScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(AboutBankAndAppScreen.class);
+	
 	By writeToUsBtn = By.id("layout_section_write_to_us");
 	By title1 = By.xpath("//ScrollView//LinearLayout/LinearLayout[1]/TextView[1]");
 	String title1Text = "ПАО «Лето Банк»";

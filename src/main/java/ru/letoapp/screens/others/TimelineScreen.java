@@ -1,12 +1,11 @@
 package ru.letoapp.screens.others;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
 public class TimelineScreen extends AppScreenBase{
-	public static final Logger Log = Logger.getLogger(TimelineScreen.class);
+	
 	private String loanOperationsTitleText = "Операции по кредиту";
 	private String cardOperationsTitleText = "Операции по карте";
 	private String connectionServicesHistoryTitleText = "История подключения услуг";
