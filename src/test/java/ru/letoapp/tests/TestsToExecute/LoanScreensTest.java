@@ -1,14 +1,12 @@
 package ru.letoapp.tests.TestsToExecute;
 
-import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import ru.letoapp.tests.SetUpForSuiteBase;
+import ru.letoapp.tests.common.SetUpForSuiteBase;
 import ru.letoapp.utilities.PropertyReader;
 
-public class LoanScreensTest extends SetUpForSuiteBase{
-	public static final Logger Log = Logger.getLogger(LoanScreensTest.class);
+public class LoanScreensTest extends SetUpForSuiteBase{	
 	
 	@Test(description = "LOAN. TRANSITIONS BETWEEN SCREENS TEST")
 	public void loanTests() {

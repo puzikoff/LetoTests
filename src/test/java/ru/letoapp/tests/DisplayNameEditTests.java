@@ -3,6 +3,7 @@ package ru.letoapp.tests;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
+import ru.letoapp.tests.common.SetUpForSuiteBase;
 import ru.letoapp.utilities.PropertyReader;
 
 

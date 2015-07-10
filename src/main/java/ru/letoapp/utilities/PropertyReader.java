@@ -11,7 +11,7 @@ public class PropertyReader {
 
     public static void init(String file) throws AssertionError{
         try {
-            props.load(new FileInputStream(file));
+            props.load(new FileInputStream("src/main/resources/" + file));
         } catch (Exception e) {
             try {
                 props.load(props.getClass().getResourceAsStream(file));

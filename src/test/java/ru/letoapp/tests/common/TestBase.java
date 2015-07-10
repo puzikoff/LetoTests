@@ -1,4 +1,4 @@
-package ru.letoapp.tests;
+package ru.letoapp.tests.common;
 
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -8,13 +8,13 @@ import ru.letoapp.utilities.PropertyReader;
 import ru.letoapp.utilities.TestsHelper;
 
 public class TestBase {
-public static final Logger Log = Logger.getLogger(TestBase.class);	
+public static final Logger Log = Logger.getLogger("Test logger");
 	public String environoment;
 	protected AppManager appManager;	
 	
 	public void chooseEnvironoment(String env) {
 		if(env.equals("sb")) {
-			Log.info("Choose SB environoment");
+			Log.info("Choose SB environoment");			
 			greetingPopupHandler();
 	        appManager.getAuthScreen().verifyAuthScreen();         
 	        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        

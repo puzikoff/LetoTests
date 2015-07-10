@@ -1,13 +1,11 @@
 package ru.letoapp.tests.TestsToExecute;
 
-import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
-import ru.letoapp.tests.SetUpForSuiteBase;
+import ru.letoapp.tests.common.SetUpForSuiteBase;
 import ru.letoapp.utilities.PropertyReader;
 
-public class CardScreensTest extends SetUpForSuiteBase {
-	public static final Logger Log = Logger.getLogger(CardScreensTest.class);
+public class CardScreensTest extends SetUpForSuiteBase {	
 	
 	@Test(description = "CARD. TRANSITIONS BETWEEN SCREENS TEST")
 	public void cardScreensTest() {

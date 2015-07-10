@@ -1,7 +1,8 @@
-package ru.letoapp.tests;
+package ru.letoapp.tests.common;
 
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
+
 import ru.letoapp.utilities.AppManager;
 import ru.letoapp.utilities.PropertyReader;
 
@@ -10,7 +11,7 @@ public class SetUpForSuiteBase extends TestBase{
 	@BeforeSuite
 	public void setUp() throws Exception 
 	{			
-		PropertyReader.init("/testconfig.properties");
+		PropertyReader.init("testconfig.properties");
 		appManager = new AppManager();	    	    
 		appManager.startServer(PropertyReader.getProperty("appPath"), 
 	    		Boolean.valueOf(PropertyReader.getProperty("forceReinstall")), 

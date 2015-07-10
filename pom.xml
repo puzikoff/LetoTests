@@ -5,7 +5,7 @@
 	<artifactId>LetoTests</artifactId>	
 	<version>0.0.1</version>
 	<name>LetoBankAppTests</name>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<selendroid.version>0.15.0</selendroid.version>
@@ -30,7 +30,8 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.8.13</version>
+			<version>6.9.4</version>
+			<scope>test</scope>			
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>

@@ -86,6 +86,18 @@ public class AppScreenBase extends ScreenBase {
 		return errorPopup;
 	}
 	
+	public boolean isElementPresent(By element) {
+		if(findElement(element, driver) != null) {
+			Log.info("Element: " + element.toString() + " exist");
+			return true;
+		}
+		else {
+			Log.info("There is no element: " + element.toString() + " on the screen");
+			return false;
+		}
+	}
+	
+	
 	public boolean isErrorPopupDisplayed() {
 		if(findElement(errorPopupTitleLocator, driver) != null) {
 			try {
@@ -146,7 +158,7 @@ public class AppScreenBase extends ScreenBase {
 		
 	public void waitForVanishWaitPopup() {		
 		 try {
-	            Wait<WebDriver> wait = new WebDriverWait(getDriver(), waitTimeout, 100);	            
+	            Wait<WebDriver> wait = new WebDriverWait(getDriver(), waitTimeout, 60);	            
 	            wait.until(new ExpectedCondition<String>() {
 	                public String apply(WebDriver driver) {	                	
 	                    try {
@@ -171,6 +183,34 @@ public class AppScreenBase extends ScreenBase {
 	            });
 	        } catch (WaitTimedOutException e) {
 	            Log.info(waitPopup.toString() + "Timeout: Wait popup is still present" + e);
+	            throw e;
+	   }
+	}
+	
+	public void waitForVanish(final By elementToVanish) {		
+		 try {
+	            Wait<WebDriver> wait = new WebDriverWait(getDriver(), waitTimeout, 60);	            
+	            wait.until(new ExpectedCondition<String>() {
+	                public String apply(WebDriver driver) {	                	
+	                    try {
+	                    		WebElement element = findElement(elementToVanish, driver);
+	                    		if (null == element) {
+	                    			Log.info(elementToVanish.toString() + "vanished");
+	                    			return "not_present";
+	                    		} 
+	                    		else if (!element.isDisplayed()) {
+	                    			Log.info(elementToVanish.toString() + "vanished");
+	                    			return "not_displayed";
+	                    		}
+	                    	} catch (StaleElementReferenceException ex) {
+	                    		Log.info(elementToVanish.toString() + "is not attached to DOM, try again: " + ex);	                        
+	                    		return "not_attached_to_dom";
+	                    	}
+						return null;     
+	                }	                
+	            });
+	        } catch (WaitTimedOutException e) {
+	            Log.info("Timeout: " + elementToVanish.toString() + "is still present" + e);
 	            throw e;
 	   }
 	}

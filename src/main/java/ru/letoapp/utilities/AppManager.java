@@ -41,6 +41,11 @@ import ru.letoapp.screens.others.IncorrectLoginPasswordScreen;
 import ru.letoapp.screens.others.LoansListScreen;
 import ru.letoapp.screens.others.ResetSecurityCodeScreen;
 import ru.letoapp.screens.others.TimelineScreen;
+import ru.letoapp.screens.payments.AccountInfoScreen;
+import ru.letoapp.screens.payments.AmountScreen;
+import ru.letoapp.screens.payments.MenuScreen;
+import ru.letoapp.screens.payments.PaymentToolScreen;
+import ru.letoapp.screens.payments.StatusScreen;
 import ru.letoapp.screens.registration.AccountCredentialsScreen;
 import ru.letoapp.screens.registration.CardCredentialsScreen;
 import ru.letoapp.screens.registration.DboScreen;
@@ -101,6 +106,11 @@ public class AppManager {
 	private ReducePaymentScreen reducePaymentScreen;
 	private VerificationCodeScreen verificationCodeScreen;
 	private WalletScreen walletScreen;
+	private MenuScreen menuScreen;
+	private AccountInfoScreen accountInfoScreen;
+	private AmountScreen amountScreen;
+	private PaymentToolScreen paymentToolScreen;	
+	private StatusScreen statusScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -140,6 +150,11 @@ public class AppManager {
 		reducePaymentScreen = new ReducePaymentScreen(driver);
 		verificationCodeScreen = new VerificationCodeScreen(driver);
 		walletScreen = new WalletScreen(driver);
+		menuScreen = new MenuScreen(driver);
+		accountInfoScreen = new AccountInfoScreen(driver);
+		amountScreen = new AmountScreen(driver);
+		paymentToolScreen = new PaymentToolScreen(driver);		
+		statusScreen= new StatusScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -292,6 +307,25 @@ public class AppManager {
 		return walletScreen;
 	}
 	
+	public MenuScreen getMenuScreen(){
+		return menuScreen;
+	}
+	
+	public AccountInfoScreen getAccountInfoScreen(){
+		return accountInfoScreen;
+	}
+	
+	public PaymentToolScreen getPaymentToolScreen(){
+		return paymentToolScreen;
+	}
+	public StatusScreen getStatusScreen(){
+		return statusScreen;
+	}
+	
+	public AmountScreen getAmountScreen(){
+		return amountScreen;
+	}
+	
 	/* Starting Selendroid */
 	
 	public void startServer(String appPath, boolean forceReinstall, boolean noClearData) 
@@ -299,17 +333,15 @@ public class AppManager {
 		serverConfig = new SelendroidConfiguration();
 	    serverConfig.addSupportedApp(appPath);
 	    serverConfig.setPort(4444);	    
-	    //serverConfig.setProxy("io.selendroid.grid.SelendroidSessionProxy");	    
-	    serverConfig.setEmulatorPort(44444);
-	    //serverConfig.setRegistrationUrl("http://localhost:5556");
-	    serverConfig.setDeviceLog(false);
+	    serverConfig.setEmulatorPort(44444);	    
+	    serverConfig.setDeviceLog(true);
 	    serverConfig.setDeviceScreenshot(true);
 	    serverConfig.setSelendroidServerPort(38080);
 	    serverConfig.setForceReinstall(forceReinstall);
 	    serverConfig.setNoClearData(noClearData);
 	    serverConfig.setShouldKeepAdbAlive(true);
 	    serverConfig.setPrintHelp(true);
-	    serverConfig.setLogLevel(LogLevelEnum.ERROR);
+	    serverConfig.setLogLevel(LogLevelEnum.INFO);
 	    server = new SelendroidLauncher(serverConfig);
 	    server.launchSelendroid();	            
 	}
@@ -318,7 +350,7 @@ public class AppManager {
 	{
 	    capabilities = new SelendroidCapabilities();        
 	    capabilities.setAut(appUnderTestId);      
-	    capabilities.setLaunchActivity(appActivity);  
+	    capabilities.setLaunchActivity(appActivity);   
 	    if(emulator == true) {
 	    	capabilities.setEmulator(true);
 	    	capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID19);

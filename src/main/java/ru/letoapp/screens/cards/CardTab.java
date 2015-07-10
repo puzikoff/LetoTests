@@ -108,5 +108,10 @@ public class CardTab extends AppScreenBase{
 		return bf;
 	}
 
+	public void verify() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

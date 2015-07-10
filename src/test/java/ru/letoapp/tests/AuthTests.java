@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import ru.letoapp.tests.common.SetUpForSuiteBase;
 import ru.letoapp.utilities.PropertyReader;
 
 public class AuthTests extends SetUpForSuiteBase{

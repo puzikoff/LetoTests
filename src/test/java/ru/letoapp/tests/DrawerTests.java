@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
+import ru.letoapp.tests.common.SetUpForEachTestBase;
 import ru.letoapp.utilities.PropertyReader;
 
 public class DrawerTests extends SetUpForEachTestBase{

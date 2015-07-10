@@ -18,7 +18,7 @@ import com.thoughtworks.selenium.Wait.WaitTimedOutException;
 
 @SuppressWarnings("deprecation")
 public class ScreenBase {
-	public static final Logger Log = Logger.getLogger(ScreenBase.class);
+	public static final Logger Log = Logger.getLogger("App logger");
 	private static final long DELAY_AFTER_ACTIVE_ACTION = 700;
 	protected final int waitTimeout = 6000;
 	protected SoftAssert verify = new SoftAssert();
@@ -98,24 +98,8 @@ public class ScreenBase {
 	            throw e;
 	        }
 	    }
-		
-		 public void waitForVanish(final By by) {			 
-		        try { if (findElement(by, driver) == null) {
-		              return;
-		            }
-		            Wait<WebDriver> wait = new WebDriverWait(getDriver(), waitTimeout, 100);
-		            wait.until(new ExpectedCondition<Boolean>() {
-		                @Override
-		                public Boolean apply(WebDriver driver) {
-		                    List<WebElement> elements = driver.findElements(by);
-		                    return ((elements.size() == 0)||(!elements.get(0).isDisplayed()));
-		                }
-		            });
-		            Log.info("[WaitForVanish] Element is gone");
-		        }catch (NoSuchElementException ex) {
-		        	Log.info("[WaitForVanish] Element is already gone: " + ex);
-		        }
-		    }
+	
+	
 		
 		 public By getBy(String locator) {
 	        if (locator.matches("^id=[\\d\\D]+"))

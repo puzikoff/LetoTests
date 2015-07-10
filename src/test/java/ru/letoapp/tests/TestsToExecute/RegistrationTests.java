@@ -1,15 +1,12 @@
 package ru.letoapp.tests.TestsToExecute;
 
-
-import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import ru.letoapp.tests.SetUpForEachTestBase;
+import ru.letoapp.tests.common.SetUpForEachTestBase;
 import ru.letoapp.utilities.PropertyReader;
 
-public class RegistrationTests extends SetUpForEachTestBase{
-	public static final Logger Log = Logger.getLogger(RegistrationTests.class);		
+public class RegistrationTests extends SetUpForEachTestBase{	
 	
 	@Test(priority=1, description = "REGISTRATION BY CARD. POSITIVE TEST")
 	public void registrationByCardPositiveTest() {		

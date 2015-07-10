@@ -21,6 +21,8 @@ public class DashboardScreen extends AppScreenBase {
 	By websiteBtn = By.id("button_dashboard_website");
 	By loanBtn = By.xpath("//LoanInfoView_[1]");
 	By cardBtn = By.xpath("//CardInfoView_[1]");	
+	By updateBigSpiner = By.xpath("//ProgressBar[@id='progress_loading']");
+	By loadingError = By.xpath("//ImageView[@id='image_error']");
 	String addressesOnMapLabelText = "Адреса на карте";
 	
 	
@@ -29,8 +31,7 @@ public class DashboardScreen extends AppScreenBase {
 	}
 	
 	public void verifyDashboardScreen() {
-		Log.info("Dashboard screen: Verify Dashboard");
-		waitFor("//CardSectionView_");
+		Log.info("Dashboard screen: Verify Dashboard");		
 	}
 		
 	public void openCard(String cardName) {
@@ -51,6 +52,14 @@ public class DashboardScreen extends AppScreenBase {
 			delay();
 		}			
 		else Log.error("Dashboard screen: No loan with such name");
+	}
+	
+	public boolean isLoadingErrorExist() {		
+		if(findElement(loadingError, driver).isDisplayed()){
+			Log.error("Dashboard screen: Loading ERROR");
+			return true;
+		}
+		else return false;		
 	}
 	
 	public void openDeposit(String depositName) {
@@ -147,6 +156,19 @@ public class DashboardScreen extends AppScreenBase {
 		Log.info("Dashboard screen: Open wallet");
 		findElement(walletBtn, driver).click();
 		delay();
+	}
+	
+	public void openWallet() {
+		waitFor(walletBtn);
+		Log.info("Dashboard screen: Open wallet");
+		findElement(walletBtn, driver).click();
+		delay();
+	}
+
+	public void waitForVanishUpdateSpiner() {
+		waitFor(updateBigSpiner);
+		Log.info("Dashboard screen: Wait for vanish update spiner");
+		waitForVanish(updateBigSpiner);		
 	}
 
 }

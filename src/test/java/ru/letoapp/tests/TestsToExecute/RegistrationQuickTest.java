@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import ru.letoapp.tests.SetUpForEachTestBase;
+import ru.letoapp.tests.common.SetUpForEachTestBase;
 import ru.letoapp.utilities.PropertyReader;
 import ru.letoapp.utilities.CodeReader;
 

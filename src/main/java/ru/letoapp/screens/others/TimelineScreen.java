@@ -1,5 +1,6 @@
 package ru.letoapp.screens.others;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
@@ -10,6 +11,7 @@ public class TimelineScreen extends AppScreenBase{
 	private String cardOperationsTitleText = "Операции по карте";
 	private String connectionServicesHistoryTitleText = "История подключения услуг";
 	private String holdsTitleText = "Заблокировано";
+	By updateSpiner = By.xpath("//ProgressBar[@id='progress_loading']");
 
 	public TimelineScreen(WebDriver driver) {
 		super(driver);

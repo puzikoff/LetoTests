@@ -9,7 +9,8 @@ public class ActionBar extends ScreenBase{
 	
 	By menuBtn = By.id("home");
 	By actionBarTitle = By.id("action_bar_title");
-	By navUpBtn = By.xpath("//ActionBarView/LinearLayout/HomeView/ImageView[1]");	 
+	//By navUpBtn = By.xpath("//ActionBarView/LinearLayout/HomeView/ImageView[1]");	 
+	By navUpBtn = By.xpath("//HomeView/ImageView[@id='up']");
 	By contactsBtn = By.id("menu_item_contacts");
 	
 	public ActionBar(WebDriver driver) {
