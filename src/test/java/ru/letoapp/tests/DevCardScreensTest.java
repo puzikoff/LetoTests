@@ -85,7 +85,7 @@ public class DevCardScreensTest extends SetUpForSuiteBase{
 	public void howToUseCardScreenTest() {
 		appManager.getCardScreen().navUpBtnClick();
 	    appManager.getCardScreen().infoTabClick();
-	    appManager.getCardScreen().getCardInfoTab().verify();
+//	    appManager.getCardScreen().getCardInfoTab().verify();
 	    appManager.getCardScreen().getCardInfoTab().howToUseCardClick();
 	    appManager.getHowToUseCardScreen().verify();
 	}

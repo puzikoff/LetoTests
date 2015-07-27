@@ -20,6 +20,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ru.letoapp.screens.cards.CardScreen;
+import ru.letoapp.screens.cards.HowToUseCardScreen;
+import ru.letoapp.screens.cards.HowWorksBlockFundsScreen;
 import ru.letoapp.screens.deposits.DepositScreen;
 import ru.letoapp.screens.loans.AnotherBankPaymentScreen;
 import ru.letoapp.screens.loans.InLetoBankOfficesScreen;
@@ -28,7 +30,7 @@ import ru.letoapp.screens.loans.LoanInsuranceScreen;
 import ru.letoapp.screens.loans.LoanScreen;
 import ru.letoapp.screens.loans.PaymentsInTerminalsSecreen;
 import ru.letoapp.screens.loans.PaymentsScheduleScreen;
-import ru.letoapp.screens.loans.WhatIfScreen;
+import ru.letoapp.screens.loans.WhatIfLoanScreen;
 import ru.letoapp.screens.others.AboutBankAndAppScreen;
 import ru.letoapp.screens.others.AboutBankScreen;
 import ru.letoapp.screens.others.AuthScreen;
@@ -95,7 +97,7 @@ public class AppManager {
 	private AboutBankScreen aboutBankScreen; 
 	private BankRequisitesScreen bankRequisitesScreen;
 	private ResetSecurityCodeScreen resetSecurityCodeScreen;
-	private WhatIfScreen whatIfScreen;
+	private WhatIfLoanScreen whatIfLoanScreen;
 	private PaymentsScheduleScreen paymentsScheduleScreen;
 	private InLetoBankOfficesScreen inLetoBankOfficesScreen;
 	private AnotherBankPaymentScreen anotherBankPaymentScreen;
@@ -111,6 +113,8 @@ public class AppManager {
 	private AmountScreen amountScreen;
 	private PaymentToolScreen paymentToolScreen;	
 	private StatusScreen statusScreen;
+	private HowToUseCardScreen howToUseCardScreen; 
+	private HowWorksBlockFundsScreen howWorksBlockFundsScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -139,7 +143,7 @@ public class AppManager {
 		aboutBankScreen = new AboutBankScreen(driver);
 		bankRequisitesScreen = new BankRequisitesScreen(driver);
 		resetSecurityCodeScreen = new ResetSecurityCodeScreen(driver);
-		whatIfScreen = new WhatIfScreen(driver);
+		whatIfLoanScreen = new WhatIfLoanScreen(driver);
 		paymentsScheduleScreen = new PaymentsScheduleScreen(driver);
 		inLetoBankOfficesScreen = new InLetoBankOfficesScreen(driver);
 		anotherBankPaymentScreen = new AnotherBankPaymentScreen(driver);
@@ -155,6 +159,8 @@ public class AppManager {
 		amountScreen = new AmountScreen(driver);
 		paymentToolScreen = new PaymentToolScreen(driver);		
 		statusScreen= new StatusScreen(driver);
+		howToUseCardScreen = new HowToUseCardScreen(driver); 
+		howWorksBlockFundsScreen = new HowWorksBlockFundsScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -263,8 +269,8 @@ public class AppManager {
 		return resetSecurityCodeScreen;
 	}
 	
-	public WhatIfScreen getWhatIfScreen() {
-		return whatIfScreen;
+	public WhatIfLoanScreen getWhatIfLoanScreen() {
+		return whatIfLoanScreen;
 	}
 	
 	public PaymentsScheduleScreen getPaymentsScheduleScreen() {
@@ -324,6 +330,14 @@ public class AppManager {
 	
 	public AmountScreen getAmountScreen(){
 		return amountScreen;
+	}
+	
+	public HowWorksBlockFundsScreen getHowWorksBlockFundsScreen() {
+		return howWorksBlockFundsScreen;
+	}
+	
+	public HowToUseCardScreen getHowToUseCardScreen() {
+		return howToUseCardScreen;
 	}
 	
 	/* Starting Selendroid */

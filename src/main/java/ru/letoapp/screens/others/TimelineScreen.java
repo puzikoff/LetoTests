@@ -37,4 +37,9 @@ public class TimelineScreen extends AppScreenBase{
 		verify.assertAll();	
 	}
 
+	public void waitForVanishUpdateSpiner() {
+		waitForVanish(updateSpiner);
+		
+	}
+
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
-public class WhatIfScreen extends AppScreenBase{
+public class WhatIfLoanScreen extends AppScreenBase{
 	
 	String titleText = "Что, если?..";
 	By payMoreWidget = By.id("widget_what_if_pay_more");
@@ -21,7 +21,7 @@ public class WhatIfScreen extends AppScreenBase{
 	By changePayDate = By.xpath("//TextView[@id='Что будет, если изменить дату платежа?']");
 	
 
-	public WhatIfScreen(WebDriver driver) {
+	public WhatIfLoanScreen(WebDriver driver) {
 		super(driver);		
 	}
 	

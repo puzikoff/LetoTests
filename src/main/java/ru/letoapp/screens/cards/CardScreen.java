@@ -69,4 +69,9 @@ public class CardScreen extends AppScreenBase{
 		delay();
 	}
 
+	public void waitForVanoshUpdateIndicator() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
