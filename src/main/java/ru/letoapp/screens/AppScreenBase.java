@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -215,6 +216,21 @@ public class AppScreenBase extends ScreenBase {
 	   }
 	}
 	
+	public boolean isElementClickable(By element) {
+		try
+		{
+		   WebDriverWait wait = new WebDriverWait(driver, 2);
+		   wait.until(ExpectedConditions.elementToBeClickable(findElement(element, driver)));
+		   Log.info("Element: " + element.toString() + " is clicklable");
+		   return true;
+		}
+		catch (Exception e)
+		{
+			Log.info("Element: " + element.toString() + " is not clicklable");
+			return false;
+		}
+	}
+	
 /* ---- Error popup methods ends -----*/
 
 /* ------ Common methods --- */
@@ -231,7 +247,7 @@ public class AppScreenBase extends ScreenBase {
 	}	
 	
 	public void scroll() throws Exception {	
-		TouchActions scroll = new TouchActions(driver).down(0, 1200);
+		TouchActions scroll = new TouchActions(driver).down(0, 200);
 		scroll.perform();		
 	}
 	

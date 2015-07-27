@@ -24,8 +24,8 @@ public class LoanScreensTest extends SetUpForSuiteBase{
         appManager.getPaymentsScheduleScreen().verify();
         appManager.getPaymentsScheduleScreen().navUpBtnClick();
         appManager.getLoanScreen().getPaymentTab().whatIfClick();
-        appManager.getWhatIfScreen().verify();
-        appManager.getWhatIfScreen().navUpBtnClick();
+        appManager.getWhatIfLoanScreen().verify();
+        appManager.getWhatIfLoanScreen().navUpBtnClick();
         appManager.getLoanScreen().getPaymentTab().inLetoBankOfficesClick();
         appManager.getInLetoBankOfficesScreen().verify();
         appManager.getInLetoBankOfficesScreen().navUpBtnClick();

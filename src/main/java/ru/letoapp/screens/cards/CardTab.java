@@ -16,9 +16,22 @@ public class CardTab extends AppScreenBase{
 	By howWorksBlockFundsBtn = By.id("button_show_spending_block_info");
 	By cardOperationsBtn = By.xpath("//ClickableItemView_[@id='label_action_last_transactions']//TextView");
 	By whatIfBtn = By.id("layout_what_if_container");
-
+	By mandatoryPayment = By.id("layout_mandatory_payment_required");
+	By contractNameBlock = By.id("layout_product_name_container");
+	By fundsBlock = By.id("layout_card_info_header");
+	By blockFundsHint = By.xpath("//LinearLayout[@id='layout_spending_switch_container']//TextView[2]"); 
+	String blockFundsHintText = "Временно отключает возможность\nснятия денег с карты";
+	
 	public CardTab(WebDriver driver) {
 		super(driver);
+	}
+	
+	public void verify() {
+		Log.info("Card Screen, Card tab: Verify");
+		verify.assertTrue(findElement(contractNameBlock, driver).isDisplayed(), "Edit contract name block displayed");
+		verify.assertTrue(findElement(fundsBlock, driver).isDisplayed(), "Funds block is displayed");
+		verify.assertEquals(findElement(blockFundsHint, driver).getText(), blockFundsHintText, "Block funds hint text");
+		
 	}
 	
 	public void expandBtnClick() {
@@ -26,6 +39,24 @@ public class CardTab extends AppScreenBase{
 		Log.info("Card screen, Card Tab: Expand button click");
 		findElement(expandBtn, driver).click();
 		delay();
+	}
+	
+	public void mandatoryPaymentClick() {
+		waitFor(mandatoryPayment);
+		Log.info("Card screen, Card Tab: mandatory payment click");
+		findElement(mandatoryPayment, driver).click();
+		delay();
+	}
+	
+	public boolean isMandatoryPaymentClickable() {
+		if(isElementClickable(mandatoryPayment)) {
+			Log.info("Card screen, card tab: mandatory payment is clickable");
+			return true;
+		}
+		else {
+			Log.info("Card screen, card tab: mandatory payment is not clickable");
+			return false;
+		}
 	}
 	
 	public void holdsBtnClick() {
@@ -107,11 +138,4 @@ public class CardTab extends AppScreenBase{
 		Log.info("Card Screen 'card' tab: get Blocked Funds: " + bf);
 		return bf;
 	}
-
-	public void verify() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 }
