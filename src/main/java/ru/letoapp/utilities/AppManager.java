@@ -20,6 +20,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ru.letoapp.screens.cards.CardScreen;
+import ru.letoapp.screens.cards.CreditDetailsScreen;
 import ru.letoapp.screens.cards.HowToUseCardScreen;
 import ru.letoapp.screens.cards.HowWorksBlockFundsScreen;
 import ru.letoapp.screens.deposits.DepositScreen;
@@ -115,6 +116,7 @@ public class AppManager {
 	private StatusScreen statusScreen;
 	private HowToUseCardScreen howToUseCardScreen; 
 	private HowWorksBlockFundsScreen howWorksBlockFundsScreen;
+	private CreditDetailsScreen creditDetailsScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -161,6 +163,7 @@ public class AppManager {
 		statusScreen= new StatusScreen(driver);
 		howToUseCardScreen = new HowToUseCardScreen(driver); 
 		howWorksBlockFundsScreen = new HowWorksBlockFundsScreen(driver);
+		creditDetailsScreen = new CreditDetailsScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -338,6 +341,10 @@ public class AppManager {
 	
 	public HowToUseCardScreen getHowToUseCardScreen() {
 		return howToUseCardScreen;
+	}
+	
+	public CreditDetailsScreen getCreditDetailsScreen() {
+		return creditDetailsScreen;
 	}
 	
 	/* Starting Selendroid */

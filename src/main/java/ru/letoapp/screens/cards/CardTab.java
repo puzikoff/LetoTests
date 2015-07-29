@@ -15,8 +15,8 @@ public class CardTab extends AppScreenBase{
 	By blockFundsSwitch = By.xpath("//Switch");
 	By howWorksBlockFundsBtn = By.id("button_show_spending_block_info");
 	By cardOperationsBtn = By.xpath("//ClickableItemView_[@id='label_action_last_transactions']//TextView");
-	By whatIfBtn = By.id("layout_what_if_container");
-	By mandatoryPayment = By.id("layout_mandatory_payment_required");
+	By whatIfBtn = By.xpath("//LinearLayout[@id='layout_what_if_container']");
+	By mandatoryPayment = By.xpath("//LinearLayout[@id='layout_mandatory_payment_required']");
 	By contractNameBlock = By.id("layout_product_name_container");
 	By fundsBlock = By.id("layout_card_info_header");
 	By blockFundsHint = By.xpath("//LinearLayout[@id='layout_spending_switch_container']//TextView[2]"); 

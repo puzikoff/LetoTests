@@ -21,7 +21,8 @@ public class DevCardScreensTest extends SetUpForSuiteBase{
         appManager.getDashboardScreen().waitForVanishUpdateSpiner();
         Assert.assertFalse(appManager.getDashboardScreen().isLoadingErrorExist(), "Dashboard screen: Loading ERROR");
         Log.info("OpenCard");
-        appManager.getDashboardScreen().openCard(PropertyReader.getProperty("cardName"));    
+        appManager.getDashboardScreen().openCard(PropertyReader.getProperty("cardName"));
+        //appManager.getDashboardScreen().openCard(PropertyReader.getProperty("Лето-карта"));
         appManager.getCardScreen().waitForVanoshUpdateIndicator();
         appManager.getCardScreen().verify();
         appManager.getCardScreen().getCardTab().verify();
@@ -64,19 +65,25 @@ public class DevCardScreensTest extends SetUpForSuiteBase{
 	
 	@Test(priority = 7, dependsOnMethods = { "openCardTest" })
 	public void mandatoryPaymentClickabilityTest() {
-		Assert.assertTrue(appManager.getCardScreen().getCardTab().isMandatoryPaymentClickable());
+		appManager.getTimelineScreen().navUpBtnClick();   
+		if(appManager.getCardScreen().getCardTab().isMandatoryPaymentClickable()) {
+			appManager.getCardScreen().getCardTab().mandatoryPaymentClick();
+			appManager.getCreditDetailsScreen().waitForVanishLoadingIndicator();
+			//appManager.getCreditDetailsScreen().verify();		
+			appManager.getCreditDetailsScreen().navUpBtnClick();			
+		}
 	}
 	
-	@Test(priority = 8, dependsOnMethods = { "mandatoryPaymentClickabilityTest" })
+	/*@Test(priority = 8, dependsOnMethods = { "mandatoryPaymentClickabilityTest" })
 	public void creditDetailsScreenTest() {
 		appManager.getCardScreen().getCardTab().mandatoryPaymentClick();
+		appManager.getCreditDetailsScreen().waitForVanishLoadingIndicator();
 		//appManager.getCreditDetailsScreen().verify();		
-		appManager.getTimelineScreen().navUpBtnClick();
-	}	
+		appManager.getCreditDetailsScreen().navUpBtnClick();
+	}*/	
 	
 	@Test(priority = 9, dependsOnMethods = { "openCardTest" })
-	public void whatIfScreenTest() throws Exception {
-		appManager.getCardScreen().getCardTab().scroll();
+	public void whatIfScreenTest() throws Exception {		
 	    appManager.getCardScreen().getCardTab().whatIfBtnClick();
 	   // appManager.getWhatIfCardScreen().verify();
 	} 

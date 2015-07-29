@@ -16,6 +16,7 @@ public class CardScreen extends AppScreenBase{
 	By cardTabBtn = By.xpath("//TextView[@value='КАРТА']");
 	By infoTabBtn = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
 	By managementTabBtn = By.xpath("//TextView[@value='УПРАВЛЕНИЕ']");	
+	By updateIndicator = By.xpath("//ProgressBar");
 
 	public CardScreen(WebDriver driver) {
 		super(driver);
@@ -70,8 +71,8 @@ public class CardScreen extends AppScreenBase{
 	}
 
 	public void waitForVanoshUpdateIndicator() {
-		// TODO Auto-generated method stub
-		
+		Log.info("Card screen: Wait for vanish update spiner");		
+		waitForVanish(updateIndicator);				
 	}
 
 }

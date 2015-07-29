@@ -2,6 +2,7 @@ package ru.letoapp.screens;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -196,22 +197,25 @@ public class AppScreenBase extends ScreenBase {
 	                    try {
 	                    		WebElement element = findElement(elementToVanish, driver);
 	                    		if (null == element) {
-	                    			Log.info(elementToVanish.toString() + "vanished");
+	                    			Log.info(elementToVanish.toString() + " vanished");
 	                    			return "not_present";
-	                    		} 
-	                    		else if (!element.isDisplayed()) {
+	                    		} else if (!element.isDisplayed()) {
 	                    			Log.info(elementToVanish.toString() + "vanished");
-	                    			return "not_displayed";
+	                    			return "not_displayed";	                    	 
+	                    		} else {
+	                    			return null;
 	                    		}
-	                    	} catch (StaleElementReferenceException ex) {
-	                    		Log.info(elementToVanish.toString() + "is not attached to DOM, try again: " + ex);	                        
-	                    		return "not_attached_to_dom";
-	                    	}
-						return null;     
-	                }	                
+	                    		} catch (StaleElementReferenceException ex) {
+	                    			Log.info(elementToVanish.toString() + " StaleElementReferenceException: " + ex);	                        
+	                    			return "StaleElementReferenceException";
+	                    		} catch (InvalidElementStateException exp) {
+	                    			Log.info(elementToVanish.toString() + " InvalidElementStateException: " + exp);
+	                    			return "InvalidElementStateException";
+	                    		}
+	                		}	                
 	            });
 	        } catch (WaitTimedOutException e) {
-	            Log.info("Timeout: " + elementToVanish.toString() + "is still present" + e);
+	            Log.info("Timeout: " + elementToVanish.toString() + " is still present" + e);
 	            throw e;
 	   }
 	}

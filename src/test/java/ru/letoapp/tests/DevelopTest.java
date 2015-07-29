@@ -17,25 +17,19 @@ public class DevelopTest extends SetUpForSuiteBase{
 		appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));    
-        protectCodeCheckboxUnckeck();
+        if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
+        	appManager.getAuthScreen().setProtCodeCheckbox();
+        }
         appManager.getAuthScreen().loginBtnClick();
-        appManager.getDashboardScreen().verifyDashboardScreen();
-        appManager.getDashboardScreen().openWallet();
-        appManager.getWalletScreen().getWalletTab().paymentBtnClick();
-        appManager.getMenuScreen().categoryClick(PropertyReader.getProperty("paymentCategory"));
-        appManager.getMenuScreen().delay(6000);
-        Assert.assertFalse(appManager.getMenuScreen().isErrorPopupDisplayed(), "Menu screen: Error popup displayed");
-      //  appManager.getMenuScreen().searchBy(PropertyReader.getProperty("payment"));        		
-        appManager.getMenuScreen().paymentClick(PropertyReader.getProperty("payment"));
-        Assert.assertFalse(appManager.getMenuScreen().isErrorPopupDisplayed(), "Menu screen: Error popup displayed");
-		appManager.getAccountInfoScreen().enterAccount("9819819898");
-		appManager.getAccountInfoScreen().nextBtnClick();
-		Assert.assertFalse(appManager.getAccountInfoScreen().isErrorPopupDisplayed(), "Account info screen: Error popup displayed");
-		appManager.getAmountScreen().hundredRubBtnClick();
-		appManager.getAmountScreen().nextBtnClick();
-		Assert.assertFalse(appManager.getAmountScreen().isErrorPopupDisplayed(), "Amount screen: Error popup displayed");
-		appManager.getPaymentToolScreen().choosePaymentTool("Мой кошелек");
-		appManager.getPaymentToolScreen().nextBtnClick();
-		appManager.getPaymentToolScreen().delay();
+        appManager.getDashboardScreen().waitForVanishUpdateSpiner();
+        Assert.assertFalse(appManager.getDashboardScreen().isLoadingErrorExist(), "Dashboard screen: Loading ERROR");
+        Log.info("OpenCard");
+        appManager.getDashboardScreen().openCard(PropertyReader.getProperty("cardName"));
+        appManager.getCardScreen().waitForVanoshUpdateIndicator();
+        appManager.getCardScreen().verify();
+        appManager.getCardScreen().getCardTab().whatIfBtnClick();
+        
+        
+        
 	}
 }
