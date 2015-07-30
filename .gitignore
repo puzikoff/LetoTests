@@ -1,9 +1,7 @@
 *.txt
 *.properties
 *.apk
-.classpath
 .settings/
-*.project
 .metadata
 *.irb-history
 test-output/

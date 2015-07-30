@@ -1,19 +1,151 @@
-INFO|2015-07-27 17:41:19,499: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-07-27 17:41:19,502: Retrying request to {}->http://localhost:38080
-INFO|2015-07-27 17:41:19,505: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-07-27 17:41:19,506: Retrying request to {}->http://localhost:38080
-INFO|2015-07-27 17:41:19,508: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-07-27 17:41:19,508: Retrying request to {}->http://localhost:38080
-INFO|2015-07-27 17:41:27,518: Auth screen: Greeting popup is not displayed
-INFO|2015-07-27 17:41:27,563: Auth screen: Verify auth screen
-INFO|2015-07-27 17:41:27,970: Auth screen: Enter Username: u5869869@mtest
-INFO|2015-07-27 17:41:29,174: Auth screen: Enter password: Qwerty
-INFO|2015-07-27 17:41:30,064: Auth screen: Is protect code selected:false
-INFO|2015-07-27 17:41:30,136: Auth screen: Click login button
-INFO|2015-07-27 17:41:31,699: Wait popup displayed
-ERROR|2015-07-27 17:41:38,396: No element found: By.id: sdl__message
-INFO|2015-07-27 17:41:38,396: Wait popup vanished
-INFO|2015-07-27 17:41:38,701: Dashboard screen: Wait for vanish update spiner
-INFO|2015-07-27 17:41:38,973: By.xpath: //ProgressBar[@id='progress_loading']vanished
-INFO|2015-07-27 17:41:39,244: OpenCard
-INFO|2015-07-27 17:41:39,244: Dashboard screen: Open card: Лето-картa
+INFO|2015-07-29 18:43:02,904: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-07-29 18:43:02,906: Retrying request to {}->http://localhost:38080
+INFO|2015-07-29 18:43:02,909: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-07-29 18:43:02,910: Retrying request to {}->http://localhost:38080
+INFO|2015-07-29 18:43:02,912: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-07-29 18:43:02,913: Retrying request to {}->http://localhost:38080
+INFO|2015-07-29 18:43:05,943: Auth screen: Greeting popup displayed
+INFO|2015-07-29 18:43:05,985: Greeting popup: Verify greeting window
+INFO|2015-07-29 18:43:06,229: Popup: Click next button
+INFO|2015-07-29 18:43:07,603: Auth screen: Verify auth screen
+INFO|2015-07-29 18:43:07,891: Auth screen: Enter Username: u5869869@mtest
+INFO|2015-07-29 18:43:09,015: Auth screen: Enter password: Qwerty
+INFO|2015-07-29 18:43:09,861: Auth screen: Is protect code selected:true
+INFO|2015-07-29 18:43:09,901: Auth screen: Set protect code checkbox
+INFO|2015-07-29 18:43:11,270: Auth screen: Click login button
+INFO|2015-07-29 18:43:12,801: Wait popup displayed
+INFO|2015-07-29 18:43:14,959: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id 'eaf78b8b-b8f5-aa2d-0843-72d14ce673c0' was not found.
+Command duration or timeout: 31 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'ibp-chepel', ip: '192.168.4.33', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
+Driver info: io.selendroid.client.SelendroidDriver
+Capabilities [{aut=ru.letobank.Prometheus:1.1.2, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
+Session ID: bafbb277-1cfd-7699-dfcd-98cde46f60a5
+INFO|2015-07-29 18:43:15,678: Dashboard screen: Wait for vanish update spiner
+INFO|2015-07-29 18:43:23,075: By.xpath: //ProgressBar[@id='progress_loading']vanished
+INFO|2015-07-29 18:43:23,191: OpenCard
+INFO|2015-07-29 18:43:23,192: Dashboard screen: Open card: Лето-картa
+INFO|2015-07-29 18:43:25,370: Card screen: Wait for vanish update spiner
+INFO|2015-07-29 18:43:26,326: By.xpath: //ProgressBarvanished
+INFO|2015-07-29 18:43:26,326: Card screen: verify screen
+INFO|2015-07-29 18:43:26,384: Action bar: Get title
+INFO|2015-07-29 18:43:26,446: Action bar: Title: Карта
+INFO|2015-07-29 18:43:26,504: Card Screen, Card tab: Verify
+INFO|2015-07-29 18:43:27,199: Card screen, Card Tab: Expand button click
+INFO|2015-07-29 18:43:28,879: Card tab: get Own Funds: 150000
+INFO|2015-07-29 18:43:28,879: 150000
+INFO|2015-07-29 18:43:28,879: Open holds
+INFO|2015-07-29 18:43:28,961: Card screen, Card Tab: Hold funds click
+ERROR|2015-07-29 18:43:35,530: No element found: By.id: sdl__message
+INFO|2015-07-29 18:43:35,530: Wait popup is not displayed
+INFO|2015-07-29 18:43:56,794: By.xpath: //ProgressBar[@id='progress_loading'] InvalidElementStateException: org.openqa.selenium.InvalidElementStateException: Trying to access a native element that has already been garbage collected
+Command duration or timeout: 215 milliseconds
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'ibp-chepel', ip: '192.168.4.33', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
+Driver info: io.selendroid.client.SelendroidDriver
+Capabilities [{aut=ru.letobank.Prometheus:1.1.2, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
+Session ID: bafbb277-1cfd-7699-dfcd-98cde46f60a5
+*** Element info: {Using=xpath, value=//ProgressBar[@id='progress_loading']}
+INFO|2015-07-29 18:43:56,865: Action bar: Get title
+INFO|2015-07-29 18:43:56,944: Action bar: Title: Заблокировано по карте Лето-картa
+INFO|2015-07-29 18:43:57,050: Action bar: Click NavUp button
+INFO|2015-07-29 18:43:59,139: Card screen, Card Tab: Block funds switch click
+INFO|2015-07-29 18:44:01,397: Wait popup displayed
+INFO|2015-07-29 18:44:01,797: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id '801ce350-6db9-86fe-6b03-5ee22027d76b' was not found.
+Command duration or timeout: 23 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'ibp-chepel', ip: '192.168.4.33', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
+Driver info: io.selendroid.client.SelendroidDriver
+Capabilities [{aut=ru.letobank.Prometheus:1.1.2, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
+Session ID: bafbb277-1cfd-7699-dfcd-98cde46f60a5
+INFO|2015-07-29 18:44:02,347: Card screen, Card Tab: Block funds switch click
+INFO|2015-07-29 18:44:04,495: Wait popup displayed
+INFO|2015-07-29 18:44:07,162: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id '77a01d75-2cc4-4d07-6ae0-1e48513cd7dd' was not found.
+Command duration or timeout: 15 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'ibp-chepel', ip: '192.168.4.33', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
+Driver info: io.selendroid.client.SelendroidDriver
+Capabilities [{aut=ru.letobank.Prometheus:1.1.2, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
+Session ID: bafbb277-1cfd-7699-dfcd-98cde46f60a5
+INFO|2015-07-29 18:44:07,217: Card screen, Card Tab: How works block funds click
+INFO|2015-07-29 18:44:08,621: How works block funds screen: verify
+INFO|2015-07-29 18:44:08,773: Action bar: Get title
+INFO|2015-07-29 18:44:08,869: Action bar: Title: Как работает запрет трат?
+INFO|2015-07-29 18:44:09,098: How works block funds text:  При включении запрета трат все операции списания денег с карты вне приложения станут невозможными. Запрет трат можно выключить в любой момент.
+INFO|2015-07-29 18:44:09,270: Action bar: Click NavUp button
+INFO|2015-07-29 18:44:11,492: Card screen, Card Tab: Card operations click
+ERROR|2015-07-29 18:44:18,519: No element found: By.id: sdl__message
+INFO|2015-07-29 18:44:18,519: Wait popup is not displayed
+ERROR|2015-07-29 18:44:40,116: No element found: By.xpath: //ProgressBar[@id='progress_loading']
+INFO|2015-07-29 18:44:40,116: By.xpath: //ProgressBar[@id='progress_loading'] vanished
+INFO|2015-07-29 18:44:40,202: Action bar: Get title
+INFO|2015-07-29 18:44:40,298: Action bar: Title: Операции по карте Лето-картa
+INFO|2015-07-29 18:44:40,378: Action bar: Click NavUp button
+INFO|2015-07-29 18:44:42,923: Element: By.xpath: //LinearLayout[@id='layout_mandatory_payment_required'] is clicklable
+INFO|2015-07-29 18:44:42,923: Card screen, card tab: mandatory payment is clickable
+INFO|2015-07-29 18:44:43,621: Card screen, Card Tab: mandatory payment click
+INFO|2015-07-29 18:44:49,700: By.xpath: //ProgressBar[@id='progress_network_loading']vanished
+INFO|2015-07-29 18:44:49,700: Action bar: Click NavUp button
+INFO|2015-07-29 18:44:52,070: Card screen, Card Tab: What if button click
+INFO|2015-07-29 18:44:54,163: Action bar: Click NavUp button
+INFO|2015-07-29 18:44:56,202: Card Screen: Information tab click
+INFO|2015-07-29 18:44:58,642: Card screen, info tab: How to use card button click
+INFO|2015-07-29 18:45:00,065: How to use card screen: verify
+INFO|2015-07-29 18:45:00,236: Action bar: Get title
+INFO|2015-07-29 18:45:00,353: Action bar: Title: Как пользоваться картой
+INFO|2015-07-29 18:45:00,615: How to use card text:  Расчетный период по вашей карте начинается 6 числа каждого месяца и заканчивается 5 числа следующего месяца.
+
+ Если в течение расчетного периода вы использовали кредитные средства, выделенные банком, в день завершения платежного периода вам будет начислен минимальный платёж. Внесение минимального платежа обязательно и должно быть выполнено в течение следующего платежного периода.
+
+ Если у вас не было задолженности на начало расчетного периода, до его окончания вы можете брать деньги у банка без процентов. Чтобы воспользоваться этой возможностью вам необходимо будет полностью погасить задолженность перед банком в течение следующего расчетного периода.
+
+ Если на карте есть собственные средства, они будут в первую очередь использованы для оплаты. Если собственных средств нет или недостаточно для совершения платежа, будут использованы кредитные средства банка.
+INFO|2015-07-29 18:45:00,817: Action bar: Click NavUp button
+INFO|2015-07-29 18:45:02,498: Card screen, info tab: Card operations button click
+ERROR|2015-07-29 18:45:08,984: No element found: By.id: sdl__message
+INFO|2015-07-29 18:45:08,984: Wait popup is not displayed
+ERROR|2015-07-29 18:45:23,689: No element found: By.xpath: //ProgressBar[@id='progress_loading']
+INFO|2015-07-29 18:45:23,689: By.xpath: //ProgressBar[@id='progress_loading'] vanished
+INFO|2015-07-29 18:45:23,804: Action bar: Get title
+INFO|2015-07-29 18:45:23,892: Action bar: Title: Операции по карте Лето-картa
+INFO|2015-07-29 18:45:24,014: Action bar: Click NavUp button
+INFO|2015-07-29 18:45:26,070: Card Screen: Managementd tab click
+INFO|2015-07-29 18:45:29,788: Card screen, Management Tab: Block funds switch click
+INFO|2015-07-29 18:45:32,319: Wait popup displayed
+INFO|2015-07-29 18:45:32,605: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id '0cbbd010-27e8-9a61-300a-534940bf95a5' was not found.
+Command duration or timeout: 14 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'ibp-chepel', ip: '192.168.4.33', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
+Driver info: io.selendroid.client.SelendroidDriver
+Capabilities [{aut=ru.letobank.Prometheus:1.1.2, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
+Session ID: bafbb277-1cfd-7699-dfcd-98cde46f60a5
+INFO|2015-07-29 18:45:33,579: Card screen, Management Tab: Block funds switch click
+INFO|2015-07-29 18:45:36,088: Wait popup displayed
+INFO|2015-07-29 18:45:38,554: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id '95152d57-1244-dc20-8c8e-b1b6158c0932' was not found.
+Command duration or timeout: 20 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'ibp-chepel', ip: '192.168.4.33', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_45'
+Driver info: io.selendroid.client.SelendroidDriver
+Capabilities [{aut=ru.letobank.Prometheus:1.1.2, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
+Session ID: bafbb277-1cfd-7699-dfcd-98cde46f60a5
+INFO|2015-07-29 18:45:38,607: Card screen, management Tab: How works block funds click
+INFO|2015-07-29 18:45:40,206: How works block funds screen: verify
+INFO|2015-07-29 18:45:40,351: Action bar: Get title
+INFO|2015-07-29 18:45:40,426: Action bar: Title: Как работает запрет трат?
+INFO|2015-07-29 18:45:40,778: How works block funds text:  При включении запрета трат все операции списания денег с карты вне приложения станут невозможными. Запрет трат можно выключить в любой момент.
+INFO|2015-07-29 18:45:40,983: Action bar: Click NavUp button
+INFO|2015-07-29 18:45:42,655: Card screen, Management Tab: Connecting services history button click
+ERROR|2015-07-29 18:45:49,332: No element found: By.id: sdl__message
+INFO|2015-07-29 18:45:49,333: Wait popup is not displayed
+INFO|2015-07-29 18:45:55,876: By.xpath: //ProgressBar[@id='progress_loading']vanished
+INFO|2015-07-29 18:45:55,936: Action bar: Get title
+INFO|2015-07-29 18:45:56,011: Action bar: Title: История подключения услуг
+INFO|2015-07-29 18:45:56,097: Action bar: Click NavUp button
+INFO|2015-07-29 18:45:57,712: Action bar: Click NavUp button
+INFO|2015-07-29 18:46:00,169: Action bar: Menu button click
+INFO|2015-07-29 18:46:01,690: Drawer: Exit button click
