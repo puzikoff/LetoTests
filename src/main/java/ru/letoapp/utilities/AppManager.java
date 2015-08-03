@@ -44,6 +44,7 @@ import ru.letoapp.screens.others.IncorrectLoginPasswordScreen;
 import ru.letoapp.screens.others.LoansListScreen;
 import ru.letoapp.screens.others.ResetSecurityCodeScreen;
 import ru.letoapp.screens.others.TimelineScreen;
+import ru.letoapp.screens.others.WhatIfScreen;
 import ru.letoapp.screens.payments.AccountInfoScreen;
 import ru.letoapp.screens.payments.AmountScreen;
 import ru.letoapp.screens.payments.MenuScreen;
@@ -61,6 +62,7 @@ import ru.letoapp.screens.registration.SetLoginScreen;
 import ru.letoapp.screens.registration.SetPasswordScreen;
 import ru.letoapp.screens.registration.SecurityCodeScreen;
 import ru.letoapp.screens.registration.SmsCodeScreen;
+import ru.letoapp.screens.services.ChangePaymentDateScreen;
 import ru.letoapp.screens.services.ReducePaymentScreen;
 import ru.letoapp.screens.services.VerificationCodeScreen;
 import ru.letoapp.screens.wallet.WalletScreen;
@@ -117,6 +119,8 @@ public class AppManager {
 	private HowToUseCardScreen howToUseCardScreen; 
 	private HowWorksBlockFundsScreen howWorksBlockFundsScreen;
 	private CreditDetailsScreen creditDetailsScreen;
+	private WhatIfScreen whatIfScreen;
+	private ChangePaymentDateScreen changePaymentDateScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -164,6 +168,8 @@ public class AppManager {
 		howToUseCardScreen = new HowToUseCardScreen(driver); 
 		howWorksBlockFundsScreen = new HowWorksBlockFundsScreen(driver);
 		creditDetailsScreen = new CreditDetailsScreen(driver);
+		whatIfScreen = new WhatIfScreen(driver);
+		changePaymentDateScreen = new ChangePaymentDateScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -347,6 +353,14 @@ public class AppManager {
 		return creditDetailsScreen;
 	}
 	
+	public WhatIfScreen getWhatIfScreen() {
+		return whatIfScreen;
+	}
+	
+	public ChangePaymentDateScreen getChangePaymentDateScreen() {
+		return changePaymentDateScreen;
+	}
+	
 	/* Starting Selendroid */
 	
 	public void startServer(String appPath, boolean forceReinstall, boolean noClearData) 
@@ -417,16 +431,15 @@ public class AppManager {
 	}
 	
 	public void stopServer() {
-		
+		if(server != null) {
+			server.stopSelendroid();
+		}
 	}
 	
 	public void stopDriver() {
 		if(driver != null) {
 			driver.quit();
-		}		
-		if(server != null) {
-			server.stopSelendroid();
-		}
+		}	
 	}
 
 	

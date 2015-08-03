@@ -35,7 +35,7 @@ public class DashboardScreen extends AppScreenBase {
 	}
 		
 	public void openCard(String cardName) {
-		Log.info("Dashboard screen: Open card: " + cardName);		
+		Log.info("Dashboard screen: Open card: " + cardName);	
 		List <WebElement> cards = driver.findElements(By.xpath("//TextView[@value = '" + cardName + "']"));
 		if(!cards.isEmpty()) {
 			cards.get(0).click();

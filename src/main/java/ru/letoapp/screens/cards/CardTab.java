@@ -20,7 +20,7 @@ public class CardTab extends AppScreenBase{
 	By contractNameBlock = By.id("layout_product_name_container");
 	By fundsBlock = By.id("layout_card_info_header");
 	By blockFundsHint = By.xpath("//LinearLayout[@id='layout_spending_switch_container']//TextView[2]"); 
-	String blockFundsHintText = "Временно отключает возможность\nснятия денег с карты";
+	String blockFundsHintText = "Временно отключает возможность снятия денег с карты\n";
 	
 	public CardTab(WebDriver driver) {
 		super(driver);
@@ -30,8 +30,13 @@ public class CardTab extends AppScreenBase{
 		Log.info("Card Screen, Card tab: Verify");
 		verify.assertTrue(findElement(contractNameBlock, driver).isDisplayed(), "Edit contract name block displayed");
 		verify.assertTrue(findElement(fundsBlock, driver).isDisplayed(), "Funds block is displayed");
+		Log.info(":" + findElement(blockFundsHint, driver).getText());
 		verify.assertEquals(findElement(blockFundsHint, driver).getText(), blockFundsHintText, "Block funds hint text");
-		
+		verify.assertTrue(findElement(blockFundsSwitch, driver).isDisplayed(), "Block funds switch  is displayed");
+		verify.assertTrue(findElement(howWorksBlockFundsBtn, driver).isDisplayed(), "How works block funds is displayed");
+		verify.assertTrue(findElement(cardOperationsBtn, driver).isDisplayed(), "card operations");		
+		verify.assertTrue(findElement(whatIfBtn, driver).isDisplayed(), "What if");
+		verify.assertAll();		
 	}
 	
 	public void expandBtnClick() {

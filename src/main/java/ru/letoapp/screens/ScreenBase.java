@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import com.thoughtworks.selenium.Wait.WaitTimedOutException;
@@ -115,13 +117,20 @@ public class ScreenBase {
 	    }
 		
 		 protected WebElement findElement(By by, WebDriver driver) {
+			 try {
 		        List<WebElement> elements = driver.findElements(by);
 		        if (elements.size() > 0) {
 		            return elements.get(0);
 		        } else {
 		        	Log.error("No element found: " + by.toString());
+		        	//Assert.fail("No element found");
 		            return null;
 		        }
+			 }
+			 catch(InvalidElementStateException e) {
+				 Log.error("No element found 'InvalidElementStateException': " + e);
+		            return null;
+			 }
 		}	 
 		
 }

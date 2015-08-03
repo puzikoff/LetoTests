@@ -1,5 +1,7 @@
 package ru.letoapp.tests;
 
+import java.io.UnsupportedEncodingException;
+
 import org.apache.log4j.Logger;
 
 import org.testng.Assert;
@@ -12,7 +14,7 @@ public class DevelopTest extends SetUpForSuiteBase{
 	public static final Logger Log = Logger.getLogger(DevelopTest.class);
 
 	@Test
-	public void developTest() {
+	public void developTest() throws UnsupportedEncodingException {		
 		greetingPopupHandler();
 		appManager.getAuthScreen().verifyAuthScreen();  
         appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
@@ -23,11 +25,16 @@ public class DevelopTest extends SetUpForSuiteBase{
         appManager.getAuthScreen().loginBtnClick();
         appManager.getDashboardScreen().waitForVanishUpdateSpiner();
         Assert.assertFalse(appManager.getDashboardScreen().isLoadingErrorExist(), "Dashboard screen: Loading ERROR");
-        Log.info("OpenCard");
+        Log.info("OpenCard");        
         appManager.getDashboardScreen().openCard(PropertyReader.getProperty("cardName"));
         appManager.getCardScreen().waitForVanoshUpdateIndicator();
         appManager.getCardScreen().verify();
-        appManager.getCardScreen().getCardTab().whatIfBtnClick();
+        appManager.getCardScreen().getCardTab().verify();
+        appManager.getCardScreen().infoTabClick();
+        appManager.getCardScreen().getCardInfoTab().verify();
+        appManager.getCardScreen().managementTabClick();
+        appManager.getCardScreen().getCardManagementTab().verify();
+        
         
         
         

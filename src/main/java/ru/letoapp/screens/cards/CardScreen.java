@@ -6,12 +6,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import ru.letoapp.screens.AppScreenBase;
 import ru.letoapp.screens.others.EditDisplayNameBlock;
+import ru.letoapp.screens.popups.NotImplementedPopup;
 
 public class CardScreen extends AppScreenBase{	
 	private CardTab cardTab;
 	private CardInfoTab cardInfoTab;
 	private CardManagementTab cardManagementTab;
 	private EditDisplayNameBlock editDisplayName;
+	private NotImplementedPopup notImplementedPopup;
 	String titleText = "Карта";	
 	By cardTabBtn = By.xpath("//TextView[@value='КАРТА']");
 	By infoTabBtn = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
@@ -28,6 +30,8 @@ public class CardScreen extends AppScreenBase{
 		cardInfoTab.setDriver(driver);
 		cardManagementTab.setDriver(driver);
 		editDisplayName.setDriver(driver);
+		notImplementedPopup = PageFactory.initElements(driver, NotImplementedPopup.class);
+		notImplementedPopup.setDriver(driver);
 	}
 	
 	public CardTab getCardTab(){
@@ -44,6 +48,10 @@ public class CardScreen extends AppScreenBase{
 	
 	public EditDisplayNameBlock getEditDisplayName() {
 		return editDisplayName;
+	}
+	
+	public NotImplementedPopup getNotImplementedPopup() {
+		return notImplementedPopup;
 	}
 	
 	public void verify() {		

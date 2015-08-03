@@ -35,6 +35,12 @@ public class EditDisplayNameBlock extends ScreenBase{
 		return findElement(displayName, driver).getText();
 	}
 	
+	public String getDisplayNameFromEditPopup(){
+		Log.info("Edit display name block: Get display name fron edit popup");
+		Log.info("Edit display name block: Display name fron edit popup: " + findElement(displayNameField, driver).getText());
+		return findElement(displayNameField, driver).getText();
+	}
+	
 	public String getLabelContractState() {
 		List<WebElement> labelContractStates = driver.findElements(labelContractState);
 		if(!labelContractStates.isEmpty()) {
