@@ -2,6 +2,7 @@ package ru.letoapp.screens.cards;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import ru.letoapp.screens.AppScreenBase;
 
@@ -20,9 +21,23 @@ public class CardInfoTab extends AppScreenBase{
 	By contractNumberBlock = By.xpath("//TextView[@value='НОМЕР ДОГОВОРА']");
 	By contractDateBlock = By.xpath("//TextView[@value='ДАТА ДОГОВОРА']");
 	By paymentBlock = By.xpath("//TextView[@value='ПЛАТЁЖ']");
+	
+	By cardInfo = By.xpath("//NoSaveStateFrameLayout[2]");
+	
 
 	public CardInfoTab(WebDriver driver) {
 		super(driver);
+	}
+	
+	public void relativeSearch(){
+		WebElement cardInfoFragment = driver.findElement(cardInfo);
+	
+		Log.info("fafsafdsa:" + cardInfoFragment.findElement(By.xpath(".//TextView[1]")).getText());
+		//Log.info(driver.findElement(cardInfo).findElement(By.xpath("./TextView")).getText());
+		//Log.info(driver.findElement(cardInfo).findElement(By.xpath("TextView")).getText());
+		//Log.info(driver.findElement(cardInfo).findElement(By.xpath("/TextView")).getText());
+		//Log.info(driver.findElement(cardInfo).findElement(By.xpath("//TextView")).getText());
+
 	}
 	
 	public void howToUseCardClick() {

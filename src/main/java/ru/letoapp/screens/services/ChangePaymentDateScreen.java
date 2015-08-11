@@ -33,8 +33,8 @@ public class ChangePaymentDateScreen extends AppScreenBase{
 		Log.info("Change Payment Date screen: verify before calculation");
 		verify.assertEquals(getTitleFromActionBar(), title, "Title");
 		verify.assertEquals(findElement(serviceHint, driver).getText(),  serviceHintText, "Service hint text");
-		verify.assertTrue(findElement(connectionPossibilityBlock, driver) != null);
-		verify.assertTrue(findElement(calendarBlock, driver) != null);
+		verify.assertTrue(findElement(connectionPossibilityBlock, driver) != null, "Connection possibility block");
+		verify.assertTrue(findElement(calendarBlock, driver) != null, "Calendar block");
 		verify.assertAll();		
 	}
 	
@@ -42,15 +42,16 @@ public class ChangePaymentDateScreen extends AppScreenBase{
 		Log.info("Change Payment Date screen: verify after calculation");
 		verify.assertEquals(getTitleFromActionBar(), title, "Title");
 		verify.assertEquals(findElement(serviceHint, driver).getText(),  serviceHintText, "Service hint text");
-		verify.assertTrue(findElement(commisionBlock, driver) != null);
-		verify.assertTrue(findElement(connectionPossibilityBlock, driver) != null);
-		verify.assertTrue(findElement(calendarBlock, driver) != null);
-		verify.assertTrue(findElement(nextPaymentBlock, driver) != null);
-		verify.assertTrue(findElement(connectBtn, driver) != null);
+		verify.assertTrue(findElement(commisionBlock, driver) != null, "Commission block");
+		verify.assertTrue(findElement(connectionPossibilityBlock, driver) != null, "Connection possibility block");
+		verify.assertTrue(findElement(calendarBlock, driver) != null, "Calendar block");
+		verify.assertTrue(findElement(nextPaymentBlock, driver) != null, "Next payment block");
+		verify.assertTrue(findElement(connectBtn, driver) != null, "Connect button");
 		verify.assertAll();
 	}
 	
-	public void chooseNewDate(int date) {
+	public void chooseNewDate(String date) {
+
 		Log.info("Change payment date screen: Choose date: " + date);
 		findElement(By.xpath("//TextView[@id='label_day_of_month'][@value='" + date + "']"), driver).click();
 		delay();

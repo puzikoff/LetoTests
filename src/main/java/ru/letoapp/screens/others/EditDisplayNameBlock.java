@@ -21,9 +21,8 @@ public class EditDisplayNameBlock extends ScreenBase{
 	public EditDisplayNameBlock(WebDriver driver) {
 		super(driver);
 	}
-	
-	public void editDisplayNameBtnClick() {
-		waitFor(editNameBtn);
+
+	public void editDisplayNameBtnClick() {		
 		Log.info("Edit display name block: Click edit button");
 		findElement(editNameBtn, driver).click();
 		delay();
@@ -64,6 +63,10 @@ public class EditDisplayNameBlock extends ScreenBase{
 		Log.info("Edit display name block: Click next");
 		findElement(editDisplayNamePopupNextBtn, driver).click();
 		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }		
+
 	}
 	
 	public void editDisplayNamePopupCancelBtnClick() {

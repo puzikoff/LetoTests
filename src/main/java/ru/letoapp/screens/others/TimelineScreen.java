@@ -13,6 +13,8 @@ public class TimelineScreen extends AppScreenBase{
 	private String holdsTitleText = "Заблокировано";
 	By updateSpiner = By.xpath("//ProgressBar[@id='progress_loading']");
 
+	By loadingError = By.xpath("//ProgressBar[@id='progress_loading']/following-sibling::TextView");
+
 	public TimelineScreen(WebDriver driver) {
 		super(driver);
 	}
@@ -35,6 +37,16 @@ public class TimelineScreen extends AppScreenBase{
 	public void verifyHoldsScreen() {
 		verify.assertTrue(getTitleFromActionBar().contains(holdsTitleText), "Holds screen: title");
 		verify.assertAll();	
+	}
+	
+	public boolean isLoadingErrorExist() {		
+		if(findElement(loadingError, driver)!= null){
+			Log.error("Timeline screen: Loading ERROR");
+			takeScreenshot();
+			return true;
+		}
+		else return false;		
+
 	}
 
 	public void waitForVanishUpdateSpiner() {

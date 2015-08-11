@@ -78,7 +78,7 @@ public class CardScreen extends AppScreenBase{
 		delay();
 	}
 
-	public void waitForVanoshUpdateIndicator() {
+	public void waitForVanishUpdateIndicator() {
 		Log.info("Card screen: Wait for vanish update spiner");		
 		waitForVanish(updateIndicator);				
 	}

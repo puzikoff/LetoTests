@@ -20,7 +20,11 @@ public class CardTab extends AppScreenBase{
 	By contractNameBlock = By.id("layout_product_name_container");
 	By fundsBlock = By.id("layout_card_info_header");
 	By blockFundsHint = By.xpath("//LinearLayout[@id='layout_spending_switch_container']//TextView[2]"); 
-	String blockFundsHintText = "Временно отключает возможность снятия денег с карты\n";
+
+	String blockFundsHintText = "Временно отключает возможность снятия денег с карты";
+	
+	
+	By creditLimitBlock = By.xpath("//TextView[@value='КРЕДИТНЫЙ ЛИМИТ']");
 	
 	public CardTab(WebDriver driver) {
 		super(driver);
@@ -143,4 +147,5 @@ public class CardTab extends AppScreenBase{
 		Log.info("Card Screen 'card' tab: get Blocked Funds: " + bf);
 		return bf;
 	}
+
 }

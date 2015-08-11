@@ -17,8 +17,7 @@ public class CardManagementTab extends AppScreenBase{
 	By changePaymentDateBtn = By.xpath("//TextView[@value='Меняю дату платежа']/../../..//TextView[@id='label_pressable_caption']");
 	By repaymentBtn = By.xpath("//TextView[@value='Автопогашение']/../../..//TextView[@id='label_pressable_caption']");
 	By blockFundsHint = By.xpath("//LinearLayout[@id='layout_spending_switch_container']//TextView[2]"); 
-	String blockFundsHintText = "Временно отключает возможность снятия денег с карты\n";
-	
+	String blockFundsHintText = "Временно отключает возможность снятия денег с карты";
 
 	public CardManagementTab(WebDriver driver) {
 		super(driver);

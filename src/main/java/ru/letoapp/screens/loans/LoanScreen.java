@@ -16,8 +16,8 @@ public class LoanScreen extends AppScreenBase{
 	String actionBarTitle = "Кредит";	
 	By paymentTabBtn = By.xpath("//TextView[@value='ПЛАТЁЖ']");
 	By infoTabBtn = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
-	By managementTabBtn = By.xpath("//TextView[@value='УПРАВЛЕНИЕ']");
-	private String titleText = "Кредит";	
+	By managementTabBtn = By.xpath("//TextView[@value='УПРАВЛЕНИЕ']");	
+	By updateIndicator = By.xpath("//ProgressBar[@id='progress_contract_loading']");
 
 	public LoanScreen(WebDriver driver) {
 		super(driver);	
@@ -33,7 +33,8 @@ public class LoanScreen extends AppScreenBase{
 	
 	public void verify() {
 		Log.info("Loan screen: verify screen");
-		verify.assertEquals(getTitleFromActionBar(), titleText , "Loan screen: title");
+		Log.info(getTitleFromActionBar());
+		verify.assertEquals(getTitleFromActionBar(), actionBarTitle , "Loan screen: title");
 		verify.assertAll();
 	}
 	
@@ -69,6 +70,12 @@ public class LoanScreen extends AppScreenBase{
 		Log.info("Loan Screen: Payment tab click");
 		findElement(paymentTabBtn, driver).click();
 		delay();
+	}
+	
+	public void waitForVanishUpdateIndicator() {
+		Log.info("Loan screen: Wait for vanish update spiner");		
+		waitForVanish(updateIndicator);			
+
 	}
 
 }

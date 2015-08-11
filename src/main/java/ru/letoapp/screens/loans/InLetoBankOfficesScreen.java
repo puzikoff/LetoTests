@@ -6,7 +6,9 @@ import ru.letoapp.screens.AppScreenBase;
 
 public class InLetoBankOfficesScreen extends AppScreenBase{
 	
-	private String titleText = "В офисах Лето Банка";
+
+	private String titleText = "В офисах банка";
+
 	
 	public InLetoBankOfficesScreen(WebDriver driver) {
 		super(driver);
