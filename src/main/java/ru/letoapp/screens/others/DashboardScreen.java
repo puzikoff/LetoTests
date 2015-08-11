@@ -4,6 +4,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import ru.letoapp.screens.AppScreenBase;
 
@@ -41,7 +42,10 @@ public class DashboardScreen extends AppScreenBase {
 			cards.get(0).click();
 			delay();
 		}
-		else Log.error("Dashboard screen: No card with such name");		
+		else {
+			Log.error("Dashboard screen: No card with such name");
+			Assert.fail();
+		}
 	}
 	
 	public void openLoan(String loanName) {
@@ -51,12 +55,16 @@ public class DashboardScreen extends AppScreenBase {
 			loans.get(0).click();		
 			delay();
 		}			
-		else Log.error("Dashboard screen: No loan with such name");
+		else {
+			Log.error("Dashboard screen: No loan with such name");
+			Assert.fail();
+		}
 	}
 	
 	public boolean isLoadingErrorExist() {		
 		if(findElement(loadingError, driver).isDisplayed()){
 			Log.error("Dashboard screen: Loading ERROR");
+			takeScreenshot();
 			return true;
 		}
 		else return false;		
@@ -69,7 +77,10 @@ public class DashboardScreen extends AppScreenBase {
 			deposits.get(0).click();		
 			delay();		
 		}
-		else Log.error("Dashboard screen: No deposit with such name");
+		else {
+			Log.error("Dashboard screen: No deposit with such name");
+			Assert.fail();
+		}
 	}
 	
 	public void openCard(int n) {		

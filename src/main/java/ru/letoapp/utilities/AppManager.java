@@ -31,7 +31,6 @@ import ru.letoapp.screens.loans.LoanInsuranceScreen;
 import ru.letoapp.screens.loans.LoanScreen;
 import ru.letoapp.screens.loans.PaymentsInTerminalsSecreen;
 import ru.letoapp.screens.loans.PaymentsScheduleScreen;
-import ru.letoapp.screens.loans.WhatIfLoanScreen;
 import ru.letoapp.screens.others.AboutBankAndAppScreen;
 import ru.letoapp.screens.others.AboutBankScreen;
 import ru.letoapp.screens.others.AuthScreen;
@@ -99,8 +98,7 @@ public class AppManager {
 	private AboutBankAndAppScreen aboutBankAndAppScreen;
 	private AboutBankScreen aboutBankScreen; 
 	private BankRequisitesScreen bankRequisitesScreen;
-	private ResetSecurityCodeScreen resetSecurityCodeScreen;
-	private WhatIfLoanScreen whatIfLoanScreen;
+	private ResetSecurityCodeScreen resetSecurityCodeScreen;	
 	private PaymentsScheduleScreen paymentsScheduleScreen;
 	private InLetoBankOfficesScreen inLetoBankOfficesScreen;
 	private AnotherBankPaymentScreen anotherBankPaymentScreen;
@@ -148,8 +146,7 @@ public class AppManager {
 		aboutBankAndAppScreen = new AboutBankAndAppScreen(driver);
 		aboutBankScreen = new AboutBankScreen(driver);
 		bankRequisitesScreen = new BankRequisitesScreen(driver);
-		resetSecurityCodeScreen = new ResetSecurityCodeScreen(driver);
-		whatIfLoanScreen = new WhatIfLoanScreen(driver);
+		resetSecurityCodeScreen = new ResetSecurityCodeScreen(driver);		
 		paymentsScheduleScreen = new PaymentsScheduleScreen(driver);
 		inLetoBankOfficesScreen = new InLetoBankOfficesScreen(driver);
 		anotherBankPaymentScreen = new AnotherBankPaymentScreen(driver);
@@ -276,10 +273,6 @@ public class AppManager {
 	
 	public ResetSecurityCodeScreen getResetSecurityCodeScreen() {
 		return resetSecurityCodeScreen;
-	}
-	
-	public WhatIfLoanScreen getWhatIfLoanScreen() {
-		return whatIfLoanScreen;
 	}
 	
 	public PaymentsScheduleScreen getPaymentsScheduleScreen() {

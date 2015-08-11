@@ -27,13 +27,17 @@ public class DevelopTest extends SetUpForSuiteBase{
         Assert.assertFalse(appManager.getDashboardScreen().isLoadingErrorExist(), "Dashboard screen: Loading ERROR");
         Log.info("OpenCard");        
         appManager.getDashboardScreen().openCard(PropertyReader.getProperty("cardName"));
-        appManager.getCardScreen().waitForVanoshUpdateIndicator();
-        appManager.getCardScreen().verify();
-        appManager.getCardScreen().getCardTab().verify();
+        appManager.getCardScreen().waitForVanishUpdateIndicator();
         appManager.getCardScreen().infoTabClick();
-        appManager.getCardScreen().getCardInfoTab().verify();
-        appManager.getCardScreen().managementTabClick();
-        appManager.getCardScreen().getCardManagementTab().verify();
+        appManager.getCardScreen().getCardInfoTab().relativeSearch();
+        
+        /*
+        appManager.getTimelineScreen().waitForVanishUpdateSpiner();
+        Assert.assertFalse(appManager.getTimelineScreen().isLoadingErrorExist(), "Card operations screen: Loading ERROR");
+        appManager.getTimelineScreen().verifyCardOperationsScreen();   
+        appManager.getTimelineScreen().navUpBtnClick();
+        Log.info(appManager.getCardScreen().getTitleFromActionBar()); 
+        */
         
         
         

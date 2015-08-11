@@ -77,6 +77,12 @@ public static final Logger Log = Logger.getLogger("Test logger");
     	}                
 	}
 	
+	public void androidNewVersionPopupHandler() {
+		if(appManager.getAuthScreen().isAndroidPopupDisplayed()) {
+			appManager.getAuthScreen().getAndroidPopup().dismissClick();
+		}
+	}
+	
 	public void protectCodeCheckboxUnckeck() {
 		  if(appManager.getAuthScreen().isProtCodeCheckboxSelected()) {
 	        	appManager.getAuthScreen().setProtCodeCheckbox();
