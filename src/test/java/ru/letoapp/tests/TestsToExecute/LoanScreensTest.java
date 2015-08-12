@@ -150,7 +150,7 @@ public class LoanScreensTest extends SetUpForSuiteBase{
         appManager.getLoanScreen().getLoanManagementTab().wrapServiceBlock("Уменьшить платёж");
 	}
 	
-	@Test(priority = 120, dependsOnMethods = { "openLoanTest" })
+	//@Test(priority = 120, dependsOnMethods = { "openLoanTest" })
 	public void openReducePaymentServiceScreenTest() {
         appManager.getLoanScreen().getLoanManagementTab().serviceDetailsClick("Уменьшить платёж");
         Assert.assertFalse(appManager.getLoanScreen().getLoanManagementTab().isErrorPopupDisplayed(), "Loan screen, management tab: Error popup displayed");

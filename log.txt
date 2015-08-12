@@ -1,174 +1,170 @@
-INFO|2015-08-11 17:42:48,197: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-08-11 17:42:48,200: Retrying request to {}->http://localhost:38080
-INFO|2015-08-11 17:42:48,205: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-08-11 17:42:48,209: Retrying request to {}->http://localhost:38080
-INFO|2015-08-11 17:42:48,212: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
-INFO|2015-08-11 17:42:48,212: Retrying request to {}->http://localhost:38080
-INFO|2015-08-11 17:42:51,145: Auth screen: Android popup displayed
-INFO|2015-08-11 17:42:51,285: Android popup: Show information about the new update?
-INFO|2015-08-11 17:42:51,285: Android popup: Click send
-INFO|2015-08-11 17:42:57,258: Auth screen: Greeting popup is not displayed
-INFO|2015-08-11 17:42:57,327: Auth screen: Verify auth screen
-INFO|2015-08-11 17:42:57,759: Auth screen: Enter Username: u6157220@mtest
-INFO|2015-08-11 17:42:58,848: Auth screen: Enter password: Qwerty
-INFO|2015-08-11 17:42:59,789: Auth screen: Is protect code selected:false
-INFO|2015-08-11 17:42:59,845: Auth screen: Click login button
-INFO|2015-08-11 17:43:01,333: Wait popup displayed
-ERROR|2015-08-11 17:43:08,552: No element found: By.id: sdl__message
-INFO|2015-08-11 17:43:08,552: Wait popup vanished
-INFO|2015-08-11 17:43:08,788: Dashboard screen: Wait for vanish update spiner
-INFO|2015-08-11 17:43:09,002: By.xpath: //ProgressBar[@id='progress_loading']vanished
-INFO|2015-08-11 17:43:09,245: Dashboard screen: Open loan: leto loan
-ERROR|2015-08-11 17:43:15,876: No element found: By.id: sdl__title
-INFO|2015-08-11 17:43:15,876: Error popup is not displayed
-INFO|2015-08-11 17:43:15,876: Loan screen: Wait for vanish update spiner
-INFO|2015-08-11 17:43:16,493: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
-INFO|2015-08-11 17:43:16,494: Loan screen: verify screen
-INFO|2015-08-11 17:43:16,552: Action bar: Get title
-INFO|2015-08-11 17:43:16,672: Action bar: Title: Кредит
-INFO|2015-08-11 17:43:16,744: Кредит
-INFO|2015-08-11 17:43:16,805: Action bar: Get title
-INFO|2015-08-11 17:43:16,887: Action bar: Title: Кредит
-INFO|2015-08-11 17:43:16,973: Edit display name block: Click edit button
-INFO|2015-08-11 17:43:18,402: Edit display name block: Get display name fron edit popup
-INFO|2015-08-11 17:43:18,599: Edit display name block: Display name fron edit popup: leto loan
-INFO|2015-08-11 17:43:18,681: Edit display name block: Edit display name
-INFO|2015-08-11 17:43:18,758: Edit display name block: Old name: leto loan
-INFO|2015-08-11 17:43:18,758: Edit display name block: New name: leto loan express
-INFO|2015-08-11 17:43:20,139: Edit display name block: Click next
-INFO|2015-08-11 17:43:21,861: Wait popup displayed
-INFO|2015-08-11 17:43:22,149: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id '165bb738-a9c0-e568-dc34-2e65d0d09886' was not found.
-Command duration or timeout: 26 milliseconds
+INFO|2015-08-12 12:19:40,786: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-08-12 12:19:40,790: Retrying request to {}->http://localhost:38080
+INFO|2015-08-12 12:19:40,794: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-08-12 12:19:40,799: Retrying request to {}->http://localhost:38080
+INFO|2015-08-12 12:19:40,801: I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:38080: Connection reset
+INFO|2015-08-12 12:19:40,801: Retrying request to {}->http://localhost:38080
+INFO|2015-08-12 12:19:48,755: Auth screen: Android popup is not displayed
+INFO|2015-08-12 12:19:48,854: Auth screen: Greeting popup displayed
+INFO|2015-08-12 12:19:48,898: Greeting popup: Verify greeting window
+INFO|2015-08-12 12:19:49,129: Popup: Click next button
+INFO|2015-08-12 12:19:50,542: Auth screen: Verify auth screen
+INFO|2015-08-12 12:19:50,965: Auth screen: Enter Username: u6157220@mtest
+INFO|2015-08-12 12:19:51,972: Auth screen: Enter password: Qwerty
+INFO|2015-08-12 12:19:52,923: Auth screen: Is protect code selected:true
+INFO|2015-08-12 12:19:52,971: Auth screen: Set protect code checkbox
+INFO|2015-08-12 12:19:54,407: Auth screen: Click login button
+INFO|2015-08-12 12:19:55,909: Wait popup displayed
+ERROR|2015-08-12 12:20:03,378: No element found: By.id: sdl__message
+INFO|2015-08-12 12:20:03,378: Wait popup vanished
+INFO|2015-08-12 12:20:03,617: Dashboard screen: Wait for vanish update spiner
+INFO|2015-08-12 12:20:03,881: By.xpath: //ProgressBar[@id='progress_loading']vanished
+INFO|2015-08-12 12:20:04,090: Dashboard screen: Open loan: leto loan
+ERROR|2015-08-12 12:20:10,720: No element found: By.id: sdl__title
+INFO|2015-08-12 12:20:10,720: Error popup is not displayed
+INFO|2015-08-12 12:20:10,721: Loan screen: Wait for vanish update spiner
+INFO|2015-08-12 12:20:11,365: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
+INFO|2015-08-12 12:20:11,365: Loan screen: verify screen
+INFO|2015-08-12 12:20:11,430: Action bar: Get title
+INFO|2015-08-12 12:20:11,507: Action bar: Title: Кредит
+INFO|2015-08-12 12:20:11,575: Кредит
+INFO|2015-08-12 12:20:11,615: Action bar: Get title
+INFO|2015-08-12 12:20:11,667: Action bar: Title: Кредит
+INFO|2015-08-12 12:20:11,758: Edit display name block: Click edit button
+INFO|2015-08-12 12:20:13,173: Edit display name block: Get display name fron edit popup
+INFO|2015-08-12 12:20:13,318: Edit display name block: Display name fron edit popup: leto loan
+INFO|2015-08-12 12:20:13,442: Edit display name block: Edit display name
+INFO|2015-08-12 12:20:13,531: Edit display name block: Old name: leto loan
+INFO|2015-08-12 12:20:13,531: Edit display name block: New name: leto loan express
+INFO|2015-08-12 12:20:14,960: Edit display name block: Click next
+INFO|2015-08-12 12:20:16,632: Wait popup displayed
+ERROR|2015-08-12 12:20:22,476: No element found: By.id: sdl__message
+INFO|2015-08-12 12:20:22,476: Wait popup vanished
+INFO|2015-08-12 12:20:22,476: Edit display name block: Get display name
+INFO|2015-08-12 12:20:22,556: Edit display name block: Display name: leto loan express
+INFO|2015-08-12 12:20:22,655: Edit display name block: Click edit button
+INFO|2015-08-12 12:20:24,075: Edit display name block: Edit display name
+INFO|2015-08-12 12:20:24,210: Edit display name block: Old name: leto loan express
+INFO|2015-08-12 12:20:24,210: Edit display name block: New name: leto loan
+INFO|2015-08-12 12:20:25,332: Edit display name block: Click next
+INFO|2015-08-12 12:20:27,026: Wait popup displayed
+INFO|2015-08-12 12:20:27,529: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id 'a934dea2-8201-8f77-8df6-17c734c32497' was not found.
+Command duration or timeout: 22 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '2.47.0', revision: '0e4837e94b1fad0db93e88cd972ed3e235a22892', time: '2015-07-29 15:58:41'
 System info: host: 'WS-QA-08', ip: '192.168.4.33', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_51'
 Driver info: io.selendroid.client.SelendroidDriver
-Capabilities [{aut=ru.letobank.Prometheus:1.1.10, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
-Session ID: 978c1ff5-c24c-a116-1e1d-bc78014e7268
-INFO|2015-08-11 17:43:22,149: Edit display name block: Get display name
-INFO|2015-08-11 17:43:22,244: Edit display name block: Display name: leto loan express
-INFO|2015-08-11 17:43:22,340: Edit display name block: Click edit button
-INFO|2015-08-11 17:43:23,799: Edit display name block: Edit display name
-INFO|2015-08-11 17:43:23,989: Edit display name block: Old name: leto loan express
-INFO|2015-08-11 17:43:23,989: Edit display name block: New name: leto loan
-INFO|2015-08-11 17:43:25,246: Edit display name block: Click next
-INFO|2015-08-11 17:43:26,966: Wait popup displayed
-INFO|2015-08-11 17:43:27,215: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id 'dd1a0f3c-2479-48ab-7e53-24aa6522a9f4' was not found.
-Command duration or timeout: 11 milliseconds
+Capabilities [{aut=ru.letobank.Prometheus:1.0.35, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
+Session ID: 32e2ebbc-4ef4-7298-b5b3-4e39197bb699
+INFO|2015-08-12 12:20:27,529: Edit display name block: Get display name
+INFO|2015-08-12 12:20:27,601: Edit display name block: Display name: leto loan express
+INFO|2015-08-12 12:20:27,765: Loan payment tab: Payment schedule click
+ERROR|2015-08-12 12:20:34,467: No element found: By.id: sdl__message
+INFO|2015-08-12 12:20:34,467: Wait popup is not displayed
+INFO|2015-08-12 12:20:34,532: Action bar: Get title
+INFO|2015-08-12 12:20:34,666: Action bar: Title: График погашений
+INFO|2015-08-12 12:20:34,809: Action bar: Get title
+INFO|2015-08-12 12:20:34,898: Action bar: Title: График погашений
+INFO|2015-08-12 12:20:34,979: Action bar: Click NavUp button
+INFO|2015-08-12 12:20:36,736: Loan screen: Wait for vanish update spiner
+INFO|2015-08-12 12:20:37,639: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
+INFO|2015-08-12 12:20:37,723: Loan payment tab: What if? click
+ERROR|2015-08-12 12:20:44,432: No element found: By.id: sdl__message
+INFO|2015-08-12 12:20:44,432: Wait popup is not displayed
+INFO|2015-08-12 12:20:44,533: Action bar: Get title
+INFO|2015-08-12 12:20:44,620: Action bar: Title: Что, если?..
+INFO|2015-08-12 12:20:44,702: Action bar: Click NavUp button
+INFO|2015-08-12 12:20:46,552: Loan screen: Wait for vanish update spiner
+INFO|2015-08-12 12:20:47,693: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
+INFO|2015-08-12 12:20:48,820: Loan payment tab: In leto bank offices payment click
+INFO|2015-08-12 12:20:51,435: Wait popup displayed
+INFO|2015-08-12 12:20:51,915: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id 'e44f6a23-7716-42ec-2705-8a2b4a60653d' was not found.
+Command duration or timeout: 21 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '2.47.0', revision: '0e4837e94b1fad0db93e88cd972ed3e235a22892', time: '2015-07-29 15:58:41'
 System info: host: 'WS-QA-08', ip: '192.168.4.33', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_51'
 Driver info: io.selendroid.client.SelendroidDriver
-Capabilities [{aut=ru.letobank.Prometheus:1.1.10, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
-Session ID: 978c1ff5-c24c-a116-1e1d-bc78014e7268
-INFO|2015-08-11 17:43:27,215: Edit display name block: Get display name
-INFO|2015-08-11 17:43:27,285: Edit display name block: Display name: leto loan express
-INFO|2015-08-11 17:43:27,392: Loan payment tab: Payment schedule click
-ERROR|2015-08-11 17:43:33,986: No element found: By.id: sdl__message
-INFO|2015-08-11 17:43:33,986: Wait popup is not displayed
-INFO|2015-08-11 17:43:34,077: Action bar: Get title
-INFO|2015-08-11 17:43:34,183: Action bar: Title: График погашений
-INFO|2015-08-11 17:43:34,359: Action bar: Get title
-INFO|2015-08-11 17:43:34,460: Action bar: Title: График погашений
-INFO|2015-08-11 17:43:34,599: Action bar: Click NavUp button
-INFO|2015-08-11 17:43:36,329: Loan screen: Wait for vanish update spiner
-INFO|2015-08-11 17:43:37,325: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
-INFO|2015-08-11 17:43:37,433: Loan payment tab: What if? click
-ERROR|2015-08-11 17:43:44,118: No element found: By.id: sdl__message
-INFO|2015-08-11 17:43:44,118: Wait popup is not displayed
-INFO|2015-08-11 17:43:44,230: Action bar: Get title
-INFO|2015-08-11 17:43:44,348: Action bar: Title: Что, если?..
-INFO|2015-08-11 17:43:44,438: Action bar: Click NavUp button
-INFO|2015-08-11 17:43:46,308: Loan screen: Wait for vanish update spiner
-INFO|2015-08-11 17:43:47,461: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
-INFO|2015-08-11 17:43:48,593: Loan payment tab: In leto bank offices payment click
-INFO|2015-08-11 17:43:51,294: Wait popup displayed
-ERROR|2015-08-11 17:43:56,571: No element found: By.id: sdl__message
-INFO|2015-08-11 17:43:56,572: Wait popup vanished
-INFO|2015-08-11 17:43:56,646: Action bar: Get title
-INFO|2015-08-11 17:43:56,751: Action bar: Title: В офисах банка
-INFO|2015-08-11 17:43:56,981: Action bar: Get title
-INFO|2015-08-11 17:43:57,074: Action bar: Title: В офисах банка
-INFO|2015-08-11 17:43:57,161: Action bar: Click NavUp button
-INFO|2015-08-11 17:43:58,770: Loan screen: Wait for vanish update spiner
-INFO|2015-08-11 17:43:59,975: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
-INFO|2015-08-11 17:44:01,146: Loan payment tab: Another bank payment click
-INFO|2015-08-11 17:44:03,917: Wait popup displayed
-ERROR|2015-08-11 17:44:09,729: No element found: By.id: sdl__message
-INFO|2015-08-11 17:44:09,729: Wait popup vanished
-INFO|2015-08-11 17:44:09,876: Action bar: Get title
-INFO|2015-08-11 17:44:09,979: Action bar: Title: Платежом из другого банка
-INFO|2015-08-11 17:44:10,159: Action bar: Get title
-INFO|2015-08-11 17:44:10,277: Action bar: Title: Платежом из другого банка
-INFO|2015-08-11 17:44:10,386: Action bar: Click NavUp button
-INFO|2015-08-11 17:44:12,101: Loan screen: Wait for vanish update spiner
-INFO|2015-08-11 17:44:13,290: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
-INFO|2015-08-11 17:44:14,535: Loan payment tab: Payments systems terminalst click
-INFO|2015-08-11 17:44:17,384: Wait popup displayed
-INFO|2015-08-11 17:44:17,896: Wait popup is not attached to DOM, try again: org.openqa.selenium.StaleElementReferenceException: The element with id '20243162-472a-f662-9134-91d7e48603e4' was not found.
-Command duration or timeout: 35 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '2.47.0', revision: '0e4837e94b1fad0db93e88cd972ed3e235a22892', time: '2015-07-29 15:58:41'
-System info: host: 'WS-QA-08', ip: '192.168.4.33', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_51'
-Driver info: io.selendroid.client.SelendroidDriver
-Capabilities [{aut=ru.letobank.Prometheus:1.1.10, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
-Session ID: 978c1ff5-c24c-a116-1e1d-bc78014e7268
-INFO|2015-08-11 17:44:18,013: Action bar: Get title
-INFO|2015-08-11 17:44:18,205: Action bar: Get title
-INFO|2015-08-11 17:44:18,310: Action bar: Title: Через терминалы платёжных систем
-INFO|2015-08-11 17:44:18,406: Action bar: Click NavUp button
-INFO|2015-08-11 17:44:20,198: Loan screen: Wait for vanish update spiner
-INFO|2015-08-11 17:44:21,471: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
-INFO|2015-08-11 17:44:21,472: Loan Screen: Information tab click
-INFO|2015-08-11 17:44:24,260: Loan info tab: contract butoon click
-ERROR|2015-08-11 17:44:30,909: No element found: By.id: sdl__message
-INFO|2015-08-11 17:44:30,910: Wait popup is not displayed
-INFO|2015-08-11 17:44:31,002: Action bar: Get title
-INFO|2015-08-11 17:44:31,111: Action bar: Title: Договор №14227286
-INFO|2015-08-11 17:44:31,324: Action bar: Get title
-INFO|2015-08-11 17:44:31,435: Action bar: Title: Договор №14227286
-INFO|2015-08-11 17:44:31,600: Action bar: Click NavUp button
-INFO|2015-08-11 17:44:33,281: Loan screen: Wait for vanish update spiner
-INFO|2015-08-11 17:44:35,061: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
-INFO|2015-08-11 17:44:35,167: Loan info tab: Credit operations button click
-ERROR|2015-08-11 17:44:41,796: No element found: By.id: sdl__message
-INFO|2015-08-11 17:44:41,796: Wait popup is not displayed
-INFO|2015-08-11 17:44:41,885: Action bar: Get title
-INFO|2015-08-11 17:44:42,006: Action bar: Title: Операции по кредиту leto loan
-INFO|2015-08-11 17:44:42,215: Action bar: Get title
-INFO|2015-08-11 17:44:42,318: Action bar: Title: Операции по кредиту leto loan
-INFO|2015-08-11 17:44:42,495: Action bar: Click NavUp button
-INFO|2015-08-11 17:44:44,740: Loan screen: Wait for vanish update spiner
-INFO|2015-08-11 17:44:46,766: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
-INFO|2015-08-11 17:45:47,401: Action bar: Get title
-INFO|2015-08-11 17:45:47,510: Action bar: Title: Кредит
-INFO|2015-08-11 17:45:47,727: Loan info tab: Payments schedule button click
-ERROR|2015-08-11 17:45:54,327: No element found: By.id: sdl__message
-INFO|2015-08-11 17:45:54,327: Wait popup is not displayed
-INFO|2015-08-11 17:45:54,415: Action bar: Get title
-INFO|2015-08-11 17:45:54,528: Action bar: Title: График погашений
-INFO|2015-08-11 17:45:54,719: Action bar: Get title
-INFO|2015-08-11 17:45:54,882: Action bar: Title: График погашений
-INFO|2015-08-11 17:45:54,998: Action bar: Click NavUp button
-INFO|2015-08-11 17:45:57,125: Loan screen: Wait for vanish update spiner
-INFO|2015-08-11 17:45:59,328: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
-INFO|2015-08-11 17:45:59,328: Loan Screen: Managementd tab click
-INFO|2015-08-11 17:46:02,777: Loan management tab: Unwrap service Автопогашение block
-INFO|2015-08-11 17:46:04,621: Loan management tab: Wrap service Автопогашение block
-INFO|2015-08-11 17:46:06,415: Loan management tab: Unwrap service Частичное досрочное погашение block
-ERROR|2015-08-11 17:46:11,724: No element found: By.xpath: //TextView[@value='Частичное досрочное погашение']/../../ImageView
-INFO|2015-08-11 17:46:11,728: Loan management tab: Уменьшить платёж detailes click
-ERROR|2015-08-11 17:46:16,925: No element found: By.xpath: //TextView[@value='Уменьшить платёж']/../../ImageView
-INFO|2015-08-11 17:46:16,982: Action bar: Get title
-INFO|2015-08-11 17:46:17,099: Action bar: Title: Кредит
-INFO|2015-08-11 17:46:17,174: Loan management tab: Connecting services button click
-ERROR|2015-08-11 17:46:24,814: No element found: By.id: sdl__message
-INFO|2015-08-11 17:46:24,814: Wait popup is not displayed
-ERROR|2015-08-11 17:46:30,093: No element found: By.id: sdl__title
-INFO|2015-08-11 17:46:30,093: Error popup is not displayed
-INFO|2015-08-11 17:46:30,164: Action bar: Get title
-INFO|2015-08-11 17:46:30,308: Action bar: Title: История подключения услуг
-INFO|2015-08-11 17:46:30,397: Action bar: Click NavUp button
-INFO|2015-08-11 17:46:32,153: Action bar: Click NavUp button
-INFO|2015-08-11 17:46:34,747: Action bar: Menu button click
-INFO|2015-08-11 17:46:36,266: Drawer: Exit button click
+Capabilities [{aut=ru.letobank.Prometheus:1.0.35, automationName=selendroid, browserName=selendroid, platformName=android, platform=ANY}]
+Session ID: 32e2ebbc-4ef4-7298-b5b3-4e39197bb699
+INFO|2015-08-12 12:20:52,029: Action bar: Get title
+INFO|2015-08-12 12:20:52,101: Action bar: Title: Кредит
+INFO|2015-08-12 12:20:52,234: Action bar: Get title
+INFO|2015-08-12 12:20:52,335: Action bar: Title: В офисах банка
+INFO|2015-08-12 12:20:52,418: Action bar: Click NavUp button
+INFO|2015-08-12 12:20:54,076: Loan screen: Wait for vanish update spiner
+INFO|2015-08-12 12:20:55,202: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
+INFO|2015-08-12 12:20:56,326: Loan payment tab: Another bank payment click
+INFO|2015-08-12 12:20:59,038: Wait popup displayed
+ERROR|2015-08-12 12:21:06,530: No element found: By.id: sdl__message
+INFO|2015-08-12 12:21:06,530: Wait popup vanished
+INFO|2015-08-12 12:21:06,644: Action bar: Get title
+INFO|2015-08-12 12:21:06,743: Action bar: Title: Платежом из другого банка
+INFO|2015-08-12 12:21:06,898: Action bar: Get title
+INFO|2015-08-12 12:21:06,985: Action bar: Title: Платежом из другого банка
+INFO|2015-08-12 12:21:07,082: Action bar: Click NavUp button
+INFO|2015-08-12 12:21:08,812: Loan screen: Wait for vanish update spiner
+INFO|2015-08-12 12:21:10,072: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
+INFO|2015-08-12 12:21:11,248: Loan payment tab: Payments systems terminalst click
+INFO|2015-08-12 12:21:13,957: Wait popup displayed
+ERROR|2015-08-12 12:21:19,547: No element found: By.id: sdl__message
+INFO|2015-08-12 12:21:19,547: Wait popup vanished
+INFO|2015-08-12 12:21:19,607: Action bar: Get title
+INFO|2015-08-12 12:21:19,696: Action bar: Title: Через терминалы платёжных систем
+INFO|2015-08-12 12:21:19,881: Action bar: Get title
+INFO|2015-08-12 12:21:19,953: Action bar: Title: Через терминалы платёжных систем
+INFO|2015-08-12 12:21:20,030: Action bar: Click NavUp button
+INFO|2015-08-12 12:21:21,736: Loan screen: Wait for vanish update spiner
+INFO|2015-08-12 12:21:23,116: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
+INFO|2015-08-12 12:21:23,116: Loan Screen: Information tab click
+INFO|2015-08-12 12:21:25,868: Loan info tab: contract butoon click
+ERROR|2015-08-12 12:21:32,321: No element found: By.id: sdl__message
+INFO|2015-08-12 12:21:32,321: Wait popup is not displayed
+INFO|2015-08-12 12:21:32,394: Action bar: Get title
+INFO|2015-08-12 12:21:32,475: Action bar: Title: Договор №14227286
+INFO|2015-08-12 12:21:32,615: Action bar: Get title
+INFO|2015-08-12 12:21:32,767: Action bar: Title: Договор №14227286
+INFO|2015-08-12 12:21:32,853: Action bar: Click NavUp button
+INFO|2015-08-12 12:21:34,554: Loan screen: Wait for vanish update spiner
+INFO|2015-08-12 12:21:36,347: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
+INFO|2015-08-12 12:21:36,446: Loan info tab: Credit operations button click
+ERROR|2015-08-12 12:21:42,996: No element found: By.id: sdl__message
+INFO|2015-08-12 12:21:42,996: Wait popup is not displayed
+INFO|2015-08-12 12:21:43,072: Action bar: Get title
+INFO|2015-08-12 12:21:43,180: Action bar: Title: Операции по кредиту leto loan
+INFO|2015-08-12 12:21:43,364: Action bar: Get title
+INFO|2015-08-12 12:21:43,455: Action bar: Title: Операции по кредиту leto loan
+INFO|2015-08-12 12:21:43,618: Action bar: Click NavUp button
+INFO|2015-08-12 12:21:45,340: Loan screen: Wait for vanish update spiner
+INFO|2015-08-12 12:21:47,371: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
+INFO|2015-08-12 12:22:47,608: Action bar: Get title
+INFO|2015-08-12 12:22:47,671: Action bar: Title: Кредит
+INFO|2015-08-12 12:22:47,839: Loan info tab: Payments schedule button click
+ERROR|2015-08-12 12:22:54,262: No element found: By.id: sdl__message
+INFO|2015-08-12 12:22:54,262: Wait popup is not displayed
+INFO|2015-08-12 12:22:54,346: Action bar: Get title
+INFO|2015-08-12 12:22:54,444: Action bar: Title: График погашений
+INFO|2015-08-12 12:22:54,657: Action bar: Get title
+INFO|2015-08-12 12:22:54,764: Action bar: Title: График погашений
+INFO|2015-08-12 12:22:54,870: Action bar: Click NavUp button
+INFO|2015-08-12 12:22:56,918: Loan screen: Wait for vanish update spiner
+INFO|2015-08-12 12:22:59,075: By.xpath: //ProgressBar[@id='progress_contract_loading']vanished
+INFO|2015-08-12 12:22:59,075: Loan Screen: Managementd tab click
+INFO|2015-08-12 12:23:02,504: Loan management tab: Unwrap service Автопогашение block
+INFO|2015-08-12 12:23:04,312: Loan management tab: Wrap service Автопогашение block
+INFO|2015-08-12 12:23:06,137: Loan management tab: Unwrap service Частичное досрочное погашение block
+ERROR|2015-08-12 12:23:12,413: No element found: By.xpath: //TextView[@value='Частичное досрочное погашение']/../../ImageView
+INFO|2015-08-12 12:23:12,416: Loan management tab: Уменьшить платёж detailes click
+ERROR|2015-08-12 12:23:18,729: No element found: By.xpath: //TextView[@value='Уменьшить платёж']/../../ImageView
+INFO|2015-08-12 12:23:18,774: Action bar: Get title
+INFO|2015-08-12 12:23:18,833: Action bar: Title: Кредит
+INFO|2015-08-12 12:23:18,889: Loan management tab: Connecting services button click
+ERROR|2015-08-12 12:23:26,383: No element found: By.id: sdl__message
+INFO|2015-08-12 12:23:26,383: Wait popup is not displayed
+ERROR|2015-08-12 12:23:31,516: No element found: By.id: sdl__title
+INFO|2015-08-12 12:23:31,517: Error popup is not displayed
+INFO|2015-08-12 12:23:31,581: Action bar: Get title
+INFO|2015-08-12 12:23:31,729: Action bar: Title: История подключения услуг
+INFO|2015-08-12 12:23:31,795: Action bar: Click NavUp button
+INFO|2015-08-12 12:23:33,550: Action bar: Click NavUp button
+INFO|2015-08-12 12:23:36,095: Action bar: Menu button click
+INFO|2015-08-12 12:23:37,606: Drawer: Exit button click

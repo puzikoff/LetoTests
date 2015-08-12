@@ -1,5 +1,4 @@
-*.txt
-*.properties
+log.txt
 *.apk
 .settings/
 .metadata
@@ -13,3 +12,5 @@ gen/
 out/
 src/main/javascript/node_modules
 src/main/javascript/*.log
+src/main/resources/*.apk
+Screenshots/
