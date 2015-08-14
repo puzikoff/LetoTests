@@ -194,6 +194,22 @@ public class ScreenBase {
 				 Log.error("No element found 'InvalidElementStateException': " + e);
 		            return null;
 			 }
-		}	 
+		}
+		 
+		 public void click(By elementToClick) {
+			 Log.info("Click on element" + elementToClick.toString());
+			 findElement(elementToClick, driver).click();
+			 delay();
+		 }
+		 
+		 public void clickAndWaitSpinerToVanish(By elementToClick) {
+			 Log.info("Click on element" + elementToClick.toString());
+			 findElement(elementToClick, driver).click();
+			 delay();
+			 Log.info("Wait for waiting spiner dissapear");
+			 if(isWaitPopupDisplayed()) {
+				 waitForVanishWaitPopup();
+		     }	
+		 }
 		
 }

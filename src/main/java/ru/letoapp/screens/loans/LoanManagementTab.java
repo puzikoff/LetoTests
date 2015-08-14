@@ -2,6 +2,9 @@ package ru.letoapp.screens.loans;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 import ru.letoapp.screens.AppScreenBase;
 
@@ -11,10 +14,20 @@ public class LoanManagementTab extends AppScreenBase{
 	By changePayDateBlock = By.xpath("//TextView[@value='Меняю дату платежа']");
 	By skipPayBlock = By.xpath("//TextView[@value='Пропустить платёж']");
 	By reducePayBlock = By.xpath("//TextView[@value='Уменьшить платёж']");
-	By connectingServicesHistoryBtn = By.xpath("//TextView[@value='История подключения услуг']");		
+	By connectingServicesHistoryBtn = By.xpath("//TextView[@value='История подключения услуг']");	
+	
+	final String  MANAGEMENT_TAB_LOCATOR = "//ViewPager/NoSaveStateFrameLayout[2]";
+	
+	@FindBy(how = How.XPATH, using = MANAGEMENT_TAB_LOCATOR)
+	WebElement managmentTab;
 
 	public LoanManagementTab(WebDriver driver) {
 		super(driver);
+	}
+	
+	public void verify(){
+		verify.assertTrue(findElement(connectingServicesHistoryBtn, driver).isDisplayed(), "Connecting services history");
+		verify.assertAll();
 	}
 	
 	public void serviceDetailsClick(String serviceName){

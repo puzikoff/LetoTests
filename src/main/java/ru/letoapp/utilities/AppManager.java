@@ -24,23 +24,23 @@ import ru.letoapp.screens.cards.CreditDetailsScreen;
 import ru.letoapp.screens.cards.HowToUseCardScreen;
 import ru.letoapp.screens.cards.HowWorksBlockFundsScreen;
 import ru.letoapp.screens.deposits.DepositScreen;
-import ru.letoapp.screens.loans.AnotherBankPaymentScreen;
-import ru.letoapp.screens.loans.InLetoBankOfficesScreen;
 import ru.letoapp.screens.loans.LoanContractScreen;
 import ru.letoapp.screens.loans.LoanInsuranceScreen;
 import ru.letoapp.screens.loans.LoanScreen;
-import ru.letoapp.screens.loans.PaymentsInTerminalsSecreen;
 import ru.letoapp.screens.loans.PaymentsScheduleScreen;
 import ru.letoapp.screens.others.AboutBankAndAppScreen;
 import ru.letoapp.screens.others.AboutBankScreen;
+import ru.letoapp.screens.others.AnotherBankPaymentScreen;
 import ru.letoapp.screens.others.AuthScreen;
 import ru.letoapp.screens.others.BankRequisitesScreen;
 import ru.letoapp.screens.others.CommonTimelineScreen;
 import ru.letoapp.screens.others.ContactsScreen;
 import ru.letoapp.screens.others.CreditCardsListScreen;
 import ru.letoapp.screens.others.DashboardScreen;
+import ru.letoapp.screens.others.InLetoBankOfficesScreen;
 import ru.letoapp.screens.others.IncorrectLoginPasswordScreen;
 import ru.letoapp.screens.others.LoansListScreen;
+import ru.letoapp.screens.others.PaymentsInTerminalsSecreen;
 import ru.letoapp.screens.others.ResetSecurityCodeScreen;
 import ru.letoapp.screens.others.TimelineScreen;
 import ru.letoapp.screens.others.WhatIfScreen;
@@ -62,7 +62,12 @@ import ru.letoapp.screens.registration.SetPasswordScreen;
 import ru.letoapp.screens.registration.SecurityCodeScreen;
 import ru.letoapp.screens.registration.SmsCodeScreen;
 import ru.letoapp.screens.services.ChangePaymentDateScreen;
+import ru.letoapp.screens.services.EarlyRepaymentScreen;
+import ru.letoapp.screens.services.FullRepaymentScreen;
+import ru.letoapp.screens.services.PartRepaymentScreen;
 import ru.letoapp.screens.services.ReducePaymentScreen;
+import ru.letoapp.screens.services.SkipPaymentScreen;
+import ru.letoapp.screens.services.TurnOffInsuranceScreen;
 import ru.letoapp.screens.services.VerificationCodeScreen;
 import ru.letoapp.screens.wallet.WalletScreen;
 
@@ -119,6 +124,11 @@ public class AppManager {
 	private CreditDetailsScreen creditDetailsScreen;
 	private WhatIfScreen whatIfScreen;
 	private ChangePaymentDateScreen changePaymentDateScreen;
+	private EarlyRepaymentScreen earlyRepaymentScreen;
+	private FullRepaymentScreen fullRepaymentScreen;
+	private PartRepaymentScreen partRepaymentScreen;
+	private SkipPaymentScreen skipPaymentScreen;
+	private TurnOffInsuranceScreen turnOffInsuranceScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -167,6 +177,11 @@ public class AppManager {
 		creditDetailsScreen = new CreditDetailsScreen(driver);
 		whatIfScreen = new WhatIfScreen(driver);
 		changePaymentDateScreen = new ChangePaymentDateScreen(driver);
+		earlyRepaymentScreen = new EarlyRepaymentScreen(driver);
+		fullRepaymentScreen = new FullRepaymentScreen(driver);
+		partRepaymentScreen = new PartRepaymentScreen(driver);
+		skipPaymentScreen = new SkipPaymentScreen(driver);
+		turnOffInsuranceScreen = new TurnOffInsuranceScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -352,6 +367,26 @@ public class AppManager {
 	
 	public ChangePaymentDateScreen getChangePaymentDateScreen() {
 		return changePaymentDateScreen;
+	}
+	
+	public EarlyRepaymentScreen getEarlyRepaymentScreen() {
+		return earlyRepaymentScreen;
+	}
+	
+	public PartRepaymentScreen getPartRepaymentScreen() {
+		return partRepaymentScreen;
+	}
+	
+	public FullRepaymentScreen getFullRepaymentScreen() {
+		return fullRepaymentScreen;
+	}
+	
+	public SkipPaymentScreen getSkipPaymentScreen() {
+		return skipPaymentScreen;
+	}
+	
+	public TurnOffInsuranceScreen getTurnOffInsuranceScreen() {
+		return turnOffInsuranceScreen;
 	}
 	
 	/* Starting Selendroid */

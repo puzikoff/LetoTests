@@ -1,4 +1,4 @@
-package ru.letoapp.tests.TestsToExecute;
+package ru.letoapp.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,21 +24,25 @@ public class LoanScreensTest extends SetUpForSuiteBase{
         appManager.getDashboardScreen().openLoan(PropertyReader.getProperty("loanName"));
         Assert.assertFalse(appManager.getDashboardScreen().isErrorPopupDisplayed(), "Dashboard screen, open loan: Error popup displayed");
         appManager.getLoanScreen().waitForVanishUpdateIndicator();
+	}
+	
+	@Test(priority = 3)
+	public void loanScreenPaymentTabVerify() {
         appManager.getLoanScreen().verify();
-        //appManager.getLoanScreen().getPaymentTab().verify();
-		
+        appManager.getLoanScreen().getPaymentTab().verify();		
 	}
 	
 	@Test(priority = 5, dependsOnMethods = { "openLoanTest" })
 	public void changeDisplayNameTest() {
-		appManager.getLoanScreen().getEditDisplayName().editDisplayNameBtnClick(); 
-		appManager.getLoanScreen().getEditDisplayName().getDisplayNameFromEditPopup();
+		appManager.getLoanScreen().getEditDisplayName().editDisplayNameBtnClick();		
 		appManager.getLoanScreen().getEditDisplayName().editDisplayName(PropertyReader.getProperty("newLoanName"));
 		appManager.getLoanScreen().getEditDisplayName().editDisplayNamePopupNextBtnClick();
+        Assert.assertFalse(appManager.getLoanScreen().isErrorPopupDisplayed(), "Loan screen: Edit display name error popup displayed");
 		Assert.assertEquals(appManager.getLoanScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("newLoanName"));
 		appManager.getLoanScreen().getEditDisplayName().editDisplayNameBtnClick();
 		appManager.getLoanScreen().getEditDisplayName().editDisplayName(PropertyReader.getProperty("loanName"));
 		appManager.getLoanScreen().getEditDisplayName().editDisplayNamePopupNextBtnClick();
+		Assert.assertFalse(appManager.getLoanScreen().isErrorPopupDisplayed(), "Loan screen: Edit display name error popup displayed");
 		Assert.assertEquals(appManager.getLoanScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("loanName")); 
 	}
 	
@@ -89,13 +93,17 @@ public class LoanScreensTest extends SetUpForSuiteBase{
 	}
         
 	@Test(priority = 70, dependsOnMethods = { "openLoanTest" })
-	public void openContractScreenTest() {        
+	public void loanScreenInfoTabVerify() {        
 		if(!appManager.getPaymentsInTerminalsSecreen().getTitleFromActionBar().equals(loanScreenTitle)) {
 			appManager.getPaymentsInTerminalsSecreen().navUpBtnClick();
 			appManager.getLoanScreen().waitForVanishUpdateIndicator();
 		}		        
         appManager.getLoanScreen().infoTabClick();
-        //appManager.getLoanScreen().getLoanInfoTab().verify();
+        appManager.getLoanScreen().getLoanInfoTab().verify();
+	}
+	
+	@Test(priority = 75, dependsOnMethods = { "openLoanTest" })
+	public void openContractScreenTest() {        
         appManager.getLoanScreen().getLoanInfoTab().contractBtnClick();
         appManager.getLoanContractScreen().verify();
 	}
@@ -116,8 +124,12 @@ public class LoanScreensTest extends SetUpForSuiteBase{
 			appManager.getTimelineScreen().navUpBtnClick();
 			appManager.getLoanScreen().waitForVanishUpdateIndicator();
 		}        
-        appManager.getLoanScreen().getLoanInfoTab().insuranceBtnClick();
-        appManager.getLoanInsuranceScreen().verify();
+		if(appManager.getLoanScreen().getLoanInfoTab().isInsuranceBtnClickable()) {
+			appManager.getLoanScreen().getLoanInfoTab().insuranceBtnClick();
+			//appManager.getLoanInsuranceScreen().waitForVanish
+			appManager.getLoanInsuranceScreen().verify();
+			appManager.getLoanInsuranceScreen().navUpBtnClick();
+		}
 	}
 	
 	@Test(priority = 100, dependsOnMethods = { "openLoanTest" })
@@ -131,13 +143,17 @@ public class LoanScreensTest extends SetUpForSuiteBase{
 	}
 	
 	@Test(priority = 110, dependsOnMethods = { "openLoanTest" })
-	public void wrapUnwrapServicesWidgetsTest() {
+	public void loanScreenManagementTabVerify() {
 		if(!appManager.getPaymentsScheduleScreen().getTitleFromActionBar().equals(loanScreenTitle)) {
 			appManager.getPaymentsScheduleScreen().navUpBtnClick();
 			appManager.getLoanScreen().waitForVanishUpdateIndicator();
 		}         
         appManager.getLoanScreen().managementTabClick();
-        //appManager.getLoanScreen().getLoanManagementTab().verify();
+        appManager.getLoanScreen().getLoanManagementTab().verify();
+	}
+	
+	@Test(priority = 110, dependsOnMethods = { "openLoanTest" })
+	public void wrapUnwrapServicesWidgetsTest() {
         appManager.getLoanScreen().getLoanManagementTab().unwrapServiceBlock("Автопогашение");        
         appManager.getLoanScreen().getLoanManagementTab().wrapServiceBlock("Автопогашение");
         appManager.getLoanScreen().getLoanManagementTab().unwrapServiceBlock("Частичное досрочное погашение");        

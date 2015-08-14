@@ -9,6 +9,7 @@ import ru.letoapp.utilities.PropertyReader;
 public class DevCardScreensTest extends SetUpForSuiteBase{	
 
 	String cardScreenTitle = "Карта";
+	String paymentDate = "";
 	
 	@Test(priority = 1)
 	public void openCardTest() {
@@ -24,20 +25,25 @@ public class DevCardScreensTest extends SetUpForSuiteBase{
         appManager.getDashboardScreen().openCard(PropertyReader.getProperty("cardName"));
         Assert.assertFalse(appManager.getDashboardScreen().isErrorPopupDisplayed(), "Dashboard screen, open card: Error popup displayed");
         appManager.getCardScreen().waitForVanishUpdateIndicator();
+	}
+	
+	@Test(priority = 5)
+	public void cardScreenCardTabVerify() {
         appManager.getCardScreen().verify();
         appManager.getCardScreen().getCardTab().verify();
 	}
 	
 	@Test(priority = 10, dependsOnMethods = { "openCardTest" })
 	public void changeDisplayNameTest() {
-		appManager.getCardScreen().getEditDisplayName().editDisplayNameBtnClick(); 
-		appManager.getCardScreen().getEditDisplayName().getDisplayNameFromEditPopup();
+		appManager.getCardScreen().getEditDisplayName().editDisplayNameBtnClick();		
 		appManager.getCardScreen().getEditDisplayName().editDisplayName(PropertyReader.getProperty("newCardName"));
 		appManager.getCardScreen().getEditDisplayName().editDisplayNamePopupNextBtnClick();
+		Assert.assertFalse(appManager.getCardScreen().isErrorPopupDisplayed(), "Card screen, edit display name: error popup displayed");
 		Assert.assertEquals(appManager.getCardScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("newCardName"));
 		appManager.getCardScreen().getEditDisplayName().editDisplayNameBtnClick();
 		appManager.getCardScreen().getEditDisplayName().editDisplayName(PropertyReader.getProperty("cardName"));
 		appManager.getCardScreen().getEditDisplayName().editDisplayNamePopupNextBtnClick();
+		Assert.assertFalse(appManager.getCardScreen().isErrorPopupDisplayed(), "Card screen, edit display name: error popup displayed");
 		Assert.assertEquals(appManager.getCardScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("cardName")); 
 	}
 	
@@ -109,15 +115,50 @@ public class DevCardScreensTest extends SetUpForSuiteBase{
         appManager.getWhatIfScreen().whatIfCardNotReturnedWidgetClick();
         appManager.getWhatIfScreen().verifyCardWhatIfScreen();
 	} 
+	
+	@Test(priority = 84, dependsOnMethods = { "openCardTest" })
+	public void openInLetoBankOfficesScreenTest() {
+		if(!appManager.getWhatIfScreen().getTitleFromActionBar().equals(cardScreenTitle)) {
+			appManager.getWhatIfScreen().navUpBtnClick();
+			appManager.getCardScreen().waitForVanishUpdateIndicator();
+		}			
+        appManager.getCardScreen().getCardTab().inLetoBankOfficesClick();
+        appManager.getInLetoBankOfficesScreen().verify();
+	}
+	
+	@Test(priority = 85, dependsOnMethods = { "openCardTest" })
+	public void openAnotherBankPaymentScreenTest() {
+		if(!appManager.getInLetoBankOfficesScreen().getTitleFromActionBar().equals(cardScreenTitle)) {
+			appManager.getInLetoBankOfficesScreen().navUpBtnClick();
+			appManager.getCardScreen().waitForVanishUpdateIndicator();
+		}		
+        appManager.getCardScreen().getCardTab().anotherBankPaymentClick();
+        appManager.getAnotherBankPaymentScreen().verify();
+	}
+	
+	@Test(priority = 86, dependsOnMethods = { "openCardTest" })
+	public void openPaymentSystemsTerminalsScreenTest() {
+		if(!appManager.getAnotherBankPaymentScreen().getTitleFromActionBar().equals(cardScreenTitle)) {
+			appManager.getAnotherBankPaymentScreen().navUpBtnClick();
+			appManager.getCardScreen().waitForVanishUpdateIndicator();
+		}		
+        appManager.getCardScreen().getCardTab().paymentSystemsTerminalsClick();
+        appManager.getPaymentsInTerminalsSecreen().verify();
+	}
 	    
 	@Test(priority = 90, dependsOnMethods = { "openCardTest" })
-	public void howToUseCardScreenTest() {
+	public void cardScreeenInfoTabVerify() {
 		if(!appManager.getWhatIfScreen().getTitleFromActionBar().equals(cardScreenTitle)) {
 			appManager.getWhatIfScreen().navUpBtnClick();
 			appManager.getCardScreen().waitForVanishUpdateIndicator();
 		}		
 	    appManager.getCardScreen().infoTabClick();
 	    appManager.getCardScreen().getCardInfoTab().verify();
+	    paymentDate = appManager.getCardScreen().getCardInfoTab().getPaymentDate();
+	}
+	
+	@Test(priority = 95, dependsOnMethods = { "openCardTest" })
+	public void howToUseCardScreenTest() {
 	    appManager.getCardScreen().getCardInfoTab().howToUseCardClick();
 	    appManager.getHowToUseCardScreen().verify();
 	}
@@ -135,7 +176,7 @@ public class DevCardScreensTest extends SetUpForSuiteBase{
 	}
 	
 	@Test(priority = 110, dependsOnMethods = { "openCardTest" })
-	public void blockFundsFromManagementTabTest() {
+	public void cardScreenManagementTabVerify() {
 		if(!appManager.getTimelineScreen().getTitleFromActionBar().equals(cardScreenTitle)) {
 			appManager.getTimelineScreen().navUpBtnClick();
 			appManager.getCardScreen().waitForVanishUpdateIndicator();
@@ -143,6 +184,10 @@ public class DevCardScreensTest extends SetUpForSuiteBase{
 	    appManager.getCardScreen().managementTabClick();
 	    appManager.getCardScreen().waitForVanishUpdateIndicator();
 	    appManager.getCardScreen().getCardManagementTab().verify();
+	}
+	
+	@Test(priority = 115, dependsOnMethods = { "openCardTest" })
+	public void blockFundsFromManagementTabTest() {
 	    appManager.getCardScreen().getCardManagementTab().blockFundsSwitchClick();
 	    Assert.assertFalse(appManager.getCardScreen().isErrorPopupDisplayed(), "Card screen, turn on block funds: Error popup displayed");
 	}
@@ -166,17 +211,16 @@ public class DevCardScreensTest extends SetUpForSuiteBase{
 			appManager.getCardScreen().waitForVanishUpdateIndicator();
 		}		
 		appManager.getCardScreen().getCardManagementTab().changePayDateWidgetArrowClick();
+		Assert.assertTrue(appManager.getCardScreen().getCardManagementTab().isChangePaymentBtnDisplayed(), "Is Change Payment Btn Displayed");
         appManager.getCardScreen().getCardManagementTab().changePaymentDateBtnClick();
         Assert.assertFalse(appManager.getCardScreen().getCardManagementTab().isErrorPopupDisplayed(), "Card screen, management tab: Error popup displayed");
-        appManager.getChangePaymentDateScreen().verifyBeforeCalculation();
-        appManager.getChangePaymentDateScreen().chooseNewDate(PropertyReader.getProperty("newCardPaymentDate"));
-        appManager.getChangePaymentDateScreen().verifyAfterCalculation();        
+        appManager.getChangePaymentDateScreen().verifyBeforeCalculation();              
 	}
 	
 	@Test(priority = 136, dependsOnMethods = { "changePaymentDateTest" }) 
-		public void changePaymentDateCalculationTest() {
-			appManager.getChangePaymentDateScreen().chooseNewDate(PropertyReader.getProperty("newCardPaymentDate"));
-			appManager.getChangePaymentDateScreen().verifyAfterCalculation();     
+	public void changePaymentDateCalculationTest() {			
+		appManager.getChangePaymentDateScreen().chooseNewDate(appManager.getCardScreen().calculateNewPaymentDate(Integer.parseInt(paymentDate)));
+		appManager.getChangePaymentDateScreen().verifyAfterCalculation();     
 	}
 	
 	@Test(priority = 140, dependsOnMethods = { "openCardTest" })

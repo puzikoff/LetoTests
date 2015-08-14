@@ -14,6 +14,7 @@ public class CardScreen extends AppScreenBase{
 	private CardManagementTab cardManagementTab;
 	private EditDisplayNameBlock editDisplayName;
 	private NotImplementedPopup notImplementedPopup;
+	By contractNameBlock = By.id("layout_product_name_container");
 	String titleText = "Карта";	
 	By cardTabBtn = By.xpath("//TextView[@value='КАРТА']");
 	By infoTabBtn = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
@@ -55,8 +56,8 @@ public class CardScreen extends AppScreenBase{
 	}
 	
 	public void verify() {		
-		Log.info("Card screen: verify screen");
 		verify.assertEquals(getTitleFromActionBar(), titleText , "Card screen: title");
+		verify.assertTrue(findElement(contractNameBlock, driver).isDisplayed(), "Edit contract name block displayed");
 		verify.assertAll();		
 	}		
 	
@@ -82,5 +83,27 @@ public class CardScreen extends AppScreenBase{
 		Log.info("Card screen: Wait for vanish update spiner");		
 		waitForVanish(updateIndicator);				
 	}
+	
+	public String calculateNewPaymentDate(int paymentDate) {
+		Log.info("Calculate new payment date from info tab");		
+		if((paymentDate < 5)&&(paymentDate > 1)) { 
+			Log.info("New payment date: 5");
+			return "5";
+		}	
+		if((paymentDate < 15)&&(paymentDate >= 5)) {
+			Log.info("New payment date: " + (paymentDate + 1));
+			return Integer.toString(paymentDate + 1);
+		}
+		if((paymentDate >= 15)&&(paymentDate < 28)) {
+			Log.info("New payment date: " + (paymentDate - 1));
+			return Integer.toString(paymentDate - 1);
+		}
+		if((paymentDate <= 31)&&(paymentDate >= 28 )) {
+			Log.info("New payment date: 28");
+			return "28";
+		}
+		else
+			return "Can't calculate new payment date";
+	}	
 
 }

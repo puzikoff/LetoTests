@@ -20,21 +20,20 @@ public class CardTab extends AppScreenBase{
 	By contractNameBlock = By.id("layout_product_name_container");
 	By fundsBlock = By.id("layout_card_info_header");
 	By blockFundsHint = By.xpath("//LinearLayout[@id='layout_spending_switch_container']//TextView[2]"); 
-
-	String blockFundsHintText = "Временно отключает возможность снятия денег с карты";
-	
-	
+	String blockFundsHintText = "Временно отключает возможность снятия денег с карты";	
 	By creditLimitBlock = By.xpath("//TextView[@value='КРЕДИТНЫЙ ЛИМИТ']");
+	By topUpMethodsTitle = By.xpath("//TextView[@value='ДРУГИЕ СПОСОБЫ ПОПОЛНЕНИЯ']");
+	By repaymentBtn = By.id("layout_autopayment_item_container");
+	By inLetoBankOffices = By.xpath("//TextView[@value='В офисах банка']");
+	By anotherBankPayment = By.xpath("//TextView[@value='Платежом из другого банка']");
+	By paymentSystemsTerminals = By.xpath("//TextView[@value='Через терминалы платёжных систем']");	
 	
 	public CardTab(WebDriver driver) {
 		super(driver);
 	}
 	
-	public void verify() {
-		Log.info("Card Screen, Card tab: Verify");
-		verify.assertTrue(findElement(contractNameBlock, driver).isDisplayed(), "Edit contract name block displayed");
-		verify.assertTrue(findElement(fundsBlock, driver).isDisplayed(), "Funds block is displayed");
-		Log.info(":" + findElement(blockFundsHint, driver).getText());
+	public void verify() {				
+		verify.assertTrue(findElement(fundsBlock, driver).isDisplayed(), "Funds block is displayed");		
 		verify.assertEquals(findElement(blockFundsHint, driver).getText(), blockFundsHintText, "Block funds hint text");
 		verify.assertTrue(findElement(blockFundsSwitch, driver).isDisplayed(), "Block funds switch  is displayed");
 		verify.assertTrue(findElement(howWorksBlockFundsBtn, driver).isDisplayed(), "How works block funds is displayed");
@@ -146,6 +145,36 @@ public class CardTab extends AppScreenBase{
 		bf = onlyNumbersString(bf);	
 		Log.info("Card Screen 'card' tab: get Blocked Funds: " + bf);
 		return bf;
+	}
+	
+	public void inLetoBankOfficesClick() {
+		waitForClickable(inLetoBankOffices);
+		Log.info("Card card tab: In leto bank offices payment click");
+		findElement(inLetoBankOffices, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
+	}
+	
+	public void anotherBankPaymentClick() {
+		waitForClickable(anotherBankPayment);
+		Log.info("Card card tab: Another bank payment click");
+		findElement(anotherBankPayment, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
+	}
+	
+	public void paymentSystemsTerminalsClick() {
+		waitForClickable(paymentSystemsTerminals);
+		Log.info("Card card tab: Payments systems terminalst click");
+		findElement(paymentSystemsTerminals, driver).click();
+		delay();
+		if(isWaitPopupDisplayed()) {
+        	waitForVanishWaitPopup();
+        }	
 	}
 
 }

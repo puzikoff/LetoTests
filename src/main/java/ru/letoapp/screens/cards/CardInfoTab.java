@@ -2,7 +2,6 @@ package ru.letoapp.screens.cards;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import ru.letoapp.screens.AppScreenBase;
 
@@ -16,29 +15,16 @@ public class CardInfoTab extends AppScreenBase{
 	By creditLimitBlock = By.xpath("//TextView[@value='КРЕДИТНЫЙ ЛИМИТ']");
 	By spendCreditBlock = By.xpath("//TextView[@value='ИСПОЛЬЗОВАННЫЙ КРЕДИТ']");
 	By paymentDateBlock = By.xpath("//TextView[@value='ПЛАТЁЖНАЯ ДАТА']");
+	By paymentDateBlockText = By.xpath("//CaptionTextItemView_[@id='widget_payment_date']//TextView[@id='label_text']");
 	By expirationDateBlock = By.xpath("//TextView[@value='КАРТА ДЕЙСТВУЕТ ДО']");
 	By statusBlock = By.xpath("//TextView[@value='СТАТУС']");
 	By contractNumberBlock = By.xpath("//TextView[@value='НОМЕР ДОГОВОРА']");
 	By contractDateBlock = By.xpath("//TextView[@value='ДАТА ДОГОВОРА']");
 	By paymentBlock = By.xpath("//TextView[@value='ПЛАТЁЖ']");
 	
-	By cardInfo = By.xpath("//NoSaveStateFrameLayout[2]");
-	
-
 	public CardInfoTab(WebDriver driver) {
 		super(driver);
-	}
-	
-	public void relativeSearch(){
-		WebElement cardInfoFragment = driver.findElement(cardInfo);
-	
-		Log.info("fafsafdsa:" + cardInfoFragment.findElement(By.xpath(".//TextView[1]")).getText());
-		//Log.info(driver.findElement(cardInfo).findElement(By.xpath("./TextView")).getText());
-		//Log.info(driver.findElement(cardInfo).findElement(By.xpath("TextView")).getText());
-		//Log.info(driver.findElement(cardInfo).findElement(By.xpath("/TextView")).getText());
-		//Log.info(driver.findElement(cardInfo).findElement(By.xpath("//TextView")).getText());
-
-	}
+	}	
 	
 	public void howToUseCardClick() {
 		waitFor(howToUseCardBtn);
@@ -73,5 +59,12 @@ public class CardInfoTab extends AppScreenBase{
 		verify.assertTrue(findElement(paymentBlock, driver).isDisplayed(), "Payment");
 		verify.assertAll();
 	}
-
+	
+	public String getPaymentDate() {
+		Log.info("Get payment date from info tab");		
+		String paymentDate = findElement(paymentDateBlockText, driver).getText();
+		Log.info("Payment date block text: " + paymentDate);
+		Log.info("Payment date: " + onlyNumbersString(paymentDate));
+		return onlyNumbersString(paymentDate);
+	}
 }

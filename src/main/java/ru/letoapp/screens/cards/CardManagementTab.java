@@ -71,6 +71,17 @@ public class CardManagementTab extends AppScreenBase{
 		findElement(repaymentWidgetArrow, driver).click();
 	}
 	
+	public boolean isChangePaymentBtnDisplayed() {		
+		if(findElement(changePaymentDateBtn, driver).isDisplayed()) {
+			Log.info("Card screen, management tab: Change payment date is displayed");	
+			return true;
+		}
+		else {
+			Log.info("Card screen, management tab: Change payment date is not displayed");	
+			return false;
+		}
+	}
+	
 	public void changePaymentDateBtnClick() {
 		Log.info("Card screen, management tab: change payment date btn click");
 		findElement(changePaymentDateBtn, driver).click();
