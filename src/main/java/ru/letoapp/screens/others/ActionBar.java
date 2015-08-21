@@ -8,8 +8,7 @@ import ru.letoapp.screens.ScreenBase;
 public class ActionBar extends ScreenBase{
 	
 	By menuBtn = By.id("home");
-	By actionBarTitle = By.id("action_bar_title");
-	//By navUpBtn = By.xpath("//ActionBarView/LinearLayout/HomeView/ImageView[1]");	 
+	By actionBarTitle = By.id("action_bar_title");	
 	By navUpBtn = By.xpath("//HomeView/ImageView[@id='up']");
 	By contactsBtn = By.id("menu_item_contacts");
 	
@@ -25,6 +24,7 @@ public class ActionBar extends ScreenBase{
 	 
 	public void navUpBtnClick() {
 		Log.info("Action bar: Click NavUp button");
+		waitFor(navUpBtn);
 		findElement(navUpBtn, driver).click();	
 		delay();
 	}

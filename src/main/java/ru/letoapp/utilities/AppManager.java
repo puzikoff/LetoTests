@@ -76,7 +76,7 @@ public class AppManager {
 	SelendroidConfiguration serverConfig;
 	SelendroidLauncher server;
 	SelendroidCapabilities capabilities;
-	protected static WebDriver driver = null;
+	protected WebDriver driver = null;
 	protected static WebDriverWait waitDriver = null;
 	private AuthScreen authScreen;
 	private DashboardScreen dashboardScreen;
@@ -434,9 +434,9 @@ public class AppManager {
 	    waitDriver = new WebDriverWait(driver, 90);
 	}
 	
-	public static void takeScreenshot()
+	public void takeScreenshot()
     {       
-       File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+       File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
        try {
     	   SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
     	   String date = format.format(new Date());
@@ -447,7 +447,7 @@ public class AppManager {
     }
 	
 	public WebDriver getDriver() {
-		return driver;
+		return this.driver;
 	}
 	
 	public WebDriverWait getWaitDriver() {
@@ -458,15 +458,27 @@ public class AppManager {
 		return this.server;
 	}
 	
-	public void stopServer() {
+/*	public void stopServer() {
 		if(server != null) {
 			server.stopSelendroid();
 		}
+	} */
+	
+	public void stopServer() {
+		if(getServer() != null) {
+			getServer().stopSelendroid();
+		}
 	}
 	
-	public void stopDriver() {
+/*	public void stopDriver() {
 		if(driver != null) {
-			driver.quit();
+			driver.quit();			
+		}	
+	} */
+	
+	public void stopDriver() {
+		if(getDriver() != null) {
+			getDriver().quit();			
 		}	
 	}
 

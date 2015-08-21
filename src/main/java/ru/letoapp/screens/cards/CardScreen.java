@@ -84,26 +84,5 @@ public class CardScreen extends AppScreenBase{
 		waitForVanish(updateIndicator);				
 	}
 	
-	public String calculateNewPaymentDate(int paymentDate) {
-		Log.info("Calculate new payment date from info tab");		
-		if((paymentDate < 5)&&(paymentDate > 1)) { 
-			Log.info("New payment date: 5");
-			return "5";
-		}	
-		if((paymentDate < 15)&&(paymentDate >= 5)) {
-			Log.info("New payment date: " + (paymentDate + 1));
-			return Integer.toString(paymentDate + 1);
-		}
-		if((paymentDate >= 15)&&(paymentDate < 28)) {
-			Log.info("New payment date: " + (paymentDate - 1));
-			return Integer.toString(paymentDate - 1);
-		}
-		if((paymentDate <= 31)&&(paymentDate >= 28 )) {
-			Log.info("New payment date: 28");
-			return "28";
-		}
-		else
-			return "Can't calculate new payment date";
-	}	
 
 }

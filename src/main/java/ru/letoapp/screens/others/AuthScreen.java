@@ -79,13 +79,18 @@ public class AuthScreen extends AppScreenBase {
 	}
 	
 	public boolean isAndroidPopupDisplayed() {
-		List <WebElement> androidPopups = driver.findElements(androidPopupLocator);
-		if(!androidPopups.isEmpty()) {
-			Log.info("Auth screen: Android popup displayed");
-			return true;
+		try {
+			List <WebElement> androidPopups = driver.findElements(androidPopupLocator);
+			if(!androidPopups.isEmpty()) {
+				Log.info("Auth screen: Android popup displayed");
+				return true;
+			}
+			Log.info("Auth screen: Android popup is not displayed");
+			return false;
 		}
-		Log.info("Auth screen: Android popup is not displayed");
-		return false;
+		catch(NullPointerException e) {
+			return false;
+		}
 	}
 	
 	public boolean isEmptyPasswordPopupDisplayed() {
@@ -131,8 +136,7 @@ public class AuthScreen extends AppScreenBase {
 		return findElement(protCodeCheckbox, driver).isSelected();
 	}
 	
-	public void loginBtnClick () {
-		waitFor(loginBtn);
+	public void loginBtnClick () {		
 		Log.info("Auth screen: Click login button");
 		findElement(loginBtn, driver).click();
 		delay();
@@ -150,8 +154,7 @@ public class AuthScreen extends AppScreenBase {
         }		
 	}
 	
-	public void registerBtnClick () {
-		waitFor(registerBtn);
+	public void registerBtnClick () {		
 		Log.info("Auth screen: Click 'Registration' button'");
 		findElement(registerBtn, driver).click();
 		delay();

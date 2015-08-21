@@ -64,8 +64,8 @@ public class ScreenBase {
 		}
 		
 		public void waitFor(By locator) {			
-			WebDriverWait waitVar =  new WebDriverWait(driver, 60);
-			waitVar.until(ExpectedConditions.presenceOfElementLocated(locator));		
+			WebDriverWait waitVar =  new WebDriverWait(driver, 60);			
+			waitVar.until(ExpectedConditions.presenceOfElementLocated(locator));			
 		}
 		
 		public void waitForClickable(String xpath) {
@@ -159,6 +159,10 @@ public class ScreenBase {
 					Log.info("Wait popup is not displayed: " + e);
 					return false;
 				}
+				catch (StaleElementReferenceException e) {
+					Log.info("Wait popup is not displayed: " + e);
+					return false;
+				}
 			}
 			else {
 				Log.info("Wait popup is not displayed");
@@ -185,16 +189,19 @@ public class ScreenBase {
 		        if (elements.size() > 0) {
 		            return elements.get(0);
 		        } else {
-		        	Log.error("No element found: " + by.toString());
-		        	//Assert.fail("No element found");
+		        	Log.error("No element found: " + by.toString());		        	
 		            return null;
 		        }
 			 }
 			 catch(InvalidElementStateException e) {
-				 Log.error("No element found 'InvalidElementStateException': " + e);
-		            return null;
-			 }
-		}
+				 Log.error("No element found 'InvalidElementStateException'");				 
+		         return null;
+			 }			 
+			 catch(NullPointerException e) {
+				 Log.error("No element found 'NullPointerException'");				 
+		         return null;
+			 }			 
+		 }
 		 
 		 public void click(By elementToClick) {
 			 Log.info("Click on element" + elementToClick.toString());

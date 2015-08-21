@@ -2,6 +2,7 @@ package ru.letoapp.screens.others;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import ru.letoapp.screens.AppScreenBase;
 
@@ -15,38 +16,42 @@ public class WhatIfScreen extends AppScreenBase{
 
 	
 	/*-- Loan widgets --*/
-	By payMoreWidget = By.id("widget_what_if_pay_more");
+	By payMoreWidget = By.xpath("//CollapsibleActionView_[@id='widget_what_if_pay_more']//ImageView[@id='image_static_block_indicator']");
 	By payMoreWidgetText = By.xpath("//CollapsibleActionView_[@id='widget_what_if_pay_more']//TextView[@id='label_description']");
 	String payMoreText = "В текущем периоде подключена услуга «Досрочное погашение», поэтому мы уменьшим размер ежемесячного платежа в последующих месяцах, если вы внесете средства сверх сумммы очередного платежа.";
+	String payMoreText2 = "Все средства, внесенные сверх суммы платежа в этом месяце, будут использованы для погашения следующих платежей. Если вы подключите услугу «Досрочное погашение» и внесете сумму сверх суммы платежа, мы уменьшим размер ежемесячного платежа в последующих месяцах.";
 	By payMore = By.xpath("//CollapsibleActionView_[@id='widget_what_if_pay_more']//TextView[@id='label_pressable_caption']");
 	
-	By payLessWidget = By.id("widget_what_if_pay_less");
+	By payLessWidget = By.xpath("//CollapsibleActionView_[@id='widget_what_if_pay_less']//ImageView[@id='image_static_block_indicator']");
 	By payLessWidgetText = By.xpath("//CollapsibleActionView_[@id='widget_what_if_pay_less']//TextView[@id='label_description']");
 	String payLessText = "Вам нужно будет доплатить оставшуюся часть очередного платежа до наступления его даты.";
 	
-	By payAllWidget = By.id("widget_what_if_pay_all");
+	By payAllWidget = By.xpath("//CollapsibleActionView_[@id='widget_what_if_pay_all']//ImageView[@id='image_static_block_indicator']");
 	By payAllWidgetText = By.xpath("//CollapsibleActionView_[@id='widget_what_if_pay_all']//TextView[@id='label_description']");
 	String payAllText = "Вы можете рассчитать сумму, которую потребуется внести, чтобы полностью погасить кредит до его планового закрытия.";
+	String payAllText2= "";
 	By payAll = By.xpath("//CollapsibleActionView_[@id='widget_what_if_pay_all']//TextView[@id='label_pressable_caption']");
 	
-	By insuranceCaseWidget = By.id("widget_what_if_insurance_case");
+	By insuranceCaseWidget = By.xpath("//CollapsibleContactBankActionView_[@id='widget_what_if_insurance_case']//TextView[@id='label_pressable_caption']");
 	By insuranceCaseWidgetText = By.xpath("//CollapsibleContactBankActionView_[@id='widget_what_if_insurance_case']//TextView[@id='label_description']");
 	String insuranceCaseText = "Позвоните в службу поддержки или приходите в офис Лето Банка";
 	
-	By dismissPaymentWidget = By.id("widget_what_if_pass_case_alt");
-	By dismissPaymentWidgetText = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_pass_case_alt']//TextView[@id='label_description']");
-	String dismissPaymentText = "У меня нет возможности оплатить следующий платёж, можно ли его пропустить?";
-	By dismissPayment = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_pass_case_alt']//TextView[@id='label_pressable_caption']");
+	By skipPaymentWidget = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_pass_case_alt']//ImageView[@id='image_static_block_indicator']");
+	By skipPaymentWidgetText = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_pass_case_alt']//TextView[@id='label_description']");
+	String skipPaymentText = "У меня нет возможности оплатить следующий платёж, можно ли его пропустить?";
+	By skipPayment = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_pass_case_alt']//TextView[@id='label_pressable_caption']");
 	
-	By decreasePaymentWidget = By.id("widget_what_if_decrease_case_alt");
-	By decreasePaymentWidgetText = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_decrease_case_alt']//TextView[@id='label_description']");
-	String decreasePaymentText = "Мне трудно оплачивать кредит, можно ли уменьшить сумму ежемесячного платежа?";
+	By reducePaymentWidget = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_decrease_case_alt']//ImageView[@id='image_static_block_indicator']");
+	By reducePaymentWidgetText = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_decrease_case_alt']//TextView[@id='label_description']");
+	String reducePaymentText = "Мне трудно оплачивать кредит, можно ли уменьшить сумму ежемесячного платежа?";
+	By reducePayment = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_decrease_case_alt']//TextView[@id='label_pressable_caption'][@value='Что будет, если уменьшить платёж?']");
+	
 	By turnOffInsurance = By.xpath("//TextView[@id='Что, если я отключу страховую защиту?']");
 	
-	By changePayDateWidget = By.id("widget_what_if_change_date_case_alt");
+	By changePayDateWidget = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_change_date_case_alt']//ImageView[@id='image_static_block_indicator']");	
 	By changePayDateWidgetText = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_change_date_case_alt']//TextView[@id='label_description']");
 	String changePayDateText = "Я попал в больницу или нахожусь в отпуске и мне неудобно платить в текущую дату. Можно ли перенести дату платежа?";	
-	By changePayDate = By.xpath("//TextView[@id='Что будет, если изменить дату платежа?']");
+	By changePayDate = By.xpath("//CollapsibleMultiActionView_[@id='widget_what_if_change_date_case_alt']//TextView[@id='label_pressable_caption']");
 	
 	/* - Card widgets */
 	By whatIfCardLostWidget = By.id("widget_what_if_card_lost");
@@ -86,29 +91,17 @@ public class WhatIfScreen extends AppScreenBase{
 	
 	public void verifyLoanWhatIfScreen() {
 		verify.assertEquals(getTitleFromActionBar(), titleText, "Title");
-		Log.info("actual:" + findElement(payMoreWidgetText, driver).getText());
-		Log.info("expected:" + payMoreText);
-		verify.assertEquals(findElement(payMoreWidgetText, driver).getText(), payMoreText, "What if screen: pay more  text");
-		Log.info("actual:" + findElement(payLessWidgetText, driver).getText());
-		Log.info("expected:" + payLessText);
-		verify.assertEquals(findElement(payLessWidgetText, driver).getText(), payLessText, "What if screen: pay less text");
-		Log.info("actual:" + findElement(payAllWidgetText, driver).getText());
-		Log.info("expected:" + payAllText);
-		verify.assertEquals(findElement(payAllWidgetText, driver).getText(), payAllText, "What if screen: pay all text");
-		Log.info("actual:" + findElement(insuranceCaseWidgetText, driver).getText());
-		Log.info("expected:" + insuranceCaseText);
-		verify.assertEquals(findElement(insuranceCaseWidgetText, driver).getText(), insuranceCaseText, "What if screen: insurance case text");
-		Log.info("actual:" + findElement(dismissPaymentWidgetText, driver).getText());
-		Log.info("expected:" + dismissPaymentText);
-		verify.assertEquals(findElement(dismissPaymentWidgetText, driver).getText(), dismissPaymentText, "What if screen: dismiss payment  text");
-		Log.info("actual:" + findElement(decreasePaymentWidgetText, driver).getText());
-		Log.info("expected:" + decreasePaymentText);
-		verify.assertEquals(findElement(decreasePaymentWidgetText, driver).getText(), decreasePaymentText, "What if screen: decrease payment text");
-		Log.info("actual:" + findElement(changePayDateWidgetText, driver).getText());
-		Log.info("expected:" + changePayDateText);
+		verify.assertTrue((findElement(payMoreWidget, driver).isDisplayed()), "What if screen: pay more widget");						
+		verify.assertTrue(findElement(payLessWidgetText, driver).getText().contains(payLessText), "What if screen: pay less text");		
+		verify.assertTrue(findElement(payAllWidgetText, driver).getText().contains(payAllText), "What if screen: pay all text");		
+		verify.assertEquals(findElement(insuranceCaseWidgetText, driver).getText(), insuranceCaseText, "What if screen: insurance case text");		
+		verify.assertEquals(findElement(skipPaymentWidgetText, driver).getText(), skipPaymentText, "What if screen: dismiss payment  text");		
+		verify.assertEquals(findElement(reducePaymentWidgetText, driver).getText(), reducePaymentText, "What if screen: decrease payment text");		
 		verify.assertEquals(findElement(changePayDateWidgetText, driver).getText(), changePayDateText, "What if screen: change pay date text");
 		verify.assertAll();		
 	}
+	
+	/* ------ Card widgets ------------*/
 	
 	public void whatIfCardLostWidgetClick(){
 		Log.info("What if screen: what if card lost widget click");
@@ -139,22 +132,14 @@ public class WhatIfScreen extends AppScreenBase{
 		Log.info("What if screen: what if card not returned widget click");
 		findElement(whatIfCardNotReturnedWidget, driver).click();
 	}
-	
-	public void payMoreWidgetClick(){
-		Log.info("What if screen: Pay more widget click");
-		findElement(payMoreWidget, driver).click();
-	}
+		
+	/* ------ Loan widgets ------------*/
 	
 	public void payLessWidgetClick(){
 		Log.info("What if screen: Pay less widget click");
 		findElement(payLessWidget, driver).click();
 	}
-	
-	public void payAllWidgetClick(){
-		Log.info("What if screen: Pay all widget click");
-		findElement(payAllWidget, driver).click();
-	}
-	
+			
 	public void insuranceCaseWidgetClick(){
 		Log.info("What if screen: Insurance case widget click");
 		findElement(insuranceCaseWidget, driver).click();
@@ -162,57 +147,124 @@ public class WhatIfScreen extends AppScreenBase{
 	
 	public void dismissPaymentWidgetClick(){
 		Log.info("What if screen: Dismiss payment widget click");
-		findElement(dismissPaymentWidget, driver).click();
+		findElement(skipPaymentWidget, driver).click();
 	}
 	
 	public void decreasePaymentWidgetClick(){
 		Log.info("What if screen: Decrease payment widget click");
-		findElement(decreasePaymentWidget, driver).click();
+		findElement(reducePaymentWidget, driver).click();
 	}
-	
-	public void changePayDateWidgetClick(){
-		Log.info("What if screen: Change pay date widget click");
-		findElement(changePayDateWidget, driver).click();
-	}	
-	
+		
 	public void payAllClick() {
-		waitFor(payAll);
-		Log.info("What if screen: Pay all click");
-		findElement(payAll, driver).click();
-		delay();		
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		Log.info("What if screen: Pay all widget click");
+		findElement(payAllWidget, driver).click();
+		if(findElement(payAll, driver) != null) {			
+			Log.info("What if screen: Pay all click");
+			findElement(payAll, driver).click();
+			delay();		
+			if(isWaitPopupDisplayed()) {
+				waitForVanishWaitPopup();
+			}
+		}
+		else {
+			Log.info("What if screen: Full repayment connected");
+			Assert.fail("What if screen: Full repayment connected");
+		}
 	}
 	
 	public void payMoreClick() {
-		waitFor(payMore);
-		Log.info("What if screen: Pay more click");
-		findElement(payMore, driver).click();
-		delay();	
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }
+		Log.info("What if screen: Pay more widget click");
+		findElement(payMoreWidget, driver).click();
+		if(findElement(payMore, driver) != null) {
+			Log.info("What if screen: Pay more click");
+			findElement(payMore, driver).click();
+			delay();	
+			if(isWaitPopupDisplayed()) {
+				waitForVanishWaitPopup();
+			}
+		}
+		else {
+			Log.info("What if screen: Part repayment connected");
+			Assert.fail("What if screen: Part repayment connected");
+		}
 	}
-		
-	public void turnOffInsuranceClick() {
-		waitFor(turnOffInsurance);
-		Log.info("What if screen: turn Off Insurance click");
-		findElement(turnOffInsurance, driver).click();
-		delay();	
-		if(isWaitPopupDisplayed()) {
-			waitForVanishWaitPopup();
-	    }	
+	
+	public void skipPaymentClick() {
+		Log.info("What if screen: Skip payment widget click");
+		findElement(skipPaymentWidget, driver).click();
+		if(findElement(skipPayment, driver) != null) {
+			Log.info("What if screen: Dismiss payment click");
+			findElement(skipPayment, driver).click();
+			delay();	
+			if(isWaitPopupDisplayed()) {
+				waitForVanishWaitPopup();
+			}
+		}
+		else {
+			Log.info("What if screen: Dismiss payment payment connected or unavailable");
+			Assert.fail("What if screen: Dismiss payment connected or unavailable");
+		}
 	}
 	
 	public void changePayDateClick() {
-		waitFor(changePayDate);
-		Log.info("What if screen: changePayDate click");
-		findElement(changePayDate, driver).click();
-		delay();	
-		if(isWaitPopupDisplayed()) {
-			waitForVanishWaitPopup();
-	    }	
+		Log.info("What if screen: Change pay date widget click");
+		findElement(changePayDateWidget, driver).click();
+		if(findElement(changePayDate, driver) != null) {
+			Log.info("What if screen: changePayDate click");
+			findElement(changePayDate, driver).click();
+			delay();	
+			if(isWaitPopupDisplayed()) {
+				waitForVanishWaitPopup();
+			}
+		}
+		else {
+			Log.info("What if screen: Change payment date connected");
+			Assert.fail("What if screen: Change payment date connected");
+		}
 	}
+	
+	public void reducePaymentClick() {
+		Log.info("What if screen: reduce payment widget click");
+		findElement(reducePaymentWidget, driver).click();
+		if(findElement(reducePayment, driver) != null) {
+			Log.info("What if screen: Reduce payment click");
+			findElement(reducePayment, driver).click();
+			delay();	
+			if(isWaitPopupDisplayed()) {
+				waitForVanishWaitPopup();
+			}
+		}
+		else {
+			Log.info("What if screen: Reduce payment connected or unavailable");
+			Assert.fail("What if screen: Reduce payment connected or unavailable");
+		}
+	}
+
+	public void payMoreWidgetClick() {
+		Log.info("What if screen: Pay more widget click");
+		findElement(payMoreWidget, driver).click();	
+	}
+	
+	public void payAllWidgetClick() {
+		Log.info("What if screen: Pay all widget click");
+		findElement(payAllWidget, driver).click();		
+	}
+	
+	public void skipPaymentWidgetClick() {
+		Log.info("What if screen: Skip payment widget click");
+		findElement(skipPaymentWidget, driver).click();		
+	}
+	
+	public void reducePaymentWidgetClick() {
+		Log.info("What if screen: Reduce payment widget click");
+		findElement(reducePaymentWidget, driver).click();		
+	}
+	
+	public void changePaymentDateWidgetClick() {
+		Log.info("What if screen: Change payment date widget click");
+		findElement(changePayDateWidget, driver).click();		
+	}
+
+
 
 }

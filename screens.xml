@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Open loan and card screens test suite" parallel="none">
+  <test name="Card screens test">
+    <classes>      
+      <class name="ru.letoapp.tests.CardScreensTest"/>      
+    </classes>
+  </test>
+  <test name="Open Loan screens test">
+    <classes>     
+      <class name="ru.letoapp.tests.OpenLoanScreensTest"/>
+    </classes>
+  </test>
+</suite> 

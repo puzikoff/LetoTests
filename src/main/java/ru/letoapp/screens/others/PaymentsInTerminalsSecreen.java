@@ -31,8 +31,7 @@ public class PaymentsInTerminalsSecreen extends AppScreenBase{
 		super(driver);
 	}
 
-	public void verify() {
-		verify.assertTrue(getTitleFromActionBar().contains(titleText), "Payments via terminals screen: title");
+	public void verify() {		
 		verify.assertEquals(findElement(hint, driver).getText(), hintText, "Hint text");
 		verify.assertEquals(findElement(bankNameBlockText, driver).getText(), bankNameText, "Bank name");
 		verify.assertEquals(findElement(bIKBlockText, driver).getText(), bikValue, "BIK");
@@ -40,7 +39,8 @@ public class PaymentsInTerminalsSecreen extends AppScreenBase{
 		verify.assertEquals(findElement(kPPBlockText, driver).getText(), kPPValue, "kPP");
 		verify.assertEquals(findElement(correspondentAccountBlockText, driver).getText(), corespondentAccountValue, "Correspondent account");
 		verify.assertTrue(findElement(clientAccountBlock, driver).isDisplayed(), "client account");
-		verify.assertTrue(findElement(paymentPurposeBlock, driver).isDisplayed(), "Payment purpose");		
+		verify.assertTrue(findElement(paymentPurposeBlock, driver).isDisplayed(), "Payment purpose");
+		verify.assertTrue(getTitleFromActionBar().contains(titleText), "Payments via terminals screen: title");
 		verify.assertAll();		
 	}
 

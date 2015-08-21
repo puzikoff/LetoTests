@@ -45,12 +45,13 @@ public class DashboardScreen extends AppScreenBase {
 		}
 		else {
 			Log.error("Dashboard screen: No card with such name");
-			Assert.fail();
+			Assert.fail("Dashboard screen: No card with such name: " + cardName);
 		}
 	}
 	
 	public void openLoan(String loanName) {
-		Log.info("Dashboard screen: Open loan: " + loanName);		
+		Log.info("Dashboard screen: Open loan: " + loanName);	
+		//waitFor(By.xpath("//TextView[@value = '" + loanName + "']"));
 		List <WebElement> loans = driver.findElements(By.xpath("//TextView[@value = '" + loanName + "']"));
 		if(!loans.isEmpty()) {												
 			loans.get(0).click();		
@@ -58,7 +59,7 @@ public class DashboardScreen extends AppScreenBase {
 		}			
 		else {
 			Log.error("Dashboard screen: No loan with such name");
-			Assert.fail();
+			Assert.fail("Dashboard screen: No card with such name: " + loanName);
 		}
 	}
 	

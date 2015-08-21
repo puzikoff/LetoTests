@@ -2,6 +2,7 @@ package ru.letoapp.screens.cards;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import ru.letoapp.screens.AppScreenBase;
 
@@ -52,8 +53,15 @@ public class CardTab extends AppScreenBase{
 	public void mandatoryPaymentClick() {
 		waitFor(mandatoryPayment);
 		Log.info("Card screen, Card Tab: mandatory payment click");
-		findElement(mandatoryPayment, driver).click();
-		delay();
+		if(isMandatoryPaymentClickable()) {
+			Log.info("Card screen, Card Tab: mandatory payment clickable");
+			findElement(mandatoryPayment, driver).click();
+			delay();
+		}
+		else{
+			Log.info("Card screen, Card Tab: mandatory payment is not clickable");
+			Assert.fail("Card screen, Card Tab: mandatory payment is not clickable");
+		}
 	}
 	
 	public boolean isMandatoryPaymentClickable() {

@@ -19,11 +19,11 @@ public class InLetoBankOfficesScreen extends AppScreenBase{
 	}
 
 	public void verify() {		
-		verify.assertEquals(getTitleFromActionBar(), titleText , "In leto bank offices screen: title");
 		verify.assertEquals(findElement(hint, driver).getText(), hintText , "Hint text");
 		verify.assertTrue(findElement(addressesOnMap, driver).isDisplayed(), "Addresses on map");
 		verify.assertTrue(findElement(getQRBtn, driver).isDisplayed(), "Get QR button");
 		verify.assertTrue(findElement(contractNumberBlock, driver).isDisplayed(), "Contract name block");
+		verify.assertEquals(getTitleFromActionBar(), titleText , "In leto bank offices screen: title");
 		verify.assertAll();		
 	}
 }

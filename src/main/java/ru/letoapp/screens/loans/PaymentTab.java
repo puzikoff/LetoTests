@@ -20,6 +20,7 @@ public class PaymentTab extends AppScreenBase{
 	String paymentBlockTitleText = "ОПЛАТИТЕ";
 	By currentPaymentBlock = By.id("layout_action_current_payment");
 	By whatIf = By.id("layout_what_if_container");
+	By nextPaymentDate = By.id("label_next_payment_date");
 	By repayment = By.xpath("//TextView[@value='Автопогашение с карты другого банка']");
 	By inLetoBankOffices = By.xpath("//TextView[@value='В офисах банка']");
 	By anotherBankPayment = By.xpath("//TextView[@value='Платежом из другого банка']");
@@ -92,6 +93,14 @@ public class PaymentTab extends AppScreenBase{
 		if(isWaitPopupDisplayed()) {
         	waitForVanishWaitPopup();
         }	
+	}
+	
+	public String getPaymentDate() {
+		Log.info("Loan screen, Payment tab: Get payment date from payment tab");		
+		String paymentDate = findElement(nextPaymentDate, driver).getText();
+		Log.info("Payment date block text: " + paymentDate);
+		Log.info("Payment date: " + onlyNumbersString(paymentDate));
+		return onlyNumbersString(paymentDate);
 	}
 	
 	/*public void findTest() {

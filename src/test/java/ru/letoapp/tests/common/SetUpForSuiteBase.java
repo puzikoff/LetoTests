@@ -1,7 +1,9 @@
 package ru.letoapp.tests.common;
 
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 import ru.letoapp.utilities.AppManager;
 import ru.letoapp.utilities.PropertyReader;
@@ -9,6 +11,15 @@ import ru.letoapp.utilities.PropertyReader;
 public class SetUpForSuiteBase extends TestBase{	
 		
 	@BeforeSuite
+	public void setUpServer() throws Exception {
+		PropertyReader.init("testconfig.properties");
+		appManager = new AppManager();	    	    
+		appManager.startServer(PropertyReader.getProperty("appPath"), 
+	    		Boolean.valueOf(PropertyReader.getProperty("forceReinstall")), 
+	    		Boolean.valueOf(PropertyReader.getProperty("noClearData")));		
+	}
+	
+	@BeforeClass
 	public void setUp() throws Exception 
 	{			
 		PropertyReader.init("testconfig.properties");
@@ -24,10 +35,15 @@ public class SetUpForSuiteBase extends TestBase{
 	    PropertyReader.init("/" + environoment + "Account.properties");
 	}		
 	
-	@AfterSuite
+	@AfterClass
 	public void tearDown() throws Exception
-	{
-		appManager.stopDriver();
-		appManager.stopServer();
-	}	
+	{		
+		appManager.stopDriver();		
+	}
+	
+	@AfterSuite
+	public void tearDownServer() throws Exception
+	{		
+		appManager.stopServer();		
+	}
 }

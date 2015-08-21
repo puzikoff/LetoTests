@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.Assert;
 
 import ru.letoapp.screens.AppScreenBase;
 
@@ -32,12 +33,24 @@ public class LoanManagementTab extends AppScreenBase{
 	
 	public void serviceDetailsClick(String serviceName){
 		Log.info("Loan management tab: " + serviceName + " detailes click");
-		findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver).click();
-		findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../..//TextView[@id='label_pressable_caption']"), driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		if(findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver) != null) {
+			findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver).click();
+			if(findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../..//TextView[@id='label_pressable_caption']"), driver).isDisplayed()) {				
+				findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../..//TextView[@id='label_pressable_caption']"), driver).click();
+				delay();
+				if(isWaitPopupDisplayed()) {
+					waitForVanishWaitPopup();
+				}
+			}
+			else {
+				Log.info("Loan management tab: " + serviceName + " connected");
+				Assert.fail("Loan management tab: " + serviceName + " connected");
+			}
+		}
+		else {
+			Log.info("Loan management tab: " + serviceName + " is unavailable");
+			Assert.fail("Loan management tab: " + serviceName + " is unavailable");
+		}
 	}
 	
 	public void unwrapServiceBlock(String serviceName){

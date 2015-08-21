@@ -76,6 +76,6 @@ public class LoanScreen extends AppScreenBase{
 		Log.info("Loan screen: Wait for vanish update spiner");		
 		waitForVanish(updateIndicator);			
 
-	}
+	}	
 
 }

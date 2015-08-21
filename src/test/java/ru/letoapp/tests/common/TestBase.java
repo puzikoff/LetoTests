@@ -88,5 +88,13 @@ public static final Logger Log = Logger.getLogger("Test logger");
 	        	appManager.getAuthScreen().setProtCodeCheckbox();
 	        }
 	}
+	
+	//If screen title != title navUp click
+	public void incorrectScreenHandler(String title) {
+		if(!appManager.getDashboardScreen().getTitleFromActionBar().equals(title)) {
+			appManager.getDashboardScreen().navUpBtnClick();			
+		}
+	}
+	
 
 }
