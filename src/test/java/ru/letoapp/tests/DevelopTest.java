@@ -26,16 +26,5 @@ public class DevelopTest extends SetUpForSuiteBase{
         appManager.getAuthScreen().loginBtnClick();
         appManager.getDashboardScreen().waitForVanishUpdateSpiner();
         Assert.assertFalse(appManager.getDashboardScreen().isLoadingErrorExist(), "Dashboard screen: Loading ERROR");        
-        appManager.getDashboardScreen().openCard(PropertyReader.getProperty("cardName"));
-        Assert.assertFalse(appManager.getDashboardScreen().isErrorPopupDisplayed(), "Dashboard screen, open loan: Error popup displayed");
-        appManager.getCardScreen().waitForVanishUpdateIndicator();
-        
-	}
-	
-	@Test(priority = 2)
-	public void developTest() throws UnsupportedEncodingException {
-		 appManager.getCardScreen().getCardTab().inLetoBankOfficesClick();
-		 appManager.getCardScreen().getCardTab().verify();
-		    
 	}
 }

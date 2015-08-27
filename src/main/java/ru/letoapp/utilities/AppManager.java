@@ -396,7 +396,7 @@ public class AppManager {
 		serverConfig = new SelendroidConfiguration();
 	    serverConfig.addSupportedApp(appPath);
 	    serverConfig.setPort(4444);	    
-	    serverConfig.setEmulatorPort(44444);	    
+	    serverConfig.setEmulatorPort(5554);	    
 	    serverConfig.setDeviceLog(true);
 	    serverConfig.setDeviceScreenshot(true);
 	    serverConfig.setSelendroidServerPort(38080);

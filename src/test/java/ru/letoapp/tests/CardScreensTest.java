@@ -201,11 +201,15 @@ public class CardScreensTest extends SetUpForSuiteBase{
 	    Assert.assertFalse(appManager.getCardScreen().getCardManagementTab().isErrorPopupDisplayed(), "Card screen, management tab: Error opennig connection services history");
 	    appManager.getTimelineScreen().waitForVanishUpdateSpiner();
 	    Assert.assertFalse(appManager.getTimelineScreen().isLoadingErrorExist(), "Connecting services screen: Loading ERROR");
-	    appManager.getTimelineScreen().verifyConnectionServicesHistoryScreen();
-	    appManager.getTimelineScreen().navUpBtnClick();
-	    appManager.getCardScreen().navUpBtnClick();
-	    appManager.getDashboardScreen().openDrawer();
-	    appManager.getDashboardScreen().getDrawer().exitBtnClick();
+	    appManager.getTimelineScreen().verifyConnectionServicesHistoryScreen();	    
 	} 
+	
+	@Test(priority = 180, dependsOnMethods = { "openCardTest" })
+	public void exitTest() {
+		incorrectScreenHandler(cardScreenTitle);
+        appManager.getCardScreen().navUpBtnClick();
+        appManager.getDashboardScreen().openDrawer();
+        appManager.getDashboardScreen().getDrawer().exitBtnClick();
+    }
 
 }

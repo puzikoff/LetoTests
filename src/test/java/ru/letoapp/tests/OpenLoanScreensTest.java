@@ -238,11 +238,15 @@ public class OpenLoanScreensTest extends SetUpForSuiteBase{
         Assert.assertFalse(appManager.getLoanScreen().getLoanManagementTab().isErrorPopupDisplayed(), "Loan screen, management tab: Error opennig connection services history");
         appManager.getTimelineScreen().waitForVanishUpdateSpiner();
 	    Assert.assertFalse(appManager.getTimelineScreen().isLoadingErrorExist(), "Connecting services screen: Loading ERROR");
-        appManager.getTimelineScreen().verifyConnectionServicesHistoryScreen();
-        appManager.getTimelineScreen().navUpBtnClick();
+        appManager.getTimelineScreen().verifyConnectionServicesHistoryScreen();                
+    }
+	
+	@Test(priority = 180, dependsOnMethods = { "openLoanTest" })
+	public void exitTest() {
+		incorrectScreenHandler(loanScreenTitle);
         appManager.getLoanScreen().navUpBtnClick();
         appManager.getDashboardScreen().openDrawer();
-        appManager.getDashboardScreen().getDrawer().exitBtnClick();        
+        appManager.getDashboardScreen().getDrawer().exitBtnClick();
     }
     
 }

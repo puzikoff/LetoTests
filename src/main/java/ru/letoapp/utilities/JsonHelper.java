@@ -61,27 +61,27 @@ public class JsonHelper {
 	}
     
     public static class VaidateDeserializer<T> implements JsonDeserializer<T> {
-        private Set<String> fields = null; // Массив имен всех полей класса
-        private Set<String> notNullFields = null; // Массив имен всех полей с аннотацией NotNull
+        private Set<String> fields = null; 
+        private Set<String> notNullFields = null; 
 
         @SuppressWarnings("rawtypes")
 		public void init(Type type) {
             Class cls = (Class) type;
-            Field[] fieldsArray = ObjectArrays.concat(cls.getDeclaredFields(), cls.getFields(), Field.class); // Объединяем все поля класса (приватные, публичные, полученные в результате наследования в один массив
+            Field[] fieldsArray = ObjectArrays.concat(cls.getDeclaredFields(), cls.getFields(), Field.class); 
             fields = new THashSet<String>(fieldsArray.length);
             Log.info("1::   " + fields.toString());
             notNullFields = new THashSet<String>(fieldsArray.length);
             Log.info("2::   " + notNullFields.toString());
             for(Field field: fieldsArray) {
-                String name = field.getName().toLowerCase(); // учитываем возможность разных регистров
-                Annotation[] annotations = field.getAnnotations(); // получаем все аннотации поля
+                String name = field.getName().toLowerCase(); 
+                Annotation[] annotations = field.getAnnotations();
 
                 boolean isNotNull = false;
                 for(Annotation annotation: annotations) {
-                    if(annotation instanceof NotNull) { // получаем все поля помеченные NotNull
+                    if(annotation instanceof NotNull) { 
                         isNotNull = true;
                     } else if(annotation instanceof SerializedName) {
-                        name = ((SerializedName) annotation).value().toLowerCase(); // если аннотация SerializedName задана используем её вместо поля класса в fields и notNullFields
+                        name = ((SerializedName) annotation).value().toLowerCase(); 
                     }
                 }
                 fields.add(name);
@@ -91,27 +91,26 @@ public class JsonHelper {
             }
         }
 
-        @Override
         public T deserialize(JsonElement json, Type type,
                              JsonDeserializationContext context)
                 throws JsonParseException {
             if(fields == null) {
-                init(type); // Получаем структуру каждого класса через рефлексию только один раз для производительности
+                init(type);
             }
             Set<Map.Entry<String, JsonElement>> entries = json.getAsJsonObject().entrySet();
             Set<String> keys = new THashSet<String>(entries.size());
             for (Map.Entry<String, JsonElement> entry : entries) {
-                if(!entry.getValue().isJsonNull()) { // Игнорируем поля json, у которых значение null
-                    keys.add(entry.getKey().toLowerCase()); // собираем коллекцию всех имен полей в json
+                if(!entry.getValue().isJsonNull()) { 
+                    keys.add(entry.getKey().toLowerCase());
                 }
             }
-            if (!fields.containsAll(keys)) { // поле есть в json, но нет в Java классе - ошибка
+            if (!fields.containsAll(keys)) { 
                 throw new JsonParseException("Parse error! The json has keys that isn't found in Java object:" + type);
             }
-            if (!keys.containsAll(notNullFields)) { // поле в Java классе помечено как NotNull, но в json его нет  - ошибка
+            if (!keys.containsAll(notNullFields)) { 
                 throw new JsonParseException("Parse error! The NotNull fields is absent in json for object:" + type + notNullFields);
             }
-            return new Gson().fromJson(json, type); // запускаем стандартный механизм обработки GSON
+            return new Gson().fromJson(json, type); 
         }
     }
 }
