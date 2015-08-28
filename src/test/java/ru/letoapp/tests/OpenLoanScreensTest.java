@@ -13,16 +13,20 @@ public class OpenLoanScreensTest extends SetUpForSuiteBase{
 	String paymentDate;
 	
 	@Test(priority = 1)
-	public void openLoanTest() {
+	public void auth() {
 		androidNewVersionPopupHandler();
 		greetingPopupHandler();
         appManager.getAuthScreen().verifyAuthScreen();  
-        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
+        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("openLoanUsername"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));    
         protectCodeCheckboxUnckeck();
         appManager.getAuthScreen().loginBtnClick();
         appManager.getDashboardScreen().waitForVanishUpdateSpiner();
         Assert.assertFalse(appManager.getDashboardScreen().isLoadingErrorExist(), "Dashboard screen: Loading ERROR");        
+	}
+	
+	@Test(priority = 2, dependsOnMethods = { "auth" })
+	public void openLoanTest() {		       
         appManager.getDashboardScreen().openLoan(PropertyReader.getProperty("loanName"));
         Assert.assertFalse(appManager.getDashboardScreen().isErrorPopupDisplayed(), "Dashboard screen, open loan: Error popup displayed");
         appManager.getLoanScreen().waitForVanishUpdateIndicator();
@@ -121,7 +125,7 @@ public class OpenLoanScreensTest extends SetUpForSuiteBase{
 		appManager.getWhatIfScreen().changePayDateClick();        
 		Assert.assertFalse(appManager.getWhatIfScreen().isErrorPopupDisplayed(), "Loan screen, what if screen: error opening change payment date screen");  
         appManager.getChangePaymentDateScreen().verifyBeforeCalculationLoan();    
-        appManager.getChangePaymentDateScreen().chooseNewDate(appManager.getChangePaymentDateScreen().calculateNewPaymentDate(Integer.parseInt("3")));
+        appManager.getChangePaymentDateScreen().chooseNewDate(appManager.getChangePaymentDateScreen().calculateNewPaymentDate(Integer.parseInt(paymentDate)));
         Assert.assertFalse(appManager.getChangePaymentDateScreen().isErrorPopupDisplayed(), "Change payment date screen: error calculating change payment date screen"); 
 		appManager.getChangePaymentDateScreen().verifyAfterCalculationLoan();        
 	}
@@ -242,7 +246,7 @@ public class OpenLoanScreensTest extends SetUpForSuiteBase{
     }
 	
 	@Test(priority = 180, dependsOnMethods = { "openLoanTest" })
-	public void exitTest() {
+	public void exit() {
 		incorrectScreenHandler(loanScreenTitle);
         appManager.getLoanScreen().navUpBtnClick();
         appManager.getDashboardScreen().openDrawer();

@@ -20,7 +20,7 @@ public class DevelopTest extends SetUpForSuiteBase{
 		androidNewVersionPopupHandler();
 		greetingPopupHandler();
         appManager.getAuthScreen().verifyAuthScreen();  
-        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
+        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("openLoanUsername"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));    
         protectCodeCheckboxUnckeck();
         appManager.getAuthScreen().loginBtnClick();

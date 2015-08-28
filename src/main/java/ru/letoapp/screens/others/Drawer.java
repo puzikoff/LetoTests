@@ -10,9 +10,10 @@ import ru.letoapp.screens.ScreenBase;
 
 public class Drawer extends ScreenBase{
 	
-	By contactsBtn = By.id("layout_contacts");
-	By aboutBankBtn = By.id("layout_about_bank");
-	By exitBtn = By.id("layout_logout");
+	By contactsBtn = By.id("widget_contacts");
+	By aboutBankBtn = By.id("widget_about_bank");
+	By profileBtn = By.id("widget_user");
+	By exitBtn = By.id("widget_logout");
 
 	public Drawer(WebDriver driver) {
 		super(driver);		

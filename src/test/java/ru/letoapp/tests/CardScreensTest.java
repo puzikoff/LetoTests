@@ -12,16 +12,20 @@ public class CardScreensTest extends SetUpForSuiteBase{
 	String paymentDate = "";
 	
 	@Test(priority = 1)
-	public void openCardTest() {
+	public void auth() {
 		androidNewVersionPopupHandler();
 		greetingPopupHandler();
         appManager.getAuthScreen().verifyAuthScreen();  
-        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("username"));        
+        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("cardUsername"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));    
         protectCodeCheckboxUnckeck();
         appManager.getAuthScreen().loginBtnClick();
         appManager.getDashboardScreen().waitForVanishUpdateSpiner();
-        Assert.assertFalse(appManager.getDashboardScreen().isLoadingErrorExist(), "Dashboard screen: Loading ERROR");        
+        Assert.assertFalse(appManager.getDashboardScreen().isLoadingErrorExist(), "Dashboard screen: Loading ERROR");       
+	}
+	
+	@Test(priority = 2, dependsOnMethods = { "auth" })
+	public void openCardTest() {		        
         appManager.getDashboardScreen().openCard(PropertyReader.getProperty("cardName"));
         Assert.assertFalse(appManager.getDashboardScreen().isErrorPopupDisplayed(), "Dashboard screen, open card: Error popup displayed");
         appManager.getCardScreen().waitForVanishUpdateIndicator();
@@ -205,7 +209,7 @@ public class CardScreensTest extends SetUpForSuiteBase{
 	} 
 	
 	@Test(priority = 180, dependsOnMethods = { "openCardTest" })
-	public void exitTest() {
+	public void exit() {
 		incorrectScreenHandler(cardScreenTitle);
         appManager.getCardScreen().navUpBtnClick();
         appManager.getDashboardScreen().openDrawer();

@@ -2,8 +2,6 @@ package ru.letoapp.screens.payments;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.touch.TouchActions;
-
 import ru.letoapp.screens.AppScreenBase;
 
 public class MenuScreen extends AppScreenBase{
