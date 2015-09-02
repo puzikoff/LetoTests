@@ -8,6 +8,7 @@ import ru.letoapp.screens.AppScreenBase;
 
 public class PaymentsAndTransfersScreen extends AppScreenBase{
 	By serachField = By.xpath("//EditText");
+	String title = "Платежи и переводы";
 	
 	private PaymentsTab paymentsTab;
 	private TemplatesTab templatesTab;
@@ -24,6 +25,12 @@ public class PaymentsAndTransfersScreen extends AppScreenBase{
 		paymentsTab.setDriver(driver);
 		transfersTab.setDriver(driver);
 		templatesTab.setDriver(driver);
+	}
+	
+	public void verify() {
+		Log.info("Verify payments and transfers screen");
+		verify.assertEquals(getTitleFromActionBar(), title, "Verify payments and transfers screen: Title");
+		verify.assertAll();
 	}
 	
 	public PaymentsTab getPaymentsTab () {

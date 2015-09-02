@@ -16,6 +16,7 @@ public class TemplatesTab extends AppScreenBase{
 	
 	String templatesHintText = "Отмеченные звездочкой шаблоны будут вынесены в главное меню";
 	By templatesHint = By.xpath("//TemplatesListFooterView_/ImageView/following-sibling::TextView");	
+	By loadingError = By.xpath("//ImageView[@id='image_error']");
 	
 	public TemplatesTab(WebDriver driver) {
 		super(driver);
@@ -45,6 +46,12 @@ public class TemplatesTab extends AppScreenBase{
 		delay();
 	}
 	
+	/*public void isTemplateFavorite(String templateName) {
+		Log.info("Payments and transfers screen, templates tab: is template favorite: " + templateName);	
+		Log.info("isEnabled: " + findElement(By.xpath("//TextView[@value='" + templateName + "']/../preceding-sibling::ImageButton"), driver).isEnabled());			
+		Log.info("isSelected: " + findElement(By.xpath("//TextView[@value='" + templateName + "']/../preceding-sibling::ImageButton"), driver).isSelected());		
+	}*/
+	
 	public void payWithTemplate(String templateName) {
 		Log.info("Payments and transfers screen, templates tab: Pay with template: " + templateName);
 		findElement(By.xpath("//TextView[@value='" + templateName + "']/.."), driver).click();
@@ -61,6 +68,33 @@ public class TemplatesTab extends AppScreenBase{
 		Log.info("Payments and transfers screen, templates tab: remove from favorite: " + templateName);
 		findElement(By.xpath("//TextView[@value='" + templateName + "']/../preceding-sibling::ImageButton"), driver).click();
 		delay();
+	}
+	
+	public boolean isLoadingErrorExist() {		
+		if(findElement(loadingError, driver).isDisplayed()){
+			Log.error("Templates tab: Loading ERROR");
+			takeScreenshot();
+			return true;
+		}
+		else return false;		
+	}
+
+	public void verify() {
+		Log.info("Verify payments and transfers screen, templates tab");
+		verify.assertEquals(findElement(templatesHint, driver).getText(), templatesHintText, "Verify payments and transfers screen: Hint");
+		verify.assertAll();		
+	}
+
+	public boolean isTemplateExist(String templateName) {
+		Log.info("Templates tab: is template" + templateName + "exist");
+		if(findElement(By.xpath("//TextView[@value='" + templateName + "']"), driver) != null) {
+			Log.info("true");
+			return true;
+		}
+		else {
+			Log.info("false");
+			return false;
+		}
 	}
 
 }

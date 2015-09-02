@@ -12,6 +12,7 @@ public class AmountScreen extends AppScreenBase{
 	By tenRubBtn = By.xpath("//Button[@id='button_add_ten']");
 	By hundredRubBtn = By.xpath("//Button[@id='button_add_hundred']");
 	By thousandRubBtn = By.xpath("//Button[@id='button_add_thousand']");
+	By phoneNumber = By.xpath("//TextView[@value='НОМЕР ТЕЛЕФОНА']/following-sibling::LinearLayout/WeakMaskedEditText");
 	
 	public AmountScreen(WebDriver driver) {
 		super(driver);
@@ -44,10 +45,17 @@ public class AmountScreen extends AppScreenBase{
 	
 	public void nextBtnClick(){
 		Log.info("Amount screen: next button click");
-		findElement(nextBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }		
+		clickAndWaitSpinerToVanish(nextBtn);		
 	}
+
+	public String getAmount() {
+		Log.info("Amount screen: Amount: " + findElement(amountField, driver).getText());
+		return onlyNumbersString(findElement(amountField, driver).getText());		
+	}
+	
+	public String getPhoneNumber() {
+		Log.info("Amount screen: Phone number: " + findElement(phoneNumber, driver).getText());
+		return onlyNumbersString(findElement(phoneNumber, driver).getText());		
+	}
+	
 }

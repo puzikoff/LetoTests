@@ -24,7 +24,7 @@ public class ScreenBase {
 	protected final int waitTimeout = 6000;
 	protected SoftAssert verify = new SoftAssert();
 	protected WebDriver driver;	  
-	By drawerLoc = By.id("mdc__layout_drawer");
+	By drawerLoc = By.xpath("//FrameLayout[@id='mdc__layout_drawer_menu']//ScrollView");	
 	By popupNextBtn = By.id("sdl__positive_button");
 	By errorPopupTitleLocator = By.id("sdl__title");
 	By errorPopupMessageLocator = By.id("sdl__message");

@@ -14,6 +14,9 @@ public class StatusScreen extends AppScreenBase{
 	By templateHint = By.xpath("//EditText[@id = 'edit_template_name']//preceding-sibling::TextView");
 	String templateHintText = "Вы можете создать шаблон перевода, чтобы в дальнейшем платить быстрее.";
 	By createTemplateBtn = By.xpath("//Button[@id='button_create_template']");
+	By comission = By.xpath("//TextView[@value='КОМИССИЯ']/following-sibling::LinearLayout/EditText");
+	By amount = By.xpath("//TextView[@value='СУММА']/following-sibling::LinearLayout/EditText");
+	By phoneNumber = By.xpath("//TextView[@value='НОМЕР ТЕЛЕФОНА']/following-sibling::LinearLayout/WeakMaskedEditText");
 	
 
 	public StatusScreen(WebDriver driver) {
@@ -36,5 +39,20 @@ public class StatusScreen extends AppScreenBase{
 		waitFor(progressBar);
 		Log.info("Payment status screen: create template btn click");
 		waitForVanish(progressBar);	
+	}
+	
+	public String getComission() {
+		Log.info("Payment tool screen: comission: " + findElement(comission, driver).getText());
+		return onlyNumbersString(findElement(comission, driver).getText());
+	}
+	
+	public String getAmount() {
+		Log.info("Payment tool screen: amount: " + findElement(amount, driver).getText());
+		return onlyNumbersString(findElement(amount, driver).getText());
+	}
+	
+	public String getPhoneNumber() {
+		Log.info("Payment tool screen: phoneNumber: " + findElement(phoneNumber, driver).getText());
+		return onlyNumbersString(findElement(phoneNumber, driver).getText());
 	}
 }

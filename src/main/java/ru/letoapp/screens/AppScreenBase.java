@@ -182,9 +182,15 @@ public class AppScreenBase extends ScreenBase {
 		return s;
 	}
 	
-	public void swipeOpenDrawer() {	
-		TouchActions flick = new TouchActions(driver).flick(findElement(drawerLoc, driver), +150, 0, 1);
-		flick.perform();		
+	public void swipeOpenDrawer() {
+		try {
+			TouchActions flickAction = new TouchActions(driver).flick(findElement(drawerLoc, driver), -450, 0, 0);
+			flickAction.perform();
+		}
+		catch (Exception e) {
+			Log.info("Flick : Exception" + e);
+		}
+		
 	}	
 	
 	public void scrollDown(){

@@ -18,6 +18,7 @@ public class ActionBar extends ScreenBase{
 	
 	public void menuBtnClick() {
 		Log.info("Action bar: Menu button click");
+		waitFor(menuBtn);
 		findElement(menuBtn, driver).click();
 		delay();
 	}
