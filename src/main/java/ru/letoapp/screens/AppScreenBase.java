@@ -187,9 +187,34 @@ public class AppScreenBase extends ScreenBase {
 		flick.perform();		
 	}	
 	
-	public void scroll() throws Exception {	
-		TouchActions scroll = new TouchActions(driver).down(0, 200);
-		scroll.perform();		
+	public void scrollDown(){
+		try {
+			TouchActions scrollDown = new TouchActions(driver).scroll(0, +200);
+			scrollDown.perform();			
+		}
+		catch (Exception e) {
+			Log.info("Scroll : Exception" + e);
+		}
+	}
+	
+	public void scroll(int x, int y){
+		try {
+			TouchActions scrollAction = new TouchActions(driver).scroll(x, y);
+			scrollAction.perform();			
+		}
+		catch (Exception e) {
+			Log.info("Scroll : Exception" + e);
+		}
+	}
+	
+	public void flick(By element, int x, int y, int speed){
+		try {
+			TouchActions flickAction = new TouchActions(driver).flick(findElement(element, driver), x, y, speed);
+			flickAction.perform();			
+		}
+		catch (Exception e) {
+			Log.info("Flick : Exception" + e);
+		}
 	}
 	
 	/* ------ Common methods --- ENDS*/	

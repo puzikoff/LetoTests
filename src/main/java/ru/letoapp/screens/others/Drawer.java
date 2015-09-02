@@ -50,4 +50,11 @@ public class Drawer extends ScreenBase{
 			return false;
 	}
 
+	public boolean isTemplateDisplayed(String templateName) {
+		if(findElement(By.xpath("//TextView[@value='" + templateName + "']"), driver).isDisplayed())
+			return true;
+		else
+			return false;
+	}
+
 }

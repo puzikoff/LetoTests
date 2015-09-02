@@ -12,7 +12,7 @@ import ru.letoapp.screens.AppScreenBase;
 public class DashboardScreen extends AppScreenBase {
 	
 	By timelineBtn = By.id("button_feed");	
-	//By walletBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[2]//RelativeLayout[1]");
+	By paymentsBtn = By.id("button_payment");
 	By cardsListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[2]//RelativeLayout");	
 	By loansListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[3]//RelativeLayout");
 	By depositsListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[4]//RelativeLayout[1]");
@@ -50,8 +50,7 @@ public class DashboardScreen extends AppScreenBase {
 	}
 	
 	public void openLoan(String loanName) {
-		Log.info("Dashboard screen: Open loan: " + loanName);	
-		//waitFor(By.xpath("//TextView[@value = '" + loanName + "']"));
+		Log.info("Dashboard screen: Open loan: " + loanName);		
 		List <WebElement> loans = driver.findElements(By.xpath("//TextView[@value = '" + loanName + "']"));
 		if(!loans.isEmpty()) {												
 			loans.get(0).click();		
@@ -182,6 +181,12 @@ public class DashboardScreen extends AppScreenBase {
 		waitFor(updateBigSpiner);
 		Log.info("Dashboard screen: Wait for vanish update spiner");
 		waitForVanish(updateBigSpiner);		
+	}
+	
+	public void paymentsBtnClik() {
+		Log.info("Dashboard screen: Payments button click");
+		findElement(paymentsBtn, driver).click();
+		delay();
 	}
 
 }

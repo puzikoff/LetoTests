@@ -46,8 +46,8 @@ import ru.letoapp.screens.others.TimelineScreen;
 import ru.letoapp.screens.others.WhatIfScreen;
 import ru.letoapp.screens.payments.AccountInfoScreen;
 import ru.letoapp.screens.payments.AmountScreen;
-import ru.letoapp.screens.payments.MenuScreen;
 import ru.letoapp.screens.payments.PaymentToolScreen;
+import ru.letoapp.screens.payments.PaymentsAndTransfersScreen;
 import ru.letoapp.screens.payments.StatusScreen;
 import ru.letoapp.screens.registration.AccountCredentialsScreen;
 import ru.letoapp.screens.registration.CardCredentialsScreen;
@@ -114,7 +114,7 @@ public class AppManager {
 	private ReducePaymentScreen reducePaymentScreen;
 	private VerificationCodeScreen verificationCodeScreen;
 	private WalletScreen walletScreen;
-	private MenuScreen menuScreen;
+	private PaymentsAndTransfersScreen paymentsAndTransfersScreen;
 	private AccountInfoScreen accountInfoScreen;
 	private AmountScreen amountScreen;
 	private PaymentToolScreen paymentToolScreen;	
@@ -167,7 +167,7 @@ public class AppManager {
 		reducePaymentScreen = new ReducePaymentScreen(driver);
 		verificationCodeScreen = new VerificationCodeScreen(driver);
 		walletScreen = new WalletScreen(driver);
-		menuScreen = new MenuScreen(driver);
+		paymentsAndTransfersScreen = new PaymentsAndTransfersScreen(driver);
 		accountInfoScreen = new AccountInfoScreen(driver);
 		amountScreen = new AmountScreen(driver);
 		paymentToolScreen = new PaymentToolScreen(driver);		
@@ -330,8 +330,8 @@ public class AppManager {
 		return walletScreen;
 	}
 	
-	public MenuScreen getMenuScreen(){
-		return menuScreen;
+	public PaymentsAndTransfersScreen getPaymentsAndTransfersScreen(){
+		return paymentsAndTransfersScreen;
 	}
 	
 	public AccountInfoScreen getAccountInfoScreen(){

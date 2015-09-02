@@ -32,11 +32,7 @@ public class AccountInfoScreen extends AppScreenBase{
 	
 	public void nextBtnClick(){
 		Log.info("Account info screen: next button click - ");
-		findElement(nextBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }		
+		clickAndWaitSpinerToVanish(nextBtn);		
 	}
 
 }

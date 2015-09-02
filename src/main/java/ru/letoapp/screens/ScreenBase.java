@@ -1,5 +1,6 @@
 package ru.letoapp.screens;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -77,6 +78,15 @@ public class ScreenBase {
 		public void waitForClickable(By locator) {
 			WebDriverWait waitVar =  new WebDriverWait(driver, 60);			
 			waitVar.until(ExpectedConditions.elementToBeClickable(locator));		
+		}
+		
+		public void systemBackBtnClick() {			
+			 try {			
+				 Runtime.getRuntime().exec("cmd /C adb shell input keyevent 4");
+			 }
+			 catch(IOException e) {
+				 Log.info("IOExeption" + e);
+			}
 		}
 		
 		public void waitForDisappear(final By by) {	        
