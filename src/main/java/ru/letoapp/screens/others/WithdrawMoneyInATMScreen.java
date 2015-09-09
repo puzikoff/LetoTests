@@ -5,10 +5,15 @@ import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
 
-public class InLetoBankOfficesScreen extends AppScreenBase{
-	String titleText = "В офисах банка";
-	By hint = By.id("label_description");	
-	String hintText = "Зачисление в тот же день. Рекомендуется";
+public class WithdrawMoneyInATMScreen extends AppScreenBase {
+
+	public WithdrawMoneyInATMScreen(WebDriver driver) {
+		super(driver);
+	}
+	
+	String titleText = "Снять в банкомате";
+	By hint = By.xpath("//TextView[@id='text_remaining_money']");	
+	String hintText = "Выплачен";
 	By addressesOnMap = By.xpath("//TextView[@id='label_action_addresses_on_map']");
 	By getQRBtn = By.id("button_get_qr");
 	String getQRBtnText = "Получить штрих-код";
@@ -17,22 +22,18 @@ public class InLetoBankOfficesScreen extends AppScreenBase{
 	By labelLoading = By.xpath("//TextView[@id='label_loading']");
 	String errorLoadingText = "Извините, произошла ошибка, мы уже работаем над ее исправлением.";
 	By errorLoading = By.xpath("//TextView[@value='Извините, произошла ошибка, мы уже работаем над ее исправлением.']");
-	
-	public InLetoBankOfficesScreen(WebDriver driver) {
-		super(driver);
-	}
-	
+
 	public void getQRBtnClick() {
 		Log.info("Get QR code button click");
 		click(getQRBtn);		
 	}
 
 	public void verify() {		
-		verify.assertEquals(findElement(hint, driver).getText(), hintText , "Hint text");
+		verify.assertTrue(findElement(hint, driver).getText().contains(hintText), "Hint text");
 		verify.assertTrue(findElement(addressesOnMap, driver).isDisplayed(), "Addresses on map");
 		verify.assertTrue(findElement(getQRBtn, driver).isDisplayed(), "Get QR button");
 		verify.assertTrue(findElement(contractNumberBlock, driver).isDisplayed(), "Contract name block");
-		verify.assertEquals(getTitleFromActionBar(), titleText , "In leto bank offices screen: title");
+		verify.assertEquals(getTitleFromActionBar(), titleText , "Withdraw money in ATM screen: title");
 		verify.assertAll();		
 	}
 	
@@ -50,4 +51,5 @@ public class InLetoBankOfficesScreen extends AppScreenBase{
 		}
 		else return false;		
 	}
+
 }

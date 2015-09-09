@@ -27,7 +27,7 @@ public class OpenLoanScreensTest extends SetUpForSuiteBase{
 	
 	@Test(priority = 2, dependsOnMethods = { "auth" })
 	public void openLoanTest() {		       
-        appManager.getDashboardScreen().openLoan(PropertyReader.getProperty("loanName"));
+        appManager.getDashboardScreen().openLoan(PropertyReader.getProperty("openLoanName"));
         Assert.assertFalse(appManager.getDashboardScreen().isErrorPopupDisplayed(), "Dashboard screen, open loan: Error popup displayed");
         appManager.getLoanScreen().waitForVanishUpdateIndicator();
 	}
@@ -35,7 +35,7 @@ public class OpenLoanScreensTest extends SetUpForSuiteBase{
 	@Test(priority = 3, dependsOnMethods = { "openLoanTest" })
 	public void loanScreenPaymentTabVerify() {
         appManager.getLoanScreen().verify();
-        appManager.getLoanScreen().getPaymentTab().verify();
+        appManager.getLoanScreen().getPaymentTab().verifyOpenLoan();
         paymentDate = appManager.getLoanScreen().getPaymentTab().getPaymentDate();
 	}
 	
@@ -47,10 +47,10 @@ public class OpenLoanScreensTest extends SetUpForSuiteBase{
         Assert.assertFalse(appManager.getLoanScreen().isErrorPopupDisplayed(), "Loan screen: Edit display name error popup displayed");
 		Assert.assertEquals(appManager.getLoanScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("newLoanName"));
 		appManager.getLoanScreen().getEditDisplayName().editDisplayNameBtnClick();
-		appManager.getLoanScreen().getEditDisplayName().editDisplayName(PropertyReader.getProperty("loanName"));
+		appManager.getLoanScreen().getEditDisplayName().editDisplayName(PropertyReader.getProperty("openLoanName"));
 		appManager.getLoanScreen().getEditDisplayName().editDisplayNamePopupNextBtnClick();
 		Assert.assertFalse(appManager.getLoanScreen().isErrorPopupDisplayed(), "Loan screen: Edit display name error popup displayed");
-		Assert.assertEquals(appManager.getLoanScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("loanName")); 
+		Assert.assertEquals(appManager.getLoanScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("openLoanName")); 
 	}
 	
 	@Test(priority = 10, dependsOnMethods = { "openLoanTest" })
@@ -137,6 +137,13 @@ public class OpenLoanScreensTest extends SetUpForSuiteBase{
         appManager.getLoanScreen().getPaymentTab().inLetoBankOfficesClick();
         Assert.assertFalse(appManager.getLoanScreen().getPaymentTab().isErrorPopupDisplayed(), "Loan screen : error opening in leto bank offices screen");  
         appManager.getInLetoBankOfficesScreen().verify();
+	}
+	
+	@Test(priority = 45, dependsOnMethods = { "openLoanTest" })
+	public void getQRCodeTest() {
+		appManager.getInLetoBankOfficesScreen().getQRBtnClick();
+		appManager.getInLetoBankOfficesScreen().waitForVanishLoadingIndicator();
+		Assert.assertFalse(appManager.getInLetoBankOfficesScreen().isLoadingErrorExist(), "In leto bank offices screen: get QR code loading error");
 	}
 	
 	@Test(priority = 50, dependsOnMethods = { "openLoanTest" })

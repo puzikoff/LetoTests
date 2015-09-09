@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
+import ru.letoapp.utilities.PropertyReader;
 
 public class AccountInfoScreen extends AppScreenBase{
 	
@@ -33,6 +34,12 @@ public class AccountInfoScreen extends AppScreenBase{
 	public void nextBtnClick(){
 		Log.info("Account info screen: next button click - ");
 		clickAndWaitSpinerToVanish(nextBtn);		
+	}
+
+	public void verify() {
+		verify.assertTrue(findElement(accountField, driver) != null, "Account info screen: account field");
+		verify.assertEquals(getTitleFromActionBar(), PropertyReader.getProperty("payment"), "Account info screen: title");
+		verify.assertAll();
 	}
 
 }

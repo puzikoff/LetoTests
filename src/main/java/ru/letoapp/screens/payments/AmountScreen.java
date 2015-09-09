@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.screens.AppScreenBase;
+import ru.letoapp.utilities.PropertyReader;
 
 public class AmountScreen extends AppScreenBase{
 	By amountField = By.xpath("//EditText[@id='edit_text']");
@@ -13,9 +14,16 @@ public class AmountScreen extends AppScreenBase{
 	By hundredRubBtn = By.xpath("//Button[@id='button_add_hundred']");
 	By thousandRubBtn = By.xpath("//Button[@id='button_add_thousand']");
 	By phoneNumber = By.xpath("//TextView[@value='НОМЕР ТЕЛЕФОНА']/following-sibling::LinearLayout/WeakMaskedEditText");
+	By phoneNumberBlock = By.xpath("//TextView[@value='НОМЕР ТЕЛЕФОНА']");
 	
 	public AmountScreen(WebDriver driver) {
 		super(driver);
+	}
+	
+	public void verify() {
+		verify.assertEquals(getTitleFromActionBar(), PropertyReader.getProperty("payment"), "Amount screen: title");
+		verify.assertTrue(findElement(phoneNumberBlock, driver) != null, "Amount screen: phone number block");
+		verify.assertAll();
 	}
 	
 	public boolean isAlertDisplayed() {

@@ -11,4 +11,9 @@
       <class name="ru.letoapp.tests.OpenLoanScreensTest"/>
     </classes>
   </test>
+  <test name="Preclosed Loan screens test">
+    <classes>     
+      <class name="ru.letoapp.tests.PreclosedLoanScreensTest"/>
+    </classes>
+  </test>
 </suite> 

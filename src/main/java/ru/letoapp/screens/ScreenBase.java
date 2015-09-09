@@ -106,13 +106,13 @@ public class ScreenBase {
 	                    		return null;
 	                    	}
 	                    	} catch (StaleElementReferenceException ex) {
-	                    		Log.info(by.toString() + "[waitForDisappear] Element not attached to DOM, try again" + ex);	                        
+	                    		Log.info(by.toString() + "[waitForDisappear] Element not attached to DOM, try again");	                        
 	                    		return "not_attached_to_dom";
 	                    	}     
 	                }	                
 	            });
 	        } catch (WaitTimedOutException e) {
-	            Log.info(by.toString() + " : element is still present: " + e);
+	            Log.info(by.toString() + " : element is still present: ");
 	            throw e;
 	        }
 	    }
@@ -137,13 +137,13 @@ public class ScreenBase {
 		                    		return null;
 		                    	}
 		                    	} catch (StaleElementReferenceException ex) {
-		                    		Log.info("Wait popup is not attached to DOM, try again: " + ex);	                        
+		                    		Log.info("Wait popup is not attached to DOM, try again: ");	                        
 		                    		return "not_attached_to_dom";
 		                    	}     
 		                }	                
 		            });
 		        } catch (WaitTimedOutException e) {
-		            Log.info(waitPopup.toString() + "Timeout: Wait popup is still present" + e);
+		            Log.info(waitPopup.toString() + "Timeout: Wait popup is still present");
 		            throw e;
 		   }
 		}
@@ -194,23 +194,31 @@ public class ScreenBase {
 	    }
 		
 		 protected WebElement findElement(By by, WebDriver driver) {
-			 try {
-		        List<WebElement> elements = driver.findElements(by);
-		        if (elements.size() > 0) {
-		            return elements.get(0);
-		        } else {
-		        	Log.error("No element found: " + by.toString());		        	
-		            return null;
-		        }
-			 }
-			 catch(InvalidElementStateException e) {
-				 Log.error("No element found 'InvalidElementStateException'");				 
-		         return null;
-			 }			 
-			 catch(NullPointerException e) {
-				 Log.error("No element found 'NullPointerException'");				 
-		         return null;
-			 }			 
+			 int f = 0;			 
+			 do {
+				 try {
+					 List<WebElement> elements = driver.findElements(by);
+					 if (elements.size() > 0) {
+						 return elements.get(0);
+					 } else {
+						 Log.error("No element found: " + by.toString());		        	
+						 return null;
+					 }
+				 }
+				 catch(InvalidElementStateException e) {
+					 Log.error("No element found 'InvalidElementStateException'");				 
+					 return null;
+				 }			 
+				 catch(NullPointerException e) {
+					 Log.error("No element found 'NullPointerException'");				 
+					 return null;
+				 }
+				 catch(StaleElementReferenceException e){
+					 Log.error("No element found 'NullPointerException'");
+					 ++f;
+				 }
+			 } while(f < 4);
+			 return null;
 		 }
 		 
 		 public void click(By elementToClick) {

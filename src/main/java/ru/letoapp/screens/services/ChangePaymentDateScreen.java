@@ -41,8 +41,8 @@ public class ChangePaymentDateScreen extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
-	public void verifyAfterCalculationCard(){
-		Log.info("Card screen, Change Payment Date screen: verify after calculation");
+	public void verifyAfterCalculationLoan(){
+		Log.info("Loan screen, Change Payment Date screen: verify after calculation");
 		verify.assertEquals(getTitleFromActionBar(), title, "Title");
 		verify.assertEquals(findElement(serviceHint, driver).getText(),  serviceHintText, "Service hint text");
 		verify.assertTrue(findElement(commisionBlock, driver).isDisplayed(), "Commission block");
@@ -64,8 +64,8 @@ public class ChangePaymentDateScreen extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
-	public void verifyAfterCalculationLoan(){
-		Log.info("Loan screen, Change Payment Date screen: verify after calculation");
+	public void verifyAfterCalculationCard(){
+		Log.info("Card screen, Change Payment Date screen: verify after calculation");
 		verify.assertEquals(getTitleFromActionBar(), title, "Title");
 		verify.assertEquals(findElement(serviceHint, driver).getText(),  serviceHintText, "Service hint text");
 		verify.assertTrue(findElement(commisionBlock, driver).isDisplayed(), "Commission block");

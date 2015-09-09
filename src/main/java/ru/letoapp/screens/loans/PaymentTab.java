@@ -12,6 +12,9 @@ public class PaymentTab extends AppScreenBase{
 	
 	String titleText = "Кредит";
 	final String PAYMENT_TAB_LOCATOR = "//ViewPager/NoSaveStateFrameLayout[1]";
+	By remainingMoneyHint = By.xpath("//TextView[@id='text_remaining_money']");
+	By remainingMoneyBlock = By.xpath("//TextView[@value='ОСТАЛОСЬ ВАШИХ ДЕНЕГ']");
+	String remainingMoneyHintText = "Выплачен";
 	By paymentsSchedule = By.id("widget_payments_grid");
 	By moreDetailed = By.xpath("//TextView[@id='label_top_date']/../TextView[2]");
 	By paymentBlockTitle = By.id("label_title_payment");
@@ -22,7 +25,8 @@ public class PaymentTab extends AppScreenBase{
 	By repayment = By.xpath("//TextView[@value='Автопогашение с карты другого банка']");
 	By inLetoBankOffices = By.xpath("//TextView[@value='В офисах банка']");
 	By anotherBankPayment = By.xpath("//TextView[@value='Платежом из другого банка']");
-	By paymentSystemsTerminals = By.xpath("//TextView[@value='Через терминалы платёжных систем']");	
+	By paymentSystemsTerminals = By.xpath("//TextView[@value='Через терминалы платёжных систем']");
+	By withdrawMoneyInATM = By.xpath("//TextView[@value='Снять в банкомате']");	
 	
 	@FindBy(how = How.XPATH, using = PAYMENT_TAB_LOCATOR)
 	WebElement paymentTab;
@@ -31,7 +35,7 @@ public class PaymentTab extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verifyOpenLoan() {
 		verify.assertTrue(findElement(paymentsSchedule, driver).isDisplayed(), "Payments schedule");
 		verify.assertTrue(findElement(paymentBlockTitle, driver).isDisplayed(), "Payment block title");
 		verify.assertTrue(findElement(currentPaymentBlock, driver).isDisplayed(), "Current payment block");
@@ -42,55 +46,50 @@ public class PaymentTab extends AppScreenBase{
 		verify.assertTrue(findElement(paymentSystemsTerminals, driver).isDisplayed(), "What if block");
 		verify.assertAll();
 	}
+	
+	public void verifyPreclosedLoan() {
+		verify.assertTrue(findElement(remainingMoneyHint, driver).isDisplayed(), "Remaining money hint");
+		verify.assertTrue(findElement(remainingMoneyHint, driver).getText().contains(remainingMoneyHintText), "Remaining money hint text");
+		verify.assertTrue(findElement(paymentsSchedule, driver).isDisplayed(), "Payments schedule");
+		verify.assertTrue(findElement(remainingMoneyBlock, driver).isDisplayed(), "Remaining money block");
+		verify.assertTrue(findElement(withdrawMoneyInATM, driver).isDisplayed(), "Withdraw money in ATM");
+		verify.assertAll();
+	}
 		
 	public void paymentScheduleClick() {
 		waitFor(paymentsSchedule);
 		Log.info("Loan payment tab: Payment schedule click");
-		findElement(paymentsSchedule, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(paymentsSchedule);			
 	}
 	
 	public void whatIfClick() {
 		waitForClickable(whatIf);
 		Log.info("Loan payment tab: What if? click");
-		findElement(whatIf, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(whatIf);			
 	}
 	
 	public void inLetoBankOfficesClick() {
 		waitForClickable(inLetoBankOffices);
 		Log.info("Loan payment tab: In leto bank offices payment click");
-		findElement(inLetoBankOffices, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(inLetoBankOffices);			
+	}
+	
+	public void withdrawMoneyInATMClick() {
+		waitForClickable(withdrawMoneyInATM);
+		Log.info("Loan payment tab: Withdraw money in ATM");
+		clickAndWaitSpinerToVanish(withdrawMoneyInATM);			
 	}
 	
 	public void anotherBankPaymentClick() {
 		waitForClickable(anotherBankPayment);
 		Log.info("Loan payment tab: Another bank payment click");
-		findElement(anotherBankPayment, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(anotherBankPayment);			
 	}
 	
 	public void paymentSystemsTerminalsClick() {
 		waitForClickable(paymentSystemsTerminals);
 		Log.info("Loan payment tab: Payments systems terminalst click");
-		findElement(paymentSystemsTerminals, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(paymentSystemsTerminals);			
 	}
 	
 	public String getPaymentDate() {

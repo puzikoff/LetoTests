@@ -114,7 +114,11 @@ public class AppScreenBase extends ScreenBase {
 					}
 				}
 			catch(NullPointerException e) {
-				Log.info("Error popup is not displayed: " + e);
+				Log.info("Error popup is not displayed: ");
+				return false;
+			}
+			catch(StaleElementReferenceException e) {
+				Log.info("Error popup is not displayed: ");
 				return false;
 			}
 		}
@@ -143,16 +147,16 @@ public class AppScreenBase extends ScreenBase {
 	                    			return null;
 	                    		}
 	                    		} catch (StaleElementReferenceException ex) {
-	                    			Log.info(elementToVanish.toString() + " StaleElementReferenceException: " + ex);	                        
+	                    			Log.info(elementToVanish.toString() + " StaleElementReferenceException: ");	                        
 	                    			return "StaleElementReferenceException";
 	                    		} catch (InvalidElementStateException exp) {
-	                    			Log.info(elementToVanish.toString() + " InvalidElementStateException: " + exp);
+	                    			Log.info(elementToVanish.toString() + " InvalidElementStateException: ");
 	                    			return "InvalidElementStateException";
 	                    		}
 	                		}	                
 	            });
 	        } catch (WaitTimedOutException e) {
-	            Log.info("Timeout: " + elementToVanish.toString() + " is still present" + e);
+	            Log.info("Timeout: " + elementToVanish.toString() + " is still present");
 	            throw e;
 	   }
 	}

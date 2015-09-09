@@ -7,39 +7,39 @@ import ru.letoapp.screens.ScreenBase;
 
 public class ActionBar extends ScreenBase{
 	
-	By menuBtn = By.id("home");
-	By actionBarTitle = By.id("action_bar_title");	
-	By navUpBtn = By.xpath("//HomeView/ImageView[@id='up']");
-	By contactsBtn = By.id("menu_item_contacts");
-	
+	By menuBtn = By.xpath("//ImageView[@id='home']");
+	By navUpBtn = By.xpath("//ImageView[@id='up']");
+	By actionBarTitle = By.xpath("//TextView[@id='action_bar_title']");
+	By contactsBtn = By.xpath("//ActionMenuItemView[@id='menu_item_contacts']");
+		
 	public ActionBar(WebDriver driver) {
 		super(driver);
 	} 	 
 	
 	public void menuBtnClick() {
 		Log.info("Action bar: Menu button click");
-		waitFor(menuBtn);
+		waitForClickable(menuBtn);
 		findElement(menuBtn, driver).click();
 		delay();
 	}
 	 
 	public void navUpBtnClick() {
 		Log.info("Action bar: Click NavUp button");
-		waitFor(navUpBtn);
-		findElement(navUpBtn, driver).click();	
+		waitForClickable(navUpBtn);
+		findElement(navUpBtn, driver).click();			
 		delay();
 	}
 	 
-	public void contactsBtnClick() {
+	public void contactsBtnClick() {		
+		Log.info("Action bar: Click contacts button");	
 		waitForClickable(contactsBtn);
-		Log.info("Action bar: Click contacts button");		
 		findElement(contactsBtn, driver).click();
 		delay();
 	}
 	 
-	public String getActionBarTitle() {
-		waitFor(actionBarTitle);
+	public String getActionBarTitle() {		
 		Log.info("Action bar: Get title");
+		waitFor(actionBarTitle);
 		Log.info("Action bar: Title: " + findElement(actionBarTitle, driver).getText());
 		return findElement(actionBarTitle, driver).getText();
 	} 

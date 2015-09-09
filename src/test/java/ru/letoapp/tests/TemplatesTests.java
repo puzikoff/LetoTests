@@ -15,7 +15,7 @@ public class TemplatesTests extends SetUpForSuiteBase{
 		androidNewVersionPopupHandler();
 		greetingPopupHandler();
         appManager.getAuthScreen().verifyAuthScreen();        
-        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("openPaymentsUsername"));        
+        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("paymentsUsername"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));    
         protectCodeCheckboxUnckeck();
         appManager.getAuthScreen().loginBtnClick();

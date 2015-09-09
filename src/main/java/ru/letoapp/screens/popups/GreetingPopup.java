@@ -12,8 +12,7 @@ public class GreetingPopup extends PopupBase{
 		waitFor(nextBtn);
 		Log.info("Greeting popup: Verify greeting window");
 		verify.assertEquals(findElement(message, driver).getText(), messageText, "Greeting message text");
-		verify.assertEquals(findElement(title, driver).getText(), titleText, "Greeting title");		
-		verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText, "Next button text");
+		verify.assertEquals(findElement(title, driver).getText(), titleText, "Greeting title");	
 		verify.assertAll();
 	}
 
