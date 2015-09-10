@@ -29,18 +29,13 @@ public class CardInfoTab extends AppScreenBase{
 	public void howToUseCardClick() {
 		waitFor(howToUseCardBtn);
 		Log.info("Card screen, info tab: How to use card button click");
-		findElement(howToUseCardBtn, driver).click();
-		delay();
+		click(howToUseCardBtn);
 	}
 	
 	public void cardOperationsClick() {
 		waitFor(cardOperationsBtn);
 		Log.info("Card screen, info tab: Card operations button click");
-		findElement(cardOperationsBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(cardOperationsBtn);	
 	}
 
 	public void verify() {

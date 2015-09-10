@@ -10,19 +10,21 @@ import ru.letoapp.screens.others.EditDisplayNameBlock;
 public class DepositScreen extends AppScreenBase{
 	
 	private DepositTab depositTab;
-	private DepositManagementTab depositManagementTab;
+	private DepositInfoTab depositInfoTab;
 	private EditDisplayNameBlock editDisplayName;
-	String actionBarTitle = "Вклад";	
+	
+	String title = "Вклад";
 	By depositTabBtn = By.xpath("//TextView[@value='ВКЛАД']");	
 	By infoTabBtn = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");	
+	By updateIndicator = By.xpath("//ProgressBar");
 	
 	public DepositScreen(WebDriver driver) {
 		super(driver);
 		depositTab = PageFactory.initElements(driver,DepositTab.class);
-		depositManagementTab = PageFactory.initElements(driver, DepositManagementTab.class);
+		depositInfoTab = PageFactory.initElements(driver, DepositInfoTab.class);
 		editDisplayName = PageFactory.initElements(driver, EditDisplayNameBlock.class);
 		depositTab.setDriver(driver);
-		depositManagementTab.setDriver(driver);
+		depositInfoTab.setDriver(driver);
 		editDisplayName.setDriver(driver);
 	}
 	
@@ -30,8 +32,8 @@ public class DepositScreen extends AppScreenBase{
 		return depositTab;
 	}
 	
-	public DepositManagementTab getDepositManagementTab(){
-		return depositManagementTab;
+	public DepositInfoTab getDepositInfoTab(){
+		return depositInfoTab;
 	}
 	
 	public EditDisplayNameBlock getEditDisplayName() {
@@ -48,5 +50,15 @@ public class DepositScreen extends AppScreenBase{
 		Log.info("Deposit Screen: Deposit tab click");
 		findElement(depositTabBtn, driver).click();
 		delay();
+	}
+
+	public void waitForVanishUpdateIndicator() {
+		Log.info("Deposit screen: Wait for vanish update spiner");		
+		waitForVanish(updateIndicator);				
+	}
+
+	public void verify() {
+		verify.assertEquals(getTitleFromActionBar(), title , "Deposit screen: title");		
+		verify.assertAll();				
 	}
 }

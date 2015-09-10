@@ -265,6 +265,11 @@ public class WhatIfScreen extends AppScreenBase{
 		findElement(changePayDateWidget, driver).click();		
 	}
 
+	public void verifyDepositWhatIfScreen() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }

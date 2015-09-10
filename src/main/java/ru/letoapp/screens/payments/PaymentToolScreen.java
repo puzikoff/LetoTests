@@ -20,7 +20,7 @@ public class PaymentToolScreen extends AppScreenBase{
 	
 	public void verify () {
 		verify.assertEquals(findElement(subtitle, driver).getText(), subtitleText, "Payment tool screen: subtitle");
-		verify.assertFalse(isPaymentToolDetailsEmpty(PropertyReader.getProperty("cardName")), "Payment tool screen: Card deteails is empty");
+		//verify.assertFalse(isPaymentToolDetailsEmpty(PropertyReader.getProperty("cardName")), "Payment tool screen: Card deteails is empty");
 		verify.assertTrue(findElement(comissionBlock, driver) != null, "Payment tool screen: comission block");
 		verify.assertTrue(findElement(amountBlock, driver) != null, "Payment tool screen: amount block");
 		verify.assertTrue(findElement(phoneNumberBlock, driver) != null, "Payment tool screen: phone number block");

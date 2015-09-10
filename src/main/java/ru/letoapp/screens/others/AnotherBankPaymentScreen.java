@@ -9,8 +9,8 @@ public class AnotherBankPaymentScreen extends AppScreenBase{
 	String titleText = "Платежом из другого банка";
 	By hint = By.id("label_description");	
 	String hintText = "Зачисление может занять до 2-х рабочих дней.";
-	By bankNameBlock = By.xpath("//TextView[@value='НАИМЕНОВАНИЕ БАНКА']");
-	By bankNameBlockText = By.xpath("//TextView[@value='НАИМЕНОВАНИЕ БАНКА']/following-sibling::TextView");
+	By bankNameBlock = By.xpath("//CaptionTextItemView_[1]");
+	By bankNameBlockText = By.xpath("//CaptionTextItemView_[1]/TextView[@id='label_text']");
 	String bankNameText = "ПАО \"Лето Банк\"";
 	By bIKBlock = By.xpath("//TextView[@value='БИК']");
 	By bIKBlockText = By.xpath("//TextView[@value='БИК']/following-sibling::TextView");
@@ -24,7 +24,7 @@ public class AnotherBankPaymentScreen extends AppScreenBase{
 	By correspondentAccountBlock = By.xpath("//TextView[@value='КОРР. СЧЁТ']");
 	By correspondentAccountBlockText = By.xpath("//TextView[@value='КОРР. СЧЁТ']/following-sibling::TextView");
 	String corespondentAccountValue = "3010 1810 8000 0000 0214";	
-	By clientAccountBlock = By.xpath("//TextView[@value='НОМЕР СЧЁТА КЛИЕНТА']");	
+	By clientAccountBlock = By.xpath("//TextView[contains(@value,'НОМЕР СЧЁТА')]");	
 	By paymentPurposeBlock = By.xpath("//TextView[@value='НАЗНАЧЕНИЕ ПЛАТЕЖА']");	
 	
 	public AnotherBankPaymentScreen(WebDriver driver) {

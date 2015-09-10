@@ -46,8 +46,7 @@ public class CardTab extends AppScreenBase{
 	public void expandBtnClick() {
 		waitFor(expandBtn);
 		Log.info("Card screen, Card Tab: Expand button click");
-		findElement(expandBtn, driver).click();
-		delay();
+		click(expandBtn);
 	}
 	
 	public void mandatoryPaymentClick() {
@@ -78,45 +77,31 @@ public class CardTab extends AppScreenBase{
 	public void holdsBtnClick() {
 		waitFor(holdsBtn);
 		Log.info("Card screen, Card Tab: Hold funds click");
-		findElement(holdsBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(holdsBtn);
 	}
 	
 	public void blockFundsSwitchClick() {
 		waitFor(blockFundsSwitch);
 		Log.info("Card screen, Card Tab: Block funds switch click");
-		findElement(blockFundsSwitch, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(blockFundsSwitch);
 	}
 	
 	public void howWorksBlockFundsBtnClick() {
 		waitFor(howWorksBlockFundsBtn);
 		Log.info("Card screen, Card Tab: How works block funds click");
-		findElement(howWorksBlockFundsBtn, driver).click();
-		delay();		
+		click(howWorksBlockFundsBtn);		
 	}
 	
 	public void cardOperationsClick(){
 		waitFor(cardOperationsBtn);
 		Log.info("Card screen, Card Tab: Card operations click");
-		findElement(cardOperationsBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(cardOperationsBtn);	
 	}
 	
 	public void whatIfBtnClick(){
 		waitFor(whatIfBtn);
 		Log.info("Card screen, Card Tab: What if button click");
-		findElement(whatIfBtn, driver).click();
-		delay();		
+		click(whatIfBtn);		
 	}
 	
 	public String getTotalAvailable() {		
@@ -158,31 +143,19 @@ public class CardTab extends AppScreenBase{
 	public void inLetoBankOfficesClick() {
 		waitForClickable(inLetoBankOffices);
 		Log.info("Card card tab: In leto bank offices payment click");
-		findElement(inLetoBankOffices, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(inLetoBankOffices);	
 	}
 	
 	public void anotherBankPaymentClick() {
 		waitForClickable(anotherBankPayment);
 		Log.info("Card card tab: Another bank payment click");
-		findElement(anotherBankPayment, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(anotherBankPayment);	
 	}
 	
 	public void paymentSystemsTerminalsClick() {
 		waitForClickable(paymentSystemsTerminals);
 		Log.info("Card card tab: Payments systems terminalst click");
-		findElement(paymentSystemsTerminals, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(paymentSystemsTerminals);	
 	}
 
 }

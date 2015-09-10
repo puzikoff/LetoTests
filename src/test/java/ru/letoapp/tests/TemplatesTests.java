@@ -71,6 +71,7 @@ public class TemplatesTests extends SetUpForSuiteBase{
 		appManager.getPaymentsAndTransfersScreen().getPaymentsTab().paymentClick(PropertyReader.getProperty("payment"));
 		Assert.assertFalse(appManager.getPaymentsAndTransfersScreen().getPaymentsTab().isErrorPopupDisplayed(), "Payments tab: Error popup displayed");
 		appManager.getAccountInfoScreen().enterAccount(PropertyReader.getProperty("paymentPhoneNumber"));
+		appManager.getAccountInfoScreen().verify();
 		appManager.getAccountInfoScreen().nextBtnClick();
 		Assert.assertFalse(appManager.getAccountInfoScreen().isErrorPopupDisplayed(), "Account info screen: Error popup displayed");		 
 		appManager.getAmountScreen().tenRubBtnClick();
@@ -79,10 +80,12 @@ public class TemplatesTests extends SetUpForSuiteBase{
 		Assert.assertEquals(appManager.getAmountScreen().getAmount(), "1110", "Amount screen: amount");
 		Assert.assertEquals(appManager.getAmountScreen().getPhoneNumber(), "7" + PropertyReader.getProperty("paymentPhoneNumber"), "Amount screen: phone number");		
 		appManager.getAmountScreen().enterAmount(PropertyReader.getProperty("amountForTemplate"));
+		appManager.getAmountScreen().verify();
 		appManager.getAmountScreen().nextBtnClick();
 		Assert.assertFalse(appManager.getAmountScreen().isErrorPopupDisplayed(), "Amount screen: Error popup displayed");
 		Assert.assertEquals(appManager.getPaymentToolScreen().getAmount(), PropertyReader.getProperty("amountForTemplate"), "Amount screen: amount");
 		Assert.assertEquals(appManager.getPaymentToolScreen().getPhoneNumber(), "7" + PropertyReader.getProperty("paymentPhoneNumber"), "Amount screen: phone number");
+		appManager.getPaymentToolScreen().verify();		
 		appManager.getPaymentToolScreen().nextBtnClick();
 		Assert.assertFalse(appManager.getPaymentToolScreen().isErrorPopupDisplayed(), "Payment tool screen: Error popup displayed");
 		appManager.getVerificationCodeScreen().enterVerificationCode(PropertyReader.getProperty("verificationCode"));
@@ -91,7 +94,7 @@ public class TemplatesTests extends SetUpForSuiteBase{
 		appManager.getVerificationCodeScreen().nextBtnClick();
 		Assert.assertFalse(appManager.getVerificationCodeScreen().isErrorPopupDisplayed(), "Verification screen: Error popup displayed");
 		appManager.getStatusScreen().waitForVanishUpdateStatus();
-		appManager.getStatusScreen().editTemplateName("beeline");
+		appManager.getStatusScreen().editTemplateName(PropertyReader.getProperty("createdTemplate"));
 		Assert.assertEquals(appManager.getStatusScreen().getAmount(), PropertyReader.getProperty("amountForTemplate"), "Amount screen: amount");
 		Assert.assertEquals(appManager.getStatusScreen().getPhoneNumber(), "7" + PropertyReader.getProperty("paymentPhoneNumber"), "Amount screen: phone number");
 		appManager.getStatusScreen().createTemplaetBtnClick();
@@ -99,24 +102,28 @@ public class TemplatesTests extends SetUpForSuiteBase{
 	
 	@Test(priority = 50, dependsOnMethods = { "openPaymentsAndTransfersScreenTest" } )
 	public void payWithTemplateTest(){	
-		appManager.getPaymentsAndTransfersScreen().getTemplatesTab().payWithTemplate("beeline");
+		appManager.getPaymentsAndTransfersScreen().getTemplatesTab().payWithTemplate(PropertyReader.getProperty("createdTemplate"));
 		Assert.assertFalse(appManager.getPaymentsAndTransfersScreen().getTemplatesTab().isErrorPopupDisplayed(), "Templates tab: Error popup displayed");
+		appManager.getAccountInfoScreen().verify();
 		appManager.getAccountInfoScreen().nextBtnClick();
 		Assert.assertFalse(appManager.getAccountInfoScreen().isErrorPopupDisplayed(), "Account info screen: Error popup displayed");		 
 		appManager.getAmountScreen().tenRubBtnClick();
 		appManager.getAmountScreen().hundredRubBtnClick();
 		appManager.getAmountScreen().thousandRubBtnClick();
 		appManager.getAmountScreen().enterAmount("2");
+		appManager.getAmountScreen().verify();
 		appManager.getAmountScreen().nextBtnClick();
 		Assert.assertFalse(appManager.getAmountScreen().isErrorPopupDisplayed(), "Amount screen: Error popup displayed");
+		appManager.getPaymentToolScreen().verify();
 		appManager.getPaymentToolScreen().nextBtnClick();
 		Assert.assertFalse(appManager.getPaymentToolScreen().isErrorPopupDisplayed(), "Payment tool screen: Error popup displayed");
-		appManager.getVerificationCodeScreen().enterVerificationCode("2233");
+		appManager.getVerificationCodeScreen().enterVerificationCode(PropertyReader.getProperty("verificationCode"));
 		appManager.getVerificationCodeScreen().nextBtnClick();
 		appManager.getVerificationCodeScreen().navUpBtnClick();		 
-		appManager.getPaymentsAndTransfersScreen().getTemplatesTab().openTemplateContextMenu("beeline");
+		appManager.getPaymentsAndTransfersScreen().getTemplatesTab().openTemplateContextMenu(PropertyReader.getProperty("createdTemplate"));
 		appManager.getPaymentsAndTransfersScreen().getTemplatesTab().getTemplateContextMenu().payBtnClick();
 		Assert.assertFalse(appManager.getPaymentsAndTransfersScreen().getTemplatesTab().isErrorPopupDisplayed(), "Templates tab: Error popup displayed");
+		appManager.getAccountInfoScreen().verify();
 		appManager.getAccountInfoScreen().navUpBtnClick();
 	}
 	
@@ -127,5 +134,4 @@ public class TemplatesTests extends SetUpForSuiteBase{
 		appManager.getPaymentsAndTransfersScreen().getTemplatesTab().getTemplateContextMenu().deleteBtnClick();
 		appManager.getPaymentsAndTransfersScreen().getTemplatesTab().getTemplateDeleteConfirmationPopup().yesBtnClick();		 
 	}
-
 }

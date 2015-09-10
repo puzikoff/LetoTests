@@ -1,13 +1,12 @@
 package ru.letoapp.tests;
 
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import ru.letoapp.tests.common.SetUpForSuiteBase;
 import ru.letoapp.utilities.PropertyReader;
 
-public class DevelopTest extends SetUpForSuiteBase{	
+public class OpenDepositScreensTest extends SetUpForSuiteBase{	
 	
 	String depositScreenTitle = "Вклад";
 

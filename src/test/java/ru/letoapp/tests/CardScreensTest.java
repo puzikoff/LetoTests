@@ -113,12 +113,19 @@ public class CardScreensTest extends SetUpForSuiteBase{
         appManager.getWhatIfScreen().verifyCardWhatIfScreen();
 	} 
 	
-	@Test(priority = 84, dependsOnMethods = { "openCardTest" })
+	@Test(priority = 82, dependsOnMethods = { "openCardTest" })
 	public void openInLetoBankOfficesScreenTest() {
 		incorrectScreenHandler(cardScreenTitle);		
         appManager.getCardScreen().getCardTab().inLetoBankOfficesClick();
         Assert.assertFalse(appManager.getCardScreen().getCardTab().isErrorPopupDisplayed(), "Card screen : error opening in leto bank offices screen");
         appManager.getInLetoBankOfficesScreen().verify();
+	}
+	
+	@Test(priority = 83, dependsOnMethods = { "openCardTest" })
+	public void getQRCodeTest() {
+		appManager.getInLetoBankOfficesScreen().getQRBtnClick();
+		appManager.getInLetoBankOfficesScreen().waitForVanishLoadingIndicator();
+		Assert.assertFalse(appManager.getInLetoBankOfficesScreen().isLoadingErrorExist(), "In leto bank offices screen: get QR code loading error");
 	}
 	
 	@Test(priority = 85, dependsOnMethods = { "openCardTest" })
