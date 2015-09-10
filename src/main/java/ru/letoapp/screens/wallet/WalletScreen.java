@@ -11,6 +11,8 @@ public class WalletScreen extends AppScreenBase{
 	private WalletInfoTab walletInfoTab;
 	By infoTabBtn = By.xpath("//TextView[@value='ИНФОРМАЦИЯ']");
 	By walletTabBtn = By.xpath("//TextView[@value='КОШЕЛЁК']");
+	By updateIndicator = By.xpath("//ProgressBar");
+	String title = "Мой кошелёк";
 	
 
 	public WalletScreen(WebDriver driver) {
@@ -39,6 +41,16 @@ public class WalletScreen extends AppScreenBase{
 		Log.info("Wallet Screen: Wallet tab click");
 		findElement(walletTabBtn, driver);
 		delay(2000);
+	}
+
+	public void waitForVanishUpdateIndicator() {
+		Log.info("Wallet screenn: Wait for vanish update spiner");		
+		waitForVanish(updateIndicator);				
+	}
+
+	public void verify() {
+		verify.assertEquals(getTitleFromActionBar(), title , "Wallet screen: title");
+		verify.assertAll();
 	}	
 	
 }

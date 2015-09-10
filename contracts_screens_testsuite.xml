@@ -21,4 +21,9 @@
       <class name="ru.letoapp.tests.OpenDepositScreensTest"/>
     </classes>
   </test>
+  <test name="Wallet with zero amount screens test">
+    <classes>     
+      <class name="ru.letoapp.tests.ZeroWalletScreensTest"/>
+    </classes>
+  </test>
 </suite> 

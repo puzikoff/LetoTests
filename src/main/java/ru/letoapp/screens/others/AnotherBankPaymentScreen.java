@@ -8,7 +8,7 @@ import ru.letoapp.screens.AppScreenBase;
 public class AnotherBankPaymentScreen extends AppScreenBase{	
 	String titleText = "Платежом из другого банка";
 	By hint = By.id("label_description");	
-	String hintText = "Зачисление может занять до 2-х рабочих дней.";
+	String hintText = "Зачисление может занять до 3-х рабочих дней.";
 	By bankNameBlock = By.xpath("//CaptionTextItemView_[1]");
 	By bankNameBlockText = By.xpath("//CaptionTextItemView_[1]/TextView[@id='label_text']");
 	String bankNameText = "ПАО \"Лето Банк\"";

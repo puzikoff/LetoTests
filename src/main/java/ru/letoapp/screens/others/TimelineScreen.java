@@ -10,6 +10,7 @@ public class TimelineScreen extends AppScreenBase{
 	private String loanOperationsTitleText = "Операции по кредиту";
 	private String cardOperationsTitleText = "Операции по карте";
 	private String depositOperationsTitleText = "Операции по вкладу";
+	private String walletOperationsTitleText = "Операции по кошельку";
 	private String connectionServicesHistoryTitleText = "История подключения услуг";
 	private String holdsTitleText = "Заблокировано";
 	By updateSpiner = By.xpath("//ProgressBar[@id='progress_loading']");
@@ -33,6 +34,11 @@ public class TimelineScreen extends AppScreenBase{
 	public void verifyDepositOperationsScreen() {
 		verify.assertTrue(getTitleFromActionBar().contains(depositOperationsTitleText), "deposit operations screen: title");
 		verify.assertAll();	
+	}
+	
+	public void verifyWalletOperationsScreen() {
+		verify.assertTrue(getTitleFromActionBar().contains(walletOperationsTitleText), "wallet operations screen: title");
+		verify.assertAll();		
 	}
 	
 	public void verifyConnectionServicesHistoryScreen() {
@@ -59,5 +65,7 @@ public class TimelineScreen extends AppScreenBase{
 		waitForVanish(updateSpiner);
 		
 	}
+
+	
 
 }

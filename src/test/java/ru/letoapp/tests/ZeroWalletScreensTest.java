@@ -1,14 +1,14 @@
 package ru.letoapp.tests;
 
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import ru.letoapp.tests.common.SetUpForSuiteBase;
 import ru.letoapp.utilities.PropertyReader;
 
-public class DevelopTest extends SetUpForSuiteBase{		
-	String walletTitle = "Мой кошелёк";
+public class ZeroWalletScreensTest extends SetUpForSuiteBase{
+	
+String walletTitle = "Мой кошелёк";
 	
 	@Test(priority = 1)
 	public void auth(){		
@@ -76,6 +76,22 @@ public class DevelopTest extends SetUpForSuiteBase{
         appManager.getPaymentsInTerminalsSecreen().verify();
 	}
 	
+	@Test(priority = 80, dependsOnMethods = { "openWalletTest" })
+	public void walletScreeenInfoTabVerify() {
+		incorrectScreenHandler(walletTitle);	
+	    appManager.getWalletScreen().infoTabClick();
+	    appManager.getWalletScreen().getWalletInfoTab().verifyZeroWallet();    
+	}
+	
+	@Test(priority = 90, dependsOnMethods = { "openWalletTest" })
+	public void walletOperationsFromInfoTabTest() {
+        appManager.getWalletScreen().getWalletInfoTab().walletOperationsBtnClick();
+        Assert.assertFalse(appManager.getWalletScreen().getWalletInfoTab().isErrorPopupDisplayed(), "Wallet screen: Error opening wallet operations");
+        appManager.getTimelineScreen().waitForVanishUpdateSpiner();
+        Assert.assertFalse(appManager.getTimelineScreen().isLoadingErrorExist(), "Wallet operations screen: Loading ERROR");
+        appManager.getTimelineScreen().verifyWalletOperationsScreen();
+	}
+	
 	@Test(priority = 180, dependsOnMethods = { "openWalletTest" })
 	public void exit() {
 		incorrectScreenHandler(walletTitle);
@@ -83,4 +99,5 @@ public class DevelopTest extends SetUpForSuiteBase{
         appManager.getDashboardScreen().openDrawer();
         appManager.getDashboardScreen().getDrawer().exitBtnClick();
     }
+
 }

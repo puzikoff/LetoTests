@@ -107,7 +107,7 @@ public class OpenDepositScreensTest extends SetUpForSuiteBase{
 	}
 	
 	@Test(priority = 100, dependsOnMethods = { "openDepositTest" })
-	public void cardOperationsScreenTest() {
+	public void depositOperationsScreenTest() {
 		incorrectScreenHandler(depositScreenTitle);
         appManager.getDepositScreen().getDepositInfoTab().depositOperationsClick();
         Assert.assertFalse(appManager.getDepositScreen().getDepositInfoTab().isErrorPopupDisplayed(), "Deposit screen: Error opening card operations");
