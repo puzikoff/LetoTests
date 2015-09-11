@@ -27,11 +27,24 @@ public class WalletTab extends AppScreenBase{
 	}	
 	
 	public void verifyZeroWallet() {		
-		verify.assertTrue(findElement(totalAvailable, driver).isDisplayed(), "Wallet info body");
-		verify.assertTrue(findElement(totalAvailableCaption, driver).isDisplayed(), "Wallet info body");
-		verify.assertEquals(findElement(walletHint, driver).getText(), walletHintText, "Wallet info body");
+		verify.assertTrue(findElement(totalAvailable, driver).isDisplayed(), "total available");
+		verify.assertTrue(findElement(totalAvailableCaption, driver).isDisplayed(), "total available caption");
+		verify.assertEquals(findElement(walletHint, driver).getText(), walletHintText, "Wallet hint");
 		verify.assertTrue(findElement(connectCardBtn, driver).isDisplayed(), "connect button");
 		verify.assertTrue(findElement(showInfoOnlineBtn, driver).isDisplayed(), "show info online");
+		verify.assertTrue(findElement(addFundsBtn, driver).isDisplayed(), "add funds button");
+		verify.assertTrue(findElement(paymentBtn, driver).isDisplayed(), "payments button");
+		verify.assertTrue(findElement(walletOperationsBtn, driver).isDisplayed(), "wallet operations button");
+		verify.assertAll();
+	}
+	
+	public void verifyNotZeroWallet() {		
+		verify.assertTrue(findElement(totalAvailable, driver).isDisplayed(), "total available");
+		verify.assertTrue(Integer.valueOf(onlyNumbers(findElement(totalAvailable, driver).getText())) > 0, "total available > 0");
+		verify.assertTrue(findElement(totalAvailableCaption, driver).isDisplayed(), "Wallet info body");
+		verify.assertEquals(findElement(walletHint, driver).getText(), walletHintText, "Wallet info body");
+		verify.assertFalse(findElement(connectCardBtn, driver).isDisplayed(), "connect button");
+		verify.assertFalse(findElement(showInfoOnlineBtn, driver).isDisplayed(), "show info online");
 		verify.assertTrue(findElement(addFundsBtn, driver).isDisplayed(), "add funds button");
 		verify.assertTrue(findElement(paymentBtn, driver).isDisplayed(), "payments button");
 		verify.assertTrue(findElement(walletOperationsBtn, driver).isDisplayed(), "wallet operations button");

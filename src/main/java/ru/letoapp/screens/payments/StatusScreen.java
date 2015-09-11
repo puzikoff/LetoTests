@@ -43,16 +43,16 @@ public class StatusScreen extends AppScreenBase{
 	
 	public String getComission() {
 		Log.info("Payment tool screen: comission: " + findElement(comission, driver).getText());
-		return onlyNumbersString(findElement(comission, driver).getText());
+		return onlyNumbers(findElement(comission, driver).getText());
 	}
 	
 	public String getAmount() {
 		Log.info("Payment tool screen: amount: " + findElement(amount, driver).getText());
-		return onlyNumbersString(findElement(amount, driver).getText());
+		return onlyNumbers(findElement(amount, driver).getText());
 	}
 	
 	public String getPhoneNumber() {
 		Log.info("Payment tool screen: phoneNumber: " + findElement(phoneNumber, driver).getText());
-		return onlyNumbersString(findElement(phoneNumber, driver).getText());
+		return onlyNumbers(findElement(phoneNumber, driver).getText());
 	}
 }

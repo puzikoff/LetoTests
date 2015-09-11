@@ -59,7 +59,7 @@ public class CardInfoTab extends AppScreenBase{
 		Log.info("Get payment date from info tab");		
 		String paymentDate = findElement(paymentDateBlockText, driver).getText();
 		Log.info("Payment date block text: " + paymentDate);
-		Log.info("Payment date: " + onlyNumbersString(paymentDate));
-		return onlyNumbersString(paymentDate);
+		Log.info("Payment date: " + onlyNumbers(paymentDate));
+		return onlyNumbers(paymentDate);
 	}
 }

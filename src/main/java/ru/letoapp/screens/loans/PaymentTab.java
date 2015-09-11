@@ -96,8 +96,8 @@ public class PaymentTab extends AppScreenBase{
 		Log.info("Loan screen, Payment tab: Get payment date from payment tab");		
 		String paymentDate = findElement(nextPaymentDate, driver).getText();
 		Log.info("Payment date block text: " + paymentDate);
-		Log.info("Payment date: " + onlyNumbersString(paymentDate));
-		return onlyNumbersString(paymentDate);
+		Log.info("Payment date: " + onlyNumbers(paymentDate));
+		return onlyNumbers(paymentDate);
 	}
 	
 	/*public void findTest() {

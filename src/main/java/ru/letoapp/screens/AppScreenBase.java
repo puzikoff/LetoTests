@@ -181,7 +181,7 @@ public class AppScreenBase extends ScreenBase {
 /* ------ Common methods --- */
 	
 	
-	public String onlyNumbersString(String s) {
+	public String onlyNumbers(String s) {
 		s = s.replaceAll("\\D+", "");	
 		return s;
 	}

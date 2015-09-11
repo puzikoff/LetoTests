@@ -68,7 +68,7 @@ public class PartRepaymentScreen extends AppScreenBase{
 		
 	public String getNextPayment() {
 		Log.info("Part repayment screen: get next payment sum");		
-		return onlyNumbersString(findElement(nextPayment, driver).getText());
+		return onlyNumbers(findElement(nextPayment, driver).getText());
 	}
 	
 	public String calculateSumToPay(String nextPaymentSum) {		

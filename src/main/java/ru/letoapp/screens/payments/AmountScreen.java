@@ -58,12 +58,12 @@ public class AmountScreen extends AppScreenBase{
 
 	public String getAmount() {
 		Log.info("Amount screen: Amount: " + findElement(amountField, driver).getText());
-		return onlyNumbersString(findElement(amountField, driver).getText());		
+		return onlyNumbers(findElement(amountField, driver).getText());		
 	}
 	
 	public String getPhoneNumber() {
 		Log.info("Amount screen: Phone number: " + findElement(phoneNumber, driver).getText());
-		return onlyNumbersString(findElement(phoneNumber, driver).getText());		
+		return onlyNumbers(findElement(phoneNumber, driver).getText());		
 	}
 	
 }

@@ -108,7 +108,7 @@ public class CardTab extends AppScreenBase{
 		String ta = null;
 		waitFor(totalAvailable);		
 		ta = findElement(totalAvailable, driver).getText();
-		ta = onlyNumbersString(ta);
+		ta = onlyNumbers(ta);
 		Log.info("Card tab: get Total Available: " + ta);
 		return ta;
 	}
@@ -117,7 +117,7 @@ public class CardTab extends AppScreenBase{
 		String cf = null;
 		waitFor(creditFunds);
 		cf = findElement(creditFunds, driver).getText();
-		cf = onlyNumbersString(cf);
+		cf = onlyNumbers(cf);
 		Log.info("Card tab: get Credit Funds: " + cf);
 		return cf;
 	}
@@ -126,7 +126,7 @@ public class CardTab extends AppScreenBase{
 		String of = null;
 		waitFor(ownFunds);
 		of = findElement(ownFunds, driver).getText();
-		of = onlyNumbersString(of);	
+		of = onlyNumbers(of);	
 		Log.info("Card tab: get Own Funds: " + of);
 		return of;
 	}
@@ -135,7 +135,7 @@ public class CardTab extends AppScreenBase{
 		String bf = null;
 		waitFor(blockedFunds);
 		bf = findElement(blockedFunds, driver).getText();
-		bf = onlyNumbersString(bf);	
+		bf = onlyNumbers(bf);	
 		Log.info("Card Screen 'card' tab: get Blocked Funds: " + bf);
 		return bf;
 	}
