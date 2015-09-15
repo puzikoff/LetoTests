@@ -80,6 +80,23 @@ public class DepositInfoTab extends AppScreenBase{
 		verify.assertAll();
 	}
 	
+	public void verifyCanceledDeposit() {
+		verify.assertTrue(findElement(openingTitle, driver).isDisplayed(), "Deposit info tab: opening title");
+		verify.assertTrue(findElement(signingDateBlock, driver).isDisplayed(), "Deposit info tab: signing date");		
+		verify.assertTrue(findElement(conditionsTitle, driver).isDisplayed(), "Deposit info tab: conditions title");
+		verify.assertTrue(findElement(partialWithdrawBlock, driver) != null, "Deposit info tab: partial withdraw");		
+		verify.assertTrue(findElement(operationsTitle, driver).isDisplayed(), "Deposit info tab: operations title");	
+		verify.assertTrue(findElement(additionsAmount, driver).isDisplayed(), "Deposit info tab: deposit additions");
+		verify.assertTrue(findElement(depositOperationsBtn, driver).isDisplayed(), "Deposit info tab: deposit operations title");
+		verify.assertTrue(findElement(interestInfoTitle, driver).isDisplayed(), "Deposit info tab: interest info title");
+		verify.assertTrue(findElement(interestPeriodBlock, driver).isDisplayed(), "Deposit info tab: interest period");
+		verify.assertTrue(findElement(interestTypeBlock, driver).isDisplayed(), "Deposit info tab: interest type");
+		verify.assertTrue(findElement(paidInterestBlock, driver).isDisplayed(), "Deposit info tab: paid interest");
+		verify.assertTrue(findElement(interestRatesBlock, driver).isDisplayed(), "Deposit info tab: interest rates");
+		verify.assertTrue(findElement(earlyInterestRatesBlock, driver).isDisplayed(), "Deposit info tab: early interest rates");		
+		verify.assertAll();
+	}
+	
 	public void depositOperationsClick() {
 		waitFor(depositOperationsBtn);
 		Log.info("Deposit screen, info tab: Card operations button click");

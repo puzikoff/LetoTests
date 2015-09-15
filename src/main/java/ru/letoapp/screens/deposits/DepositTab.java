@@ -32,6 +32,12 @@ public class DepositTab extends AppScreenBase{
 	By anotherBankPayment = By.xpath("//TextView[@value='Платежом из другого банка']");
 	By paymentSystemsTerminals = By.xpath("//TextView[@value='Через терминалы платёжных систем']");	
 	
+	By canceledMessageLayout = By.xpath("//LinearLayout[@id='layout_canceled_message']");
+	By canceledMessage = By.xpath("//LinearLayout[@id='layout_canceled_message']/TextView[@value='Вклад отменён']");
+	
+	By depositTerm = By.xpath("//TextView[@value='СРОК ВКЛАДА']");
+	By minRequiredAmount = By.xpath("//TextView[@value='МИНИМАЛЬНАЯ СУММА ДЛЯ ОТКРЫТИЯ']");
+	
 
 	public DepositTab(WebDriver driver) {
 		super(driver);
@@ -50,6 +56,15 @@ public class DepositTab extends AppScreenBase{
 		verify.assertTrue(findElement(depositBreakdown, driver) != null, "deposit breakdown container");
 		verify.assertTrue(findElement(interestRatesBlock, driver).isDisplayed(), "Interest rates block");
 		verify.assertTrue(findElement(closedDateBlock, driver).isDisplayed(), "Closed date block");
+		verify.assertFalse(findElement(whatIfBtn, driver).isDisplayed(), "What if");
+		verify.assertAll();		
+	}
+	
+	public void verifyCanceledDeposit() {
+		verify.assertTrue(findElement(depositTerm, driver).isDisplayed(), "Deposit term block");
+		verify.assertTrue(findElement(interestRatesBlock, driver).isDisplayed(), "Interest rates block");
+		verify.assertTrue(findElement(canceledMessage, driver).isDisplayed(), "canceled message");
+		verify.assertTrue(findElement(minRequiredAmount, driver).isDisplayed(), "min required amount");
 		verify.assertFalse(findElement(whatIfBtn, driver).isDisplayed(), "What if");
 		verify.assertAll();		
 	}

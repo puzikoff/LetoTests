@@ -15,7 +15,7 @@ public class DevelopTest extends SetUpForSuiteBase{
 		androidNewVersionPopupHandler();
 		greetingPopupHandler();
         appManager.getAuthScreen().verifyAuthScreen();        
-        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("closedDepositUsername"));        
+        appManager.getAuthScreen().enterUsername(PropertyReader.getProperty("canceledDepositUsername"));        
         appManager.getAuthScreen().enterPassword(PropertyReader.getProperty("password"));    
         protectCodeCheckboxUnckeck();
         appManager.getAuthScreen().loginBtnClick();
@@ -32,7 +32,7 @@ public class DevelopTest extends SetUpForSuiteBase{
 	
 	@Test(priority = 20, dependsOnMethods = { "auth" } )
 	public void openDepositFromDepositsListTest(){				
-		appManager.getDepositsListScreen().openDeposit(PropertyReader.getProperty("closedDepositName"));
+		appManager.getDepositsListScreen().openDeposit(PropertyReader.getProperty("canceledDepositName"));
 		Assert.assertFalse(appManager.getDepositsListScreen().isErrorPopupDisplayed(), "Deposits list, open deposit: Error popup displayed");
         appManager.getDepositScreen().waitForVanishUpdateIndicator();
 	}
@@ -40,7 +40,7 @@ public class DevelopTest extends SetUpForSuiteBase{
 	@Test(priority = 30, dependsOnMethods = { "openDepositFromDepositsListTest" })
 	public void depositScreenDepositTabVerify() {
         appManager.getDepositScreen().verify();
-        appManager.getDepositScreen().getDepositTab().verifyClosedDeposit();
+        appManager.getDepositScreen().getDepositTab().verifyCanceledDeposit();
 	}
 	
 	@Test(priority = 40, dependsOnMethods = { "openDepositFromDepositsListTest" })	
@@ -51,23 +51,17 @@ public class DevelopTest extends SetUpForSuiteBase{
 		Assert.assertFalse(appManager.getDepositScreen().isErrorPopupDisplayed(), "Deposit screen, edit display name: error popup displayed");
 		Assert.assertEquals(appManager.getDepositScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("newDepositName"));
 		appManager.getDepositScreen().getEditDisplayName().editDisplayNameBtnClick();
-		appManager.getDepositScreen().getEditDisplayName().editDisplayName(PropertyReader.getProperty("closedDepositName"));
+		appManager.getDepositScreen().getEditDisplayName().editDisplayName(PropertyReader.getProperty("canceledDepositName"));
 		appManager.getDepositScreen().getEditDisplayName().editDisplayNamePopupNextBtnClick();
 		Assert.assertFalse(appManager.getDepositScreen().isErrorPopupDisplayed(), "Deposit screen, edit display name: error popup displayed");
-		Assert.assertEquals(appManager.getDepositScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("closedDepositName")); 
+		Assert.assertEquals(appManager.getDepositScreen().getEditDisplayName().getDisplayName(), PropertyReader.getProperty("canceledDepositName")); 
 	}
-	
-	@Test(priority = 43, dependsOnMethods = { "openDepositFromDepositsListTest" })
-	public void unwrapDepositBreakdownTest() {
-		appManager.getDepositScreen().getDepositTab().unwrapDepositBreakdown();
-		appManager.getDepositScreen().getDepositTab().wrapDepositBreakdown();		
-	}
-		    
+			    
 	@Test(priority = 50, dependsOnMethods = { "openDepositFromDepositsListTest" })
 	public void depositScreeenInfoTabVerify() {
 		incorrectScreenHandler(depositScreenTitle);	
 	    appManager.getDepositScreen().depositInfoTabClick();
-	    appManager.getDepositScreen().getDepositInfoTab().verifyClosedDeposit();    
+	    appManager.getDepositScreen().getDepositInfoTab().verifyCanceledDeposit();    
 	}
 	
 	@Test(priority = 60, dependsOnMethods = { "openDepositFromDepositsListTest" })
