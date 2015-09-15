@@ -13,9 +13,9 @@ public class DashboardScreen extends AppScreenBase {
 	
 	By timelineBtn = By.id("button_feed");	
 	By paymentsBtn = By.id("button_payment");
-	By cardsListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[2]//RelativeLayout");	
-	By loansListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[3]//RelativeLayout");
-	By depositsListBtn = By.xpath("//LinearLayout//ScrollView//LinearLayout//FrameLayout[4]//RelativeLayout[1]");
+	By cardsListBtn = By.xpath("//TextView[@value='КАРТЫ']");	
+	By loansListBtn = By.xpath("//TextView[@value='КРЕДИТЫ']");
+	By depositsListBtn = By.xpath("//TextView[@value='СБЕРЕЖЕНИЯ И НАКОПЛЕНИЯ']");
 	By walletBtn = By.xpath("//TextView[@value='МОЙ КОШЕЛЁК']//..");
 	By adsressesOnMapLabel = By.id("label_action_addresses_on_map");
 	By sendEmailBtn = By.id("button_dashboard_send");

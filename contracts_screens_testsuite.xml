@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Open loan and card screens test suite" parallel="none">
+<suite name="Contracts screens test suite" parallel="none">
   <test name="Card screens test">
     <classes>      
       <class name="ru.letoapp.tests.CardScreensTest"/>      
@@ -19,6 +19,11 @@
   <test name="Open deposit screens test">
     <classes>     
       <class name="ru.letoapp.tests.OpenDepositScreensTest"/>
+    </classes>
+  </test>
+   <test name="Closed deposit screens test">
+    <classes>     
+      <class name="ru.letoapp.tests.ClosedDepositScreensTest"/>
     </classes>
   </test>
   <test name="Wallet with not zero amount screens test">

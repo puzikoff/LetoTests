@@ -37,6 +37,7 @@ import ru.letoapp.screens.others.CommonTimelineScreen;
 import ru.letoapp.screens.others.ContactsScreen;
 import ru.letoapp.screens.others.CreditCardsListScreen;
 import ru.letoapp.screens.others.DashboardScreen;
+import ru.letoapp.screens.others.DepositsListScreen;
 import ru.letoapp.screens.others.InLetoBankOfficesScreen;
 import ru.letoapp.screens.others.IncorrectLoginPasswordScreen;
 import ru.letoapp.screens.others.LoansListScreen;
@@ -131,6 +132,7 @@ public class AppManager {
 	private SkipPaymentScreen skipPaymentScreen;
 	private TurnOffInsuranceScreen turnOffInsuranceScreen;
 	private WithdrawMoneyInATMScreen withdrawMoneyInATMScreen;
+	private DepositsListScreen depositsListScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -185,6 +187,7 @@ public class AppManager {
 		skipPaymentScreen = new SkipPaymentScreen(driver);
 		turnOffInsuranceScreen = new TurnOffInsuranceScreen(driver);
 		withdrawMoneyInATMScreen = new WithdrawMoneyInATMScreen(driver);
+		depositsListScreen = new DepositsListScreen(driver);
 	}
 	
 	/* get Screens methods section */
@@ -394,6 +397,10 @@ public class AppManager {
 	
 	public WithdrawMoneyInATMScreen getWithdrawMoneyInATMScreen() {
 		return withdrawMoneyInATMScreen;
+	}
+	
+	public DepositsListScreen getDepositsListScreen() {
+		return depositsListScreen;
 	}
 	
 	/* Starting Selendroid */

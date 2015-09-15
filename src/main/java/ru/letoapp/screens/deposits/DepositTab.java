@@ -23,6 +23,7 @@ public class DepositTab extends AppScreenBase{
 	
 	By interestRatesBlock = By.xpath("//TextView[@value='СТАВКИ ПО ВКЛАДУ']");
 	By closingDateBlock = By.xpath("//TextView[@value='ПЛАНОВАЯ ДАТА ЗАКРЫТИЯ']");
+	By closedDateBlock = By.xpath("//TextView[@value='ВКЛАД ЗАКРЫТ']");
 	
 	By whatIfBtn = By.xpath("//LinearLayout[@id='layout_what_if_container']");
 	
@@ -43,6 +44,14 @@ public class DepositTab extends AppScreenBase{
 		verify.assertTrue(findElement(closingDateBlock, driver).isDisplayed(), "Closing date block");		
 		verify.assertTrue(findElement(whatIfBtn, driver).isDisplayed(), "What if");
 		verify.assertAll();				
+	}
+	
+	public void verifyClosedDeposit() {
+		verify.assertTrue(findElement(depositBreakdown, driver) != null, "deposit breakdown container");
+		verify.assertTrue(findElement(interestRatesBlock, driver).isDisplayed(), "Interest rates block");
+		verify.assertTrue(findElement(closedDateBlock, driver).isDisplayed(), "Closed date block");
+		verify.assertFalse(findElement(whatIfBtn, driver).isDisplayed(), "What if");
+		verify.assertAll();		
 	}
 	
 	public void unwrapDepositInfo() {

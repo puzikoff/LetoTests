@@ -29,6 +29,7 @@ public class DepositInfoTab extends AppScreenBase{
 	
 	By closingInfoTitle = By.xpath("//TextView[@value='ЗАКРЫТИЕ']");
 	By closingDateBlock = By.xpath("//TextView[@value='ПЛАНОВАЯ ДАТА ЗАКРЫТИЯ']");
+	By closedDateBlock = By.xpath("//TextView[@value='ВКЛАД ЗАКРЫТ']");
 	By totalInterestAmount = By.xpath("//TextView[@value='ОБЩАЯ ПЛАНОВАЯ СУММА ПРОЦЕНТОВ ПРИ ЗАКРЫТИИ В СРОК, ВКЛЮЧАЯ УЖЕ ВЫПЛАЧЕННЫЕ']");
 
 	public DepositInfoTab(WebDriver driver) {
@@ -53,7 +54,28 @@ public class DepositInfoTab extends AppScreenBase{
 		verify.assertTrue(findElement(interestRatesBlock, driver).isDisplayed(), "Deposit info tab: interest rates");
 		verify.assertTrue(findElement(earlyInterestRatesBlock, driver).isDisplayed(), "Deposit info tab: early interest rates");
 		verify.assertTrue(findElement(closingInfoTitle, driver).isDisplayed(), "Deposit info tab: closing info title");
-		verify.assertTrue(findElement(closingDateBlock, driver).isDisplayed(), "Deposit info tab: closing date");
+		verify.assertTrue(findElement(closingDateBlock, driver).isDisplayed(), "Deposit info tab: closed date");
+		verify.assertTrue(findElement(totalInterestAmount, driver).isDisplayed(), "Deposit info tab: total interest amount");
+		verify.assertAll();
+	}
+	
+	public void verifyClosedDeposit() {
+		verify.assertTrue(findElement(openingTitle, driver).isDisplayed(), "Deposit info tab: opening title");
+		verify.assertTrue(findElement(signingDateBlock, driver).isDisplayed(), "Deposit info tab: signing date");
+		verify.assertTrue(findElement(openedDateBlock, driver).isDisplayed(), "Deposit info tab: opened date");
+		verify.assertTrue(findElement(initialAmountBlock, driver).isDisplayed(), "Deposit info tab: initial amount");
+		verify.assertTrue(findElement(conditionsTitle, driver).isDisplayed(), "Deposit info tab: conditions title");
+		verify.assertTrue(findElement(partialWithdrawBlock, driver) != null, "Deposit info tab: partial withdraw");		
+		verify.assertTrue(findElement(operationsTitle, driver).isDisplayed(), "Deposit info tab: operations title");		
+		verify.assertTrue(findElement(depositOperationsBtn, driver).isDisplayed(), "Deposit info tab: deposit operations title");
+		verify.assertTrue(findElement(interestInfoTitle, driver).isDisplayed(), "Deposit info tab: interest info title");
+		verify.assertTrue(findElement(interestPeriodBlock, driver).isDisplayed(), "Deposit info tab: interest period");
+		verify.assertTrue(findElement(interestTypeBlock, driver).isDisplayed(), "Deposit info tab: interest type");
+		verify.assertTrue(findElement(paidInterestBlock, driver).isDisplayed(), "Deposit info tab: paid interest");
+		verify.assertTrue(findElement(interestRatesBlock, driver).isDisplayed(), "Deposit info tab: interest rates");
+		verify.assertTrue(findElement(earlyInterestRatesBlock, driver).isDisplayed(), "Deposit info tab: early interest rates");
+		verify.assertTrue(findElement(closingInfoTitle, driver).isDisplayed(), "Deposit info tab: closing info title");
+		verify.assertTrue(findElement(closedDateBlock, driver).isDisplayed(), "Deposit info tab: closed date");
 		verify.assertTrue(findElement(totalInterestAmount, driver).isDisplayed(), "Deposit info tab: total interest amount");
 		verify.assertAll();
 	}

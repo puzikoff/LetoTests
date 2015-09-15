@@ -62,8 +62,7 @@ public class TimelineScreen extends AppScreenBase{
 	}
 
 	public void waitForVanishUpdateSpiner() {
-		waitForVanish(updateSpiner);
-		
+		waitForVanish(updateSpiner);		
 	}
 
 	

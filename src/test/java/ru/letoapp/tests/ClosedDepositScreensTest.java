@@ -1,14 +1,13 @@
 package ru.letoapp.tests;
 
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import ru.letoapp.tests.common.SetUpForSuiteBase;
 import ru.letoapp.utilities.PropertyReader;
 
-public class DevelopTest extends SetUpForSuiteBase{		
-	String depositScreenTitle = "Вклад";
+public class ClosedDepositScreensTest extends SetUpForSuiteBase{		
+String depositScreenTitle = "Вклад";
 	
 	@Test(priority = 1)
 	public void auth(){		
@@ -88,5 +87,5 @@ public class DevelopTest extends SetUpForSuiteBase{
         appManager.getDashboardScreen().openDrawer();
         appManager.getDashboardScreen().getDrawer().exitBtnClick();
     }
-	
+
 }
